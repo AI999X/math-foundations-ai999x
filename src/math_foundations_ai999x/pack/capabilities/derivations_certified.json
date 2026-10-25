@@ -1,0 +1,1009 @@
+{
+ "domain": "math_foundations",
+ "generated": "2026-10-16",
+ "tool": "tools/certify_derivations.py",
+ "derivations": [
+  {
+   "id": "area_of_rectangle",
+   "kind": "proof",
+   "title": "area of rectangle",
+   "equation": "A = l*w",
+   "topic": null,
+   "hypotheses": [
+    "A = l*w"
+   ],
+   "premises": [
+    {
+     "equation": "A = l*w",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "A = l*w",
+     "reason": "definition of area for a rectangle as the product of its adjacent side lengths"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if A = l*w then A = l*w.",
+    "Given A = l*w, show that A = l*w.",
+    "Given A = l*w, derive A = l*w."
+   ],
+   "record": "proof.area_of_rectangle_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "associative_property_of_addition",
+   "kind": "proof",
+   "title": "associative property of addition",
+   "equation": "(a + b) + c = a + (b + c)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a + b) + c = a + (b + c)",
+     "reason": "definition of the associative property of addition for real numbers"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that (a + b) + c = a + (b + c).",
+    "Derive (a + b) + c = a + (b + c).",
+    "Show that (a + b) + c = a + (b + c).",
+    "Prove the associative property of addition."
+   ],
+   "record": "proof.associative_property_of_addition_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "cramer_rule_x_solution",
+   "kind": "proof",
+   "title": "cramer rule x solution",
+   "equation": "x = (e*d - b*f) / (a*d - b*c)",
+   "topic": null,
+   "hypotheses": [
+    "a*x + b*y = e",
+    "c*x + d*y = f"
+   ],
+   "premises": [
+    {
+     "equation": "a*x + b*y = e",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "c*x + d*y = f",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "d*(a*x + b*y) = d*e",
+     "reason": "multiply the first premise by d"
+    },
+    {
+     "equation": "b*(c*x + d*y) = b*f",
+     "reason": "multiply the second premise by b"
+    },
+    {
+     "equation": "a*d*x + b*d*y = d*e",
+     "reason": "distribute d in the previous step"
+    },
+    {
+     "equation": "b*c*x + b*d*y = b*f",
+     "reason": "distribute b in the previous step"
+    },
+    {
+     "equation": "(a*d*x + b*d*y) - (b*c*x + b*d*y) = d*e - b*f",
+     "reason": "subtract the fourth equation from the third"
+    },
+    {
+     "equation": "a*d*x - b*c*x = d*e - b*f",
+     "reason": "combine like terms on the left side; b*d*y cancels out"
+    },
+    {
+     "equation": "x*(a*d - b*c) = d*e - b*f",
+     "reason": "factor out x on the left side"
+    },
+    {
+     "equation": "x = (d*e - b*f) / (a*d - b*c)",
+     "reason": "divide both sides by (a*d - b*c), assuming it is non-zero"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a*x + b*y = e and c*x + d*y = f then x = (e*d - b*f) / (a*d - b*c).",
+    "Given a*x + b*y = e and c*x + d*y = f, show that x = (e*d - b*f) / (a*d - b*c).",
+    "Given a*x + b*y = e and c*x + d*y = f, derive x = (e*d - b*f) / (a*d - b*c)."
+   ],
+   "record": "proof.cramer_rule_x_solution_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "determinant_cramer_two_variables",
+   "kind": "proof",
+   "title": "determinant cramer two variables",
+   "equation": "x*(a1*b2 - a2*b1) = c1*b2 - c2*b1",
+   "topic": null,
+   "hypotheses": [
+    "a1*x + b1*y = c1",
+    "a2*x + b2*y = c2"
+   ],
+   "premises": [
+    {
+     "equation": "a1*x + b1*y = c1",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "a2*x + b2*y = c2",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "b2*(a1*x + b1*y) = b2*c1",
+     "reason": "multiply first equation by b2"
+    },
+    {
+     "equation": "b1*(a2*x + b2*y) = b1*c2",
+     "reason": "multiply second equation by b1"
+    },
+    {
+     "equation": "a1*b2*x + b1*b2*y = c1*b2",
+     "reason": "distribute b2 on left side of step 1"
+    },
+    {
+     "equation": "a2*b1*x + b1*b2*y = c2*b1",
+     "reason": "distribute b1 on left side of step 2"
+    },
+    {
+     "equation": "(a1*b2*x + b1*b2*y) - (a2*b1*x + b1*b2*y) = c1*b2 - c2*b1",
+     "reason": "subtract step 4 from step 3"
+    },
+    {
+     "equation": "a1*b2*x - a2*b1*x = c1*b2 - c2*b1",
+     "reason": "simplify left side by canceling b1*b2*y terms"
+    },
+    {
+     "equation": "x*(a1*b2 - a2*b1) = c1*b2 - c2*b1",
+     "reason": "factor out x on left side"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a1*x + b1*y = c1 and a2*x + b2*y = c2 then x*(a1*b2 - a2*b1) = c1*b2 - c2*b1.",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, show that x*(a1*b2 - a2*b1) = c1*b2 - c2*b1.",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, derive x*(a1*b2 - a2*b1) = c1*b2 - c2*b1."
+   ],
+   "record": "proof.determinant_cramer_two_variables_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "difference_of_cubes_factorization",
+   "kind": "proof",
+   "title": "difference of cubes factorization",
+   "equation": "a**3 - b**3 = (a - b)*(a**2 + a*b + b**2)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a - b)*(a**2 + a*b + b**2) = a**3 + a**2*b + a*b**2 - a**2*b - a*b**2 - b**3",
+     "reason": "distribute each term of the first factor"
+    },
+    {
+     "equation": "(a - b)*(a**2 + a*b + b**2) = a**3 - b**3",
+     "reason": "the middle terms cancel in pairs"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that a**3 - b**3 = (a - b)*(a**2 + a*b + b**2).",
+    "Derive a**3 - b**3 = (a - b)*(a**2 + a*b + b**2).",
+    "Show that a**3 - b**3 = (a - b)*(a**2 + a*b + b**2).",
+    "Prove the difference of cubes factorization."
+   ],
+   "record": "proof.difference_of_cubes_factorization_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "difference_of_squares",
+   "kind": "proof",
+   "title": "difference of squares",
+   "equation": "(a + b) * (a - b) = a**2 - b**2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a + b) * (a - b) = a * (a - b) + b * (a - b)",
+     "reason": "distributive property"
+    },
+    {
+     "equation": "a * (a - b) + b * (a - b) = a*a - a*b + b*a - b*b",
+     "reason": "distributive property applied to each term"
+    },
+    {
+     "equation": "a*a - a*b + b*a - b*b = a**2 - a*b + a*b - b**2",
+     "reason": "commutativity of multiplication (b*a = a*b) and definition of square"
+    },
+    {
+     "equation": "a**2 - a*b + a*b - b**2 = a**2 + (-a*b + a*b) - b**2",
+     "reason": "associative property of addition"
+    },
+    {
+     "equation": "a**2 + (-a*b + a*b) - b**2 = a**2 + 0 - b**2",
+     "reason": "additive inverse property"
+    },
+    {
+     "equation": "a**2 + 0 - b**2 = a**2 - b**2",
+     "reason": "additive identity property"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that (a + b) * (a - b) = a**2 - b**2.",
+    "Derive (a + b) * (a - b) = a**2 - b**2.",
+    "Show that (a + b) * (a - b) = a**2 - b**2.",
+    "Prove the difference of squares."
+   ],
+   "record": "proof.difference_of_squares_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "distributive_property_verification",
+   "kind": "proof",
+   "title": "distributive property verification",
+   "equation": "a*(b + c) = a*b + a*c",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "a*(b + c) = a*b + a*c",
+     "reason": "definition of the distributive property of multiplication over addition"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that a*(b + c) = a*b + a*c.",
+    "Derive a*(b + c) = a*b + a*c.",
+    "Show that a*(b + c) = a*b + a*c.",
+    "Prove the distributive property verification."
+   ],
+   "record": "proof.distributive_property_verification_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "elimination_method_identity",
+   "kind": "proof",
+   "title": "elimination method identity",
+   "equation": "(a - k*d)*x + (b - k*e)*y = c - k*f",
+   "topic": null,
+   "hypotheses": [
+    "a*x + b*y = c",
+    "d*x + e*y = f"
+   ],
+   "premises": [
+    {
+     "equation": "a*x + b*y = c",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "d*x + e*y = f",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "k*(d*x + e*y) = k*f",
+     "reason": "multiply both sides of premise 2 by scalar k"
+    },
+    {
+     "equation": "(k*d)*x + (k*e)*y = k*f",
+     "reason": "distribute k into the left side"
+    },
+    {
+     "equation": "(a*x + b*y) - ((k*d)*x + (k*e)*y) = c - k*f",
+     "reason": "subtract the result of step 3 from premise 1"
+    },
+    {
+     "equation": "(a - k*d)*x + (b - k*e)*y = c - k*f",
+     "reason": "group coefficients of x and y on the left side"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a*x + b*y = c and d*x + e*y = f then (a - k*d)*x + (b - k*e)*y = c - k*f.",
+    "Given a*x + b*y = c and d*x + e*y = f, show that (a - k*d)*x + (b - k*e)*y = c - k*f.",
+    "Given a*x + b*y = c and d*x + e*y = f, derive (a - k*d)*x + (b - k*e)*y = c - k*f."
+   ],
+   "record": "proof.elimination_method_identity_proof",
+   "run": "algebra-content-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "elimination_solution_two_variables",
+   "kind": "proof",
+   "title": "elimination solution two variables",
+   "equation": "x = (c1*b2 - c2*b1)/(a1*b2 - a2*b1)",
+   "topic": null,
+   "hypotheses": [
+    "a1*x + b1*y = c1",
+    "a2*x + b2*y = c2"
+   ],
+   "premises": [
+    {
+     "equation": "a1*x + b1*y = c1",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "a2*x + b2*y = c2",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "b2*(a1*x + b1*y) = b2*c1",
+     "reason": "multiply first equation by b2"
+    },
+    {
+     "equation": "b1*(a2*x + b2*y) = b1*c2",
+     "reason": "multiply second equation by b1"
+    },
+    {
+     "equation": "a1*b2*x + b1*b2*y = b2*c1",
+     "reason": "distribute in first modified equation"
+    },
+    {
+     "equation": "a2*b1*x + b1*b2*y = b1*c2",
+     "reason": "distribute in second modified equation"
+    },
+    {
+     "equation": "(a1*b2 - a2*b1)*x = b2*c1 - b1*c2",
+     "reason": "subtract second modified from first"
+    },
+    {
+     "equation": "x = (b2*c1 - b1*c2)/(a1*b2 - a2*b1)",
+     "reason": "divide by coefficient of x"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a1*x + b1*y = c1 and a2*x + b2*y = c2 then x = (c1*b2 - c2*b1)/(a1*b2 - a2*b1).",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, show that x = (c1*b2 - c2*b1)/(a1*b2 - a2*b1).",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, derive x = (c1*b2 - c2*b1)/(a1*b2 - a2*b1)."
+   ],
+   "record": "proof.elimination_solution_two_variables_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "linear_equation_solution_formula",
+   "kind": "proof",
+   "title": "linear equation solution formula",
+   "equation": "x = (c - b)/a",
+   "topic": null,
+   "hypotheses": [
+    "a*x + b = c"
+   ],
+   "premises": [
+    {
+     "equation": "a*x + b = c",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "a*x = c - b",
+     "reason": "subtract b from both sides of the equation"
+    },
+    {
+     "equation": "x = (c - b)/a",
+     "reason": "divide both sides by a, noting that a is non-zero"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a*x + b = c then x = (c - b)/a.",
+    "Given a*x + b = c, show that x = (c - b)/a.",
+    "Given a*x + b = c, derive x = (c - b)/a."
+   ],
+   "record": "proof.linear_equation_solution_formula_proof",
+   "run": "algebra-content-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "partial_fraction_decomposition_linear_factors",
+   "kind": "proof",
+   "title": "partial fraction decomposition linear factors",
+   "equation": "(a*x + b)/(c*(x - r1)*(x - r2)) = ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2)",
+   "topic": null,
+   "hypotheses": [
+    "((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = RHS_combined"
+   ],
+   "premises": [
+    {
+     "equation": "((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = RHS_combined",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = (a*r1 + b)/(c*(r1 - r2)*(x - r1)) + (a*r2 + b)/(c*(r2 - r1)*(x - r2))",
+     "reason": "simplify complex fractions"
+    },
+    {
+     "equation": "(a*r1 + b)/(c*(r1 - r2)*(x - r1)) + (a*r2 + b)/(c*(r2 - r1)*(x - r2)) = (a*r1 + b)/(c*(r1 - r2)*(x - r1)) - (a*r2 + b)/(c*(r1 - r2)*(x - r2))",
+     "reason": "factor out negative from second denominator term (r2-r1) = -(r1-r2)"
+    },
+    {
+     "equation": "(a*r1 + b)/(c*(r1 - r2)*(x - r1)) - (a*r2 + b)/(c*(r1 - r2)*(x - r2)) = ((a*r1 + b)*(x - r2) - (a*r2 + b)*(x - r1))/(c*(r1 - r2)*(x - r1)*(x - r2))",
+     "reason": "combine over common denominator"
+    },
+    {
+     "equation": "((a*r1 + b)*(x - r2) - (a*r2 + b)*(x - r1))/(c*(r1 - r2)*(x - r1)*(x - r2)) = (a*r1*x - a*r1*r2 + b*x - b*r2 - (a*r2*x - a*r2*r1 + b*x - b*r1))/(c*(r1 - r2)*(x - r1)*(x - r2))",
+     "reason": "expand numerator products"
+    },
+    {
+     "equation": "(a*r1*x - a*r1*r2 + b*x - b*r2 - a*r2*x + a*r2*r1 - b*x + b*r1)/(c*(r1 - r2)*(x - r1)*(x - r2)) = (a*r1*x - a*r2*x - b*r2 + b*r1)/(c*(r1 - r2)*(x - r1)*(x - r2))",
+     "reason": "cancel like terms (-a*r1*r2 + a*r2*r1 = 0, b*x - b*x = 0)"
+    },
+    {
+     "equation": "(a*r1*x - a*r2*x - b*r2 + b*r1)/(c*(r1 - r2)*(x - r1)*(x - r2)) = (a*x*(r1 - r2) + b*(r1 - r2))/(c*(r1 - r2)*(x - r1)*(x - r2))",
+     "reason": "factor numerator by grouping"
+    },
+    {
+     "equation": "(a*x*(r1 - r2) + b*(r1 - r2))/(c*(r1 - r2)*(x - r1)*(x - r2)) = ((r1 - r2)*(a*x + b))/(c*(r1 - r2)*(x - r1)*(x - r2))",
+     "reason": "factor out (r1 - r2)"
+    },
+    {
+     "equation": "((r1 - r2)*(a*x + b))/(c*(r1 - r2)*(x - r1)*(x - r2)) = (a*x + b)/(c*(x - r1)*(x - r2))",
+     "reason": "cancel (r1 - r2) assuming r1 != r2"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = RHS_combined then (a*x + b)/(c*(x - r1)*(x - r2)) = ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2).",
+    "Given ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = RHS_combined, show that (a*x + b)/(c*(x - r1)*(x - r2)) = ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2).",
+    "Given ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2) = RHS_combined, derive (a*x + b)/(c*(x - r1)*(x - r2)) = ((a*r1 + b)/(c*(r1 - r2)))/(x - r1) + ((a*r2 + b)/(c*(r2 - r1)))/(x - r2)."
+   ],
+   "record": "proof.partial_fraction_decomposition_linear_factors_proof",
+   "run": "algebra-content-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "perfect_square_trinomial",
+   "kind": "proof",
+   "title": "perfect square trinomial",
+   "equation": "(a + b)**2 = a**2 + 2*a*b + b**2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a + b)**2 = (a + b) * (a + b)",
+     "reason": "definition of squaring"
+    },
+    {
+     "equation": "(a + b) * (a + b) = a * (a + b) + b * (a + b)",
+     "reason": "distributive property"
+    },
+    {
+     "equation": "a * (a + b) + b * (a + b) = a*a + a*b + b*a + b*b",
+     "reason": "distributive property"
+    },
+    {
+     "equation": "a*a + a*b + b*a + b*b = a**2 + a*b + a*b + b**2",
+     "reason": "commutativity of multiplication and definition of square"
+    },
+    {
+     "equation": "a**2 + a*b + a*b + b**2 = a**2 + (a*b + a*b) + b**2",
+     "reason": "associative property of addition"
+    },
+    {
+     "equation": "a**2 + (a*b + a*b) + b**2 = a**2 + 2*(a*b) + b**2",
+     "reason": "definition of multiplication by 2 as repeated addition"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that (a + b)**2 = a**2 + 2*a*b + b**2.",
+    "Derive (a + b)**2 = a**2 + 2*a*b + b**2.",
+    "Show that (a + b)**2 = a**2 + 2*a*b + b**2.",
+    "Prove the perfect square trinomial."
+   ],
+   "record": "proof.perfect_square_trinomial_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "product_of_sums",
+   "kind": "proof",
+   "title": "product of sums",
+   "equation": "(a + b)*(c + d) = a*c + a*d + b*c + b*d",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a + b)*(c + d) = a*(c + d) + b*(c + d)",
+     "reason": "distribute the first factor over the second"
+    },
+    {
+     "equation": "a*(c + d) + b*(c + d) = a*c + a*d + b*c + b*d",
+     "reason": "distribute each term again"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that (a + b)*(c + d) = a*c + a*d + b*c + b*d.",
+    "Derive (a + b)*(c + d) = a*c + a*d + b*c + b*d.",
+    "Show that (a + b)*(c + d) = a*c + a*d + b*c + b*d.",
+    "Prove the product of sums."
+   ],
+   "record": "proof.product_of_sums_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "quadratic_vertex_form_conversion",
+   "kind": "proof",
+   "title": "quadratic vertex form conversion",
+   "equation": "a*x**2 + b*x + c = a*(x - (-b/(2*a)))**2 + (c - b**2/(4*a))",
+   "topic": null,
+   "hypotheses": [
+    "h = -b/(2*a)",
+    "k = c - b**2/(4*a)"
+   ],
+   "premises": [
+    {
+     "equation": "h = -b/(2*a)",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "k = c - b**2/(4*a)",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "a*(x - h)**2 + k = a*(x - (-b/(2*a)))**2 + (c - b**2/(4*a))",
+     "reason": "substitute definitions of h and k into vertex form expression"
+    },
+    {
+     "equation": "a*(x + b/(2*a))**2 + c - b**2/(4*a) = a*(x**2 + 2*x*(b/(2*a)) + (b/(2*a))**2) + c - b**2/(4*a)",
+     "reason": "expand the square term using (u+v)^2 = u^2 + 2uv + v^2"
+    },
+    {
+     "equation": "a*(x**2 + x*b/a + b**2/(4*a**2)) + c - b**2/(4*a) = a*x**2 + a*(x*b/a) + a*(b**2/(4*a**2)) + c - b**2/(4*a)",
+     "reason": "distribute a across the terms inside the parenthesis"
+    },
+    {
+     "equation": "a*x**2 + b*x + b**2/(4*a) + c - b**2/(4*a) = a*x**2 + b*x + c",
+     "reason": "simplify coefficients and cancel opposite terms b**2/(4*a) and -b**2/(4*a)"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if h = -b/(2*a) and k = c - b**2/(4*a) then a*x**2 + b*x + c = a*(x - (-b/(2*a)))**2 + (c - b**2/(4*a)).",
+    "Given h = -b/(2*a) and k = c - b**2/(4*a), show that a*x**2 + b*x + c = a*(x - (-b/(2*a)))**2 + (c - b**2/(4*a)).",
+    "Given h = -b/(2*a) and k = c - b**2/(4*a), derive a*x**2 + b*x + c = a*(x - (-b/(2*a)))**2 + (c - b**2/(4*a))."
+   ],
+   "record": "proof.quadratic_vertex_form_conversion_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "radical_equation_squaring",
+   "kind": "proof",
+   "title": "radical equation squaring",
+   "equation": "x = c**2",
+   "topic": null,
+   "hypotheses": [
+    "sqrt(x) = c"
+   ],
+   "premises": [
+    {
+     "equation": "sqrt(x) = c",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "(sqrt(x))**2 = c**2",
+     "reason": "square both sides of the equation"
+    },
+    {
+     "equation": "x = c**2",
+     "reason": "definition of principal square root squared returns the radicand"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if sqrt(x) = c then x = c**2.",
+    "Given sqrt(x) = c, show that x = c**2.",
+    "Given sqrt(x) = c, derive x = c**2."
+   ],
+   "record": "proof.radical_equation_squaring_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "square_of_difference",
+   "kind": "proof",
+   "title": "square of difference",
+   "equation": "(a - b)**2 = a**2 - 2*a*b + b**2",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a - b)**2 = (a - b)*(a - b)",
+     "reason": "definition of squaring"
+    },
+    {
+     "equation": "(a - b)*(a - b) = a*a + a*(-b) + (-b)*a + (-b)*(-b)",
+     "reason": "distribute using FOIL method"
+    },
+    {
+     "equation": "a*a + a*(-b) + (-b)*a + (-b)*(-b) = a**2 - a*b - a*b + b**2",
+     "reason": "simplify products"
+    },
+    {
+     "equation": "a**2 - a*b - a*b + b**2 = a**2 - 2*a*b + b**2",
+     "reason": "combine like terms"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that (a - b)**2 = a**2 - 2*a*b + b**2.",
+    "Derive (a - b)**2 = a**2 - 2*a*b + b**2.",
+    "Show that (a - b)**2 = a**2 - 2*a*b + b**2.",
+    "Prove the square of difference."
+   ],
+   "record": "proof.square_of_difference_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "substitution_method_identity",
+   "kind": "proof",
+   "title": "substitution method identity",
+   "equation": "a*d + b*y = c",
+   "topic": null,
+   "hypotheses": [
+    "a*x + b*y = c",
+    "x = d"
+   ],
+   "premises": [
+    {
+     "equation": "a*x + b*y = c",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "x = d",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "a*x + b*y = c",
+     "reason": "given premise 1"
+    },
+    {
+     "equation": "a*(d) + b*y = c",
+     "reason": "substitute d for x using premise 2"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a*x + b*y = c and x = d then a*d + b*y = c.",
+    "Given a*x + b*y = c and x = d, show that a*d + b*y = c.",
+    "Given a*x + b*y = c and x = d, derive a*d + b*y = c."
+   ],
+   "record": "proof.substitution_method_identity_proof",
+   "run": "algebra-content-1",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "substitution_solution_two_variables",
+   "kind": "proof",
+   "title": "substitution solution two variables",
+   "equation": "a1*((c1 - b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)))/a1) + b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)) = c1",
+   "topic": null,
+   "hypotheses": [
+    "a1*x + b1*y = c1",
+    "a2*x + b2*y = c2"
+   ],
+   "premises": [
+    {
+     "equation": "a1*x + b1*y = c1",
+     "is": "hypothesis"
+    },
+    {
+     "equation": "a2*x + b2*y = c2",
+     "is": "hypothesis"
+    }
+   ],
+   "steps": [
+    {
+     "equation": "x = (c1 - b1*y)/a1",
+     "reason": "isolate x in the first equation assuming a1 != 0"
+    },
+    {
+     "equation": "a2*((c1 - b1*y)/a1) + b2*y = c2",
+     "reason": "substitute expression for x into the second equation"
+    },
+    {
+     "equation": "(a2*c1 - a2*b1*y)/a1 + b2*y = c2",
+     "reason": "distribute a2 in numerator"
+    },
+    {
+     "equation": "a2*c1 - a2*b1*y + a1*b2*y = a1*c2",
+     "reason": "multiply entire equation by a1 to clear denominator"
+    },
+    {
+     "equation": "y*(a1*b2 - a2*b1) = a1*c2 - a2*c1",
+     "reason": "group y terms on left side"
+    },
+    {
+     "equation": "y = (a1*c2 - a2*c1)/(a1*b2 - a2*b1)",
+     "reason": "divide by coefficient of y assuming determinant != 0"
+    },
+    {
+     "equation": "a1*((c1 - b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)))/a1) + b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)) = c1",
+     "reason": "substitute derived y back into original first equation structure to verify identity"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that if a1*x + b1*y = c1 and a2*x + b2*y = c2 then a1*((c1 - b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)))/a1) + b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)) = c1.",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, show that a1*((c1 - b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)))/a1) + b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)) = c1.",
+    "Given a1*x + b1*y = c1 and a2*x + b2*y = c2, derive a1*((c1 - b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)))/a1) + b1*((a1*c2 - a2*c1)/(a1*b2 - a2*b1)) = c1."
+   ],
+   "record": "proof.substitution_solution_two_variables_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  },
+  {
+   "id": "sum_of_cubes_factorization",
+   "kind": "proof",
+   "title": "sum of cubes factorization",
+   "equation": "a**3 + b**3 = (a + b)*(a**2 - a*b + b**2)",
+   "topic": null,
+   "hypotheses": [],
+   "premises": [],
+   "steps": [
+    {
+     "equation": "(a + b)*(a**2 - a*b + b**2) = a*(a**2 - a*b + b**2) + b*(a**2 - a*b + b**2)",
+     "reason": "distribute the binomial factor over the trinomial"
+    },
+    {
+     "equation": "(a + b)*(a**2 - a*b + b**2) = a**3 - a**2*b + a*b**2 + a**2*b - a*b**2 + b**3",
+     "reason": "expand each product by distributing again"
+    },
+    {
+     "equation": "(a + b)*(a**2 - a*b + b**2) = a**3 + (-a**2*b + a**2*b) + (a*b**2 - a*b**2) + b**3",
+     "reason": "group like terms"
+    },
+    {
+     "equation": "(a + b)*(a**2 - a*b + b**2) = a**3 + 0 + 0 + b**3",
+     "reason": "additive inverses sum to zero"
+    },
+    {
+     "equation": "(a + b)*(a**2 - a*b + b**2) = a**3 + b**3",
+     "reason": "simplify by removing zeros"
+    }
+   ],
+   "conditions": [],
+   "questions": [
+    "Prove that a**3 + b**3 = (a + b)*(a**2 - a*b + b**2).",
+    "Derive a**3 + b**3 = (a + b)*(a**2 - a*b + b**2).",
+    "Show that a**3 + b**3 = (a + b)*(a**2 - a*b + b**2).",
+    "Prove the sum of cubes factorization."
+   ],
+   "record": "proof.sum_of_cubes_factorization_proof",
+   "run": "algebra-content-2",
+   "certificate": {
+    "gates": {
+     "steps": true,
+     "result": true,
+     "premises": true,
+     "control": true,
+     "wording": true
+    },
+    "date": "2026-10-16",
+    "tool": "tools/certify_derivations.py"
+   }
+  }
+ ]
+}
