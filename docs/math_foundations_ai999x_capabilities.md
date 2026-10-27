@@ -415,6 +415,10 @@ $$
 - **Assumes:** $a  \neq  0$ (otherwise the equation is not cubic); real coefficients
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The cubic y = x³ − 6x² + 11x − 6, evaluated by the package at 81 points, and its three real roots as the package returns them: x = 1, 2 and 3](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/cubic-roots-curve.svg)
+
+*The cubic y = x³ − 6x² + 11x − 6, evaluated by the package at 81 points, and its three real roots as the package returns them: x = 1, 2 and 3.*
+
 ```python
 math_foundations_ai999x.solve('cubic_roots', a=1, b=-6, c=11, d=-6)
 # -> x1 = 1, x2 = 2, x3 = 3   (SOLVED)
@@ -2786,6 +2790,10 @@ $$
 - **Assumes:** a whole multiple of 30 or 45 degrees
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The unit circle with the exact cosine and sine the package returns at the multiples of 30° and 45° (16 angles; six labelled); for example cos 150° = -√3/2 = -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/unit-circle-exact-polar.svg)
+
+*The unit circle with the exact cosine and sine the package returns at the multiples of 30° and 45° (16 angles; six labelled); for example cos 150° = -√3/2 = -0.866025 and sin 150° = 1/2 = 0.5 (marked).*
+
 ```python
 math_foundations_ai999x.solve('unit_circle_exact', deg=150)
 # -> sin = 0.5, cos = -0.866025, tan = -0.57735, sin_exact = 1/2, cos_exact = -sqrt(3)/2, tan_exact = -sqrt(3)/3, reference_angle = 30   (SOLVED)
@@ -3197,6 +3205,10 @@ $$
 - **Assumes:** A, $B > 0$; $A  \neq  B$ (otherwise a circle)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![An ellipse and a hyperbola drawn from the parameters the package returns: ellipse a = 5, b = 3, foci (±4, 0), eccentricity 0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/ellipse-parameters-shape.svg)
+
+*An ellipse and a hyperbola drawn from the parameters the package returns: ellipse a = 5, b = 3, foci (±4, 0), eccentricity 0.8; hyperbola a = 4, b = 3, foci (±5, 0), eccentricity 1.25, asymptotes of slope ±0.75.*
+
 ```python
 math_foundations_ai999x.solve('ellipse_parameters', h=0, k=0, A=25, B=9)
 # -> a = 5, b = 3, c = 4, eccentricity = 0.8, f1x = -4, f1y = 0, f2x = 4, f2y = 0, orientation = horizontal   (SOLVED)
@@ -3450,6 +3462,10 @@ $$
 - **Assumes:** |n| <= 40; $z  \neq  0$ when $n  \leq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The powers (1 + i)ⁿ for n = 0 … 8, each computed by the package: every step turns by 45° and stretches by √2; marked: n = 8, (1 + i)⁸ = 16 + 0i, modulus 16, argument 0°](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/de-moivre-power-shape.svg)
+
+*The powers (1 + i)ⁿ for n = 0 … 8, each computed by the package: every step turns by 45° and stretches by √2; marked: n = 8, (1 + i)⁸ = 16 + 0i, modulus 16, argument 0°.*
+
 ```python
 math_foundations_ai999x.solve('de_moivre_power', a=1, b=1, n=8)
 # -> re = 16, im = 0, modulus = 16, argument_deg = 0   (SOLVED)
@@ -3499,6 +3515,10 @@ $$
 - **Method:** w_k = |z|^$(1/n)$ (cos((t + 2 pi k)/n) + i sin((t + 2 pi k)/n)), $k = 0$ .. $n-1$
 - **Assumes:** $z  \neq  0$; $2  \leq  n  \leq  12$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The 5 complex roots of z⁵ = 0 + 8i returned by the package — -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-nth-roots-shape.svg)
+
+*The 5 complex roots of z⁵ = 0 + 8i returned by the package — -0.890916 − 1.22624i, 0.890916 − 1.22624i, 1.44153 + 0.468382i, 0 + 1.51572i, -1.44153 + 0.468382i — the vertices of a regular pentagon on the circle of radius 1.51572 (= 8^(1/5)).*
 
 ```python
 math_foundations_ai999x.solve('complex_nth_roots', a=0, b=8, n=3)
@@ -4290,6 +4310,10 @@ $$
 - **Method:** each term multiplies the previous one by q; the sum telescopes when multiplied by $(1 - q)$
 - **Assumes:** $q  \neq  1$; $n  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The geometric sequence g₁ = 3, q = -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/geometric-sequence-stems.svg)
+
+*The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and the partial sums (dots), each computed by the package, settle on the sum of the infinite series, 2; g₁₂ = -0.00146484, s₁₂ = 1.99951.*
 
 ```python
 math_foundations_ai999x.solve('geometric_sequence', g1=3.0, q=2.0, n=5.0)

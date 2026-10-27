@@ -4,7 +4,9 @@
 
 **[Install](https://pypi.org/project/math-foundations-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+
+Field: **Mathematics & Statistics** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
 math-foundations-ai999x is an offline, deterministic Python solver that answers math foundations questions with verified results from 119 certified capabilities, gives 625 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
@@ -25,7 +27,7 @@ math-foundations-ai999x is an offline, deterministic Python solver that answers 
 
 | Property | Value |
 |---|---|
-| Package | `math-foundations-ai999x` 1.0.0 (import `math_foundations_ai999x`) |
+| Package | `math-foundations-ai999x` 1.0.1 (import `math_foundations_ai999x`) |
 | Type | Deterministic neuro-symbolic math foundations engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 19 certified derivations, 100 certified procedures |
 | Knowledge pack | version 1.0.2 |
@@ -59,7 +61,7 @@ math_foundations.ask("Who created you?").message
 # -> math-foundations-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x --capabilities`. The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.0.
+Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x --capabilities`. The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.1.
 
 ## Find the right capability, and draw it
 
@@ -69,7 +71,7 @@ Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x -
 import math_foundations_ai999x as math_foundations
 
 math_foundations.search("Solve x^2 - 5x + 6 = 0", k=2)
-# -> Roots of a quadratic equation (algebra-ai999x, 0.67); Solution of two linear equations in two unknowns (algebra-ai999x, 0.57)
+# -> Roots of a quadratic equation (math-foundations-ai999x, 0.63); Roots of a cubic equation (math-foundations-ai999x, 0.59)
 ```
 
 ## How every answer is verified
@@ -80,6 +82,122 @@ math_foundations.search("Solve x^2 - 5x + 6 = 0", k=2)
 4. **Checking** — dimensions, substitution back into the defining equation, and agreement between independent readings; any disagreement becomes a refusal, never a number.
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
+
+## Worked examples
+
+Each question was put to `math-foundations-ai999x`; the answer is the one it returned, with the steps it took.
+
+**Roots of a quadratic equation** · _Polynomial equations_
+
+> Solve x^2 - 5x + 6 = 0.
+
+→ **x1 = 2, x2 = 3, discriminant = 1**
+
+<details><summary>Steps</summary>
+
+- Roots of a quadratic equation: a = 1, b = -5, c = 6 → x1 = 2, x2 = 3, discriminant = 1
+
+</details>
+
+**Law of sines, the ambiguous case (two sides and a non-included angle)** · _Trigonometry_
+
+> In triangle ABC, a = 8, b = 10 and A = 40 degrees. Solve the triangle.
+
+→ **count = 2, B1 = 53.46414901, C1 = 86.53585099, c1 = 12.42304969, B2 = 126.535851, C2 = 13.46414901, c2 = 2.897839169**
+
+<details><summary>Steps</summary>
+
+- Law of sines, the ambiguous case (two sides and a non-included angle): a = 8, b = 10, A = 40 → count = 2, B1 = 53.46414901, C1 = 86.53585099, c1 = 12.42304969, B2 = 126.535851, C2 = 13.46414901, c2 = 2.897839169
+
+</details>
+
+**Arithmetic with complex numbers** · _Complex numbers_
+
+> Compute (3 + 2i) / (1 - i).
+
+→ **re = 0.5, im = 2.5**
+
+<details><summary>Steps</summary>
+
+- Arithmetic with complex numbers: a = 3, b = 2, c = 1, d = -1, op = / → re = 0.5, im = 2.5
+
+</details>
+
+**Coefficient of a term in a binomial expansion** · _Precalculus_
+
+> Find the coefficient of x^3 in (2x - 1)^5.
+
+→ **coefficient = 80, binomial = 10**
+
+<details><summary>Steps</summary>
+
+- Coefficient of a term in a binomial expansion: a = 2, b = -1, n = 5, k = 3 → coefficient = 80, binomial = 10
+
+</details>
+
+**Power of a complex number (De Moivre)** · _Complex numbers_
+
+`m.solve("de_moivre_power", a=1, b=1, n=8)`
+
+→ **re = 16, im = 0, modulus = 16, argument_deg = 0**
+
+<details><summary>Steps</summary>
+
+- Power of a complex number (De Moivre): a = 1, b = 1, n = 8 → re = 16, im = 0, modulus = 16, argument_deg = 0
+
+</details>
+
+**Absolute value inequality |ax + b| compared with c** · _Algebra_
+
+> Solve |2x + 3| < 7.
+
+→ **lower = -5, upper = 2, region = between, solution = -5 < x < 2**
+
+<details><summary>Steps</summary>
+
+- Absolute value inequality |ax + b| compared with c: a = 2, b = 3, c = 7, rel = < → lower = -5, upper = 2, region = between, solution = -5 < x < 2
+
+</details>
+
+## Figures
+
+Every point was computed by `math-foundations-ai999x`.
+
+**The five fifth roots of 8i**
+
+![The five fifth roots of 8i — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-nth-roots-shape.svg)
+
+_The 5 complex roots of z⁵ = 0 + 8i returned by the package — -0.890916 − 1.22624i, 0.890916 − 1.22624i, 1.44153 + 0.468382i, 0 + 1.51572i, -1.44153 + 0.468382i — the vertices of a regular pentagon on the circle of radius 1.51572 (= 8^(1/5))._
+
+**Ellipse and hyperbola with their foci**
+
+![Ellipse and hyperbola with their foci — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/ellipse-parameters-shape.svg)
+
+_An ellipse and a hyperbola drawn from the parameters the package returns: ellipse a = 5, b = 3, foci (±4, 0), eccentricity 0.8; hyperbola a = 4, b = 3, foci (±5, 0), eccentricity 1.25, asymptotes of slope ±0.75._
+
+**A cubic and its three roots**
+
+![A cubic and its three roots — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/cubic-roots-curve.svg)
+
+_The cubic y = x³ − 6x² + 11x − 6, evaluated by the package at 81 points, and its three real roots as the package returns them: x = 1, 2 and 3._
+
+**Powers of 1 + i spiral outwards (de Moivre)**
+
+![Powers of 1 + i spiral outwards (de Moivre) — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/de-moivre-power-shape.svg)
+
+_The powers (1 + i)ⁿ for n = 0 … 8, each computed by the package: every step turns by 45° and stretches by √2; marked: n = 8, (1 + i)⁸ = 16 + 0i, modulus 16, argument 0°._
+
+**The unit circle with exact values**
+
+![The unit circle with exact values — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/unit-circle-exact-polar.svg)
+
+_The unit circle with the exact cosine and sine the package returns at the multiples of 30° and 45° (16 angles; six labelled); for example cos 150° = -√3/2 = -0.866025 and sin 150° = 1/2 = 0.5 (marked)._
+
+**An alternating geometric sequence and its partial sums**
+
+![An alternating geometric sequence and its partial sums — computed by math-foundations-ai999x](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/geometric-sequence-stems.svg)
+
+_The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and the partial sums (dots), each computed by the package, settle on the sum of the infinite series, 2; g₁₂ = -0.00146484, s₁₂ = 1.99951._
 
 ## Capabilities
 
@@ -105,10 +223,10 @@ Capabilities are certified before they ship: each must reproduce hand-worked ref
 ## Citation
 
 ```bibtex
-@software{math_foundations_ai999x_1_0_0,
+@software{math_foundations_ai999x_1_0_1,
   title  = {math-foundations-ai999x: an offline, verified math foundations solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.0},
+  year   = {2026}, version = {1.0.1},
   url    = {https://huggingface.co/AI999X/math-foundations-ai999x}
 }
 ```
