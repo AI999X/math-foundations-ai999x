@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/math-foundations-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
 
 Field: **Mathematics & Statistics** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ math-foundations-ai999x is an offline, deterministic Python solver that answers 
 
 | Property | Value |
 |---|---|
-| Package | `math-foundations-ai999x` 1.0.1 (import `math_foundations_ai999x`) |
+| Package | `math-foundations-ai999x` 1.0.2 (import `math_foundations_ai999x`) |
 | Type | Deterministic neuro-symbolic math foundations engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 19 certified derivations, 100 certified procedures |
 | Knowledge pack | version 1.0.2 |
@@ -61,7 +61,7 @@ math_foundations.ask("Who created you?").message
 # -> math-foundations-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x --capabilities`. The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.1.
+Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x --capabilities`. The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.2.
 
 ## Find the right capability, and draw it
 
@@ -223,10 +223,10 @@ _The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and th
 ## Citation
 
 ```bibtex
-@software{math_foundations_ai999x_1_0_1,
+@software{math_foundations_ai999x_1_0_2,
   title  = {math-foundations-ai999x: an offline, verified math foundations solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.1},
+  year   = {2026}, version = {1.0.2},
   url    = {https://huggingface.co/AI999X/math-foundations-ai999x}
 }
 ```
