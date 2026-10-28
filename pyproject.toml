@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "math-foundations-ai999x"
-version = "1.0.2"
+version = "1.0.3"
 description = "Offline, verified math foundations solver: fractions, rounding, algebraic equations, systems and inequalities, polynomials, functions, logarithms, trigonometry (with the ambiguous case), conic sections, vectors and complex numbers, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"

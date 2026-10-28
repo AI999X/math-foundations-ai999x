@@ -1,5 +1,5 @@
 {
- "package": "1.0.2",
+ "package": "1.0.3",
  "pack": "1.0.2",
  "knowledge_db": null,
  "files": {
@@ -12,7 +12,7 @@
   "capabilities/procedures_certified.json": "a586e0e6479aa6e4e44cbd0e1908fb3dbabfaf4229957a9bd419e7cb38fab06f",
   "capabilities/procedures_compiled.json": "c1928f7945d9bdda653e151cf96075964bd766cc5fa4009aa035e82d1d3bdfe7",
   "capabilities/derivations_certified.json": "697564cf1ce16b12b593121d05b16d9af5958c481cf2384f883226ae39dafdb8",
-  "math_foundations_knowledge_public.sqlite": "c43efdceda572947bacf6ab14722ecca09378a94087dde5174118cbbf730c079",
+  "math_foundations_knowledge_public.sqlite": "5f341fdd8ab1936fecba6c6cff243aac5c518b73b7cbcfef1ba7c3556ca9a739",
   "search/encoder.int8.onnx": "521452d928a72da4d241b1835ab0f46b0e81ff58ffff0367b9a7029bd129fbd9",
   "search/tokenizer.json": "b2f2deb461e6ad672b8e42aac29773e7a9be77d582cdf58808113ea43fda565e",
   "search/index.json": "d8f81d9706c9a0efa7d9643bcec3d39a6c3500766ce0f44937d85ad90f772507",
@@ -22,6 +22,7 @@
  },
  "engine": [
   "__init__.py",
+  "_lazy.py",
   "answer.py",
   "compiler.py",
   "decision_reader.py",
