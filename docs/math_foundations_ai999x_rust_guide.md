@@ -1,6 +1,6 @@
 # math-foundations: the Math Foundations program — user guide
 
-**math-foundations-ai999x 1.0.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**math-foundations-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic equations and inequalities, functions, exponentials and logarithms, trigonometry, precalculus and complex numbers. This guide is about `math-foundations`, the model as a self-contained program for Windows and Linux: 100 capabilities in 31 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/math-foundations-ai999x/); the Python package (`pip install math-foundations-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
@@ -1918,8 +1918,8 @@ piece = 2
   by: Evaluate a piecewise function  (decide which condition x0 satisfies (the break point belongs to the piece whose condition includes it), then evaluate that piece)
   c = 2
   x = 3
-  left_rel = <
   e2 = x^2 - 1
+  left_rel = <
   e1 = 2x + 1
   assumes: the two conditions split the line at c (one < and one >=, or <= and >); x0 in the domain of its piece
 ```
@@ -2060,9 +2060,9 @@ inner = 1
 value = 2
   by: Value of a composite function  (evaluate the inner function at x0, then the outer function at that value)
   x = 2
+  f = x^2 + 1
   g = 2x - 3
   order = f(g(x))
-  f = x^2 + 1
   assumes: each value in the domain of the function applied to it
 ```
 

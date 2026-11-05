@@ -21,7 +21,7 @@ figcaption{font-size:9pt;color:#555}
 .pb{page-break-after:always}
 </style></head><body>
 <h1>math-foundations: the Math Foundations program — user guide</h1>
-<p><strong>math-foundations-ai999x 1.0.3</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
+<p><strong>math-foundations-ai999x 1.1.0</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
 <p>Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic equations and inequalities, functions, exponentials and logarithms, trigonometry, precalculus and complex numbers. This guide is about <code>math-foundations</code>, the model as a self-contained program for Windows and Linux: 100 capabilities in 31 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model&#x27;s page (https://www.ai999x.com/models/math-foundations-ai999x/); the Python package (<code>pip install math-foundations-ai999x</code>) has its own guide. Every command output printed here is what the program printed.</p>
 <h2>Contents</h2>
 <ul><li>1. Get it: desktop app, command line, browser, Python</li><li>2. Quick start</li><li>3. Writing inputs</li><li>4. Outcomes and exit codes</li><li>5. Scripts and agents: batch and JSON</li><li>6. Figures</li><li>7. In a web page or Node.js: WebAssembly</li><li>8. Every capability</li></ul>
@@ -865,8 +865,8 @@ piece = 2
   by: Evaluate a piecewise function  (decide which condition x0 satisfies (the break point belongs to the piece whose condition includes it), then evaluate that piece)
   c = 2
   x = 3
-  left_rel = &lt;
   e2 = x^2 - 1
+  left_rel = &lt;
   e1 = 2x + 1
   assumes: the two conditions split the line at c (one &lt; and one &gt;=, or &lt;= and &gt;); x0 in the domain of its piece</code></pre>
 <p><strong>What the worked example means:</strong> To find f(x0), the condition that x0 satisfies is checked. Since x0 is 3, it falls into the region defined by &lt; relative to the break point 2. This selects piece 2, so its formula is evaluated at x0 to get the result 8.</p>
@@ -925,9 +925,9 @@ inner = 1
 value = 2
   by: Value of a composite function  (evaluate the inner function at x0, then the outer function at that value)
   x = 2
+  f = x^2 + 1
   g = 2x - 3
   order = f(g(x))
-  f = x^2 + 1
   assumes: each value in the domain of the function applied to it</code></pre>
 <p><strong>What the worked example means:</strong> This calculation determines the output of a nested function by first evaluating the inner function at the input x, yielding 1. This intermediate value is then used as the input for the outer function to produce the final composite result of 2. The process relies on correctly identifying which function is applied first based on the specified order.</p>
 <h3>Inequalities (1)</h3>
