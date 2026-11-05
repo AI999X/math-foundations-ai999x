@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/AI999X/math-foundations-ai999x/actions/workflows/ci.yml/badge.svg)](https://github.com/AI999X/math-foundations-ai999x/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/math-foundations-ai999x)](https://pypi.org/project/math-foundations-ai999x/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/AI999X/math-foundations-ai999x)
 
-**[Install](https://pypi.org/project/math-foundations-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
+**[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/math-foundations-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/math-foundations-ai999x/)** · **[Guides](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
 License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
@@ -12,7 +12,299 @@ math-foundations-ai999x is an offline, deterministic Python solver that answers 
 
 **math-foundations-ai999x** is a compact, deterministic math foundations engine for Python. It reads a question in plain English (or a typed call), picks a certified math foundations capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions — or an honest refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green) ![Rust](https://img.shields.io/badge/Rust-Windows%20%7C%20Linux%20%7C%20WebAssembly-orange)
+
+**Run it your way.** math-foundations-ai999x comes as the AI999X desktop app and as the command-line program `math-foundations` for Windows and Linux, runs in your browser as WebAssembly, and installs as a Python package. The desktop app, the command line and the browser run the same compiled Rust program on your own device: offline, no Python needed.
+
+## Get it
+
+| Way to run it | For | Get it |
+|---|---|---|
+| **AI999X Math Foundations desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-math-foundations-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
+| **Command line** (`math-foundations`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#try) |
+| **Python** | Python 3.10+ | `pip install math-foundations-ai999x` |
+
+Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+
+## Rust versions
+
+Math Foundations also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/math-foundations-ai999x/releases/tag/v1.0.3) and on the website.
+
+| Program | System | File | Size | Download | Use |
+|---|---|---|---|---|---|
+| Desktop app (Math Foundations) | Windows x86-64 | `ai999x-math-foundations-1.2.0-windows-x86_64.zip` | 7.5 MB | [Hub](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/rust/ai999x-math-foundations-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/math-foundations-ai999x/releases/download/v1.0.3/ai999x-math-foundations-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-math-foundations-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-math-foundations.exe` (no installer) |
+| Desktop app (Math Foundations) | Linux x86-64 | `ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz` | 8.4 MB | [Hub](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/rust/ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/math-foundations-ai999x/releases/download/v1.0.3/ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-math-foundations` (X11 or Wayland desktop) |
+| Command line (`math-foundations`) | Windows x86-64 | `ai999x-math-foundations-cli-1.2.0-windows-x86_64.zip` | 3.1 MB | [Hub](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/rust/ai999x-math-foundations-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/math-foundations-ai999x/releases/download/v1.0.3/ai999x-math-foundations-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `math-foundations.exe ask "<question>"` or `math-foundations.exe solve <capability> name=value` |
+| Command line (`math-foundations`) | Linux x86-64 | `ai999x-math-foundations-cli-1.2.0-linux-x86_64.tar.gz` | 3.1 MB | [Hub](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/rust/ai999x-math-foundations-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/math-foundations-ai999x/releases/download/v1.0.3/ai999x-math-foundations-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./math-foundations ask "<question>"` or `./math-foundations solve <capability> name=value` |
+
+The command-line archive holds `math-foundations` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+
+## Quick start
+
+### Desktop app
+
+Download **AI999X Math Foundations** for your system (above), unpack it and start it; type a question in words or pick a capability, fill in the form and press Compute. Figures and an explanation of the answer appear beside it. The AI999X desktop app has the same, with Math Foundations among all AI999X models.
+
+Linux, from a terminal:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-math-foundations-1.2.0-linux-x86_64.tar.gz
+./ai999x-math-foundations-1.2.0-linux-x86_64/ai999x-math-foundations
+```
+
+### Command line
+
+Linux:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+math-foundations --version
+```
+
+Windows (PowerShell):
+
+```powershell
+$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+(Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
+Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
+math-foundations --version
+```
+
+Every command below was run as shown; the text under it is what the program printed.
+
+**Ask in words** — Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+
+```console
+$ math-foundations ask "Solve x^2 - 5x + 6 = 0."
+Read as: Roots of a quadratic equation
+x1 = 2
+x2 = 3
+discriminant = 1
+  by: Roots of a quadratic equation  (quadratic formula in a numerically stable form (q = -(b + sign(b)*sqrt(b^2 - 4ac))/2, x = q/a and c/q))
+  a = 1
+  b = -5
+  c = 6
+  assumes: a != 0 (otherwise the equation is linear); real coefficients
+```
+
+**What a capability needs** — The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
+
+```console
+$ math-foundations info quadratic_roots
+Roots of a quadratic equation
+  quadratic formula in a numerically stable form (q = -(b + sign(b)*sqrt(b^2 - 4ac))/2, x = q/a and c/q)
+  in   a        coefficient of x^2 [1]
+  in   b        coefficient of x [1]
+  in   c        constant term [1]
+  out  x1       first root (the smaller real root, or the one with positive imaginary part) [1]
+  out  x2       second root [1]
+  out  discriminant b^2 - 4ac [1]
+```
+
+**Solve** — Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
+
+```console
+$ math-foundations solve quadratic_roots a=1.0 b=-5.0 c=6.0
+x1 = 2
+x2 = 3
+discriminant = 1
+  by: Roots of a quadratic equation  (quadratic formula in a numerically stable form (q = -(b + sign(b)*sqrt(b^2 - 4ac))/2, x = q/a and c/q))
+  a = 1
+  b = -5
+  c = 6
+  assumes: a != 0 (otherwise the equation is linear); real coefficients
+```
+
+**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
+
+```console
+$ math-foundations figures quadratic_roots a=1.0 b=-5.0 c=6.0 --out .
+[
+  {
+    "slug": "quadratic-roots-live-1",
+    "title": "First root (the smaller real root, or the one... as coefficient of x^2 varies",
+    "caption": "First root (the smaller real root, or the one... as a runs from 0.25 to 1.038, every other input as you entered it (22 solutions). Marked: your a = 1 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
+    "file": "./quadratic-roots-live-1.svg"
+  },
+  {
+    "slug": "quadratic-roots-live-2",
+    "title": "First root (the smaller real root, or the one... as coefficient of x varies",
+    "caption": "First root (the smaller real root, or the one... as b runs from -8.75 to -5, every other input as you entered it (15 solutions). Marked: your b = -5 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
+    "file": "./quadratic-roots-live-2.svg"
+  }
+]
+```
+
+**Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | math-foundations batch
+
+`cases.jsonl`:
+
+```json
+{"key": "quadratic_roots", "inputs": {"a": 1.0, "b": -5.0, "c": 6.0}}
+{"key": "law_of_sines_ssa", "inputs": {"a": 8.0, "b": 10.0, "A": 40.0}}
+```
+
+```console
+$ math-foundations batch < cases.jsonl
+{"outcome":"SOLVED","message":"","value":2.0,"unit":"","solved_for":"x1","si":[["a",1.0],["b",-5.0],["c",6.0]],"values":[["x1",2.0,""],["x2",3.0,""],["discriminant",1.0,""]],"target":"x1","phrase":"first root (the smaller real root, or the one with positive imaginary part)","assumptions":["a != 0 (otherwise the equation is linear)","real coefficients"],"name":"Roots of a quadratic equation","equation":"quadratic formula in a numerically stable form (q = -(b + sign(b)*sqrt(b^2 - 4ac))/2, x = q/a and c/q)"}
+{"outcome":"SOLVED","message":"","value":2.0,"unit":"","solved_for":"count","si":[["a",8.0],["b",10.0],["A",40.0]],"values":[["count",2.0,""],["B1",53.464149014388475,""],["C1",86.53585098561152,""],["c1",12.42304969336998,""],["B2",126.53585098561152,""],["C2",13.464149014388482,""],["c2",2.897839169009583,""]],"target":"count","phrase":"number of triangles (1 or 2; none is refused)","assumptions":["a, b > 0","0 < A < 180","a triangle exists (else refused)"],"name":"Law of sines, the ambiguous case (two sides and a non-included angle)","equation":"sin B = b sin A / a; B and 180 - B both give a triangle when A + B < 180 (the ambiguous case)"}
+```
+
+### In your browser
+
+Open [Math Foundations on ai999x.com](https://www.ai999x.com/models/math-foundations-ai999x/#try), choose a capability and press **Compute**: the model runs on your own device as WebAssembly; nothing is sent anywhere. Change any input (any unit of the right kind) and the answer, its explanation and the figures follow.
+
+In your own page: `math_foundations_ai999x.wasm` and the loader `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js).
+
+### Python
+
+```bash
+pip install math-foundations-ai999x
+```
+
+## Worked examples in every form
+
+The same worked example from the command line, from Python and in the browser. Each command-line output is what the program printed.
+
+### Absolute value inequality |ax + b| compared with c
+
+Solve |a*x + b| < c, <= c, > c or >= c (c > 0): the two boundary points and whether x lies between or outside them.
+
+Command line:
+
+```console
+$ math-foundations solve abs_linear_inequality a=2 b=3 c=7 "rel=<"
+lower = -5
+upper = 2
+region = between
+solution = -5 < x < 2
+  by: Absolute value inequality |ax + b| compared with c  (|u| < c means -c < u < c; |u| > c means u < -c or u > c; solve each linear piece for x)
+  a = 2
+  b = 3
+  c = 7
+  rel = <
+  assumes: a != 0; c > 0
+```
+
+Python:
+
+```python
+import math_foundations_ai999x as m
+
+a = m.solve("abs_linear_inequality", a="2", b="3", c="7", rel="<")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#cap-abs_linear_inequality) and press **Compute in your browser**.
+
+### Factor a quadratic over the integers
+
+Factor a*x^2 + b*x + c with whole-number coefficients as g(px + q)(rx + s), or say that it does not factor over the integers.
+
+Command line:
+
+```console
+$ math-foundations solve factor_quadratic_integer a=6 b=5 c=-6
+g = 1
+p = 2
+q = 3
+r = 3
+s = -2
+factored = (2x + 3)(3x - 2)
+  by: Factor a quadratic over the integers  (take out the greatest common factor; the rational roots -q/p and -s/r of the primitive quadratic give its factors (Gauss's lemma))
+  assumes: whole-number coefficients; a != 0; the discriminant is a perfect square
+```
+
+Python:
+
+```python
+import math_foundations_ai999x as m
+
+a = m.solve("factor_quadratic_integer", a="6", b="5", c="-6")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#cap-factor_quadratic_integer) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines if the quadratic expression defined by input coefficients 6, 5, and -6 can be written as a product of two linear binomials with integer coefficients. The process first extracts any greatest common factor, resulting in the constant 1. It then identifies the remaining primitive quadratic structure to find the x-coefficients 2 and 3, and the constant terms 3 and -2. If these values are integers, the final factored form is presented as (2x + 3)(3x - 2); otherwise, the system indicates that no such integer factorization exists.
+
+### Partial fractions (two distinct linear factors)
+
+Write (p*x + q)/((x - r1)(x - r2)) as A/(x - r1) + B/(x - r2).
+
+Command line:
+
+```console
+$ math-foundations solve partial_fractions_linear p=5 q=1 r1=1 r2=-2
+A = 2
+B = 3
+  by: Partial fractions (two distinct linear factors)  (cover-up rule: A = (p r1 + q)/(r1 - r2), B = (p r2 + q)/(r2 - r1))
+  p = 5
+  q = 1
+  r1 = 1
+  r2 = -2
+  assumes: r1 != r2
+```
+
+Python:
+
+```python
+import math_foundations_ai999x as m
+
+a = m.solve("partial_fractions_linear", p="5", q="1", r1="1", r2="-2")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#cap-partial_fractions_linear) and press **Compute in your browser**.
+
+_What this means:_ This calculation decomposes the rational expression with numerator coefficient 5 and constant 1, divided by factors rooted at 1 and -2, into two simpler fractions. The resulting numerators are computed as 2 for the first term and 3 for the second term, allowing the original complex fraction to be expressed as a sum of these basic components.
+
+### Polynomial long division
+
+Divide one polynomial by another: quotient and remainder, with p = q*d + r and deg r < deg d.
+
+Command line:
+
+```console
+$ math-foundations solve polynomial_long_division "dividend=[2, 3, -1, 5]" "divisor=[1, 0, 1]"
+quotient = [2.0,3.0]
+remainder = [-3.0,2.0]
+  by: Polynomial long division  (long division: divide leading terms, multiply back, subtract, repeat; exact rational arithmetic)
+  assumes: divisor of degree >= 1
+```
+
+Python:
+
+```python
+import math_foundations_ai999x as m
+
+a = m.solve("polynomial_long_division", dividend=[2, 3, -1, 5], divisor=[1, 0, 1])
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#cap-polynomial_long_division) and press **Compute in your browser**.
+
+_What this means:_ This calculation performs polynomial long division on the input polynomials. The dividend, represented by [2, 3, -1, 5], is divided by the divisor, represented by [1, 0, 1]. The result consists of two parts: the quotient [2, 3], which indicates how many times the divisor fits into the dividend, and the remainder [-3, 2], which is what is left over after subtraction. Together they satisfy the fundamental relationship where the original dividend equals the product of the divisor and quotient plus the remainder.
+
+## Documentation
+
+- **Rust user guide** — the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_rust_guide.md)
+- **Python guide** — every capability with a Python example: [PDF](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_capabilities.md)
+- **Desktop app & command line** — downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
+- **Model page** — compute in your browser, every capability explained: https://www.ai999x.com/models/math-foundations-ai999x/
 
 ## Highlights
 
@@ -20,6 +312,7 @@ math-foundations-ai999x is an offline, deterministic Python solver that answers 
 - **Zero wrong answers by design.** Seven explicit outcomes — SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR — never a silent guess. Every one of its 625 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
+- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `math-foundations` command line for Windows and Linux, and WebAssembly on the model page — no Python, no network.
 - **Small and portable.** Pure Python (sympy, mpmath); identical answers on Windows and Linux (Python 3.10, 3.11, 3.12, 3.13, 3.14).
 - **Coverage:** arithmetic, algebra, functions, exponentials and logarithms, trigonometry, precalculus and complex numbers.
 
@@ -38,7 +331,7 @@ math-foundations-ai999x is an offline, deterministic Python solver that answers 
 | Creator / engineer | Ibnul Jaif Farabi |
 | Organization | AI999X |
 
-## Quickstart
+## Python quick start
 
 ```bash
 pip install math-foundations-ai999x
@@ -61,7 +354,7 @@ math_foundations.ask("Who created you?").message
 # -> math-foundations-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `math-foundations-ai999x "<question>"`, `math-foundations-ai999x --capabilities`. The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.3.
+The Python package also installs a Python command, `math-foundations-ai999x "<question>"`; for the native program use `math-foundations` (above). The outputs above were produced by running this exact code on math-foundations-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -83,7 +376,7 @@ math_foundations.search("Solve x^2 - 5x + 6 = 0", k=2)
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
 
-## Worked examples
+## Python worked examples, with their steps
 
 Each question was put to `math-foundations-ai999x`; the answer is the one it returned, with the steps it took.
 
