@@ -1,4 +1,4 @@
-# math-foundations: the Math Foundations program — user guide
+# math-foundations: the Math Foundations program, user guide
 
 **math-foundations-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic eq
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Math Foundations | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-math-foundations-1.4.0-windows-x86_64.zip |
-| Desktop app: Math Foundations | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-math-foundations-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Math Foundations | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-windows-x86_64.zip |
+| Desktop app: Math Foundations | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Math Foundations in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-math-foundations-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-math-foundations.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Math Foundations in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-math-foundations-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-math-foundations.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-math-foundations-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-math-foundations-1.4.0-linux-x86_64.tar.gz
-./ai999x-math-foundations-1.4.0-linux-x86_64/ai999x-math-foundations
+tar xzf ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
+./ai999x-math-foundations-1.5.0-linux-x86_64/ai999x-math-foundations
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `math-foundations` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 math-foundations --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 math-foundations --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ math-foundations --version
-math-foundations-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+math-foundations-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -200,29 +200,7 @@ $ math-foundations solve quadratic_roots a=1.0 b=-5.0
 NEEDS_INPUT: quadratic_roots needs c (constant term). Example: solve('quadratic_roots', a=1, b=-5, c=6).
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ math-foundations figures quadratic_roots a=1.0 b=-5.0 c=6.0 --out .
-[
-  {
-    "slug": "quadratic-roots-live-1",
-    "title": "First root (the smaller real root, or the one... as coefficient of x^2 varies",
-    "caption": "First root (the smaller real root, or the one... as a runs from 0.25 to 1.038, every other input as you entered it (22 solutions). Marked: your a = 1 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
-    "file": ".\\quadratic-roots-live-1.svg"
-  },
-  {
-    "slug": "quadratic-roots-live-2",
-    "title": "First root (the smaller real root, or the one... as coefficient of x varies",
-    "caption": "First root (the smaller real root, or the one... as b runs from -8.75 to -5, every other input as you entered it (15 solutions). Marked: your b = -5 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
-    "file": ".\\quadratic-roots-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | math-foundations batch
 
@@ -295,24 +273,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `math-foundations figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ math-foundations figures quadratic_roots a=1.0 b=-5.0 c=6.0 --out .
-[
-  {
-    "slug": "quadratic-roots-live-1",
-    "title": "First root (the smaller real root, or the one... as coefficient of x^2 varies",
-    "caption": "First root (the smaller real root, or the one... as a runs from 0.25 to 1.038, every other input as you entered it (22 solutions). Marked: your a = 1 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
-    "file": ".\\quadratic-roots-live-1.svg"
-  },
-  {
-    "slug": "quadratic-roots-live-2",
-    "title": "First root (the smaller real root, or the one... as coefficient of x varies",
-    "caption": "First root (the smaller real root, or the one... as b runs from -8.75 to -5, every other input as you entered it (15 solutions). Marked: your b = -5 gives x1 = 2. Your inputs: a = 1.0, b = -5.0, c = 6.0.",
-    "file": ".\\quadratic-roots-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `math_foundations_ai999x.wasm` (https://www.ai999x.com/compute/rust/math_foundations_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -336,7 +296,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="abs_linear_inequality"></a>
 
-#### Absolute value inequality |ax + b| compared with c — `abs_linear_inequality`
+#### Absolute value inequality |ax + b| compared with c, `abs_linear_inequality`
 
 Solve |a*x + b| < c, <= c, > c or >= c (c > 0): the two boundary points and whether x lies between or outside them.
 
@@ -346,14 +306,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x inside the bars | — |
-| `b` | in | constant inside the bars | — |
-| `c` | in | the bound (positive) | — |
-| `rel` | in | the comparison | — |
-| `lower` | out | the smaller boundary point | — |
-| `upper` | out | the larger boundary point | — |
-| `region` | out | between (for < and <=) or outside (for > and >=) | — |
-| `solution` | out | the solution set | — |
+| `a` | in | coefficient of x inside the bars | - |
+| `b` | in | constant inside the bars | - |
+| `c` | in | the bound (positive) | - |
+| `rel` | in | the comparison | - |
+| `lower` | out | the smaller boundary point | - |
+| `upper` | out | the larger boundary point | - |
+| `region` | out | between (for < and <=) or outside (for > and >=) | - |
+| `solution` | out | the solution set | - |
 
 **Applies when:** a != 0; c > 0.
 
@@ -375,7 +335,7 @@ In the worked example, a = 2, b = 3, c = 7, rel = < go through the equation abov
 
 <a id="factor_quadratic_integer"></a>
 
-#### Factor a quadratic over the integers — `factor_quadratic_integer`
+#### Factor a quadratic over the integers: `factor_quadratic_integer`
 
 Factor a*x^2 + b*x + c with whole-number coefficients as g(px + q)(rx + s), or say that it does not factor over the integers.
 
@@ -385,15 +345,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^2 (not 0) | — |
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `g` | out | common factor (sign of a) | — |
-| `p` | out | x-coefficient of the first factor | — |
-| `q` | out | constant of the first factor | — |
-| `r` | out | x-coefficient of the second factor | — |
-| `s` | out | constant of the second factor | — |
-| `factored` | out | the factored form | — |
+| `a` | in | coefficient of x^2 (not 0) | - |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `g` | out | common factor (sign of a) | - |
+| `p` | out | x-coefficient of the first factor | - |
+| `q` | out | constant of the first factor | - |
+| `r` | out | x-coefficient of the second factor | - |
+| `s` | out | constant of the second factor | - |
+| `factored` | out | the factored form | - |
 
 **Applies when:** whole-number coefficients; a != 0; the discriminant is a perfect square.
 
@@ -413,7 +373,7 @@ factored = (2x + 3)(3x - 2)
 
 <a id="partial_fractions_linear"></a>
 
-#### Partial fractions (two distinct linear factors) — `partial_fractions_linear`
+#### Partial fractions (two distinct linear factors), `partial_fractions_linear`
 
 Write (p*x + q)/((x - r1)(x - r2)) as A/(x - r1) + B/(x - r2).
 
@@ -423,12 +383,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | coefficient of x in the numerator | — |
-| `q` | in | constant of the numerator | — |
-| `r1` | in | root of the first factor x - r1 | — |
-| `r2` | in | root of the second factor x - r2 (r2 != r1) | — |
-| `A` | out | numerator over x - r1 | — |
-| `B` | out | numerator over x - r2 | — |
+| `p` | in | coefficient of x in the numerator | - |
+| `q` | in | constant of the numerator | - |
+| `r1` | in | root of the first factor x - r1 | - |
+| `r2` | in | root of the second factor x - r2 (r2 != r1) | - |
+| `A` | out | numerator over x - r1 | - |
+| `B` | out | numerator over x - r2 | - |
 
 **Applies when:** r1 != r2.
 
@@ -448,7 +408,7 @@ B = 3
 
 <a id="polynomial_long_division"></a>
 
-#### Polynomial long division — `polynomial_long_division`
+#### Polynomial long division: `polynomial_long_division`
 
 Divide one polynomial by another: quotient and remainder, with p = q*d + r and deg r < deg d.
 
@@ -458,10 +418,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dividend` | in | coefficients of the dividend, highest power first | — |
-| `divisor` | in | coefficients of the divisor, highest power first (degree >= 1) | — |
-| `quotient` | out | coefficients of the quotient, highest power first | — |
-| `remainder` | out | coefficients of the remainder, highest power first | — |
+| `dividend` | in | coefficients of the dividend, highest power first | - |
+| `divisor` | in | coefficients of the divisor, highest power first (degree >= 1) | - |
+| `quotient` | out | coefficients of the quotient, highest power first | - |
+| `remainder` | out | coefficients of the remainder, highest power first | - |
 
 **Applies when:** divisor of degree >= 1.
 
@@ -477,7 +437,7 @@ remainder = [-3.0,2.0]
 
 <a id="quadratic_inequality"></a>
 
-#### Quadratic inequality — `quadratic_inequality`
+#### Quadratic inequality: `quadratic_inequality`
 
 Solve a*x^2 + b*x + c < 0 (or <=, >, >=) when the quadratic has two distinct real roots.
 
@@ -487,14 +447,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^2 | — |
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `rel` | in | the comparison with 0 | — |
-| `r1` | out | the smaller root | — |
-| `r2` | out | the larger root | — |
-| `region` | out | between or outside the roots | — |
-| `solution` | out | the solution set | — |
+| `a` | in | coefficient of x^2 | - |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `rel` | in | the comparison with 0 | - |
+| `r1` | out | the smaller root | - |
+| `r2` | out | the larger root | - |
+| `region` | out | between or outside the roots | - |
+| `solution` | out | the solution set | - |
 
 **Applies when:** a != 0; b^2 - 4ac > 0.
 
@@ -516,7 +476,7 @@ solution = 2 < x < 3
 
 <a id="radical_equation"></a>
 
-#### Radical equation sqrt(ax + b) = cx + d — `radical_equation`
+#### Radical equation sqrt(ax + b) = cx + d, `radical_equation`
 
 Solve sqrt(a*x + b) = c*x + d: square, solve, and keep only the roots that satisfy the original equation.
 
@@ -526,13 +486,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x under the root | — |
-| `b` | in | constant under the root | — |
-| `c` | in | coefficient of x on the right | — |
-| `d` | in | constant on the right | — |
-| `count` | out | number of solutions (0, 1 or 2) | — |
-| `solutions` | out | the solutions, ascending | — |
-| `extraneous` | out | roots of the squared equation that fail the original (extraneous) | — |
+| `a` | in | coefficient of x under the root | - |
+| `b` | in | constant under the root | - |
+| `c` | in | coefficient of x on the right | - |
+| `d` | in | constant on the right | - |
+| `count` | out | number of solutions (0, 1 or 2) | - |
+| `solutions` | out | the solutions, ascending | - |
+| `extraneous` | out | roots of the squared equation that fail the original (extraneous) | - |
 
 **Applies when:** a != 0; real numbers.
 
@@ -553,7 +513,7 @@ extraneous = [-1.0]
 
 <a id="rational_equation"></a>
 
-#### Rational equation a/(x + b) = c/(x + d) — `rational_equation`
+#### Rational equation a/(x + b) = c/(x + d), `rational_equation`
 
 Solve a/(x + b) = c/(x + d) for x, rejecting a candidate that makes a denominator 0.
 
@@ -563,11 +523,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | numerator on the left | — |
-| `b` | in | constant in the left denominator x + b | — |
-| `c` | in | numerator on the right | — |
-| `d` | in | constant in the right denominator x + d | — |
-| `x` | out | the solution | — |
+| `a` | in | numerator on the left | - |
+| `b` | in | constant in the left denominator x + b | - |
+| `c` | in | numerator on the right | - |
+| `d` | in | constant in the right denominator x + d | - |
+| `x` | out | the solution | - |
 
 **Applies when:** a != c; the candidate is not an excluded value.
 
@@ -586,7 +546,7 @@ x = 14
 
 <a id="rational_roots"></a>
 
-#### Rational roots of a polynomial (rational root theorem) — `rational_roots`
+#### Rational roots of a polynomial (rational root theorem), `rational_roots`
 
 Every rational root of a polynomial with whole-number coefficients (degree up to 8).
 
@@ -596,10 +556,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `coefficients` | in | whole-number coefficients, highest power first | — |
-| `count` | out | number of distinct rational roots | — |
-| `roots` | out | the rational roots, ascending | — |
-| `roots_exact` | out | the rational roots as fractions | — |
+| `coefficients` | in | whole-number coefficients, highest power first | - |
+| `count` | out | number of distinct rational roots | - |
+| `roots` | out | the rational roots, ascending | - |
+| `roots_exact` | out | the rational roots as fractions | - |
 
 **Applies when:** whole-number coefficients; degree 1 to 8.
 
@@ -616,7 +576,7 @@ roots_exact = ["-2","1/2","3"]
 
 <a id="infinite_geometric_series"></a>
 
-#### Sum of an infinite geometric series — `infinite_geometric_series`
+#### Sum of an infinite geometric series: `infinite_geometric_series`
 
 a + a*r + a*r^2 + ... = a/(1 - r) for |r| < 1 (a refusal when the series diverges).
 
@@ -626,9 +586,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the first term | — |
-| `r` | in | the common ratio, \|r\| < 1 | — |
-| `sum` | out | the sum to infinity | — |
+| `a` | in | the first term | - |
+| `r` | in | the common ratio, \|r\| < 1 | - |
+| `sum` | out | the sum to infinity | - |
 
 **Applies when:** |r| < 1.
 
@@ -645,7 +605,7 @@ sum = 9
 
 <a id="synthetic_division"></a>
 
-#### Synthetic division and the remainder theorem — `synthetic_division`
+#### Synthetic division and the remainder theorem, `synthetic_division`
 
 Divide a polynomial by x - r: the quotient's coefficients and the remainder, which equals p(r).
 
@@ -655,10 +615,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `coefficients` | in | coefficients of the dividend, highest power first (2x^3 - 5x + 1 -> 2, 0, -5, 1) | — |
-| `r` | in | the number r of the divisor x - r | — |
-| `quotient` | out | coefficients of the quotient, highest power first | — |
-| `remainder` | out | the remainder = p(r) | — |
+| `coefficients` | in | coefficients of the dividend, highest power first (2x^3 - 5x + 1 -> 2, 0, -5, 1) | - |
+| `r` | in | the number r of the divisor x - r | - |
+| `quotient` | out | coefficients of the quotient, highest power first | - |
+| `remainder` | out | the remainder = p(r) | - |
 
 **Applies when:** dividend of degree >= 1.
 
@@ -675,7 +635,7 @@ In the worked example, coefficients = [1, -6, 11, -6], r = 1 go through the equa
 
 <a id="linear_system_3x3"></a>
 
-#### System of three linear equations — `linear_system_3x3`
+#### System of three linear equations: `linear_system_3x3`
 
 Solve three linear equations in x, y and z (a unique solution, or a refusal when there is none).
 
@@ -685,10 +645,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `augmented` | in | augmented matrix, one row a b c d per equation a*x + b*y + c*z = d | — |
-| `x` | out | x | — |
-| `y` | out | y | — |
-| `z` | out | z | — |
+| `augmented` | in | augmented matrix, one row a b c d per equation a*x + b*y + c*z = d | - |
+| `x` | out | x | - |
+| `y` | out | y | - |
+| `z` | out | z | - |
 
 **Applies when:** determinant of the coefficients != 0 (a unique solution).
 
@@ -707,7 +667,7 @@ z = 3
 
 <a id="fraction_arithmetic"></a>
 
-#### Arithmetic with fractions — `fraction_arithmetic`
+#### Arithmetic with fractions: `fraction_arithmetic`
 
 Add, subtract, multiply or divide two fractions a/b and c/d; the result in lowest terms.
 
@@ -717,14 +677,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | numerator of the first fraction | — |
-| `b` | in | denominator of the first fraction (not 0) | — |
-| `c` | in | numerator of the second fraction | — |
-| `d` | in | denominator of the second fraction (not 0) | — |
-| `op` | in | the operation | — |
-| `numerator` | out | numerator of the result in lowest terms | — |
-| `denominator` | out | denominator of the result (positive) | — |
-| `value` | out | the result as a decimal | — |
+| `a` | in | numerator of the first fraction | - |
+| `b` | in | denominator of the first fraction (not 0) | - |
+| `c` | in | numerator of the second fraction | - |
+| `d` | in | denominator of the second fraction (not 0) | - |
+| `op` | in | the operation | - |
+| `numerator` | out | numerator of the result in lowest terms | - |
+| `denominator` | out | denominator of the result (positive) | - |
+| `value` | out | the result as a decimal | - |
 
 **Applies when:** whole-number numerators and denominators; denominators not 0; no division by 0.
 
@@ -742,7 +702,7 @@ value = 1.583333333
 
 <a id="ratio_split"></a>
 
-#### Divide a quantity in a given ratio — `ratio_split`
+#### Divide a quantity in a given ratio: `ratio_split`
 
 Share a total in the ratio a:b (or a:b:c).
 
@@ -752,13 +712,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `total` | in | the quantity to share | — |
-| `a` | in | first term of the ratio (positive) | — |
-| `b` | in | second term of the ratio (positive) | — |
-| `c` | in | third term of the ratio (optional, positive) (optional) | — |
-| `part1` | out | first share | — |
-| `part2` | out | second share | — |
-| `part3` | out | third share (a three-term ratio only) | — |
+| `total` | in | the quantity to share | - |
+| `a` | in | first term of the ratio (positive) | - |
+| `b` | in | second term of the ratio (positive) | - |
+| `c` | in | third term of the ratio (optional, positive) (optional) | - |
+| `part1` | out | first share | - |
+| `part2` | out | second share | - |
+| `part3` | out | third share (a three-term ratio only) | - |
 
 **Applies when:** every term of the ratio positive.
 
@@ -777,7 +737,7 @@ part2 = 75
 
 <a id="order_of_operations"></a>
 
-#### Evaluate an arithmetic expression (order of operations) — `order_of_operations`
+#### Evaluate an arithmetic expression (order of operations), `order_of_operations`
 
 The exact value of an arithmetic expression with + - * / ^ and parentheses, following the order of operations.
 
@@ -787,10 +747,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `expression` | in | the expression, e.g. 3 + 4 * (2 - 5)^2 / 6 | — |
-| `value` | out | the value | — |
-| `numerator` | out | numerator of the exact value in lowest terms | — |
-| `denominator` | out | denominator of the exact value | — |
+| `expression` | in | the expression, e.g. 3 + 4 * (2 - 5)^2 / 6 | - |
+| `value` | out | the value | - |
+| `numerator` | out | numerator of the exact value in lowest terms | - |
+| `denominator` | out | denominator of the exact value | - |
 
 **Applies when:** numbers, + - * / ^ and parentheses only; no division by 0; integer exponents up to 64.
 
@@ -808,7 +768,7 @@ denominator = 1
 
 <a id="percent_change"></a>
 
-#### Percent change (increase or decrease) — `percent_change`
+#### Percent change (increase or decrease): `percent_change`
 
 The percent change from an original value to a new value (negative for a decrease).
 
@@ -818,11 +778,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `old` | in | the original value (positive) | — |
-| `new` | in | the new value | — |
-| `percent_change` | out | percent change (negative = decrease) | — |
-| `difference` | out | new - old | — |
-| `direction` | out | increase, decrease or no change | — |
+| `old` | in | the original value (positive) | - |
+| `new` | in | the new value | - |
+| `percent_change` | out | percent change (negative = decrease) | - |
+| `difference` | out | new - old | - |
+| `direction` | out | increase, decrease or no change | - |
 
 **Applies when:** old > 0.
 
@@ -841,7 +801,7 @@ direction = increase
 
 <a id="percent_of_number"></a>
 
-#### Percent of a number — `percent_of_number`
+#### Percent of a number: `percent_of_number`
 
 p% of x: the part that p per cent of x amounts to.
 
@@ -851,9 +811,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | the percentage p (per hundred) | — |
-| `x` | in | the whole x | — |
-| `result` | out | p% of x | — |
+| `p` | in | the percentage p (per hundred) | - |
+| `x` | in | the whole x | - |
+| `result` | out | p% of x | - |
 
 **Applies when:** finite numbers.
 
@@ -870,7 +830,7 @@ result = 12
 
 <a id="round_decimal_places"></a>
 
-#### Round to decimal places — `round_decimal_places`
+#### Round to decimal places: `round_decimal_places`
 
 Round a number to n decimal places (or to the nearest tenth, hundredth, ten, hundred ...), halves away from zero.
 
@@ -880,9 +840,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | the number to round | — |
-| `n` | in | decimal places (negative: tens, hundreds) | — |
-| `rounded` | out | the rounded number | — |
+| `x` | in | the number to round | - |
+| `n` | in | decimal places (negative: tens, hundreds) | - |
+| `rounded` | out | the rounded number | - |
 
 **Applies when:** -9 <= n <= 12.
 
@@ -898,7 +858,7 @@ rounded = 3.14
 
 <a id="round_significant_figures"></a>
 
-#### Round to significant figures — `round_significant_figures`
+#### Round to significant figures: `round_significant_figures`
 
 Round a nonzero number to n significant figures, halves away from zero.
 
@@ -908,9 +868,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | the number to round (not 0) | — |
-| `n` | in | number of significant figures | — |
-| `rounded` | out | the rounded number | — |
+| `x` | in | the number to round (not 0) | - |
+| `n` | in | number of significant figures | - |
+| `rounded` | out | the rounded number | - |
 
 **Applies when:** x != 0; 1 <= n <= 15.
 
@@ -926,7 +886,7 @@ rounded = 0.00457
 
 <a id="scientific_notation"></a>
 
-#### Scientific notation — `scientific_notation`
+#### Scientific notation: `scientific_notation`
 
 Write a nonzero number as m × 10^e with 1 <= |m| < 10.
 
@@ -936,9 +896,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | the number (not 0) | — |
-| `mantissa` | out | m, with 1 <= \|m\| < 10 | — |
-| `exponent` | out | the integer power of ten e | — |
+| `x` | in | the number (not 0) | - |
+| `mantissa` | out | m, with 1 <= \|m\| < 10 | - |
+| `exponent` | out | the integer power of ten e | - |
 
 **Applies when:** x != 0.
 
@@ -955,7 +915,7 @@ exponent = 4
 
 <a id="proportion_solve"></a>
 
-#### Solve a proportion — `proportion_solve`
+#### Solve a proportion: `proportion_solve`
 
 Solve n1/d1 = n2/d2 for the one unknown term x (in any of the four positions).
 
@@ -965,11 +925,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `p` | in | the first known term (reading n1, d1, n2, d2 in order) | — |
-| `q` | in | the second known term | — |
-| `r` | in | the third known term | — |
-| `position` | in | where the unknown x stands | — |
-| `x` | out | the unknown term | — |
+| `p` | in | the first known term (reading n1, d1, n2, d2 in order) | - |
+| `q` | in | the second known term | - |
+| `r` | in | the third known term | - |
+| `position` | in | where the unknown x stands | - |
+| `x` | out | the unknown term | - |
 
 **Applies when:** denominators not 0; the proportion has a solution.
 
@@ -988,7 +948,7 @@ x = 15
 
 <a id="unit_rate_compare"></a>
 
-#### Unit rates and the better buy — `unit_rate_compare`
+#### Unit rates and the better buy: `unit_rate_compare`
 
 The unit rate (amount per one unit) of an offer, and of a second offer with which is cheaper per unit.
 
@@ -998,13 +958,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n1` | in | quantity of the first offer (positive) | — |
-| `c1` | in | amount (price, distance, ...) of the first offer | — |
-| `n2` | in | quantity of the second offer (optional) (optional) | — |
-| `c2` | in | amount of the second offer (optional) (optional) | — |
-| `unit_rate_1` | out | amount per unit, first offer | — |
-| `unit_rate_2` | out | amount per unit, second offer | — |
-| `better` | out | the offer with the lower amount per unit: first, second or equal | — |
+| `n1` | in | quantity of the first offer (positive) | - |
+| `c1` | in | amount (price, distance, ...) of the first offer | - |
+| `n2` | in | quantity of the second offer (optional) (optional) | - |
+| `c2` | in | amount of the second offer (optional) (optional) | - |
+| `unit_rate_1` | out | amount per unit, first offer | - |
+| `unit_rate_2` | out | amount per unit, second offer | - |
+| `better` | out | the offer with the lower amount per unit: first, second or equal | - |
 
 **Applies when:** quantities positive; amounts not negative.
 
@@ -1025,7 +985,7 @@ better = second
 
 <a id="what_percent"></a>
 
-#### What percent one number is of another — `what_percent`
+#### What percent one number is of another: `what_percent`
 
 The percentage p such that `part` is p% of `whole`.
 
@@ -1035,9 +995,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `part` | in | the part | — |
-| `whole` | in | the whole (not 0) | — |
-| `percent` | out | part as a percentage of whole | — |
+| `part` | in | the part | - |
+| `whole` | in | the whole (not 0) | - |
+| `percent` | out | part as a percentage of whole | - |
 
 **Applies when:** whole != 0.
 
@@ -1054,7 +1014,7 @@ percent = 15
 
 <a id="percent_of_what"></a>
 
-#### Whole from a part and its percentage — `percent_of_what`
+#### Whole from a part and its percentage: `percent_of_what`
 
 The whole w of which `part` is p per cent (part is p% of what number?).
 
@@ -1064,9 +1024,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `part` | in | the known part | — |
-| `p` | in | the percentage that the part is of the whole | — |
-| `whole` | out | the whole | — |
+| `part` | in | the known part | - |
+| `p` | in | the percentage that the part is of the whole | - |
+| `whole` | out | the whole | - |
 
 **Applies when:** p != 0.
 
@@ -1085,7 +1045,7 @@ whole = 120
 
 <a id="complex_arithmetic"></a>
 
-#### Arithmetic with complex numbers — `complex_arithmetic`
+#### Arithmetic with complex numbers: `complex_arithmetic`
 
 (a + bi) + - * / (c + di) in the form re + im*i.
 
@@ -1095,13 +1055,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | real part of the first number | — |
-| `b` | in | imaginary part of the first number | — |
-| `c` | in | real part of the second number | — |
-| `d` | in | imaginary part of the second number | — |
-| `op` | in | the operation | — |
-| `re` | out | real part of the result | — |
-| `im` | out | imaginary part of the result | — |
+| `a` | in | real part of the first number | - |
+| `b` | in | imaginary part of the first number | - |
+| `c` | in | real part of the second number | - |
+| `d` | in | imaginary part of the second number | - |
+| `op` | in | the operation | - |
+| `re` | out | real part of the result | - |
+| `im` | out | imaginary part of the result | - |
 
 **Applies when:** no division by 0.
 
@@ -1122,7 +1082,7 @@ im = 2.5
 
 <a id="complex_modulus_argument"></a>
 
-#### Modulus, argument and polar form of a complex number — `complex_modulus_argument`
+#### Modulus, argument and polar form of a complex number, `complex_modulus_argument`
 
 |z| and the principal argument (-180, 180] degrees of z = a + bi, and z in polar form.
 
@@ -1132,12 +1092,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | real part | — |
-| `b` | in | imaginary part | — |
-| `modulus` | out | \|z\| | — |
-| `argument_deg` | out | principal argument, degrees in (-180, 180] | — |
-| `argument_rad` | out | principal argument, radians | — |
-| `polar` | out | z = r(cos t + i sin t) | — |
+| `a` | in | real part | - |
+| `b` | in | imaginary part | - |
+| `modulus` | out | \|z\| | - |
+| `argument_deg` | out | principal argument, degrees in (-180, 180] | - |
+| `argument_rad` | out | principal argument, radians | - |
+| `polar` | out | z = r(cos t + i sin t) | - |
 
 **Applies when:** z != 0.
 
@@ -1157,7 +1117,7 @@ polar = 1.414213562(cos(135 deg) + i sin(135 deg))
 
 <a id="de_moivre_power"></a>
 
-#### Power of a complex number (De Moivre) — `de_moivre_power`
+#### Power of a complex number (De Moivre): `de_moivre_power`
 
 (a + bi)^n for a whole number n (|n| <= 40): real and imaginary parts, modulus and argument.
 
@@ -1167,13 +1127,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | real part | — |
-| `b` | in | imaginary part | — |
-| `n` | in | the power n | — |
-| `re` | out | real part of z^n | — |
-| `im` | out | imaginary part of z^n | — |
-| `modulus` | out | \|z^n\| = \|z\|^n | — |
-| `argument_deg` | out | argument of z^n, degrees | — |
+| `a` | in | real part | - |
+| `b` | in | imaginary part | - |
+| `n` | in | the power n | - |
+| `re` | out | real part of z^n | - |
+| `im` | out | imaginary part of z^n | - |
+| `modulus` | out | \|z^n\| = \|z\|^n | - |
+| `argument_deg` | out | argument of z^n, degrees | - |
 
 **Applies when:** |n| <= 40; z != 0 when n <= 0.
 
@@ -1193,7 +1153,7 @@ argument_deg = 0
 
 <a id="complex_product_modulus"></a>
 
-#### Product and modulus of complex numbers — `complex_product_modulus`
+#### Product and modulus of complex numbers: `complex_product_modulus`
 
 The product (a + b*i)(c + d*i) = re + im*i and the modulus of the product.
 
@@ -1203,13 +1163,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | real part of the first number | — |
-| `b` | in | imaginary part of the first number | — |
-| `c` | in | real part of the second number | — |
-| `d` | in | imaginary part of the second number | — |
-| `re` | out | real part of the product | — |
-| `im` | out | imaginary part of the product | — |
-| `modulus` | out | modulus of the product | — |
+| `a` | in | real part of the first number | - |
+| `b` | in | imaginary part of the first number | - |
+| `c` | in | real part of the second number | - |
+| `d` | in | imaginary part of the second number | - |
+| `re` | out | real part of the product | - |
+| `im` | out | imaginary part of the product | - |
+| `modulus` | out | modulus of the product | - |
 
 ```shell
 $ math-foundations solve complex_product_modulus a=1 b=2 c=3 d=4
@@ -1227,7 +1187,7 @@ modulus = 11.18033989
 
 <a id="complex_nth_roots"></a>
 
-#### The n-th roots of a complex number — `complex_nth_roots`
+#### The n-th roots of a complex number: `complex_nth_roots`
 
 All n complex n-th roots of z = a + bi (n from 2 to 12), ordered by argument from 0 to 360 degrees.
 
@@ -1237,12 +1197,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | real part of z | — |
-| `b` | in | imaginary part of z | — |
-| `n` | in | which roots (2 = square roots) | — |
-| `modulus` | out | the common modulus \|z\|^(1/n) | — |
-| `count` | out | the number of roots, n | — |
-| `roots` | out | the roots, by argument in [0, 360) | — |
+| `a` | in | real part of z | - |
+| `b` | in | imaginary part of z | - |
+| `n` | in | which roots (2 = square roots) | - |
+| `modulus` | out | the common modulus \|z\|^(1/n) | - |
+| `count` | out | the number of roots, n | - |
+| `roots` | out | the roots, by argument in [0, 360) | - |
 
 **Applies when:** z != 0; 2 <= n <= 12.
 
@@ -1263,7 +1223,7 @@ roots = [{"re":1.73205080757,"im":1.0},{"re":-1.73205080757,"im":1.0},{"re":0.0,
 
 <a id="circle_from_general_form"></a>
 
-#### Centre and radius of a circle from its general equation — `circle_from_general_form`
+#### Centre and radius of a circle from its general equation, `circle_from_general_form`
 
 For x^2 + y^2 + D*x + E*y + F = 0, the centre (h, k) and radius rad.
 
@@ -1273,12 +1233,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `dd` | in | coefficient D of x | — |
-| `ee` | in | coefficient E of y | — |
-| `ff` | in | constant F | — |
-| `h` | out | x-coordinate of the centre | — |
-| `k` | out | y-coordinate of the centre | — |
-| `rad` | out | radius | — |
+| `dd` | in | coefficient D of x | - |
+| `ee` | in | coefficient E of y | - |
+| `ff` | in | constant F | - |
+| `h` | out | x-coordinate of the centre | - |
+| `k` | out | y-coordinate of the centre | - |
+| `rad` | out | radius | - |
 
 **Applies when:** dd**2/4 + ee**2/4 - ff > 0.
 
@@ -1300,7 +1260,7 @@ rad = 4
 
 <a id="distance_between_points"></a>
 
-#### Distance between two points — `distance_between_points`
+#### Distance between two points: `distance_between_points`
 
 The distance between (x1, y1) and (x2, y2) in the plane.
 
@@ -1310,11 +1270,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x1` | in | x-coordinate of the first point | — |
-| `y1` | in | y-coordinate of the first point | — |
-| `x2` | in | x-coordinate of the second point | — |
-| `y2` | in | y-coordinate of the second point | — |
-| `dist` | out | distance | — |
+| `x1` | in | x-coordinate of the first point | - |
+| `y1` | in | y-coordinate of the first point | - |
+| `x2` | in | x-coordinate of the second point | - |
+| `y2` | in | y-coordinate of the second point | - |
+| `dist` | out | distance | - |
 
 ```shell
 $ math-foundations solve distance_between_points x1=1 y1=1 x2=4 y2=5
@@ -1332,7 +1292,7 @@ dist = 5
 
 <a id="counting_choices"></a>
 
-#### Combinations and permutations — `counting_choices`
+#### Combinations and permutations: `counting_choices`
 
 The number of ways to choose k items from n without order (combinations) and with order (permutations).
 
@@ -1342,10 +1302,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n` | in | number of items to choose from (a whole number) | — |
-| `k` | in | number of items chosen (a whole number, k <= n) | — |
-| `combinations` | out | C(n, k) = n! / (k! (n - k)!) | — |
-| `permutations` | out | P(n, k) = n! / (n - k)! | — |
+| `n` | in | number of items to choose from (a whole number) | - |
+| `k` | in | number of items chosen (a whole number, k <= n) | - |
+| `combinations` | out | C(n, k) = n! / (k! (n - k)!) | - |
+| `permutations` | out | P(n, k) = n! / (n - k)! | - |
 
 **Applies when:** n and k whole numbers; k <= n; n <= 170.
 
@@ -1365,7 +1325,7 @@ permutations = 720
 
 <a id="compound_interest"></a>
 
-#### Compound interest — `compound_interest`
+#### Compound interest: `compound_interest`
 
 The amount after t years when a principal is compounded n times a year at an annual rate r (a decimal).
 
@@ -1375,11 +1335,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `principal` | in | starting amount | — |
-| `r` | in | annual interest rate as a decimal | — |
-| `n` | in | compounding periods per year | — |
-| `t` | in | time in years | — |
-| `amount` | out | amount after t years | — |
+| `principal` | in | starting amount | - |
+| `r` | in | annual interest rate as a decimal | - |
+| `n` | in | compounding periods per year | - |
+| `t` | in | time in years | - |
+| `amount` | out | amount after t years | - |
 
 **Applies when:** principal > 0; n >= 1; t >= 0; 1 + r/n > 0.
 
@@ -1400,7 +1360,7 @@ amount = 1102.5
 
 <a id="doubling_time"></a>
 
-#### Doubling time of exponential growth — `doubling_time`
+#### Doubling time of exponential growth: `doubling_time`
 
 The time for a quantity growing as N = N0*e^(k*t) to double, for a growth constant k > 0.
 
@@ -1410,8 +1370,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `k` | in | continuous growth constant per unit time | — |
-| `td` | out | doubling time | — |
+| `k` | in | continuous growth constant per unit time | - |
+| `td` | out | doubling time | - |
 
 **Applies when:** k > 0.
 
@@ -1429,7 +1389,7 @@ td = 6.931471806
 
 <a id="half_life_remaining"></a>
 
-#### Amount remaining after radioactive decay (half-life) — `half_life_remaining`
+#### Amount remaining after radioactive decay (half-life), `half_life_remaining`
 
 The amount left after time t of a substance with half-life T: N0 * (1/2)^(t/T).
 
@@ -1439,11 +1399,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n0` | in | initial amount (positive) | — |
-| `half_life` | in | the half-life T (positive) | — |
-| `t` | in | elapsed time, in the unit of T | — |
-| `remaining` | out | amount remaining (in the unit of N0) | — |
-| `fraction` | out | fraction remaining | — |
+| `n0` | in | initial amount (positive) | - |
+| `half_life` | in | the half-life T (positive) | - |
+| `t` | in | elapsed time, in the unit of T | - |
+| `remaining` | out | amount remaining (in the unit of N0) | - |
+| `fraction` | out | fraction remaining | - |
 
 **Applies when:** n0 > 0; T > 0; t >= 0; t and T in the same unit.
 
@@ -1462,7 +1422,7 @@ fraction = 0.125
 
 <a id="continuous_growth"></a>
 
-#### Continuous exponential growth or decay — `continuous_growth`
+#### Continuous exponential growth or decay: `continuous_growth`
 
 N(t) = N0 * e^(k t) for continuous growth (k > 0) or decay (k < 0), including continuous compounding.
 
@@ -1472,10 +1432,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `n0` | in | initial amount N0 | — |
-| `k` | in | continuous rate per unit time, as a decimal (0.03 for 3%; negative for decay) | — |
-| `t` | in | elapsed time, in the rate's unit | — |
-| `amount` | out | N(t) | — |
+| `n0` | in | initial amount N0 | - |
+| `k` | in | continuous rate per unit time, as a decimal (0.03 for 3%; negative for decay) | - |
+| `t` | in | elapsed time, in the rate's unit | - |
+| `amount` | out | N(t) | - |
 
 **Applies when:** |k t| <= 700.
 
@@ -1493,7 +1453,7 @@ amount = 674.9294038
 
 <a id="doubling_time_percent"></a>
 
-#### Doubling time at a percentage growth rate — `doubling_time_percent`
+#### Doubling time at a percentage growth rate: `doubling_time_percent`
 
 The time for a quantity growing by r% per period (compounded once per period) to double.
 
@@ -1503,9 +1463,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `r` | in | growth rate per period, in percent (positive) | — |
-| `doubling_time` | out | periods to double (exact) | — |
-| `rule_of_70_estimate` | out | the rule-of-70 approximation 70/r | — |
+| `r` | in | growth rate per period, in percent (positive) | - |
+| `doubling_time` | out | periods to double (exact) | - |
+| `rule_of_70_estimate` | out | the rule-of-70 approximation 70/r | - |
 
 **Applies when:** r > 0.
 
@@ -1522,7 +1482,7 @@ rule_of_70_estimate = 10
 
 <a id="log_evaluate"></a>
 
-#### Evaluate a logarithm — `log_evaluate`
+#### Evaluate a logarithm: `log_evaluate`
 
 log_b(x) for a positive base b != 1 and x > 0 (log is base 10, ln base e).
 
@@ -1532,9 +1492,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | the base (positive, not 1) | — |
-| `x` | in | the number (positive) | — |
-| `value` | out | log_b(x) | — |
+| `b` | in | the base (positive, not 1) | - |
+| `x` | in | the number (positive) | - |
+| `value` | out | log_b(x) | - |
 
 **Applies when:** b > 0; b != 1; x > 0.
 
@@ -1551,7 +1511,7 @@ value = 5
 
 <a id="exponential_equation_general"></a>
 
-#### Exponential equation a*b^(cx + d) = k — `exponential_equation_general`
+#### Exponential equation a*b^(cx + d) = k, `exponential_equation_general`
 
 Solve a * b^(c*x + d) = k for x by taking logarithms.
 
@@ -1561,12 +1521,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the coefficient a | — |
-| `b` | in | the base (positive, not 1; e for the natural base) | — |
-| `c` | in | coefficient of x in the exponent | — |
-| `d` | in | constant in the exponent | — |
-| `k` | in | the right-hand side | — |
-| `x` | out | the solution | — |
+| `a` | in | the coefficient a | - |
+| `b` | in | the base (positive, not 1; e for the natural base) | - |
+| `c` | in | coefficient of x in the exponent | - |
+| `d` | in | constant in the exponent | - |
+| `k` | in | the right-hand side | - |
+| `x` | out | the solution | - |
 
 **Applies when:** a != 0; c != 0; b > 0, b != 1; k/a > 0.
 
@@ -1586,7 +1546,7 @@ x = 3
 
 <a id="log_laws_combine"></a>
 
-#### Laws of logarithms (product, quotient, power) — `log_laws_combine`
+#### Laws of logarithms (product, quotient, power), `log_laws_combine`
 
 Given log_b(M) = u and log_b(N) = v, the value of log_b(M^p * N^q) (quotients and roots included).
 
@@ -1596,11 +1556,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `u` | in | log_b(M) | — |
-| `v` | in | log_b(N) | — |
-| `p` | in | power of M | — |
-| `q` | in | power of N (negative: N in the denominator) | — |
-| `value` | out | log_b(M^p N^q) | — |
+| `u` | in | log_b(M) | - |
+| `v` | in | log_b(N) | - |
+| `p` | in | power of M | - |
+| `q` | in | power of N (negative: N in the denominator) | - |
+| `value` | out | log_b(M^p N^q) | - |
 
 **Applies when:** M, N > 0.
 
@@ -1619,7 +1579,7 @@ value = 7
 
 <a id="log_equation_linear_argument"></a>
 
-#### Logarithmic equation log_b(cx + d) = k — `log_equation_linear_argument`
+#### Logarithmic equation log_b(cx + d) = k, `log_equation_linear_argument`
 
 Solve log_b(c*x + d) = k for x by rewriting it in exponential form.
 
@@ -1629,11 +1589,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | the base (positive, not 1; 10 for log, e for ln) | — |
-| `c` | in | coefficient of x in the argument | — |
-| `d` | in | constant in the argument | — |
-| `k` | in | the right-hand side | — |
-| `x` | out | the solution | — |
+| `b` | in | the base (positive, not 1; 10 for log, e for ln) | - |
+| `c` | in | coefficient of x in the argument | - |
+| `d` | in | constant in the argument | - |
+| `k` | in | the right-hand side | - |
+| `x` | out | the solution | - |
 
 **Applies when:** b > 0, b != 1; c != 0.
 
@@ -1654,7 +1614,7 @@ x = 5
 
 <a id="exponential_equation"></a>
 
-#### Solution of an exponential equation — `exponential_equation`
+#### Solution of an exponential equation: `exponential_equation`
 
 Solve b^x = y for x, with b > 0, b != 1 and y > 0.
 
@@ -1664,9 +1624,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | the base | — |
-| `y` | in | the value of the power | — |
-| `x` | out | the exponent | — |
+| `b` | in | the base | - |
+| `y` | in | the value of the power | - |
+| `x` | out | the exponent | - |
 
 **Applies when:** b > 0; y > 0; b != 1.
 
@@ -1685,7 +1645,7 @@ x = 5
 
 <a id="factor_monic_quadratic"></a>
 
-#### Factoring a monic quadratic — `factor_monic_quadratic`
+#### Factoring a monic quadratic: `factor_monic_quadratic`
 
 Write x^2 + b*x + c as (x + p)*(x + q) with real p and q.
 
@@ -1695,10 +1655,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `p` | out | first constant | — |
-| `q` | out | second constant | — |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `p` | out | first constant | - |
+| `q` | out | second constant | - |
 
 **Applies when:** b**2 - 4*c >= 0.
 
@@ -1718,7 +1678,7 @@ q = 2
 
 <a id="average_rate_of_change_definition"></a>
 
-#### Average rate of change of a function between two inputs — `average_rate_of_change_definition`
+#### Average rate of change of a function between two inputs, `average_rate_of_change_definition`
 
 (f(x_end) - f(x_start)) / (x_end - x_start) from two values of a function.
 
@@ -1728,11 +1688,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x_start` | in | first input | — |
-| `f_x_start` | in | value of the function at the first input | — |
-| `x_end` | in | second input | — |
-| `f_x_end` | in | value of the function at the second input | — |
-| `arc` | out | average rate of change | — |
+| `x_start` | in | first input | - |
+| `f_x_start` | in | value of the function at the first input | - |
+| `x_end` | in | second input | - |
+| `f_x_end` | in | value of the function at the second input | - |
+| `arc` | out | average rate of change | - |
 
 **Applies when:** x_end != x_start.
 
@@ -1751,7 +1711,7 @@ arc = 2
 
 <a id="compose_linear_functions"></a>
 
-#### Composition of two linear functions — `compose_linear_functions`
+#### Composition of two linear functions: `compose_linear_functions`
 
 For f(x) = a*x + b and g(x) = c*x + d, the composition f(g(x)) = m*x + k.
 
@@ -1761,12 +1721,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | slope of f | — |
-| `b` | in | intercept of f | — |
-| `c` | in | slope of g | — |
-| `d` | in | intercept of g | — |
-| `m` | out | slope of f(g(x)) | — |
-| `k` | out | intercept of f(g(x)) | — |
+| `a` | in | slope of f | - |
+| `b` | in | intercept of f | - |
+| `c` | in | slope of g | - |
+| `d` | in | intercept of g | - |
+| `m` | out | slope of f(g(x)) | - |
+| `k` | out | intercept of f(g(x)) | - |
 
 ```shell
 $ math-foundations solve compose_linear_functions a=2 b=1 c=3 d=-4
@@ -1783,7 +1743,7 @@ k = -7
 
 <a id="distance_point_to_line"></a>
 
-#### Distance from a point to a line — `distance_point_to_line`
+#### Distance from a point to a line: `distance_point_to_line`
 
 The perpendicular distance from (x0, y0) to the line a*x + b*y + c = 0.
 
@@ -1793,12 +1753,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x0` | in | x-coordinate of the point | — |
-| `y0` | in | y-coordinate of the point | — |
-| `a` | in | coefficient of x | — |
-| `b` | in | coefficient of y | — |
-| `c` | in | constant term | — |
-| `distance` | out | the perpendicular distance | — |
+| `x0` | in | x-coordinate of the point | - |
+| `y0` | in | y-coordinate of the point | - |
+| `a` | in | coefficient of x | - |
+| `b` | in | coefficient of y | - |
+| `c` | in | constant term | - |
+| `distance` | out | the perpendicular distance | - |
 
 **Applies when:** a and b not both 0.
 
@@ -1818,7 +1778,7 @@ distance = 1.2
 
 <a id="domain_sqrt_over_linear"></a>
 
-#### Domain of a square-root function — `domain_sqrt_over_linear`
+#### Domain of a square-root function: `domain_sqrt_over_linear`
 
 The domain of f(x) = sqrt(a*x + b)/(c*x + d) (or 1/sqrt(a*x + b)): where the radicand is allowed and the denominator is not 0.
 
@@ -1828,15 +1788,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x under the root | — |
-| `b` | in | constant under the root | — |
-| `c` | in | coefficient of x in the denominator (0 for none) | — |
-| `d` | in | constant in the denominator (1 for none) | — |
-| `root_in_denominator` | in | true when the root itself is in the denominator (the radicand must then be positive) (optional) | — |
-| `boundary` | out | where the radicand is 0 | — |
-| `side` | out | the inequality x must satisfy with the boundary | — |
-| `excluded` | out | a point removed because the denominator is 0 there (None if none) | — |
-| `domain` | out | the domain in interval notation | — |
+| `a` | in | coefficient of x under the root | - |
+| `b` | in | constant under the root | - |
+| `c` | in | coefficient of x in the denominator (0 for none) | - |
+| `d` | in | constant in the denominator (1 for none) | - |
+| `root_in_denominator` | in | true when the root itself is in the denominator (the radicand must then be positive) (optional) | - |
+| `boundary` | out | where the radicand is 0 | - |
+| `side` | out | the inequality x must satisfy with the boundary | - |
+| `excluded` | out | a point removed because the denominator is 0 there (None if none) | - |
+| `domain` | out | the domain in interval notation | - |
 
 **Applies when:** a != 0; the denominator is not identically 0.
 
@@ -1858,7 +1818,7 @@ In the worked example, a = 2, b = -4, c = 0, d = 1, root_in_denominator = False 
 
 <a id="evaluate_function"></a>
 
-#### Evaluate a function at a number — `evaluate_function`
+#### Evaluate a function at a number: `evaluate_function`
 
 The value f(x0) of a function given by a formula in x (exact when it is rational).
 
@@ -1868,11 +1828,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `expression` | in | the formula of f in x: numbers, x, + - * / ^, parentheses, sqrt, abs, ln | — |
-| `x` | in | the number x0 to put in | — |
-| `value` | out | f(x0) | — |
-| `numerator` | out | numerator of the exact value | — |
-| `denominator` | out | denominator of the exact value | — |
+| `expression` | in | the formula of f in x: numbers, x, + - * / ^, parentheses, sqrt, abs, ln | - |
+| `x` | in | the number x0 to put in | - |
+| `value` | out | f(x0) | - |
+| `numerator` | out | numerator of the exact value | - |
+| `denominator` | out | denominator of the exact value | - |
 
 **Applies when:** x0 in the domain of f (no division by 0, no root of a negative number, no logarithm of a number <= 0).
 
@@ -1891,7 +1851,7 @@ denominator = 1
 
 <a id="piecewise_evaluate"></a>
 
-#### Evaluate a piecewise function — `piecewise_evaluate`
+#### Evaluate a piecewise function: `piecewise_evaluate`
 
 f(x0) for f(x) = e1 when x < c (or x <= c) and e2 otherwise.
 
@@ -1901,13 +1861,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `e1` | in | formula of the left piece | — |
-| `left_rel` | in | the left piece holds for x < c or x <= c | — |
-| `c` | in | the break point c | — |
-| `e2` | in | formula of the right piece | — |
-| `x` | in | the number x0 | — |
-| `value` | out | f(x0) | — |
-| `piece` | out | which piece applies (1 = left, 2 = right) | — |
+| `e1` | in | formula of the left piece | - |
+| `left_rel` | in | the left piece holds for x < c or x <= c | - |
+| `c` | in | the break point c | - |
+| `e2` | in | formula of the right piece | - |
+| `x` | in | the number x0 | - |
+| `value` | out | f(x0) | - |
+| `piece` | out | which piece applies (1 = left, 2 = right) | - |
 
 **Applies when:** the two conditions split the line at c (one < and one >=, or <= and >); x0 in the domain of its piece.
 
@@ -1918,9 +1878,9 @@ piece = 2
   by: Evaluate a piecewise function  (decide which condition x0 satisfies (the break point belongs to the piece whose condition includes it), then evaluate that piece)
   c = 2
   x = 3
-  e2 = x^2 - 1
-  left_rel = <
   e1 = 2x + 1
+  left_rel = <
+  e2 = x^2 - 1
   assumes: the two conditions split the line at c (one < and one >=, or <= and >); x0 in the domain of its piece
 ```
 
@@ -1928,7 +1888,7 @@ piece = 2
 
 <a id="graph_transformation_point"></a>
 
-#### Image of a point under a graph transformation — `graph_transformation_point`
+#### Image of a point under a graph transformation, `graph_transformation_point`
 
 If (x0, y0) is on y = f(x), the corresponding point on y = A*f(B*(x - h)) + k.
 
@@ -1938,14 +1898,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x0` | in | x-coordinate of the point on y = f(x) | — |
-| `y0` | in | y-coordinate of the point | — |
-| `A` | in | vertical stretch (negative: reflection in the x-axis) (optional) | — |
-| `B` | in | horizontal compression factor (negative: reflection in the y-axis) (optional) | — |
-| `h` | in | horizontal shift (optional) | — |
-| `k` | in | vertical shift (optional) | — |
-| `x_new` | out | x-coordinate of the image | — |
-| `y_new` | out | y-coordinate of the image | — |
+| `x0` | in | x-coordinate of the point on y = f(x) | - |
+| `y0` | in | y-coordinate of the point | - |
+| `A` | in | vertical stretch (negative: reflection in the x-axis) (optional) | - |
+| `B` | in | horizontal compression factor (negative: reflection in the y-axis) (optional) | - |
+| `h` | in | horizontal shift (optional) | - |
+| `k` | in | vertical shift (optional) | - |
+| `x_new` | out | x-coordinate of the image | - |
+| `y_new` | out | y-coordinate of the image | - |
 
 **Applies when:** A != 0; B != 0.
 
@@ -1967,7 +1927,7 @@ y_new = 19
 
 <a id="line_intercepts"></a>
 
-#### Intercepts and slope of a line — `line_intercepts`
+#### Intercepts and slope of a line: `line_intercepts`
 
 The x- and y-intercepts and the slope of the line a*x + b*y = c.
 
@@ -1977,12 +1937,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x | — |
-| `b` | in | coefficient of y | — |
-| `c` | in | right-hand side | — |
-| `x_intercept` | out | where the line meets the x-axis (y = 0) | — |
-| `y_intercept` | out | where it meets the y-axis (x = 0) | — |
-| `slope` | out | the slope -a/b | — |
+| `a` | in | coefficient of x | - |
+| `b` | in | coefficient of y | - |
+| `c` | in | right-hand side | - |
+| `x_intercept` | out | where the line meets the x-axis (y = 0) | - |
+| `y_intercept` | out | where it meets the y-axis (x = 0) | - |
+| `slope` | out | the slope -a/b | - |
 
 **Applies when:** a != 0; b != 0.
 
@@ -2002,7 +1962,7 @@ slope = -0.6666666667
 
 <a id="inverse_linear_function"></a>
 
-#### Inverse of a linear function — `inverse_linear_function`
+#### Inverse of a linear function: `inverse_linear_function`
 
 For f(x) = a*x + b (a != 0): f^-1(x) = x/a - b/a, and f^-1(y) for a given y.
 
@@ -2012,12 +1972,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | slope of f | — |
-| `b` | in | intercept of f | — |
-| `y` | in | a value to invert (optional) (optional) | — |
-| `inv_slope` | out | slope of the inverse, 1/a | — |
-| `inv_intercept` | out | intercept of the inverse, -b/a | — |
-| `value` | out | f^-1(y) | — |
+| `a` | in | slope of f | - |
+| `b` | in | intercept of f | - |
+| `y` | in | a value to invert (optional) (optional) | - |
+| `inv_slope` | out | slope of the inverse, 1/a | - |
+| `inv_intercept` | out | intercept of the inverse, -b/a | - |
+| `value` | out | f^-1(y) | - |
 
 **Applies when:** a != 0.
 
@@ -2035,7 +1995,7 @@ inv_intercept = 2
 
 <a id="composite_function_value"></a>
 
-#### Value of a composite function — `composite_function_value`
+#### Value of a composite function: `composite_function_value`
 
 f(g(x0)) or g(f(x0)) for two functions given by formulas.
 
@@ -2045,12 +2005,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `f` | in | the formula of f in x | — |
-| `g` | in | the formula of g in x | — |
-| `x` | in | the number x0 | — |
-| `order` | in | which composition | — |
-| `inner` | out | value of the inner function at x0 | — |
-| `value` | out | value of the composite at x0 | — |
+| `f` | in | the formula of f in x | - |
+| `g` | in | the formula of g in x | - |
+| `x` | in | the number x0 | - |
+| `order` | in | which composition | - |
+| `inner` | out | value of the inner function at x0 | - |
+| `value` | out | value of the composite at x0 | - |
 
 **Applies when:** each value in the domain of the function applied to it.
 
@@ -2072,7 +2032,7 @@ value = 2
 
 <a id="linear_inequality"></a>
 
-#### Solution of a linear inequality — `linear_inequality`
+#### Solution of a linear inequality: `linear_inequality`
 
 Solve a*x + b < c (or >): the boundary x0 and the direction s (s = 1 means the solution of the < form is x < x0; s = -1 means it reverses to x > x0 because a < 0).
 
@@ -2082,11 +2042,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x | — |
-| `b` | in | constant on the left | — |
-| `c` | in | right-hand side | — |
-| `x0` | out | boundary of the solution set | — |
-| `s` | out | 1 if the inequality keeps its direction, -1 if it reverses | — |
+| `a` | in | coefficient of x | - |
+| `b` | in | constant on the left | - |
+| `c` | in | right-hand side | - |
+| `x0` | out | boundary of the solution set | - |
+| `s` | out | 1 if the inequality keeps its direction, -1 if it reverses | - |
 
 **Applies when:** a != 0.
 
@@ -2107,7 +2067,7 @@ s = 1
 
 <a id="abs_value_inequality_upper_bound"></a>
 
-#### Solution interval of |x - c| < d — `abs_value_inequality_upper_bound`
+#### Solution interval of |x - c| < d, `abs_value_inequality_upper_bound`
 
 For |x - c| < d with d > 0, the solutions are lower < x < upper.
 
@@ -2117,10 +2077,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `c` | in | centre c | — |
-| `d` | in | bound d | — |
-| `lower` | out | lower end of the solution interval (excluded) | — |
-| `upper` | out | upper end of the solution interval (excluded) | — |
+| `c` | in | centre c | - |
+| `d` | in | bound d | - |
+| `lower` | out | lower end of the solution interval (excluded) | - |
+| `upper` | out | upper end of the solution interval (excluded) | - |
 
 **Applies when:** d > 0.
 
@@ -2138,7 +2098,7 @@ upper = 5
 
 <a id="abs_value_inequality_lower_bound"></a>
 
-#### Solution set of |x - c| > d — `abs_value_inequality_lower_bound`
+#### Solution set of |x - c| > d, `abs_value_inequality_lower_bound`
 
 For |x - c| > d with d >= 0, the solutions are x < left_limit or x > right_limit.
 
@@ -2148,10 +2108,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `c` | in | centre c | — |
-| `d` | in | bound d | — |
-| `left_limit` | out | x must be below this | — |
-| `right_limit` | out | or above this | — |
+| `c` | in | centre c | - |
+| `d` | in | bound d | - |
+| `left_limit` | out | x must be below this | - |
+| `right_limit` | out | or above this | - |
 
 **Applies when:** d >= 0.
 
@@ -2171,7 +2131,7 @@ right_limit = 4
 
 <a id="linear_equation_root"></a>
 
-#### Root of a linear equation — `linear_equation_root`
+#### Root of a linear equation: `linear_equation_root`
 
 Solve a*x + b = c for x.
 
@@ -2181,10 +2141,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x | — |
-| `b` | in | constant term on the left side | — |
-| `c` | in | right-hand side | — |
-| `x` | out | the solution | — |
+| `a` | in | coefficient of x | - |
+| `b` | in | constant term on the left side | - |
+| `c` | in | right-hand side | - |
+| `x` | out | the solution | - |
 
 **Applies when:** a != 0.
 
@@ -2204,7 +2164,7 @@ x = -2
 
 <a id="average_rate_of_change_linear"></a>
 
-#### Average rate of change between two points — `average_rate_of_change_linear`
+#### Average rate of change between two points: `average_rate_of_change_linear`
 
 (y2 - y1) / (x2 - x1) between the points (x1, y1) and (x2, y2).
 
@@ -2214,11 +2174,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x1` | in | x-coordinate of the first point | — |
-| `y1` | in | y-coordinate of the first point | — |
-| `x2` | in | x-coordinate of the second point | — |
-| `y2` | in | y-coordinate of the second point | — |
-| `m` | out | average rate of change | — |
+| `x1` | in | x-coordinate of the first point | - |
+| `y1` | in | y-coordinate of the first point | - |
+| `x2` | in | x-coordinate of the second point | - |
+| `y2` | in | y-coordinate of the second point | - |
+| `m` | out | average rate of change | - |
 
 **Applies when:** x2 != x1.
 
@@ -2237,7 +2197,7 @@ m = -1
 
 <a id="line_through_two_points"></a>
 
-#### Line through two points — `line_through_two_points`
+#### Line through two points: `line_through_two_points`
 
 The slope m and y-intercept k of the line through (x1, y1) and (x2, y2), in the form y = m*x + k.
 
@@ -2247,12 +2207,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x1` | in | x-coordinate of the first point | — |
-| `y1` | in | y-coordinate of the first point | — |
-| `x2` | in | x-coordinate of the second point | — |
-| `y2` | in | y-coordinate of the second point | — |
-| `m` | out | slope | — |
-| `k` | out | y-intercept | — |
+| `x1` | in | x-coordinate of the first point | - |
+| `y1` | in | y-coordinate of the first point | - |
+| `x2` | in | x-coordinate of the second point | - |
+| `y2` | in | y-coordinate of the second point | - |
+| `m` | out | slope | - |
+| `k` | out | y-intercept | - |
 
 **Applies when:** x2 - x1 != 0.
 
@@ -2272,7 +2232,7 @@ k = 1
 
 <a id="perpendicular_lines_slope_product"></a>
 
-#### Slope of a perpendicular line — `perpendicular_lines_slope_product`
+#### Slope of a perpendicular line: `perpendicular_lines_slope_product`
 
 The slope m_perp of a line perpendicular to a line of nonzero slope m.
 
@@ -2282,8 +2242,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `m` | in | slope of the given line | — |
-| `m_perp` | out | slope of the perpendicular line | — |
+| `m` | in | slope of the given line | - |
+| `m_perp` | out | slope of the perpendicular line | - |
 
 **Applies when:** m != 0.
 
@@ -2299,7 +2259,7 @@ m_perp = -0.2
 
 <a id="convert_to_slope_intercept"></a>
 
-#### y-intercept of a line from its slope and a point — `convert_to_slope_intercept`
+#### y-intercept of a line from its slope and a point, `convert_to_slope_intercept`
 
 The constant b of y = m*x + b for the line with slope m through (x1, y1).
 
@@ -2309,10 +2269,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `m` | in | slope | — |
-| `x1` | in | x-coordinate of the point | — |
-| `y1` | in | y-coordinate of the point | — |
-| `b` | out | y-intercept | — |
+| `m` | in | slope | - |
+| `x1` | in | x-coordinate of the point | - |
+| `y1` | in | y-coordinate of the point | - |
+| `b` | out | y-intercept | - |
 
 ```shell
 $ math-foundations solve convert_to_slope_intercept m=4 x1=3 y1=10
@@ -2329,7 +2289,7 @@ b = -2
 
 <a id="logarithmic_equation"></a>
 
-#### Solution of a basic logarithmic equation — `logarithmic_equation`
+#### Solution of a basic logarithmic equation: `logarithmic_equation`
 
 Solve log_b(x) = c for x.
 
@@ -2339,9 +2299,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | base | — |
-| `c` | in | value of the logarithm | — |
-| `x` | out | the solution | — |
+| `b` | in | base | - |
+| `c` | in | value of the logarithm | - |
+| `x` | out | the solution | - |
 
 **Applies when:** b > 0; b != 1.
 
@@ -2360,7 +2320,7 @@ In the worked example, b = 3, c = 4 go through the equation above and give x = 8
 
 <a id="matrix_2x2_inverse"></a>
 
-#### Determinant and inverse of a 2 by 2 matrix — `matrix_2x2_inverse`
+#### Determinant and inverse of a 2 by 2 matrix, `matrix_2x2_inverse`
 
 For the matrix [[a, b], [c, d]], its determinant and the entries of its inverse.
 
@@ -2370,15 +2330,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | top-left entry | — |
-| `b` | in | top-right entry | — |
-| `c` | in | bottom-left entry | — |
-| `d` | in | bottom-right entry | — |
-| `det` | out | determinant | — |
-| `i11` | out | inverse, top-left | — |
-| `i12` | out | inverse, top-right | — |
-| `i21` | out | inverse, bottom-left | — |
-| `i22` | out | inverse, bottom-right | — |
+| `a` | in | top-left entry | - |
+| `b` | in | top-right entry | - |
+| `c` | in | bottom-left entry | - |
+| `d` | in | bottom-right entry | - |
+| `det` | out | determinant | - |
+| `i11` | out | inverse, top-left | - |
+| `i12` | out | inverse, top-right | - |
+| `i21` | out | inverse, bottom-left | - |
+| `i22` | out | inverse, bottom-right | - |
 
 **Applies when:** a*d - b*c != 0.
 
@@ -2403,7 +2363,7 @@ i22 = 2
 
 <a id="determinant_2x2_formula"></a>
 
-#### Determinant of 2x2 matrix — `determinant_2x2_formula`
+#### Determinant of 2x2 matrix: `determinant_2x2_formula`
 
 Computes the determinant of a 2x2 matrix using the standard formula.
 
@@ -2413,11 +2373,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | entry in row 1 column 1 | — |
-| `b` | in | entry in row 1 column 2 | — |
-| `c` | in | entry in row 2 column 1 | — |
-| `d` | in | entry in row 2 column 2 | — |
-| `det` | out | determinant of the matrix | — |
+| `a` | in | entry in row 1 column 1 | - |
+| `b` | in | entry in row 1 column 2 | - |
+| `c` | in | entry in row 2 column 1 | - |
+| `d` | in | entry in row 2 column 2 | - |
+| `det` | out | determinant of the matrix | - |
 
 ```shell
 $ math-foundations solve determinant_2x2_formula a=3 b=1 c=2 d=4
@@ -2433,7 +2393,7 @@ det = 10
 
 <a id="matrix_scalar_multiple_definition"></a>
 
-#### Matrix scalar multiple definition — `matrix_scalar_multiple_definition`
+#### Matrix scalar multiple definition: `matrix_scalar_multiple_definition`
 
 Computes the entries of a 2x2 matrix scaled by a scalar.
 
@@ -2443,15 +2403,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `s` | in | scalar multiplier | — |
-| `a11` | in | entry in row 1 column 1 | — |
-| `a12` | in | entry in row 1 column 2 | — |
-| `a21` | in | entry in row 2 column 1 | — |
-| `a22` | in | entry in row 2 column 2 | — |
-| `b11` | out | entry in row 1 column 1 of result | — |
-| `b12` | out | entry in row 1 column 2 of result | — |
-| `b21` | out | entry in row 2 column 1 of result | — |
-| `b22` | out | entry in row 2 column 2 of result | — |
+| `s` | in | scalar multiplier | - |
+| `a11` | in | entry in row 1 column 1 | - |
+| `a12` | in | entry in row 1 column 2 | - |
+| `a21` | in | entry in row 2 column 1 | - |
+| `a22` | in | entry in row 2 column 2 | - |
+| `b11` | out | entry in row 1 column 1 of result | - |
+| `b12` | out | entry in row 1 column 2 of result | - |
+| `b21` | out | entry in row 2 column 1 of result | - |
+| `b22` | out | entry in row 2 column 2 of result | - |
 
 ```shell
 $ math-foundations solve matrix_scalar_multiple_definition s=3 a11=1 a12=2 a21=3 a22=4
@@ -2473,7 +2433,7 @@ b22 = 12
 
 <a id="absolute_value_equation"></a>
 
-#### Solutions of an absolute value equation — `absolute_value_equation`
+#### Solutions of an absolute value equation: `absolute_value_equation`
 
 Solve |a*x + b| = c for x (two solutions when c > 0, one when c = 0).
 
@@ -2483,11 +2443,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x | — |
-| `b` | in | constant inside the absolute value | — |
-| `c` | in | right-hand side | — |
-| `x1` | out | solution of a*x + b = c | — |
-| `x2` | out | solution of a*x + b = -c | — |
+| `a` | in | coefficient of x | - |
+| `b` | in | constant inside the absolute value | - |
+| `c` | in | right-hand side | - |
+| `x1` | out | solution of a*x + b = c | - |
+| `x2` | out | solution of a*x + b = -c | - |
 
 **Applies when:** a != 0; c >= 0.
 
@@ -2508,7 +2468,7 @@ x2 = -2
 
 <a id="quadratic_discriminant"></a>
 
-#### Discriminant of a quadratic — `quadratic_discriminant`
+#### Discriminant of a quadratic: `quadratic_discriminant`
 
 The discriminant b^2 - 4ac of a*x^2 + b*x + c and the nature of the roots it implies.
 
@@ -2518,11 +2478,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^2 | — |
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `discriminant` | out | b^2 - 4ac | — |
-| `nature` | out | two distinct real / one repeated real / two complex conjugate roots | — |
+| `a` | in | coefficient of x^2 | - |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `discriminant` | out | b^2 - 4ac | - |
+| `nature` | out | two distinct real / one repeated real / two complex conjugate roots | - |
 
 **Applies when:** a != 0; real coefficients.
 
@@ -2541,7 +2501,7 @@ nature = one repeated real root
 
 <a id="cubic_roots"></a>
 
-#### Roots of a cubic equation — `cubic_roots`
+#### Roots of a cubic equation: `cubic_roots`
 
 Solve a*x^3 + b*x^2 + c*x + d = 0 for x: all three roots, real or complex.
 
@@ -2551,13 +2511,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^3 | — |
-| `b` | in | coefficient of x^2 | — |
-| `c` | in | coefficient of x | — |
-| `d` | in | constant term | — |
-| `x1` | out | first root (real roots ascending, then complex roots) | — |
-| `x2` | out | second root | — |
-| `x3` | out | third root | — |
+| `a` | in | coefficient of x^3 | - |
+| `b` | in | coefficient of x^2 | - |
+| `c` | in | coefficient of x | - |
+| `d` | in | constant term | - |
+| `x1` | out | first root (real roots ascending, then complex roots) | - |
+| `x2` | out | second root | - |
+| `x3` | out | third root | - |
 
 **Applies when:** a != 0 (otherwise the equation is not cubic); real coefficients.
 
@@ -2578,7 +2538,7 @@ x3 = 3
 
 <a id="quadratic_roots"></a>
 
-#### Roots of a quadratic equation — `quadratic_roots`
+#### Roots of a quadratic equation: `quadratic_roots`
 
 Solve a*x^2 + b*x + c = 0 for x: both roots, real or complex.
 
@@ -2588,12 +2548,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^2 | — |
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `x1` | out | first root (the smaller real root, or the one with positive imaginary part) | — |
-| `x2` | out | second root | — |
-| `discriminant` | out | b^2 - 4ac | — |
+| `a` | in | coefficient of x^2 | - |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `x1` | out | first root (the smaller real root, or the one with positive imaginary part) | - |
+| `x2` | out | second root | - |
+| `discriminant` | out | b^2 - 4ac | - |
 
 **Applies when:** a != 0 (otherwise the equation is linear); real coefficients.
 
@@ -2613,7 +2573,7 @@ discriminant = 1
 
 <a id="quartic_roots"></a>
 
-#### Roots of a quartic equation — `quartic_roots`
+#### Roots of a quartic equation: `quartic_roots`
 
 Solve a*x^4 + b*x^3 + c*x^2 + d*x + e = 0 for x: all four roots, real or complex.
 
@@ -2623,15 +2583,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^4 | — |
-| `b` | in | coefficient of x^3 | — |
-| `c` | in | coefficient of x^2 | — |
-| `d` | in | coefficient of x | — |
-| `e` | in | constant term | — |
-| `x1` | out | first root (real roots ascending, then complex roots) | — |
-| `x2` | out | second root | — |
-| `x3` | out | third root | — |
-| `x4` | out | fourth root | — |
+| `a` | in | coefficient of x^4 | - |
+| `b` | in | coefficient of x^3 | - |
+| `c` | in | coefficient of x^2 | - |
+| `d` | in | coefficient of x | - |
+| `e` | in | constant term | - |
+| `x1` | out | first root (real roots ascending, then complex roots) | - |
+| `x2` | out | second root | - |
+| `x3` | out | third root | - |
+| `x4` | out | fourth root | - |
 
 **Applies when:** a != 0 (otherwise the equation is not quartic); real coefficients.
 
@@ -2656,7 +2616,7 @@ x4 = 2
 
 <a id="binomial_product"></a>
 
-#### Product of two binomials — `binomial_product`
+#### Product of two binomials: `binomial_product`
 
 Expand (a*x + b)*(c*x + d) into p2*x^2 + p1*x + p0.
 
@@ -2666,13 +2626,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x in the first binomial | — |
-| `b` | in | constant of the first binomial | — |
-| `c` | in | coefficient of x in the second binomial | — |
-| `d` | in | constant of the second binomial | — |
-| `p2` | out | coefficient of x^2 | — |
-| `p1` | out | coefficient of x | — |
-| `p0` | out | constant term | — |
+| `a` | in | coefficient of x in the first binomial | - |
+| `b` | in | constant of the first binomial | - |
+| `c` | in | coefficient of x in the second binomial | - |
+| `d` | in | constant of the second binomial | - |
+| `p2` | out | coefficient of x^2 | - |
+| `p1` | out | coefficient of x | - |
+| `p0` | out | constant term | - |
 
 ```shell
 $ math-foundations solve binomial_product a=1 b=2 c=1 d=3
@@ -2692,7 +2652,7 @@ p0 = 6
 
 <a id="binomial_coefficient_term"></a>
 
-#### Coefficient of a term in a binomial expansion — `binomial_coefficient_term`
+#### Coefficient of a term in a binomial expansion, `binomial_coefficient_term`
 
 The coefficient of x^k in (a*x + b)^n, by the binomial theorem.
 
@@ -2702,12 +2662,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x in the binomial | — |
-| `b` | in | constant of the binomial | — |
-| `n` | in | the power n | — |
-| `k` | in | the power of x whose coefficient is wanted | — |
-| `coefficient` | out | coefficient of x^k | — |
-| `binomial` | out | the binomial coefficient C(n, k) | — |
+| `a` | in | coefficient of x in the binomial | - |
+| `b` | in | constant of the binomial | - |
+| `n` | in | the power n | - |
+| `k` | in | the power of x whose coefficient is wanted | - |
+| `coefficient` | out | coefficient of x^k | - |
+| `binomial` | out | the binomial coefficient C(n, k) | - |
 
 **Applies when:** 0 <= n <= 60; k >= 0.
 
@@ -2725,7 +2685,7 @@ binomial = 10
 
 <a id="vector_dot_angle"></a>
 
-#### Dot product and angle between two vectors — `vector_dot_angle`
+#### Dot product and angle between two vectors: `vector_dot_angle`
 
 The dot product, the magnitudes and the angle between two vectors in the plane or in space.
 
@@ -2735,12 +2695,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `u` | in | the first vector, e.g. 3, 4 | — |
-| `v` | in | the second vector | — |
-| `dot` | out | u . v | — |
-| `mag_u` | out | \|u\| | — |
-| `mag_v` | out | \|v\| | — |
-| `angle_deg` | out | the angle between them, degrees (0 to 180) | — |
+| `u` | in | the first vector, e.g. 3, 4 | - |
+| `v` | in | the second vector | - |
+| `dot` | out | u . v | - |
+| `mag_u` | out | \|u\| | - |
+| `mag_v` | out | \|v\| | - |
+| `angle_deg` | out | the angle between them, degrees (0 to 180) | - |
 
 **Applies when:** same dimension (2 or 3); neither vector is zero.
 
@@ -2758,7 +2718,7 @@ angle_deg = 90
 
 <a id="ellipse_parameters"></a>
 
-#### Foci, axes and eccentricity of an ellipse — `ellipse_parameters`
+#### Foci, axes and eccentricity of an ellipse: `ellipse_parameters`
 
 For (x - h)^2/A + (y - k)^2/B = 1: semi-axes a and b, focal distance c, eccentricity and the two foci.
 
@@ -2768,19 +2728,19 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `h` | in | x of the centre | — |
-| `k` | in | y of the centre | — |
-| `A` | in | denominator under the x term (positive) | — |
-| `B` | in | denominator under the y term (positive) | — |
-| `a` | out | semi-major axis | — |
-| `b` | out | semi-minor axis | — |
-| `c` | out | centre-to-focus distance | — |
-| `eccentricity` | out | e = c/a | — |
-| `f1x` | out | first focus x | — |
-| `f1y` | out | first focus y | — |
-| `f2x` | out | second focus x | — |
-| `f2y` | out | second focus y | — |
-| `orientation` | out | the major axis is horizontal or vertical | — |
+| `h` | in | x of the centre | - |
+| `k` | in | y of the centre | - |
+| `A` | in | denominator under the x term (positive) | - |
+| `B` | in | denominator under the y term (positive) | - |
+| `a` | out | semi-major axis | - |
+| `b` | out | semi-minor axis | - |
+| `c` | out | centre-to-focus distance | - |
+| `eccentricity` | out | e = c/a | - |
+| `f1x` | out | first focus x | - |
+| `f1y` | out | first focus y | - |
+| `f2x` | out | second focus x | - |
+| `f2y` | out | second focus y | - |
+| `orientation` | out | the major axis is horizontal or vertical | - |
 
 **Applies when:** A, B > 0; A != B (otherwise a circle).
 
@@ -2807,7 +2767,7 @@ orientation = horizontal
 
 <a id="hyperbola_parameters"></a>
 
-#### Foci, eccentricity and asymptotes of a hyperbola — `hyperbola_parameters`
+#### Foci, eccentricity and asymptotes of a hyperbola, `hyperbola_parameters`
 
 For (x - h)^2/A - (y - k)^2/B = 1 (or the vertical form): a, b, c, eccentricity, the asymptotes' slope and the foci.
 
@@ -2817,20 +2777,20 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `h` | in | x of the centre | — |
-| `k` | in | y of the centre | — |
-| `A` | in | denominator of the positive term | — |
-| `B` | in | denominator of the negative term | — |
-| `orientation` | in | horizontal (x term positive) or vertical | — |
-| `a` | out | a = sqrt(A) | — |
-| `b` | out | b = sqrt(B) | — |
-| `c` | out | centre-to-focus distance | — |
-| `eccentricity` | out | e = c/a | — |
-| `asymptote_slope` | out | slope of the asymptotes (plus or minus this) | — |
-| `f1x` | out | first focus x | — |
-| `f1y` | out | first focus y | — |
-| `f2x` | out | second focus x | — |
-| `f2y` | out | second focus y | — |
+| `h` | in | x of the centre | - |
+| `k` | in | y of the centre | - |
+| `A` | in | denominator of the positive term | - |
+| `B` | in | denominator of the negative term | - |
+| `orientation` | in | horizontal (x term positive) or vertical | - |
+| `a` | out | a = sqrt(A) | - |
+| `b` | out | b = sqrt(B) | - |
+| `c` | out | centre-to-focus distance | - |
+| `eccentricity` | out | e = c/a | - |
+| `asymptote_slope` | out | slope of the asymptotes (plus or minus this) | - |
+| `f1x` | out | first focus x | - |
+| `f1y` | out | first focus y | - |
+| `f2x` | out | second focus x | - |
+| `f2y` | out | second focus y | - |
 
 **Applies when:** A, B > 0.
 
@@ -2858,7 +2818,7 @@ f2y = 0
 
 <a id="parabola_focus_directrix"></a>
 
-#### Focus and directrix of a parabola — `parabola_focus_directrix`
+#### Focus and directrix of a parabola: `parabola_focus_directrix`
 
 Vertex, focal distance p, focus and directrix of (x - h)^2 = 4p(y - k) or (y - k)^2 = 4p(x - h).
 
@@ -2868,16 +2828,16 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `orientation` | in | vertical axis ((x-h)^2 = m(y-k)) or horizontal | — |
-| `m` | in | the coefficient m = 4p | — |
-| `h` | in | x of the vertex (optional) | — |
-| `k` | in | y of the vertex (optional) | — |
-| `p` | out | focal distance p = m/4 (signed) | — |
-| `focus_x` | out | x of the focus | — |
-| `focus_y` | out | y of the focus | — |
-| `directrix` | out | the directrix: y = this (vertical axis) or x = this (horizontal axis) | — |
-| `vertex_x` | out | x of the vertex | — |
-| `vertex_y` | out | y of the vertex | — |
+| `orientation` | in | vertical axis ((x-h)^2 = m(y-k)) or horizontal | - |
+| `m` | in | the coefficient m = 4p | - |
+| `h` | in | x of the vertex (optional) | - |
+| `k` | in | y of the vertex (optional) | - |
+| `p` | out | focal distance p = m/4 (signed) | - |
+| `focus_x` | out | x of the focus | - |
+| `focus_y` | out | y of the focus | - |
+| `directrix` | out | the directrix: y = this (vertical axis) or x = this (horizontal axis) | - |
+| `vertex_x` | out | x of the vertex | - |
+| `vertex_y` | out | y of the vertex | - |
 
 **Applies when:** m != 0.
 
@@ -2901,7 +2861,7 @@ vertex_y = 0
 
 <a id="vector_magnitude_direction"></a>
 
-#### Magnitude and direction of a vector — `vector_magnitude_direction`
+#### Magnitude and direction of a vector: `vector_magnitude_direction`
 
 The length of the plane vector <x, y> and its direction angle from the positive x-axis (0 to 360 degrees).
 
@@ -2911,10 +2871,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | the x-component | — |
-| `y` | in | the y-component | — |
-| `magnitude` | out | \|v\| | — |
-| `direction_deg` | out | the direction angle, degrees in [0, 360) | — |
+| `x` | in | the x-component | - |
+| `y` | in | the y-component | - |
+| `magnitude` | out | \|v\| | - |
+| `direction_deg` | out | the direction angle, degrees in [0, 360) | - |
 
 **Applies when:** not the zero vector.
 
@@ -2932,7 +2892,7 @@ direction_deg = 126.8698976
 
 <a id="polar_to_rectangular"></a>
 
-#### Polar to rectangular coordinates — `polar_to_rectangular`
+#### Polar to rectangular coordinates: `polar_to_rectangular`
 
 The point (x, y) with polar coordinates (r, theta).
 
@@ -2942,11 +2902,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `r` | in | the distance r from the pole | — |
-| `theta` | in | the angle theta | — |
-| `unit` | in | degrees or radians | — |
-| `x` | out | x = r cos(theta) | — |
-| `y` | out | y = r sin(theta) | — |
+| `r` | in | the distance r from the pole | - |
+| `theta` | in | the angle theta | - |
+| `unit` | in | degrees or radians | - |
+| `x` | out | x = r cos(theta) | - |
+| `y` | out | y = r sin(theta) | - |
 
 **Applies when:** the angle's unit stated.
 
@@ -2965,7 +2925,7 @@ y = 3.464101615
 
 <a id="rectangular_to_polar"></a>
 
-#### Rectangular to polar coordinates — `rectangular_to_polar`
+#### Rectangular to polar coordinates: `rectangular_to_polar`
 
 Polar coordinates (r, theta) of the point (x, y), with r > 0 and theta in [0, 360) degrees / [0, 2 pi).
 
@@ -2975,11 +2935,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x` | in | x-coordinate | — |
-| `y` | in | y-coordinate | — |
-| `r` | out | r = sqrt(x^2 + y^2) | — |
-| `theta_deg` | out | theta in degrees, [0, 360) | — |
-| `theta_rad` | out | theta in radians, [0, 2 pi) | — |
+| `x` | in | x-coordinate | - |
+| `y` | in | y-coordinate | - |
+| `r` | out | r = sqrt(x^2 + y^2) | - |
+| `theta_deg` | out | theta in degrees, [0, 360) | - |
+| `theta_rad` | out | theta in radians, [0, 2 pi) | - |
 
 **Applies when:** not the origin.
 
@@ -3000,7 +2960,7 @@ theta_rad = 5.497787144
 
 <a id="vertex_form"></a>
 
-#### Vertex form of a quadratic function — `vertex_form`
+#### Vertex form of a quadratic function: `vertex_form`
 
 Write a*x^2 + b*x + c as a*(x - h)^2 + k, giving the vertex (h, k).
 
@@ -3010,11 +2970,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x^2 | — |
-| `b` | in | coefficient of x | — |
-| `c` | in | constant term | — |
-| `h` | out | x-coordinate of the vertex | — |
-| `k` | out | y-coordinate of the vertex | — |
+| `a` | in | coefficient of x^2 | - |
+| `b` | in | coefficient of x | - |
+| `c` | in | constant term | - |
+| `h` | out | x-coordinate of the vertex | - |
+| `k` | out | y-coordinate of the vertex | - |
 
 **Applies when:** a != 0.
 
@@ -3035,7 +2995,7 @@ k = -4
 
 <a id="add_rational_expressions_same_denom"></a>
 
-#### Add rational expressions with same denominator — `add_rational_expressions_same_denom`
+#### Add rational expressions with same denominator, `add_rational_expressions_same_denom`
 
 Add two rational expressions that share a common denominator.
 
@@ -3045,11 +3005,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `num1` | in | numerator of first expression | — |
-| `num2` | in | numerator of second expression | — |
-| `den` | in | common denominator | — |
-| `sum_num` | out | numerator of the sum | — |
-| `sum_den` | out | denominator of the sum | — |
+| `num1` | in | numerator of first expression | - |
+| `num2` | in | numerator of second expression | - |
+| `den` | in | common denominator | - |
+| `sum_num` | out | numerator of the sum | - |
+| `sum_den` | out | denominator of the sum | - |
 
 **Applies when:** den != 0.
 
@@ -3068,7 +3028,7 @@ sum_den = 6
 
 <a id="multiply_rational_expressions"></a>
 
-#### Multiply rational expressions — `multiply_rational_expressions`
+#### Multiply rational expressions: `multiply_rational_expressions`
 
 Compute the product of two rational expressions.
 
@@ -3078,12 +3038,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `num1` | in | numerator of first expression | — |
-| `den1` | in | denominator of first expression | — |
-| `num2` | in | numerator of second expression | — |
-| `den2` | in | denominator of second expression | — |
-| `prod_num` | out | numerator of the product | — |
-| `prod_den` | out | denominator of the product | — |
+| `num1` | in | numerator of first expression | - |
+| `den1` | in | denominator of first expression | - |
+| `num2` | in | numerator of second expression | - |
+| `den2` | in | denominator of second expression | - |
+| `prod_num` | out | numerator of the product | - |
+| `prod_den` | out | denominator of the product | - |
 
 **Applies when:** den1 != 0; den2 != 0.
 
@@ -3105,7 +3065,7 @@ prod_den = 21
 
 <a id="rational_function_asymptotes"></a>
 
-#### Asymptotes of a linear rational function — `rational_function_asymptotes`
+#### Asymptotes of a linear rational function: `rational_function_asymptotes`
 
 The vertical asymptote x = va and horizontal asymptote y = ha of f(x) = (a*x + b)/(c*x + d).
 
@@ -3115,12 +3075,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x in the numerator | — |
-| `b` | in | constant of the numerator | — |
-| `c` | in | coefficient of x in the denominator | — |
-| `d` | in | constant of the denominator | — |
-| `va` | out | vertical asymptote | — |
-| `ha` | out | horizontal asymptote | — |
+| `a` | in | coefficient of x in the numerator | - |
+| `b` | in | constant of the numerator | - |
+| `c` | in | coefficient of x in the denominator | - |
+| `d` | in | constant of the denominator | - |
+| `va` | out | vertical asymptote | - |
+| `ha` | out | horizontal asymptote | - |
 
 **Applies when:** c != 0; a*d - b*c != 0.
 
@@ -3142,7 +3102,7 @@ ha = 2
 
 <a id="perimeter_of_rectangle"></a>
 
-#### Perimeter of a rectangle — `perimeter_of_rectangle`
+#### Perimeter of a rectangle: `perimeter_of_rectangle`
 
 The perimeter p of a rectangle with width w and height h.
 
@@ -3152,9 +3112,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `w` | in | width | — |
-| `h` | in | height | — |
-| `p` | out | perimeter | — |
+| `w` | in | width | - |
+| `h` | in | height | - |
+| `p` | out | perimeter | - |
 
 **Applies when:** w >= 0; h >= 0.
 
@@ -3173,7 +3133,7 @@ p = 16
 
 <a id="geometric_sequence"></a>
 
-#### Term and partial sum of a geometric sequence — `geometric_sequence`
+#### Term and partial sum of a geometric sequence, `geometric_sequence`
 
 The n-th term and the sum of the first n terms of the geometric sequence with first term g1 and common ratio q (q != 1).
 
@@ -3183,11 +3143,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `g1` | in | first term | — |
-| `q` | in | common ratio | — |
-| `n` | in | position of the term | — |
-| `gn` | out | the n-th term | — |
-| `sn` | out | the sum of the first n terms | — |
+| `g1` | in | first term | - |
+| `q` | in | common ratio | - |
+| `n` | in | position of the term | - |
+| `gn` | out | the n-th term | - |
+| `sn` | out | the sum of the first n terms | - |
 
 **Applies when:** q != 1; n >= 1.
 
@@ -3206,7 +3166,7 @@ sn = 80
 
 <a id="arithmetic_sequence"></a>
 
-#### Term and partial sum of an arithmetic sequence — `arithmetic_sequence`
+#### Term and partial sum of an arithmetic sequence, `arithmetic_sequence`
 
 The n-th term and the sum of the first n terms of the arithmetic sequence with first term a1 and common difference d.
 
@@ -3216,11 +3176,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a1` | in | first term | — |
-| `d` | in | common difference | — |
-| `n` | in | position of the term (a positive whole number) | — |
-| `an` | out | the n-th term | — |
-| `sn` | out | the sum of the first n terms | — |
+| `a1` | in | first term | - |
+| `d` | in | common difference | - |
+| `n` | in | position of the term (a positive whole number) | - |
+| `an` | out | the n-th term | - |
+| `sn` | out | the sum of the first n terms | - |
 
 **Applies when:** n >= 1.
 
@@ -3241,7 +3201,7 @@ sn = 210
 
 <a id="linear_system_2x2"></a>
 
-#### Solution of two linear equations in two unknowns — `linear_system_2x2`
+#### Solution of two linear equations in two unknowns, `linear_system_2x2`
 
 Solve a*x + b*y = c and d*x + e*y = f for x and y.
 
@@ -3251,14 +3211,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | coefficient of x in the first equation | — |
-| `b` | in | coefficient of y in the first equation | — |
-| `c` | in | right-hand side of the first equation | — |
-| `d` | in | coefficient of x in the second equation | — |
-| `e` | in | coefficient of y in the second equation | — |
-| `f` | in | right-hand side of the second equation | — |
-| `x` | out | the value of x | — |
-| `y` | out | the value of y | — |
+| `a` | in | coefficient of x in the first equation | - |
+| `b` | in | coefficient of y in the first equation | - |
+| `c` | in | right-hand side of the first equation | - |
+| `d` | in | coefficient of x in the second equation | - |
+| `e` | in | coefficient of y in the second equation | - |
+| `f` | in | right-hand side of the second equation | - |
+| `x` | out | the value of x | - |
+| `y` | out | the value of y | - |
 
 **Applies when:** a*e - b*d != 0.
 
@@ -3282,7 +3242,7 @@ y = 4
 
 <a id="midpoint_of_segment"></a>
 
-#### Midpoint of a line segment — `midpoint_of_segment`
+#### Midpoint of a line segment: `midpoint_of_segment`
 
 The midpoint (mx, my) of the segment from (x1, y1) to (x2, y2).
 
@@ -3292,12 +3252,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `x1` | in | x-coordinate of the first endpoint | — |
-| `y1` | in | y-coordinate of the first endpoint | — |
-| `x2` | in | x-coordinate of the second endpoint | — |
-| `y2` | in | y-coordinate of the second endpoint | — |
-| `mx` | out | x-coordinate of the midpoint | — |
-| `my` | out | y-coordinate of the midpoint | — |
+| `x1` | in | x-coordinate of the first endpoint | - |
+| `y1` | in | y-coordinate of the first endpoint | - |
+| `x2` | in | x-coordinate of the second endpoint | - |
+| `y2` | in | y-coordinate of the second endpoint | - |
+| `mx` | out | x-coordinate of the midpoint | - |
+| `my` | out | y-coordinate of the midpoint | - |
 
 ```shell
 $ math-foundations solve midpoint_of_segment x1=-4 y1=2 x2=0 y2=6
@@ -3316,7 +3276,7 @@ my = 4
 
 <a id="heron_area"></a>
 
-#### Area of a triangle from its three sides (Heron) — `heron_area`
+#### Area of a triangle from its three sides (Heron), `heron_area`
 
 The area of a triangle with sides a, b, c, and its semi-perimeter s.
 
@@ -3326,11 +3286,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | side a | — |
-| `b` | in | side b | — |
-| `c` | in | side c | — |
-| `area` | out | the area | — |
-| `s` | out | the semi-perimeter (a + b + c)/2 | — |
+| `a` | in | side a | - |
+| `b` | in | side b | - |
+| `c` | in | side c | - |
+| `area` | out | the area | - |
+| `s` | out | the semi-perimeter (a + b + c)/2 | - |
 
 **Applies when:** positive sides; triangle inequality.
 
@@ -3349,7 +3309,7 @@ s = 21
 
 <a id="deg_to_rad"></a>
 
-#### Degrees to radians — `deg_to_rad`
+#### Degrees to radians: `deg_to_rad`
 
 Convert an angle in degrees to radians (also as a multiple of pi).
 
@@ -3359,10 +3319,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `deg` | in | the angle in degrees | — |
-| `radians` | out | the angle in radians | — |
-| `pi_multiple` | out | the angle as a multiple of pi | — |
-| `exact` | out | exact form, e.g. 3pi/4 | — |
+| `deg` | in | the angle in degrees | - |
+| `radians` | out | the angle in radians | - |
+| `pi_multiple` | out | the angle as a multiple of pi | - |
+| `exact` | out | exact form, e.g. 3pi/4 | - |
 
 **Applies when:** a finite angle.
 
@@ -3380,7 +3340,7 @@ exact = 3pi/4
 
 <a id="unit_circle_exact"></a>
 
-#### Exact trigonometric values on the unit circle — `unit_circle_exact`
+#### Exact trigonometric values on the unit circle, `unit_circle_exact`
 
 The exact sin, cos and tan of an angle that is a multiple of 30 or 45 degrees (pi/6, pi/4), with the reference angle.
 
@@ -3390,14 +3350,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `deg` | in | the angle in degrees (a multiple of 30 or 45) | — |
-| `sin` | out | sin of the angle | — |
-| `cos` | out | cos of the angle | — |
-| `tan` | out | tan of the angle (None where undefined) | — |
-| `sin_exact` | out | exact sin | — |
-| `cos_exact` | out | exact cos | — |
-| `tan_exact` | out | exact tan | — |
-| `reference_angle` | out | the reference angle, degrees | — |
+| `deg` | in | the angle in degrees (a multiple of 30 or 45) | - |
+| `sin` | out | sin of the angle | - |
+| `cos` | out | cos of the angle | - |
+| `tan` | out | tan of the angle (None where undefined) | - |
+| `sin_exact` | out | exact sin | - |
+| `cos_exact` | out | exact cos | - |
+| `tan_exact` | out | exact tan | - |
+| `reference_angle` | out | the reference angle, degrees | - |
 
 **Applies when:** a whole multiple of 30 or 45 degrees.
 
@@ -3419,7 +3379,7 @@ reference_angle = 30
 
 <a id="law_of_cosines_sss"></a>
 
-#### Law of cosines (three sides) — `law_of_cosines_sss`
+#### Law of cosines (three sides): `law_of_cosines_sss`
 
 Given the three sides a, b, c: the angles A, B, C.
 
@@ -3429,12 +3389,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | side a | — |
-| `b` | in | side b | — |
-| `c` | in | side c | — |
-| `A` | out | angle A, degrees | — |
-| `B` | out | angle B, degrees | — |
-| `C` | out | angle C, degrees | — |
+| `a` | in | side a | - |
+| `b` | in | side b | - |
+| `c` | in | side c | - |
+| `A` | out | angle A, degrees | - |
+| `B` | out | angle B, degrees | - |
+| `C` | out | angle C, degrees | - |
 
 **Applies when:** positive sides; triangle inequality (each side shorter than the sum of the other two).
 
@@ -3454,7 +3414,7 @@ C = 73.3984504
 
 <a id="law_of_cosines_sas"></a>
 
-#### Law of cosines (two sides and the included angle) — `law_of_cosines_sas`
+#### Law of cosines (two sides and the included angle), `law_of_cosines_sas`
 
 Given sides b and c and the included angle A: the third side a and the angles B and C.
 
@@ -3464,12 +3424,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `b` | in | side b | — |
-| `c` | in | side c | — |
-| `A` | in | the included angle A, degrees | — |
-| `a` | out | side a | — |
-| `B` | out | angle B, degrees | — |
-| `C` | out | angle C, degrees | — |
+| `b` | in | side b | - |
+| `c` | in | side c | - |
+| `A` | in | the included angle A, degrees | - |
+| `a` | out | side a | - |
+| `B` | out | angle B, degrees | - |
+| `C` | out | angle C, degrees | - |
 
 **Applies when:** b, c > 0; 0 < A < 180.
 
@@ -3489,7 +3449,7 @@ C = 85.58830613
 
 <a id="law_of_sines_aas"></a>
 
-#### Law of sines (two angles and a side) — `law_of_sines_aas`
+#### Law of sines (two angles and a side): `law_of_sines_aas`
 
 Given angles A and B and the side a opposite A: the third angle C and the sides b and c.
 
@@ -3499,12 +3459,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `A` | in | angle A, degrees | — |
-| `B` | in | angle B, degrees | — |
-| `a` | in | side a, opposite A | — |
-| `C` | out | angle C, degrees | — |
-| `b` | out | side b | — |
-| `c` | out | side c | — |
+| `A` | in | angle A, degrees | - |
+| `B` | in | angle B, degrees | - |
+| `a` | in | side a, opposite A | - |
+| `C` | out | angle C, degrees | - |
+| `b` | out | side b | - |
+| `c` | out | side c | - |
 
 **Applies when:** A, B > 0; A + B < 180; a > 0.
 
@@ -3524,7 +3484,7 @@ c = 15.32088886
 
 <a id="law_of_sines_ssa"></a>
 
-#### Law of sines, the ambiguous case (two sides and a non-included angle) — `law_of_sines_ssa`
+#### Law of sines, the ambiguous case (two sides and a non-included angle), `law_of_sines_ssa`
 
 Given sides a and b and the angle A opposite a: how many triangles exist (0, 1 or 2) and every one of them.
 
@@ -3534,16 +3494,16 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | side a, opposite A | — |
-| `b` | in | side b | — |
-| `A` | in | angle A, degrees | — |
-| `count` | out | number of triangles (1 or 2; none is refused) | — |
-| `B1` | out | angle B of the first triangle (the acute one) | — |
-| `C1` | out | angle C of the first triangle | — |
-| `c1` | out | side c of the first triangle | — |
-| `B2` | out | angle B of the second triangle (obtuse), when there are two | — |
-| `C2` | out | angle C of the second triangle | — |
-| `c2` | out | side c of the second triangle | — |
+| `a` | in | side a, opposite A | - |
+| `b` | in | side b | - |
+| `A` | in | angle A, degrees | - |
+| `count` | out | number of triangles (1 or 2; none is refused) | - |
+| `B1` | out | angle B of the first triangle (the acute one) | - |
+| `C1` | out | angle C of the first triangle | - |
+| `c1` | out | side c of the first triangle | - |
+| `B2` | out | angle B of the second triangle (obtuse), when there are two | - |
+| `C2` | out | angle C of the second triangle | - |
+| `c2` | out | side c of the second triangle | - |
 
 **Applies when:** a, b > 0; 0 < A < 180; a triangle exists (else refused).
 
@@ -3567,7 +3527,7 @@ c2 = 2.897839169
 
 <a id="rad_to_deg"></a>
 
-#### Radians to degrees — `rad_to_deg`
+#### Radians to degrees: `rad_to_deg`
 
 Convert an angle in radians (a number, or a multiple of pi such as 3pi/4) to degrees.
 
@@ -3577,8 +3537,8 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `rad` | in | the angle in radians | — |
-| `degrees` | out | the angle in degrees | — |
+| `rad` | in | the angle in radians | - |
+| `degrees` | out | the angle in degrees | - |
 
 **Applies when:** a finite angle.
 
@@ -3594,7 +3554,7 @@ degrees = 135
 
 <a id="right_triangle_leg_hypotenuse"></a>
 
-#### Right triangle from a leg and the hypotenuse — `right_triangle_leg_hypotenuse`
+#### Right triangle from a leg and the hypotenuse, `right_triangle_leg_hypotenuse`
 
 Given a leg a and the hypotenuse c of a right triangle: the other leg b and the acute angles A (opposite a) and B.
 
@@ -3604,11 +3564,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the known leg (positive) | — |
-| `c` | in | the hypotenuse (longer than the leg) | — |
-| `b` | out | the other leg | — |
-| `A` | out | angle opposite a, degrees | — |
-| `B` | out | angle opposite b, degrees | — |
+| `a` | in | the known leg (positive) | - |
+| `c` | in | the hypotenuse (longer than the leg) | - |
+| `b` | out | the other leg | - |
+| `A` | out | angle opposite a, degrees | - |
+| `B` | out | angle opposite b, degrees | - |
 
 **Applies when:** 0 < a < c.
 
@@ -3627,7 +3587,7 @@ B = 67.38013505
 
 <a id="right_triangle_angle_side"></a>
 
-#### Right triangle from an acute angle and a side — `right_triangle_angle_side`
+#### Right triangle from an acute angle and a side, `right_triangle_angle_side`
 
 Given an acute angle A and one side (the hypotenuse, the side opposite A or the side adjacent to A): every side and the other angle.
 
@@ -3637,13 +3597,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `A` | in | the acute angle A in degrees | — |
-| `side` | in | the length of the known side | — |
-| `which` | in | which side is known | — |
-| `opposite` | out | side opposite A | — |
-| `adjacent` | out | side adjacent to A | — |
-| `hypotenuse` | out | the hypotenuse | — |
-| `B` | out | the other acute angle, degrees | — |
+| `A` | in | the acute angle A in degrees | - |
+| `side` | in | the length of the known side | - |
+| `which` | in | which side is known | - |
+| `opposite` | out | side opposite A | - |
+| `adjacent` | out | side adjacent to A | - |
+| `hypotenuse` | out | the hypotenuse | - |
+| `B` | out | the other acute angle, degrees | - |
 
 **Applies when:** 0 < A < 90; side > 0.
 
@@ -3664,7 +3624,7 @@ B = 60
 
 <a id="right_triangle_legs"></a>
 
-#### Right triangle from its two legs — `right_triangle_legs`
+#### Right triangle from its two legs: `right_triangle_legs`
 
 Given the legs a and b of a right triangle: the hypotenuse c and the acute angles A (opposite a) and B.
 
@@ -3674,11 +3634,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `a` | in | the leg opposite angle A (positive) | — |
-| `b` | in | the leg opposite angle B (positive) | — |
-| `c` | out | the hypotenuse | — |
-| `A` | out | angle opposite a, degrees | — |
-| `B` | out | angle opposite b, degrees | — |
+| `a` | in | the leg opposite angle A (positive) | - |
+| `b` | in | the leg opposite angle B (positive) | - |
+| `c` | out | the hypotenuse | - |
+| `A` | out | angle opposite a, degrees | - |
+| `B` | out | angle opposite b, degrees | - |
 
 **Applies when:** a > 0; b > 0.
 
@@ -3697,7 +3657,7 @@ B = 53.13010235
 
 <a id="trig_equation_interval"></a>
 
-#### Solve a trigonometric equation over one full turn — `trig_equation_interval`
+#### Solve a trigonometric equation over one full turn, `trig_equation_interval`
 
 Every solution of a*sin(n x) = k (or cos, tan) with 0 <= x < 360 degrees or 0 <= x < 2 pi.
 
@@ -3707,12 +3667,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `func` | in | sin, cos or tan | — |
-| `k` | in | the value the function must take (after dividing by its coefficient) | — |
-| `n` | in | the multiple n in f(n x) (default 1) (optional) | — |
-| `unit` | in | degrees ([0, 360)) or radians ([0, 2pi)) (optional) | — |
-| `count` | out | number of solutions in the interval | — |
-| `solutions` | out | the solutions, ascending | — |
+| `func` | in | sin, cos or tan | - |
+| `k` | in | the value the function must take (after dividing by its coefficient) | - |
+| `n` | in | the multiple n in f(n x) (default 1) (optional) | - |
+| `unit` | in | degrees ([0, 360)) or radians ([0, 2pi)) (optional) | - |
+| `count` | out | number of solutions in the interval | - |
+| `solutions` | out | the solutions, ascending | - |
 
 **Applies when:** n a whole number from 1 to 12.
 
@@ -3731,7 +3691,7 @@ solutions = [30.000000000000004,150.0]
 
 <a id="trig_values_from_one"></a>
 
-#### Trigonometric values from one value and the quadrant — `trig_values_from_one`
+#### Trigonometric values from one value and the quadrant, `trig_values_from_one`
 
 Given sin, cos or tan of an angle and its quadrant: sin, cos, tan, sin 2t and cos 2t (Pythagorean and double-angle identities).
 
@@ -3741,14 +3701,14 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `func` | in | the function whose value is known | — |
-| `value` | in | its value | — |
-| `quadrant` | in | the quadrant of the angle (1 to 4) | — |
-| `sin` | out | sin t | — |
-| `cos` | out | cos t | — |
-| `tan` | out | tan t | — |
-| `sin2` | out | sin 2t | — |
-| `cos2` | out | cos 2t | — |
+| `func` | in | the function whose value is known | - |
+| `value` | in | its value | - |
+| `quadrant` | in | the quadrant of the angle (1 to 4) | - |
+| `sin` | out | sin t | - |
+| `cos` | out | cos t | - |
+| `tan` | out | tan t | - |
+| `sin2` | out | sin 2t | - |
+| `cos2` | out | cos 2t | - |
 
 **Applies when:** the value's sign agrees with the quadrant; 0 < |sin|, |cos| < 1.
 
@@ -3767,4 +3727,4 @@ cos2 = 0.28
 
 **What the worked example means:** This calculation derives the sine, cosine, tangent, and double-angle values for an angle based on a single known trigonometric function value and its quadrant. By applying the Pythagorean identity and sign conventions specific to the quadrant, the system computes the remaining fundamental ratios. The resulting value of -0.8 reflects the horizontal component consistent with the given information, while -0.75 represents the ratio of vertical to horizontal displacement. Double-angle results such as -0.96 are then generated using standard identities, ensuring all outputs align with the initial constraint that the magnitude of sine and cosine lies strictly between zero and one.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.

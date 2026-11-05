@@ -231,7 +231,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="quadratic_roots"></a>
 
-### Roots of a quadratic equation — `quadratic_roots`
+### Roots of a quadratic equation: `quadratic_roots`
 
 Solve $a x^{2} + b x + c = 0$ for x: both roots, real or complex.
 
@@ -299,7 +299,7 @@ math_foundations_ai999x.solve('quadratic_roots', a=1, b=-100000000.0, c=1)
 
 <a id="quadratic_discriminant"></a>
 
-### Discriminant of a quadratic — `quadratic_discriminant`
+### Discriminant of a quadratic: `quadratic_discriminant`
 
 The discriminant $b^{2} - 4ac$ of $a x^{2} + b x + c$ and the nature of the roots it implies.
 
@@ -324,7 +324,7 @@ $$
 
 ![two distinct real / one repeated real / two complex conjugate roots (nature) over a (coefficient of x^2) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-decision)
 
-*two distinct real / one repeated real / two complex conjugate roots (nature) over a (coefficient of x^2) from 0.1 to 10 and b (coefficient of x) from 0.4 to 40 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned — one repeated real root: 1 cells, two complex conjugate roots: 323 cells, two distinct real roots: 327 cells. Other inputs as in the worked example: c = 4. Marked: the worked example, a = 1, b = 4 → one repeated real root.*
+*two distinct real / one repeated real / two complex conjugate roots (nature) over a (coefficient of x^2) from 0.1 to 10 and b (coefficient of x) from 0.4 to 40 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, one repeated real root: 1 cells, two complex conjugate roots: 323 cells, two distinct real roots: 327 cells. Other inputs as in the worked example: c = 4. Marked: the worked example, a = 1, b = 4 → one repeated real root.*
 
 ![discriminant (b^2 - 4ac) against b (coefficient of x) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-curve)
 
@@ -354,7 +354,7 @@ math_foundations_ai999x.solve('quadratic_discriminant', a=1, b=1, c=1)
 
 <a id="counting_choices"></a>
 
-### Combinations and permutations — `counting_choices`
+### Combinations and permutations: `counting_choices`
 
 The number of ways to choose k items from n without order (combinations) and with order (permutations).
 
@@ -406,7 +406,7 @@ math_foundations_ai999x.solve('counting_choices', n=52, k=5)
 
 <a id="cubic_roots"></a>
 
-### Roots of a cubic equation — `cubic_roots`
+### Roots of a cubic equation: `cubic_roots`
 
 Solve $a x^{3} + b x^{2} + c x + d = 0$ for x: all three roots, real or complex.
 
@@ -467,7 +467,7 @@ math_foundations_ai999x.solve('cubic_roots', a=1, b=0, c=0, d=-1)
 
 <a id="quartic_roots"></a>
 
-### Roots of a quartic equation — `quartic_roots`
+### Roots of a quartic equation: `quartic_roots`
 
 Solve $a x^{4} + b x^{3} + c x^{2} + d x + e = 0$ for x: all four roots, real or complex.
 
@@ -524,7 +524,7 @@ math_foundations_ai999x.solve('quartic_roots', a=1, b=-10, c=35, d=-50, e=24)
 
 <a id="fraction_arithmetic"></a>
 
-### Arithmetic with fractions — `fraction_arithmetic`
+### Arithmetic with fractions: `fraction_arithmetic`
 
 Add, subtract, multiply or divide two fractions a/b and c/d; the result in lowest terms.
 
@@ -586,7 +586,7 @@ math_foundations_ai999x.solve('fraction_arithmetic', a=3, b=4, c=9, d=8, op='/')
 
 <a id="percent_of_number"></a>
 
-### Percent of a number — `percent_of_number`
+### Percent of a number: `percent_of_number`
 
 p% of x: the part that p per cent of x amounts to.
 
@@ -640,7 +640,7 @@ math_foundations_ai999x.solve('percent_of_number', p=150, x=40)
 
 <a id="percent_of_what"></a>
 
-### Whole from a part and its percentage — `percent_of_what`
+### Whole from a part and its percentage: `percent_of_what`
 
 The whole w of which `part` is p per cent (part is p% of what number?).
 
@@ -689,7 +689,7 @@ math_foundations_ai999x.solve('percent_of_what', part=26, p=40)
 
 <a id="what_percent"></a>
 
-### What percent one number is of another — `what_percent`
+### What percent one number is of another: `what_percent`
 
 The percentage p such that `part` is p% of `whole`.
 
@@ -738,7 +738,7 @@ math_foundations_ai999x.solve('what_percent', part=45, whole=60)
 
 <a id="percent_change"></a>
 
-### Percent change (increase or decrease) — `percent_change`
+### Percent change (increase or decrease): `percent_change`
 
 The percent change from an original value to a new value (negative for a decrease).
 
@@ -761,9 +761,9 @@ $$
 - **Assumes:** old > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned — decrease: 300 cells, increase: 351 cells](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-decision)
+![increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, decrease: 300 cells, increase: 351 cells](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-decision)
 
-*increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned — decrease: 300 cells, increase: 351 cells. Marked: the worked example, old = 80, new = 100 → increase.*
+*increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, decrease: 300 cells, increase: 351 cells. Marked: the worked example, old = 80, new = 100 → increase.*
 
 ![percent_change (percent change (negative = decrease)) against old (the original value (positive)) from 8 to 800 on a logarithmic axis](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-curve)
 
@@ -790,7 +790,7 @@ math_foundations_ai999x.solve('percent_change', old=50, new=40)
 
 <a id="ratio_split"></a>
 
-### Divide a quantity in a given ratio — `ratio_split`
+### Divide a quantity in a given ratio: `ratio_split`
 
 Share a total in the ratio a:b (or a:b:c).
 
@@ -839,7 +839,7 @@ math_foundations_ai999x.solve('ratio_split', total=900, a=2, b=3, c=4)
 
 <a id="proportion_solve"></a>
 
-### Solve a proportion — `proportion_solve`
+### Solve a proportion: `proportion_solve`
 
 Solve $n_{1}/d_{1} = n_{2}/d_{2}$ for the one unknown term x (in any of the four positions).
 
@@ -892,7 +892,7 @@ math_foundations_ai999x.solve('proportion_solve', p=5, q=2, r=7, position='first
 
 <a id="unit_rate_compare"></a>
 
-### Unit rates and the better buy — `unit_rate_compare`
+### Unit rates and the better buy: `unit_rate_compare`
 
 The unit rate (amount per one unit) of an offer, and of a second offer with which is cheaper per unit.
 
@@ -919,7 +919,7 @@ $$
 
 ![the offer with the lower amount per unit: first, second or equal (better) over n1 (quantity of the first offer (positive)) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-decision)
 
-*the offer with the lower amount per unit: first, second or equal (better) over n1 (quantity of the first offer (positive)) from 1.2 to 120 and c1 (amount (price, distance, ...) of the first offer) from 3 to 300 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned — first: 310 cells, second: 341 cells. Other inputs as in the worked example: n2 = 20, c2 = 45. Marked: the worked example, n1 = 12, c1 = 30 → second.*
+*the offer with the lower amount per unit: first, second or equal (better) over n1 (quantity of the first offer (positive)) from 1.2 to 120 and c1 (amount (price, distance, ...) of the first offer) from 3 to 300 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, first: 310 cells, second: 341 cells. Other inputs as in the worked example: n2 = 20, c2 = 45. Marked: the worked example, n1 = 12, c1 = 30 → second.*
 
 ![unit_rate_1 (amount per unit, first offer) against n1 (quantity of the first offer (positive)) from 6 to 18](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-curve)
 
@@ -946,7 +946,7 @@ math_foundations_ai999x.solve('unit_rate_compare', n1=6, c1=4.5)
 
 <a id="round_decimal_places"></a>
 
-### Round to decimal places — `round_decimal_places`
+### Round to decimal places: `round_decimal_places`
 
 Round a number to n decimal places (or to the nearest tenth, hundredth, ten, hundred ...), halves away from zero.
 
@@ -1006,7 +1006,7 @@ math_foundations_ai999x.solve('round_decimal_places', x=-0.5, n=0)
 
 <a id="round_significant_figures"></a>
 
-### Round to significant figures — `round_significant_figures`
+### Round to significant figures: `round_significant_figures`
 
 Round a nonzero number to n significant figures, halves away from zero.
 
@@ -1060,7 +1060,7 @@ math_foundations_ai999x.solve('round_significant_figures', x=9.996, n=3)
 
 <a id="scientific_notation"></a>
 
-### Scientific notation — `scientific_notation`
+### Scientific notation: `scientific_notation`
 
 Write a nonzero number as m × $10^{e}$ with 1 <= |m| < 10.
 
@@ -1110,7 +1110,7 @@ math_foundations_ai999x.solve('scientific_notation', x=-3.0)
 
 <a id="order_of_operations"></a>
 
-### Evaluate an arithmetic expression (order of operations) — `order_of_operations`
+### Evaluate an arithmetic expression (order of operations), `order_of_operations`
 
 The exact value of an arithmetic expression with + - * / ^ and parentheses, following the order of operations.
 
@@ -1167,7 +1167,7 @@ math_foundations_ai999x.solve('order_of_operations', expression='1/3 + 1/6')
 
 <a id="linear_system_3x3"></a>
 
-### System of three linear equations — `linear_system_3x3`
+### System of three linear equations: `linear_system_3x3`
 
 Solve three linear equations in x, y and z (a unique solution, or a refusal when there is none).
 
@@ -1213,7 +1213,7 @@ math_foundations_ai999x.solve('linear_system_3x3', augmented=[[2, 1, -1, 8], [-3
 
 <a id="abs_linear_inequality"></a>
 
-### Absolute value inequality |ax + b| compared with c — `abs_linear_inequality`
+### Absolute value inequality |ax + b| compared with c, `abs_linear_inequality`
 
 Solve |$a x + b$| < c, <= c, > c $or  \geq  c$ $(c > 0)$: the two boundary points and whether x lies between or outside them.
 
@@ -1263,7 +1263,7 @@ math_foundations_ai999x.solve('abs_linear_inequality', a=3, b=-1, c=5, rel='>=')
 
 <a id="rational_equation"></a>
 
-### Rational equation a/(x + b) = c/(x + d) — `rational_equation`
+### Rational equation a/(x + b) = c/(x + d), `rational_equation`
 
 Solve $a/(x + b) = c/(x + d)$ for x, rejecting a candidate that makes a denominator 0.
 
@@ -1311,7 +1311,7 @@ math_foundations_ai999x.solve('rational_equation', a=5, b=-2, c=3, d=6)
 
 <a id="radical_equation"></a>
 
-### Radical equation sqrt(ax + b) = cx + d — `radical_equation`
+### Radical equation sqrt(ax + b) = cx + d, `radical_equation`
 
 Solve sqrt(a*x + b) = c*x + d: square, solve, and keep only the roots that satisfy the original equation.
 
@@ -1366,7 +1366,7 @@ math_foundations_ai999x.solve('radical_equation', a=1, b=-1, c=1, d=-1)
 
 <a id="synthetic_division"></a>
 
-### Synthetic division and the remainder theorem — `synthetic_division`
+### Synthetic division and the remainder theorem, `synthetic_division`
 
 Divide a polynomial by x - r: the quotient's coefficients and the remainder, which equals p(r).
 
@@ -1421,7 +1421,7 @@ math_foundations_ai999x.solve('synthetic_division', coefficients=[2, 0, 3, -4], 
 
 <a id="polynomial_long_division"></a>
 
-### Polynomial long division — `polynomial_long_division`
+### Polynomial long division: `polynomial_long_division`
 
 Divide one polynomial by another: quotient and remainder, with $p = q d + r$ and deg r < deg d.
 
@@ -1467,7 +1467,7 @@ math_foundations_ai999x.solve('polynomial_long_division', dividend=[6, -5, 0, 4]
 
 <a id="factor_quadratic_integer"></a>
 
-### Factor a quadratic over the integers — `factor_quadratic_integer`
+### Factor a quadratic over the integers: `factor_quadratic_integer`
 
 Factor $a x^{2} + b x + c$ with whole-number coefficients as g(px + q)(rx + s), or say that it does not factor over the integers.
 
@@ -1524,7 +1524,7 @@ math_foundations_ai999x.solve('factor_quadratic_integer', a=2, b=0, c=-8)
 
 <a id="quadratic_inequality"></a>
 
-### Quadratic inequality — `quadratic_inequality`
+### Quadratic inequality: `quadratic_inequality`
 
 Solve $a x^{2} + b x + c < 0$ (or <=, >, >=) when the quadratic has two distinct real roots.
 
@@ -1580,7 +1580,7 @@ math_foundations_ai999x.solve('quadratic_inequality', a=-1, b=0, c=4, rel='>')
 
 <a id="infinite_geometric_series"></a>
 
-### Sum of an infinite geometric series — `infinite_geometric_series`
+### Sum of an infinite geometric series: `infinite_geometric_series`
 
 $a + a r + a r^{2} + ... = a/(1 - r)$ for |r| < 1 (a refusal when the series diverges).
 
@@ -1635,7 +1635,7 @@ math_foundations_ai999x.solve('infinite_geometric_series', a=9, r=-0.33333333333
 
 <a id="partial_fractions_linear"></a>
 
-### Partial fractions (two distinct linear factors) — `partial_fractions_linear`
+### Partial fractions (two distinct linear factors), `partial_fractions_linear`
 
 Write $(p x + q)$/($(x - r_{1})$$(x - r_{2})$) as $A/(x - r_{1}) + B/(x - r_{2})$.
 
@@ -1683,7 +1683,7 @@ math_foundations_ai999x.solve('partial_fractions_linear', p=3, q=5, r1=-1, r2=2)
 
 <a id="rational_roots"></a>
 
-### Rational roots of a polynomial (rational root theorem) — `rational_roots`
+### Rational roots of a polynomial (rational root theorem), `rational_roots`
 
 Every rational root of a polynomial with whole-number coefficients (degree up to 8).
 
@@ -1735,7 +1735,7 @@ math_foundations_ai999x.solve('rational_roots', coefficients=[1, 0, -2])
 
 <a id="evaluate_function"></a>
 
-### Evaluate a function at a number — `evaluate_function`
+### Evaluate a function at a number: `evaluate_function`
 
 The value f(x0) of a function given by a formula in x (exact when it is rational).
 
@@ -1793,7 +1793,7 @@ math_foundations_ai999x.solve('evaluate_function', expression='sqrt(x + 7)', x=2
 
 <a id="composite_function_value"></a>
 
-### Value of a composite function — `composite_function_value`
+### Value of a composite function: `composite_function_value`
 
 f(g(x0)) or g(f(x0)) for two functions given by formulas.
 
@@ -1842,7 +1842,7 @@ math_foundations_ai999x.solve('composite_function_value', f='3x + 2', g='x^2', x
 
 <a id="domain_sqrt_over_linear"></a>
 
-### Domain of a square-root function — `domain_sqrt_over_linear`
+### Domain of a square-root function: `domain_sqrt_over_linear`
 
 The domain of f(x) = sqrt(a*x + b)/(c*x + d) (or $1/sqrt$(a*x + b)): where the radicand is allowed and the denominator is not 0.
 
@@ -1899,7 +1899,7 @@ math_foundations_ai999x.solve('domain_sqrt_over_linear', a=-1, b=5, c=0, d=1, ro
 
 <a id="inverse_linear_function"></a>
 
-### Inverse of a linear function — `inverse_linear_function`
+### Inverse of a linear function: `inverse_linear_function`
 
 For f(x) = a*x + b $(a  \neq  0)$: $f^{-1}$(x) = x/a - b/a, and $f^{-1}$(y) for a given y.
 
@@ -1952,7 +1952,7 @@ math_foundations_ai999x.solve('inverse_linear_function', a=-2, b=5)
 
 <a id="piecewise_evaluate"></a>
 
-### Evaluate a piecewise function — `piecewise_evaluate`
+### Evaluate a piecewise function: `piecewise_evaluate`
 
 f(x0) for f(x) = e1 when $x < c$ (or x <= c) and e2 otherwise.
 
@@ -2006,7 +2006,7 @@ math_foundations_ai999x.solve('piecewise_evaluate', e1='3 - x', left_rel='<=', c
 
 <a id="graph_transformation_point"></a>
 
-### Image of a point under a graph transformation — `graph_transformation_point`
+### Image of a point under a graph transformation, `graph_transformation_point`
 
 If (x0, y0) is on $y = f$(x), the corresponding point on $y = A f$($B (x - h)$) + k.
 
@@ -2056,7 +2056,7 @@ math_foundations_ai999x.solve('graph_transformation_point', x0=-4, y0=6, A=-1, B
 
 <a id="line_intercepts"></a>
 
-### Intercepts and slope of a line — `line_intercepts`
+### Intercepts and slope of a line: `line_intercepts`
 
 The x- and y-intercepts and the slope of the line $a x + b y = c.$
 
@@ -2104,7 +2104,7 @@ math_foundations_ai999x.solve('line_intercepts', a=-2, b=1, c=-6)
 
 <a id="distance_point_to_line"></a>
 
-### Distance from a point to a line — `distance_point_to_line`
+### Distance from a point to a line: `distance_point_to_line`
 
 The perpendicular distance from (x0, y0) to the line $a x + b y + c = 0.$
 
@@ -2151,7 +2151,7 @@ math_foundations_ai999x.solve('distance_point_to_line', x0=0, y0=0, a=-2, b=1, c
 
 <a id="log_evaluate"></a>
 
-### Evaluate a logarithm — `log_evaluate`
+### Evaluate a logarithm: `log_evaluate`
 
 log_b(x) for a positive base $b  \neq  1$ and $x > 0$ (log is base 10, ln base e).
 
@@ -2214,7 +2214,7 @@ math_foundations_ai999x.solve('log_evaluate', b=2, x=0.125)
 
 <a id="log_laws_combine"></a>
 
-### Laws of logarithms (product, quotient, power) — `log_laws_combine`
+### Laws of logarithms (product, quotient, power), `log_laws_combine`
 
 Given log_b(M) = u and log_b(N) = v, the value of log_b(M^p * N^q) (quotients and roots included).
 
@@ -2261,7 +2261,7 @@ math_foundations_ai999x.solve('log_laws_combine', u=1.5, v=4, p=3, q=-1)
 
 <a id="continuous_growth"></a>
 
-### Continuous exponential growth or decay — `continuous_growth`
+### Continuous exponential growth or decay: `continuous_growth`
 
 N($t) = N_{0} e^(k$ t) for continuous growth $(k > 0)$ or decay $(k < 0)$, including continuous compounding.
 
@@ -2313,7 +2313,7 @@ math_foundations_ai999x.solve('continuous_growth', n0=200, k=-0.05, t=8)
 
 <a id="half_life_remaining"></a>
 
-### Amount remaining after radioactive decay (half-life) — `half_life_remaining`
+### Amount remaining after radioactive decay (half-life), `half_life_remaining`
 
 The amount left after time t of a substance with half-life T: $N_{0} (1/2)^{t/T}$.
 
@@ -2360,7 +2360,7 @@ math_foundations_ai999x.solve('half_life_remaining', n0=200, half_life=8, t=20)
 
 <a id="doubling_time_percent"></a>
 
-### Doubling time at a percentage growth rate — `doubling_time_percent`
+### Doubling time at a percentage growth rate: `doubling_time_percent`
 
 The time for a quantity growing by r% per period (compounded once per period) to double.
 
@@ -2404,7 +2404,7 @@ math_foundations_ai999x.solve('doubling_time_percent', r=100)
 
 <a id="exponential_equation_general"></a>
 
-### Exponential equation a*b^(cx + d) = k — `exponential_equation_general`
+### Exponential equation a*b^(cx + d) = k, `exponential_equation_general`
 
 Solve $a b^{c x + d} = k$ for x by taking logarithms.
 
@@ -2459,7 +2459,7 @@ math_foundations_ai999x.solve('exponential_equation_general', a=1, b=2, c=3, d=-
 
 <a id="log_equation_linear_argument"></a>
 
-### Logarithmic equation log_b(cx + d) = k — `log_equation_linear_argument`
+### Logarithmic equation log_b(cx + d) = k, `log_equation_linear_argument`
 
 Solve log_b(c*x + d) = k for x by rewriting it in exponential form.
 
@@ -2514,7 +2514,7 @@ math_foundations_ai999x.solve('log_equation_linear_argument', b=10, c=5, d=0, k=
 
 <a id="deg_to_rad"></a>
 
-### Degrees to radians — `deg_to_rad`
+### Degrees to radians: `deg_to_rad`
 
 Convert an angle in degrees to radians (also as a multiple of pi).
 
@@ -2565,7 +2565,7 @@ math_foundations_ai999x.solve('deg_to_rad', deg=-90)
 
 <a id="rad_to_deg"></a>
 
-### Radians to degrees — `rad_to_deg`
+### Radians to degrees: `rad_to_deg`
 
 Convert an angle in radians (a number, or a multiple of pi such as 3pi/4) to degrees.
 
@@ -2614,7 +2614,7 @@ math_foundations_ai999x.solve('rad_to_deg', rad=3.141592653589793)
 
 <a id="right_triangle_legs"></a>
 
-### Right triangle from its two legs — `right_triangle_legs`
+### Right triangle from its two legs: `right_triangle_legs`
 
 Given the legs a and b of a right triangle: the hypotenuse c and the acute angles A (opposite a) and B.
 
@@ -2670,7 +2670,7 @@ math_foundations_ai999x.solve('right_triangle_legs', a=1, b=1)
 
 <a id="right_triangle_leg_hypotenuse"></a>
 
-### Right triangle from a leg and the hypotenuse — `right_triangle_leg_hypotenuse`
+### Right triangle from a leg and the hypotenuse, `right_triangle_leg_hypotenuse`
 
 Given a leg a and the hypotenuse c of a right triangle: the other leg b and the acute angles A (opposite a) and B.
 
@@ -2721,7 +2721,7 @@ math_foundations_ai999x.solve('right_triangle_leg_hypotenuse', a=3, c=6)
 
 <a id="right_triangle_angle_side"></a>
 
-### Right triangle from an acute angle and a side — `right_triangle_angle_side`
+### Right triangle from an acute angle and a side, `right_triangle_angle_side`
 
 Given an acute angle A and one side (the hypotenuse, the side opposite A or the side adjacent to A): every side and the other angle.
 
@@ -2770,7 +2770,7 @@ math_foundations_ai999x.solve('right_triangle_angle_side', A=45, side=7, which='
 
 <a id="law_of_sines_aas"></a>
 
-### Law of sines (two angles and a side) — `law_of_sines_aas`
+### Law of sines (two angles and a side): `law_of_sines_aas`
 
 Given angles A and B and the side a opposite A: the third angle C and the sides b and c.
 
@@ -2818,7 +2818,7 @@ math_foundations_ai999x.solve('law_of_sines_aas', A=30, B=90, a=5)
 
 <a id="law_of_sines_ssa"></a>
 
-### Law of sines, the ambiguous case (two sides and a non-included angle) — `law_of_sines_ssa`
+### Law of sines, the ambiguous case (two sides and a non-included angle), `law_of_sines_ssa`
 
 Given sides a and b and the angle A opposite a: how many triangles exist (0, 1 or 2) and every one of them.
 
@@ -2875,7 +2875,7 @@ math_foundations_ai999x.solve('law_of_sines_ssa', a=5, b=10, A=30)
 
 <a id="law_of_cosines_sas"></a>
 
-### Law of cosines (two sides and the included angle) — `law_of_cosines_sas`
+### Law of cosines (two sides and the included angle), `law_of_cosines_sas`
 
 Given sides b and c and the included angle A: the third side a and the angles B and C.
 
@@ -2923,7 +2923,7 @@ math_foundations_ai999x.solve('law_of_cosines_sas', b=3, c=4, A=90)
 
 <a id="law_of_cosines_sss"></a>
 
-### Law of cosines (three sides) — `law_of_cosines_sss`
+### Law of cosines (three sides): `law_of_cosines_sss`
 
 Given the three sides a, b, c: the angles A, B, C.
 
@@ -2976,7 +2976,7 @@ math_foundations_ai999x.solve('law_of_cosines_sss', a=2, b=2, c=2)
 
 <a id="heron_area"></a>
 
-### Area of a triangle from its three sides (Heron) — `heron_area`
+### Area of a triangle from its three sides (Heron), `heron_area`
 
 The area of a triangle with sides a, b, c, and its semi-perimeter s.
 
@@ -3028,7 +3028,7 @@ math_foundations_ai999x.solve('heron_area', a=5, b=6, c=7)
 
 <a id="unit_circle_exact"></a>
 
-### Exact trigonometric values on the unit circle — `unit_circle_exact`
+### Exact trigonometric values on the unit circle, `unit_circle_exact`
 
 The exact sin, cos and tan of an angle that is a multiple of 30 or 45 degrees (pi/6, pi/4), with the reference angle.
 
@@ -3093,7 +3093,7 @@ math_foundations_ai999x.solve('unit_circle_exact', deg=-60)
 
 <a id="trig_equation_interval"></a>
 
-### Solve a trigonometric equation over one full turn — `trig_equation_interval`
+### Solve a trigonometric equation over one full turn, `trig_equation_interval`
 
 Every solution of $a sin$(n x) = k (or cos, tan) with $0  \leq  x < 360$ degrees or $0  \leq  x < 2$ pi.
 
@@ -3158,7 +3158,7 @@ math_foundations_ai999x.solve('trig_equation_interval', func='cos', k=2, n=1, un
 
 <a id="trig_values_from_one"></a>
 
-### Trigonometric values from one value and the quadrant — `trig_values_from_one`
+### Trigonometric values from one value and the quadrant, `trig_values_from_one`
 
 Given sin, cos or tan of an angle and its quadrant: sin, cos, tan, sin 2t and cos 2t (Pythagorean and double-angle identities).
 
@@ -3213,7 +3213,7 @@ math_foundations_ai999x.solve('trig_values_from_one', func='tan', value=-2, quad
 
 <a id="vector_dot_angle"></a>
 
-### Dot product and angle between two vectors — `vector_dot_angle`
+### Dot product and angle between two vectors: `vector_dot_angle`
 
 The dot product, the magnitudes and the angle between two vectors in the plane or in space.
 
@@ -3267,7 +3267,7 @@ math_foundations_ai999x.solve('vector_dot_angle', u=[1, 0], v=[1, 1])
 
 <a id="vector_magnitude_direction"></a>
 
-### Magnitude and direction of a vector — `vector_magnitude_direction`
+### Magnitude and direction of a vector: `vector_magnitude_direction`
 
 The length of the plane vector <x, y> and its direction angle from the positive x-axis (0 to 360 degrees).
 
@@ -3322,7 +3322,7 @@ math_foundations_ai999x.solve('vector_magnitude_direction', x=0, y=-2)
 
 <a id="polar_to_rectangular"></a>
 
-### Polar to rectangular coordinates — `polar_to_rectangular`
+### Polar to rectangular coordinates: `polar_to_rectangular`
 
 The point (x, y) with polar coordinates (r, theta).
 
@@ -3373,7 +3373,7 @@ math_foundations_ai999x.solve('polar_to_rectangular', r=2, theta=2.3561944901923
 
 <a id="rectangular_to_polar"></a>
 
-### Rectangular to polar coordinates — `rectangular_to_polar`
+### Rectangular to polar coordinates: `rectangular_to_polar`
 
 Polar coordinates (r, theta) of the point (x, y), with $r > 0$ and theta in [0, 360) degrees / [0, 2 pi).
 
@@ -3424,7 +3424,7 @@ math_foundations_ai999x.solve('rectangular_to_polar', x=-1, y=1)
 
 <a id="parabola_focus_directrix"></a>
 
-### Focus and directrix of a parabola — `parabola_focus_directrix`
+### Focus and directrix of a parabola: `parabola_focus_directrix`
 
 Vertex, focal distance p, focus and directrix of $(x - h)^{2} = 4p$(y - k) or $(y - k)^{2} = 4p$(x - h).
 
@@ -3482,7 +3482,7 @@ math_foundations_ai999x.solve('parabola_focus_directrix', orientation='vertical'
 
 <a id="ellipse_parameters"></a>
 
-### Foci, axes and eccentricity of an ellipse — `ellipse_parameters`
+### Foci, axes and eccentricity of an ellipse: `ellipse_parameters`
 
 For $(x - h)^{2}/A + (y - k)^{2}/B = 1$: semi-axes a and b, focal distance c, eccentricity and the two foci.
 
@@ -3519,7 +3519,7 @@ $$
 
 ![the major axis is horizontal or vertical (orientation) over A (denominator under the x term (positive)) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-decision)
 
-*the major axis is horizontal or vertical (orientation) over A (denominator under the x term (positive)) from 2.5 to 250 and B (denominator under the y term (positive)) from 0.9 to 90 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned — horizontal: 451 cells, vertical: 200 cells. Other inputs as in the worked example: h = 0, k = 0. Marked: the worked example, A = 25, B = 9 → horizontal.*
+*the major axis is horizontal or vertical (orientation) over A (denominator under the x term (positive)) from 2.5 to 250 and B (denominator under the y term (positive)) from 0.9 to 90 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, horizontal: 451 cells, vertical: 200 cells. Other inputs as in the worked example: h = 0, k = 0. Marked: the worked example, A = 25, B = 9 → horizontal.*
 
 ![c (centre-to-focus distance) against B (denominator under the y term (positive)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-curve)
 
@@ -3545,7 +3545,7 @@ math_foundations_ai999x.solve('ellipse_parameters', h=1, k=-2, A=16, B=25)
 
 <a id="hyperbola_parameters"></a>
 
-### Foci, eccentricity and asymptotes of a hyperbola — `hyperbola_parameters`
+### Foci, eccentricity and asymptotes of a hyperbola, `hyperbola_parameters`
 
 For $(x - h)^{2}/A - (y - k)^{2}/B = 1$ (or the vertical form): a, b, c, eccentricity, the asymptotes' slope and the foci.
 
@@ -3600,7 +3600,7 @@ math_foundations_ai999x.solve('hyperbola_parameters', h=-1, k=2, A=9, B=16, orie
 
 <a id="binomial_coefficient_term"></a>
 
-### Coefficient of a term in a binomial expansion — `binomial_coefficient_term`
+### Coefficient of a term in a binomial expansion, `binomial_coefficient_term`
 
 The coefficient of $x^{k}$ in $(a x + b)^{n}$, by the binomial theorem.
 
@@ -3654,7 +3654,7 @@ math_foundations_ai999x.solve('binomial_coefficient_term', a=-2, b=3, n=4, k=0)
 
 <a id="complex_arithmetic"></a>
 
-### Arithmetic with complex numbers — `complex_arithmetic`
+### Arithmetic with complex numbers: `complex_arithmetic`
 
 (a + bi) + - * / (c + di) in the form $re + im i.$
 
@@ -3710,7 +3710,7 @@ math_foundations_ai999x.solve('complex_arithmetic', a=2, b=-3, c=4, d=1, op='+')
 
 <a id="complex_modulus_argument"></a>
 
-### Modulus, argument and polar form of a complex number — `complex_modulus_argument`
+### Modulus, argument and polar form of a complex number, `complex_modulus_argument`
 
 |z| and the principal argument (-180, 180] degrees of $z = a + bi$, and z in polar form.
 
@@ -3773,7 +3773,7 @@ math_foundations_ai999x.solve('complex_modulus_argument', a=-2, b=0)
 
 <a id="de_moivre_power"></a>
 
-### Power of a complex number (De Moivre) — `de_moivre_power`
+### Power of a complex number (De Moivre): `de_moivre_power`
 
 $(a + bi)^{n}$ for a whole number n (|n| <= 40): real and imaginary parts, modulus and argument.
 
@@ -3832,7 +3832,7 @@ math_foundations_ai999x.solve('de_moivre_power', a=1, b=-1, n=-2)
 
 <a id="complex_nth_roots"></a>
 
-### The n-th roots of a complex number — `complex_nth_roots`
+### The n-th roots of a complex number: `complex_nth_roots`
 
 All n complex n-th roots of $z = a + bi$ (n from 2 to 12), ordered by argument from 0 to 360 degrees.
 
@@ -3856,9 +3856,9 @@ $$
 - **Assumes:** $z  \neq  0$; $2  \leq  n  \leq  12$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 5 complex roots of z⁵ = 0 + 8i returned by the package — -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-nth-roots-shape.svg)
+![The 5 complex roots of z⁵ = 0 + 8i returned by the package, -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-nth-roots-shape.svg)
 
-*The 5 complex roots of z⁵ = 0 + 8i returned by the package — -0.890916 − 1.22624i, 0.890916 − 1.22624i, 1.44153 + 0.468382i, 0 + 1.51572i, -1.44153 + 0.468382i — the vertices of a regular pentagon on the circle of radius 1.51572 (= 8^(1/5)).*
+*The 5 complex roots of z⁵ = 0 + 8i returned by the package (-0.890916 − 1.22624i, 0.890916 − 1.22624i, 1.44153 + 0.468382i, 0 + 1.51572i, -1.44153 + 0.468382i), the vertices of a regular pentagon on the circle of radius 1.51572 (= 8^(1/5)).*
 
 ![the roots, by argument in [0, 360) (roots) returned by math-foundations-ai999x for the worked example (a = 0, b = 8, n = 3), drawn in the complex plane: 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-complex)
 
@@ -3889,7 +3889,7 @@ math_foundations_ai999x.solve('complex_nth_roots', a=-16, b=0, n=4)
 
 <a id="abs_value_inequality_lower_bound"></a>
 
-### Solution set of |x - c| > d — `abs_value_inequality_lower_bound`
+### Solution set of |x - c| > d, `abs_value_inequality_lower_bound`
 
 For |x - c| > d with $d  \geq  0$, the solutions are x < left_limit or x > right_limit.
 
@@ -3938,7 +3938,7 @@ math_foundations_ai999x.solve('abs_value_inequality_lower_bound', c=5.0, d=0.0)
 
 <a id="abs_value_inequality_upper_bound"></a>
 
-### Solution interval of |x - c| < d — `abs_value_inequality_upper_bound`
+### Solution interval of |x - c| < d, `abs_value_inequality_upper_bound`
 
 For |x - c| < d with $d > 0$, the solutions are lower < x < upper.
 
@@ -3987,7 +3987,7 @@ math_foundations_ai999x.solve('abs_value_inequality_upper_bound', c=0.0, d=2.5)
 
 <a id="absolute_value_equation"></a>
 
-### Solutions of an absolute value equation — `absolute_value_equation`
+### Solutions of an absolute value equation: `absolute_value_equation`
 
 Solve |$a x + b$| = c for x (two solutions when $c > 0$, one when c = 0).
 
@@ -4033,7 +4033,7 @@ math_foundations_ai999x.solve('absolute_value_equation', a=1.0, b=3.0, c=0.0)
 
 <a id="add_rational_expressions_same_denom"></a>
 
-### Add rational expressions with same denominator — `add_rational_expressions_same_denom`
+### Add rational expressions with same denominator, `add_rational_expressions_same_denom`
 
 Add two rational expressions that share a common denominator.
 
@@ -4078,7 +4078,7 @@ math_foundations_ai999x.solve('add_rational_expressions_same_denom', den=4.0, nu
 
 <a id="arithmetic_sequence"></a>
 
-### Term and partial sum of an arithmetic sequence — `arithmetic_sequence`
+### Term and partial sum of an arithmetic sequence, `arithmetic_sequence`
 
 The n-th term and the sum of the first n terms of the arithmetic sequence with first term a1 and common difference d.
 
@@ -4124,7 +4124,7 @@ math_foundations_ai999x.solve('arithmetic_sequence', a1=100.0, d=-7.0, n=5.0)
 
 <a id="average_rate_of_change_definition"></a>
 
-### Average rate of change of a function between two inputs — `average_rate_of_change_definition`
+### Average rate of change of a function between two inputs, `average_rate_of_change_definition`
 
 (f(x_end) - f(x_start)) / (x_end - x_start) from two values of a function.
 
@@ -4170,7 +4170,7 @@ math_foundations_ai999x.solve('average_rate_of_change_definition', x_start=1.0, 
 
 <a id="average_rate_of_change_linear"></a>
 
-### Average rate of change between two points — `average_rate_of_change_linear`
+### Average rate of change between two points: `average_rate_of_change_linear`
 
 $(y_{2} - y_{1}) / (x_{2} - x_{1})$ between the points (x1, y1) and (x2, y2).
 
@@ -4216,7 +4216,7 @@ math_foundations_ai999x.solve('average_rate_of_change_linear', x1=0.0, y1=0.0, x
 
 <a id="binomial_product"></a>
 
-### Product of two binomials — `binomial_product`
+### Product of two binomials: `binomial_product`
 
 Expand $(a x + b) (c x + d)$ into $p_{2} x^{2} + p_{1} x + p_{0}.$
 
@@ -4264,7 +4264,7 @@ math_foundations_ai999x.solve('binomial_product', a=2.0, b=-1.0, c=3.0, d=4.0)
 
 <a id="circle_from_general_form"></a>
 
-### Centre and radius of a circle from its general equation — `circle_from_general_form`
+### Centre and radius of a circle from its general equation, `circle_from_general_form`
 
 For $x^{2} + y^{2} + D x + E y + F = 0$, the centre (h, k) and radius rad.
 
@@ -4311,7 +4311,7 @@ math_foundations_ai999x.solve('circle_from_general_form', dd=0.0, ee=0.0, ff=-25
 
 <a id="complex_product_modulus"></a>
 
-### Product and modulus of complex numbers — `complex_product_modulus`
+### Product and modulus of complex numbers: `complex_product_modulus`
 
 The product $(a + b i)$$(c + d i) = re + im i$ and the modulus of the product.
 
@@ -4358,7 +4358,7 @@ math_foundations_ai999x.solve('complex_product_modulus', a=2.0, b=-1.0, c=2.0, d
 
 <a id="compose_linear_functions"></a>
 
-### Composition of two linear functions — `compose_linear_functions`
+### Composition of two linear functions: `compose_linear_functions`
 
 For f(x) = a*x + b and g(x) = c*x + d, the composition f(g(x)) = $m x + k.$
 
@@ -4404,7 +4404,7 @@ math_foundations_ai999x.solve('compose_linear_functions', a=-1.0, b=5.0, c=2.0, 
 
 <a id="compound_interest"></a>
 
-### Compound interest — `compound_interest`
+### Compound interest: `compound_interest`
 
 The amount after t years when a principal is compounded n times a year at an annual rate r (a decimal).
 
@@ -4449,7 +4449,7 @@ math_foundations_ai999x.solve('compound_interest', principal=500.0, r=0.12, n=12
 
 <a id="convert_to_slope_intercept"></a>
 
-### y-intercept of a line from its slope and a point — `convert_to_slope_intercept`
+### y-intercept of a line from its slope and a point, `convert_to_slope_intercept`
 
 The constant b of $y = m x + b$ for the line with slope m through (x1, y1).
 
@@ -4494,7 +4494,7 @@ math_foundations_ai999x.solve('convert_to_slope_intercept', m=0.0, x1=5.0, y1=7.
 
 <a id="determinant_2x2_formula"></a>
 
-### Determinant of 2x2 matrix — `determinant_2x2_formula`
+### Determinant of 2x2 matrix: `determinant_2x2_formula`
 
 Computes the determinant of a 2x2 matrix using the standard formula.
 
@@ -4539,7 +4539,7 @@ math_foundations_ai999x.solve('determinant_2x2_formula', a=5.0, b=2.0, c=4.0, d=
 
 <a id="distance_between_points"></a>
 
-### Distance between two points — `distance_between_points`
+### Distance between two points: `distance_between_points`
 
 The distance between (x1, y1) and (x2, y2) in the plane.
 
@@ -4584,7 +4584,7 @@ math_foundations_ai999x.solve('distance_between_points', x1=-1.0, y1=2.0, x2=5.0
 
 <a id="doubling_time"></a>
 
-### Doubling time of exponential growth — `doubling_time`
+### Doubling time of exponential growth: `doubling_time`
 
 The time for a quantity growing as $N = N_{0} e^{k t}$ to double, for a growth constant $k > 0.$
 
@@ -4626,7 +4626,7 @@ math_foundations_ai999x.solve('doubling_time', k=0.1)
 
 <a id="exponential_equation"></a>
 
-### Solution of an exponential equation — `exponential_equation`
+### Solution of an exponential equation: `exponential_equation`
 
 Solve $b^{x} = y$ for x, with $b > 0$, $b  \neq  1$ and $y > 0.$
 
@@ -4670,7 +4670,7 @@ math_foundations_ai999x.solve('exponential_equation', b=10.0, y=0.001)
 
 <a id="factor_monic_quadratic"></a>
 
-### Factoring a monic quadratic — `factor_monic_quadratic`
+### Factoring a monic quadratic: `factor_monic_quadratic`
 
 Write $x^{2} + b x + c$ as $(x + p) (x + q)$ with real p and q.
 
@@ -4716,7 +4716,7 @@ math_foundations_ai999x.solve('factor_monic_quadratic', b=-1.0, c=-12.0)
 
 <a id="geometric_sequence"></a>
 
-### Term and partial sum of a geometric sequence — `geometric_sequence`
+### Term and partial sum of a geometric sequence, `geometric_sequence`
 
 The n-th term and the sum of the first n terms of the geometric sequence with first term g1 and common ratio q $(q  \neq  1)$.
 
@@ -4765,7 +4765,7 @@ math_foundations_ai999x.solve('geometric_sequence', g1=81.0, q=-0.33333333333333
 
 <a id="line_through_two_points"></a>
 
-### Line through two points — `line_through_two_points`
+### Line through two points: `line_through_two_points`
 
 The slope m and y-intercept k of the line through (x1, y1) and (x2, y2), in the form $y = m x + k.$
 
@@ -4812,7 +4812,7 @@ math_foundations_ai999x.solve('line_through_two_points', x1=-2.0, y1=5.0, x2=2.0
 
 <a id="linear_equation_root"></a>
 
-### Root of a linear equation — `linear_equation_root`
+### Root of a linear equation: `linear_equation_root`
 
 Solve $a x + b = c$ for x.
 
@@ -4865,7 +4865,7 @@ math_foundations_ai999x.solve('linear_equation_root', a=0.5, b=0.0, c=3.0)
 
 <a id="linear_inequality"></a>
 
-### Solution of a linear inequality — `linear_inequality`
+### Solution of a linear inequality: `linear_inequality`
 
 Solve $a x + b < c$ (or >): the boundary x0 and the direction s (s = 1 means the solution of the < form is $x < x_{0}$; $s = -1$ means it reverses to $x > x_{0}$ because a < 0).
 
@@ -4911,7 +4911,7 @@ math_foundations_ai999x.solve('linear_inequality', a=-3.0, b=4.0, c=10.0)
 
 <a id="linear_system_2x2"></a>
 
-### Solution of two linear equations in two unknowns — `linear_system_2x2`
+### Solution of two linear equations in two unknowns, `linear_system_2x2`
 
 Solve $a x + b y = c$ and $d x + e y = f$ for x and y.
 
@@ -4961,7 +4961,7 @@ math_foundations_ai999x.solve('linear_system_2x2', a=2.0, b=3.0, c=12.0, d=4.0, 
 
 <a id="logarithmic_equation"></a>
 
-### Solution of a basic logarithmic equation — `logarithmic_equation`
+### Solution of a basic logarithmic equation: `logarithmic_equation`
 
 Solve log_b(x) = c for x.
 
@@ -5009,7 +5009,7 @@ math_foundations_ai999x.solve('logarithmic_equation', b=10.0, c=-2.0)
 
 <a id="matrix_2x2_inverse"></a>
 
-### Determinant and inverse of a 2 by 2 matrix — `matrix_2x2_inverse`
+### Determinant and inverse of a 2 by 2 matrix, `matrix_2x2_inverse`
 
 For the matrix [[a, b], [c, d]], its determinant and the entries of its inverse.
 
@@ -5059,7 +5059,7 @@ math_foundations_ai999x.solve('matrix_2x2_inverse', a=4.0, b=7.0, c=2.0, d=6.0)
 
 <a id="matrix_scalar_multiple_definition"></a>
 
-### Matrix scalar multiple definition — `matrix_scalar_multiple_definition`
+### Matrix scalar multiple definition: `matrix_scalar_multiple_definition`
 
 Computes the entries of a 2x2 matrix scaled by a scalar.
 
@@ -5108,7 +5108,7 @@ math_foundations_ai999x.solve('matrix_scalar_multiple_definition', a11=0.0, a12=
 
 <a id="midpoint_of_segment"></a>
 
-### Midpoint of a line segment — `midpoint_of_segment`
+### Midpoint of a line segment: `midpoint_of_segment`
 
 The midpoint (mx, my) of the segment from (x1, y1) to (x2, y2).
 
@@ -5155,7 +5155,7 @@ math_foundations_ai999x.solve('midpoint_of_segment', x1=1.0, y1=1.0, x2=5.0, y2=
 
 <a id="multiply_rational_expressions"></a>
 
-### Multiply rational expressions — `multiply_rational_expressions`
+### Multiply rational expressions: `multiply_rational_expressions`
 
 Compute the product of two rational expressions.
 
@@ -5201,7 +5201,7 @@ math_foundations_ai999x.solve('multiply_rational_expressions', den1=2.0, den2=4.
 
 <a id="perimeter_of_rectangle"></a>
 
-### Perimeter of a rectangle — `perimeter_of_rectangle`
+### Perimeter of a rectangle: `perimeter_of_rectangle`
 
 The perimeter p of a rectangle with width w and height h.
 
@@ -5249,7 +5249,7 @@ math_foundations_ai999x.solve('perimeter_of_rectangle', w=2.5, h=4.0)
 
 <a id="perpendicular_lines_slope_product"></a>
 
-### Slope of a perpendicular line — `perpendicular_lines_slope_product`
+### Slope of a perpendicular line: `perpendicular_lines_slope_product`
 
 The slope m_perp of a line perpendicular to a line of nonzero slope m.
 
@@ -5292,7 +5292,7 @@ math_foundations_ai999x.solve('perpendicular_lines_slope_product', m=-0.5)
 
 <a id="rational_function_asymptotes"></a>
 
-### Asymptotes of a linear rational function — `rational_function_asymptotes`
+### Asymptotes of a linear rational function: `rational_function_asymptotes`
 
 The vertical asymptote $x = va$ and horizontal asymptote $y = ha$ of f(x) = (a*x + b)/(c*x + d).
 
@@ -5339,7 +5339,7 @@ math_foundations_ai999x.solve('rational_function_asymptotes', a=1.0, b=0.0, c=2.
 
 <a id="vertex_form"></a>
 
-### Vertex form of a quadratic function — `vertex_form`
+### Vertex form of a quadratic function: `vertex_form`
 
 Write $a x^{2} + b x + c$ as $a (x - h)^{2} + k$, giving the vertex (h, k).
 
