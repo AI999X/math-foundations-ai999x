@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["abs_linear_inequality", "abs_value_inequality_lower_bound", "abs_value_inequality_upper_bound", "absolute_value_equation", "add_rational_expressions_same_denom", "arithmetic_sequence", "average_rate_of_change_definition", "average_rate_of_change_linear", "binomial_coefficient_term", "binomial_product", "circle_from_general_form", "complex_arithmetic", "complex_modulus_argument", "complex_nth_roots", "complex_product_modulus", "compose_linear_functions", "composite_function_value", "compound_interest", "continuous_growth", "convert_to_slope_intercept", "counting_choices", "cubic_roots", "de_moivre_power", "deg_to_rad", "determinant_2x2_formula", "distance_between_points", "distance_point_to_line", "domain_sqrt_over_linear", "doubling_time", "doubling_time_percent", "ellipse_parameters", "evaluate_function", "exponential_equation", "exponential_equation_general", "factor_monic_quadratic", "factor_quadratic_integer", "fraction_arithmetic", "geometric_sequence", "graph_transformation_point", "half_life_remaining", "heron_area", "hyperbola_parameters", "infinite_geometric_series", "inverse_linear_function", "law_of_cosines_sas", "law_of_cosines_sss", "law_of_sines_aas", "law_of_sines_ssa", "line_intercepts", "line_through_two_points", "linear_equation_root", "linear_inequality", "linear_system_2x2", "linear_system_3x3", "log_equation_linear_argument", "log_evaluate", "log_laws_combine", "logarithmic_equation", "matrix_2x2_inverse", "matrix_scalar_multiple_definition", "midpoint_of_segment", "multiply_rational_expressions", "order_of_operations", "parabola_focus_directrix", "partial_fractions_linear", "percent_change", "percent_of_number", "percent_of_what", "perimeter_of_rectangle", "perpendicular_lines_slope_product", "piecewise_evaluate", "polar_to_rectangular", "polynomial_long_division", "proportion_solve", "quadratic_discriminant", "quadratic_inequality", "quadratic_roots", "quartic_roots", "rad_to_deg", "radical_equation", "ratio_split", "rational_equation", "rational_function_asymptotes", "rational_roots", "rectangular_to_polar", "right_triangle_angle_side", "right_triangle_leg_hypotenuse", "right_triangle_legs", "round_decimal_places", "round_significant_figures", "scientific_notation", "synthetic_division", "trig_equation_interval", "trig_values_from_one", "unit_circle_exact", "unit_rate_compare", "vector_dot_angle", "vector_magnitude_direction", "vertex_form", "what_percent"]
+CapabilityId = Literal["abs_linear_inequality", "abs_value_inequality_lower_bound", "abs_value_inequality_upper_bound", "absolute_value_equation", "add_rational_expressions_same_denom", "arithmetic_sequence", "average_rate_of_change_definition", "average_rate_of_change_linear", "binomial_coefficient_term", "binomial_product", "binomial_series", "circle_from_general_form", "complex_arithmetic", "complex_modulus_argument", "complex_nth_roots", "complex_product_modulus", "compose_linear_functions", "composite_function_value", "compound_interest", "continuous_growth", "convert_to_slope_intercept", "counting_choices", "cubic_roots", "de_moivre_power", "deg_to_rad", "determinant_2x2_formula", "distance_between_points", "distance_point_to_line", "domain_sqrt_over_linear", "doubling_time", "doubling_time_percent", "ellipse_parameters", "evaluate_function", "exponential_equation", "exponential_equation_general", "factor_monic_quadratic", "factor_quadratic_integer", "fraction_arithmetic", "geometric_sequence", "graph_transformation_point", "half_life_remaining", "heron_area", "hyperbola_parameters", "infinite_geometric_series", "inverse_linear_function", "law_of_cosines_sas", "law_of_cosines_sss", "law_of_sines_aas", "law_of_sines_ssa", "line_conic_intersection", "line_intercepts", "line_through_two_points", "linear_equation_root", "linear_inequality", "linear_system_2x2", "linear_system_3x3", "log_equation_linear_argument", "log_evaluate", "log_laws_combine", "logarithmic_equation", "matrix_2x2_inverse", "matrix_scalar_multiple_definition", "midpoint_of_segment", "multiply_rational_expressions", "order_of_operations", "parabola_focus_directrix", "partial_fractions_linear", "percent_change", "percent_of_number", "percent_of_what", "perimeter_of_rectangle", "perpendicular_lines_slope_product", "piecewise_evaluate", "polar_to_rectangular", "polynomial_long_division", "proportion_solve", "quadratic_discriminant", "quadratic_inequality", "quadratic_roots", "quartic_roots", "rad_to_deg", "radical_equation", "ratio_split", "rational_equation", "rational_function_analysis", "rational_function_asymptotes", "rational_roots", "rectangular_to_polar", "right_triangle_angle_side", "right_triangle_leg_hypotenuse", "right_triangle_legs", "round_decimal_places", "round_significant_figures", "scientific_notation", "synthetic_division", "trig_equation_interval", "trig_values_from_one", "two_conics_intersection", "unit_circle_exact", "unit_conversion", "unit_rate_compare", "variation", "vector_dot_angle", "vector_magnitude_direction", "vertex_form", "what_percent"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -162,6 +162,19 @@ def binomial_product(a=None, b=None, c=None, d=None):
     """
     given = {k: v for k, v in dict(a=a, b=b, c=c, d=d).items() if v is not None}
     return _P.solve("binomial_product", **given)
+
+def binomial_series(x=None, n=None, terms=None):
+    """Binomial series for any real power. The first terms of (1 + x)^n = 1 + n x + n(n-1)/2! x^2 + ... for any real n, the approximation they give, the exact value, the first omitted term (an estimate of the error) and the first-order percentage change 100 n x.
+    Formula: (1+x)^n = \\sum_{k\\ge 0}\\binom{n}{k}x^k = 1 + nx + \\frac{n(n-1)}{2!}x^2 + \\frac{n(n-1)(n-2)}{3!}x^3 + \\cdots,\\quad |x| < 1
+    Inputs:
+        x: x in (1 + x)^n
+        n: the power n (any real number)
+        terms: how many terms to add
+    Outputs: approx (the sum of the first terms), exact ((1 + x)^n, 12 significant digits), next_term (the first omitted term (error estimate)), percent_change_linear (the approximate percentage change 100 n x), term_values (the terms added, in order)
+    See also: help("binomial_series")
+    """
+    given = {k: v for k, v in dict(x=x, n=n, terms=terms).items() if v is not None}
+    return _P.solve("binomial_series", **given)
 
 def circle_from_general_form(dd=None, ee=None, ff=None):
     """Centre and radius of a circle from its general equation. For x^2 + y^2 + D*x + E*y + F = 0, the centre (h, k) and radius rad.
@@ -668,6 +681,18 @@ def law_of_sines_ssa(a=None, b=None, A=None):
     given = {k: v for k, v in dict(a=a, b=b, A=A).items() if v is not None}
     return _P.solve("law_of_sines_ssa", **given)
 
+def line_conic_intersection(line=None, conic=None):
+    """Intersection of a line and a conic (nonlinear system). All real solutions of the system a x + b y = c, A x^2 + B xy + C y^2 + D x + E y + F = 0: where a line meets a circle, ellipse, parabola or hyperbola (0, 1 or 2 points).
+    Formula: y = \\frac{c - ax}{b}\\ \\Rightarrow\\ (Ab^2 - Bab + Ca^2)\\,x^2 + (Bbc - 2Cac + Db^2 - Eab)\\,x + (Cc^2 + Ebc + Fb^2) = 0
+    Inputs:
+        line: a, b, c of the line a x + b y = c
+        conic: A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0
+    Outputs: count (the number of real intersection points), points (the intersection points (x, y), by x then y)
+    See also: help("line_conic_intersection")
+    """
+    given = {k: v for k, v in dict(line=line, conic=conic).items() if v is not None}
+    return _P.solve("line_conic_intersection", **given)
+
 def line_intercepts(a=None, b=None, c=None):
     """Intercepts and slope of a line. The x- and y-intercepts and the slope of the line a*x + b*y = c.
     Formula: ax + by = c:\\quad x_0 = \\frac{c}{a},\\ y_0 = \\frac{c}{b},\\ m = -\\frac{a}{b}
@@ -1117,6 +1142,18 @@ def rational_equation(a=None, b=None, c=None, d=None):
     given = {k: v for k, v in dict(a=a, b=b, c=c, d=d).items() if v is not None}
     return _P.solve("rational_equation", **given)
 
+def rational_function_analysis(numerator=None, denominator=None):
+    """Analysis of a rational function (domain, intercepts, holes, asymptotes). For f(x) = N(x)/D(x) with whole-number coefficients (degrees up to 3): the excluded x-values, the holes (removable discontinuities, with their y-values), the vertical asymptotes, the x- and y-intercepts, and the horizontal or slant asymptote.
+    Formula: f(x) = \\frac{N(x)}{D(x)},\\quad y = \\frac{a_n}{b_n}\\ (\\deg N = \\deg D),\\quad y = mx + b = \\text{quotient of } N \\div D\\ (\\deg N = \\deg D + 1)
+    Inputs:
+        numerator: coefficients of N(x), highest power first, e.g. 1, 0, -4 for x^2 - 4
+        denominator: coefficients of D(x), highest power first
+    Outputs: vertical_count (the number of vertical asymptotes), excluded (the x-values excluded from the domain), holes (the holes (x, y)), vertical_asymptotes (the vertical asymptotes x = a), x_intercepts (the x-intercepts), y_intercept (the y-intercept (none when 0 is excluded)), horizontal_asymptote (the horizontal asymptote y = h (none if there is none)), slant_asymptote (the slant asymptote y = m x + b as (m, b) (none if there is none))
+    See also: help("rational_function_analysis")
+    """
+    given = {k: v for k, v in dict(numerator=numerator, denominator=denominator).items() if v is not None}
+    return _P.solve("rational_function_analysis", **given)
+
 def rational_function_asymptotes(a=None, b=None, c=None, d=None):
     """Asymptotes of a linear rational function. The vertical asymptote x = va and horizontal asymptote y = ha of f(x) = (a*x + b)/(c*x + d).
     Formula: c v_{a} + d = 0,\\quad c h_{a} = a
@@ -1265,6 +1302,18 @@ def trig_values_from_one(func=None, value=None, quadrant=None):
     given = {k: v for k, v in dict(func=func, value=value, quadrant=quadrant).items() if v is not None}
     return _P.solve("trig_values_from_one", **given)
 
+def two_conics_intersection(first=None, second=None):
+    """Intersection of two conics (nonlinear system). All real solutions of two second-degree equations without an xy term, when elimination reduces them to one quadratic: two circles (or any two conics whose x^2 and y^2 parts are proportional), or systems in which x (or y) appears only squared, such as x^2 + y^2 = 25 and x^2 - y^2 = 7, or a circle and the parabola y = x^2 - 3.
+    Formula: A_2\\,(\\text{eq}_1) - A_1\\,(\\text{eq}_2):\\ (A_2C_1 - A_1C_2)\\,y^2 + (A_2E_1 - A_1E_2)\\,y + (A_2F_1 - A_1F_2) = 0
+    Inputs:
+        first: A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0 (first equation)
+        second: A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0 (second equation)
+    Outputs: count (the number of real intersection points), points (the intersection points (x, y), by x then y)
+    See also: help("two_conics_intersection")
+    """
+    given = {k: v for k, v in dict(first=first, second=second).items() if v is not None}
+    return _P.solve("two_conics_intersection", **given)
+
 def unit_circle_exact(deg=None):
     """Exact trigonometric values on the unit circle. The exact sin, cos and tan of an angle that is a multiple of 30 or 45 degrees (pi/6, pi/4), with the reference angle.
     Formula: \\sin 30^\\circ = \\tfrac12,\\ \\sin 45^\\circ = \\tfrac{\\sqrt2}{2},\\ \\sin 60^\\circ = \\tfrac{\\sqrt3}{2}
@@ -1275,6 +1324,19 @@ def unit_circle_exact(deg=None):
     """
     given = {k: v for k, v in dict(deg=deg).items() if v is not None}
     return _P.solve("unit_circle_exact", **given)
+
+def unit_conversion(value=None, from_unit=None, to_unit=None):
+    """Unit conversion (metric prefixes, customary units, temperature scales). A length, mass, volume, time or temperature written in another unit: metric prefixes (mm to km, mg to kg, mL to kL), metric and US customary units (inch, foot, yard, mile; ounce, pound, short ton; fluid ounce, cup, pint, quart, gallon), and the Celsius, Fahrenheit and Kelvin scales.
+    Formula: v_{\\text{new}} = v\\cdot\\frac{[\\text{old unit}]}{[\\text{new unit}]},\\qquad F = \\tfrac{9}{5}C + 32,\\quad K = C + 273.15
+    Inputs:
+        value: the amount to convert, in the first unit
+        from_unit: the unit the value is written in
+        to_unit: the unit wanted
+    Outputs: converted (the value in the wanted unit)
+    See also: help("unit_conversion")
+    """
+    given = {k: v for k, v in dict(value=value, from_unit=from_unit, to_unit=to_unit).items() if v is not None}
+    return _P.solve("unit_conversion", **given)
 
 def unit_rate_compare(n1=None, c1=None, n2=None, c2=None):
     """Unit rates and the better buy. The unit rate (amount per one unit) of an offer, and of a second offer with which is cheaper per unit.
@@ -1289,6 +1351,22 @@ def unit_rate_compare(n1=None, c1=None, n2=None, c2=None):
     """
     given = {k: v for k, v in dict(n1=n1, c1=c1, n2=n2, c2=c2).items() if v is not None}
     return _P.solve("unit_rate_compare", **given)
+
+def variation(variation_type=None, x1=None, y1=None, x2=None, z1=None, z2=None):
+    """Direct, inverse, joint and combined variation. The constant of variation k from one known case, and the new value of y: y = kx (direct), y = k/x (inverse), y = kx^2, y = k/x^2, y = kxz (joint) or y = kx/z (combined).
+    Formula: y = kx,\\quad y = \\frac{k}{x},\\quad y = kxz,\\quad y = \\frac{kx}{z},\\qquad k = \\frac{y_1}{f(x_1, z_1)}
+    Inputs:
+        variation_type: the kind of variation
+        x1: x in the known case (condition: x1 != 0)
+        y1: y in the known case
+        x2: x in the new case
+        z1: z in the known case (joint and combined variation) (optional)
+        z2: z in the new case (joint and combined variation) (optional)
+    Outputs: k (the constant of variation), y2 (y in the new case)
+    See also: help("variation")
+    """
+    given = {k: v for k, v in dict(variation_type=variation_type, x1=x1, y1=y1, x2=x2, z1=z1, z2=z2).items() if v is not None}
+    return _P.solve("variation", **given)
 
 def vector_dot_angle(u=None, v=None):
     """Dot product and angle between two vectors. The dot product, the magnitudes and the angle between two vectors in the plane or in space.
@@ -1340,4 +1418,4 @@ def what_percent(part=None, whole=None):
     return _P.solve("what_percent", **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "abs_linear_inequality", "abs_value_inequality_lower_bound", "abs_value_inequality_upper_bound", "absolute_value_equation", "add_rational_expressions_same_denom", "arithmetic_sequence", "average_rate_of_change_definition", "average_rate_of_change_linear", "binomial_coefficient_term", "binomial_product", "circle_from_general_form", "complex_arithmetic", "complex_modulus_argument", "complex_nth_roots", "complex_product_modulus", "compose_linear_functions", "composite_function_value", "compound_interest", "continuous_growth", "convert_to_slope_intercept", "counting_choices", "cubic_roots", "de_moivre_power", "deg_to_rad", "determinant_2x2_formula", "distance_between_points", "distance_point_to_line", "domain_sqrt_over_linear", "doubling_time", "doubling_time_percent", "ellipse_parameters", "evaluate_function", "exponential_equation", "exponential_equation_general", "factor_monic_quadratic", "factor_quadratic_integer", "fraction_arithmetic", "geometric_sequence", "graph_transformation_point", "half_life_remaining", "heron_area", "hyperbola_parameters", "infinite_geometric_series", "inverse_linear_function", "law_of_cosines_sas", "law_of_cosines_sss", "law_of_sines_aas", "law_of_sines_ssa", "line_intercepts", "line_through_two_points", "linear_equation_root", "linear_inequality", "linear_system_2x2", "linear_system_3x3", "log_equation_linear_argument", "log_evaluate", "log_laws_combine", "logarithmic_equation", "matrix_2x2_inverse", "matrix_scalar_multiple_definition", "midpoint_of_segment", "multiply_rational_expressions", "order_of_operations", "parabola_focus_directrix", "partial_fractions_linear", "percent_change", "percent_of_number", "percent_of_what", "perimeter_of_rectangle", "perpendicular_lines_slope_product", "piecewise_evaluate", "polar_to_rectangular", "polynomial_long_division", "proportion_solve", "quadratic_discriminant", "quadratic_inequality", "quadratic_roots", "quartic_roots", "rad_to_deg", "radical_equation", "ratio_split", "rational_equation", "rational_function_asymptotes", "rational_roots", "rectangular_to_polar", "right_triangle_angle_side", "right_triangle_leg_hypotenuse", "right_triangle_legs", "round_decimal_places", "round_significant_figures", "scientific_notation", "synthetic_division", "trig_equation_interval", "trig_values_from_one", "unit_circle_exact", "unit_rate_compare", "vector_dot_angle", "vector_magnitude_direction", "vertex_form", "what_percent"]
+__all__ = ["CapabilityId", "solve", "help", "abs_linear_inequality", "abs_value_inequality_lower_bound", "abs_value_inequality_upper_bound", "absolute_value_equation", "add_rational_expressions_same_denom", "arithmetic_sequence", "average_rate_of_change_definition", "average_rate_of_change_linear", "binomial_coefficient_term", "binomial_product", "binomial_series", "circle_from_general_form", "complex_arithmetic", "complex_modulus_argument", "complex_nth_roots", "complex_product_modulus", "compose_linear_functions", "composite_function_value", "compound_interest", "continuous_growth", "convert_to_slope_intercept", "counting_choices", "cubic_roots", "de_moivre_power", "deg_to_rad", "determinant_2x2_formula", "distance_between_points", "distance_point_to_line", "domain_sqrt_over_linear", "doubling_time", "doubling_time_percent", "ellipse_parameters", "evaluate_function", "exponential_equation", "exponential_equation_general", "factor_monic_quadratic", "factor_quadratic_integer", "fraction_arithmetic", "geometric_sequence", "graph_transformation_point", "half_life_remaining", "heron_area", "hyperbola_parameters", "infinite_geometric_series", "inverse_linear_function", "law_of_cosines_sas", "law_of_cosines_sss", "law_of_sines_aas", "law_of_sines_ssa", "line_conic_intersection", "line_intercepts", "line_through_two_points", "linear_equation_root", "linear_inequality", "linear_system_2x2", "linear_system_3x3", "log_equation_linear_argument", "log_evaluate", "log_laws_combine", "logarithmic_equation", "matrix_2x2_inverse", "matrix_scalar_multiple_definition", "midpoint_of_segment", "multiply_rational_expressions", "order_of_operations", "parabola_focus_directrix", "partial_fractions_linear", "percent_change", "percent_of_number", "percent_of_what", "perimeter_of_rectangle", "perpendicular_lines_slope_product", "piecewise_evaluate", "polar_to_rectangular", "polynomial_long_division", "proportion_solve", "quadratic_discriminant", "quadratic_inequality", "quadratic_roots", "quartic_roots", "rad_to_deg", "radical_equation", "ratio_split", "rational_equation", "rational_function_analysis", "rational_function_asymptotes", "rational_roots", "rectangular_to_polar", "right_triangle_angle_side", "right_triangle_leg_hypotenuse", "right_triangle_legs", "round_decimal_places", "round_significant_figures", "scientific_notation", "synthetic_division", "trig_equation_interval", "trig_values_from_one", "two_conics_intersection", "unit_circle_exact", "unit_conversion", "unit_rate_compare", "variation", "vector_dot_angle", "vector_magnitude_direction", "vertex_form", "what_percent"]

@@ -4,11 +4,11 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/math-foundations-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/math-foundations-ai999x/)** · **[Guides](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/math-foundations-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.6.0
 
 Field: **Mathematics & Statistics** · Tasks: Question Answering
 
-math-foundations-ai999x is an offline, deterministic math foundations solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers math foundations questions with verified results from 119 certified capabilities, gives 625 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+math-foundations-ai999x is an offline, deterministic math foundations solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers math foundations questions with verified results from 125 certified capabilities, gives 681 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
 **math-foundations-ai999x** reads a question in plain English (or a typed call), picks a certified math foundations capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
@@ -20,13 +20,13 @@ math-foundations-ai999x is an offline, deterministic math foundations solver wri
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Math Foundations desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
-| **Command line** (`math-foundations`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X Math Foundations desktop app** 1.6.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.6.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz) |
+| **Command line** (`math-foundations`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install math-foundations-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Math Foundations** for your system (above), unpack it and star
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
-./ai999x-math-foundations-1.5.0-linux-x86_64/ai999x-math-foundations
+tar xzf ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz
+./ai999x-math-foundations-1.6.0-linux-x86_64/ai999x-math-foundations
 ```
 
 ### Command line
@@ -49,23 +49,23 @@ tar xzf ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 math-foundations --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 math-foundations --version
 ```
@@ -276,7 +276,7 @@ _What this means:_ This calculation performs polynomial long division on the inp
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified math foundations capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 625 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 681 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
 - **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `math-foundations` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
@@ -287,11 +287,11 @@ _What this means:_ This calculation performs polynomial long division on the inp
 
 | Property | Value |
 |---|---|
-| Package | `math-foundations-ai999x` 1.5.0 (import `math_foundations_ai999x`) |
+| Package | `math-foundations-ai999x` 1.6.0 (import `math_foundations_ai999x`) |
 | Type | Deterministic neuro-symbolic math foundations engine (rule-based reading + certified symbolic capabilities) |
-| Capabilities | 19 certified derivations, 100 certified procedures |
+| Capabilities | 19 certified derivations, 106 certified procedures |
 | Knowledge pack | version 1.0.2 |
-| Golden answers | 625 documented answers, identical on every tested platform |
+| Golden answers | 681 documented answers, identical on every tested platform |
 | Platforms tested | Windows (Python 3.13), Linux x86-64 (Python 3.10, 3.11, 3.12, 3.13, 3.14) |
 | Runtime | CPU only, offline; no GPU, no network, no API key |
 | License | Apache-2.0 |
@@ -321,7 +321,7 @@ math_foundations.ask("Who created you?").message
 # -> math-foundations-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `math-foundations-ai999x "<question>"`; for the native program use `math-foundations` (above). The outputs above were produced by running this exact code on math-foundations-ai999x 1.5.0.
+The Python package also installs a Python command, `math-foundations-ai999x "<question>"`; for the native program use `math-foundations` (above). The outputs above were produced by running this exact code on math-foundations-ai999x 1.6.0.
 
 ## How every answer is verified
 
@@ -450,10 +450,10 @@ _The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and th
 
 ## Capabilities
 
-19 certified derivations, 100 certified procedures. A few of them:
+19 certified derivations, 106 certified procedures. A few of them:
 
 - **Derivations:** area of rectangle; associative property of addition; cramer rule x solution; determinant cramer two variables; difference of cubes factorization; difference of squares; distributive property verification; elimination method identity; elimination solution two variables; linear equation solution formula; partial fraction decomposition linear factors; perfect square trinomial; product of sums; quadratic vertex form conversion; radical equation squaring; square of difference; substitution method identity; substitution solution two variables; sum of cubes factorization
-- **Procedures:** Absolute value inequality |ax + b| compared with c; Add rational expressions with same denominator; Amount remaining after radioactive decay (half-life); Area of a triangle from its three sides (Heron); Arithmetic with complex numbers; Arithmetic with fractions; Asymptotes of a linear rational function; Average rate of change between two points; Average rate of change of a function between two inputs; Centre and radius of a circle from its general equation; Coefficient of a term in a binomial expansion; Combinations and permutations; Composition of two linear functions; Compound interest; Continuous exponential growth or decay; Degrees to radians; Determinant and inverse of a 2 by 2 matrix; Determinant of 2x2 matrix; Discriminant of a quadratic; Distance between two points; Distance from a point to a line; Divide a quantity in a given ratio; Domain of a square-root function; Dot product and angle between two vectors …
+- **Procedures:** Absolute value inequality |ax + b| compared with c; Add rational expressions with same denominator; Amount remaining after radioactive decay (half-life); Analysis of a rational function (domain, intercepts, holes, asymptotes); Area of a triangle from its three sides (Heron); Arithmetic with complex numbers; Arithmetic with fractions; Asymptotes of a linear rational function; Average rate of change between two points; Average rate of change of a function between two inputs; Binomial series for any real power; Centre and radius of a circle from its general equation; Coefficient of a term in a binomial expansion; Combinations and permutations; Composition of two linear functions; Compound interest; Continuous exponential growth or decay; Degrees to radians; Determinant and inverse of a 2 by 2 matrix; Determinant of 2x2 matrix; Direct, inverse, joint and combined variation; Discriminant of a quadratic; Distance between two points; Distance from a point to a line …
 
 `math_foundations_ai999x.templates()` lists every question form `ask()` reads; the capability guide (PDF, every example executed) is included in this repository.
 
@@ -472,10 +472,10 @@ _The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and th
 ## Citation
 
 ```bibtex
-@software{math_foundations_ai999x_1_5_0,
+@software{math_foundations_ai999x_1_6_0,
   title  = {math-foundations-ai999x: an offline, verified math foundations solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.5.0},
+  year   = {2026}, version = {1.6.0},
   url    = {https://huggingface.co/AI999X/math-foundations-ai999x}
 }
 ```
@@ -492,7 +492,7 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/math-foundations-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/math-foundations-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/math-foundations-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.0`; the [GitHub release](https://github.com/AI999X/math-foundations-ai999x/releases/tag/v1.6.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 

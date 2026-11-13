@@ -5182,3 +5182,1409 @@ _register(
     questions=[{"q": "Find the cube roots of 8i.", "outputs": {"modulus": 2.0, "count": 3.0}}, {"q": "Find all the fourth roots of -16.", "outputs": {"modulus": 2.0}},
                {"q": "Find the square roots of 9.", "outputs": {"roots": [complex(3, 0), complex(-3, 0)]}},
                {"q": "Find the cube roots of 0.", "outcome": "INVALID_INPUT"}])
+
+
+# =====================================================================================================================
+# CORE GAPS (2026-11-12): unit conversion, variation, nonlinear systems, general rational functions and the binomial
+# series. `run` and `verify` (and the helpers they call) use plain arithmetic and `math` only, so they translate to
+# Rust; libraries appear only in the references. Conventions: intersection points are listed by x, then y, ascending;
+# a count of solutions that would depend on rounding (a tangency, or a leading coefficient that vanishes, within 1e-12
+# of the size of the terms) is refused, never guessed; US customary units are the avoirdupois pound (0.45359237 kg)
+# and ounce (1/16 lb), the short ton (2000 lb), the US gallon (231 cubic inches = 3.785411784 L) with its quart (1/4),
+# pint (1/8), cup (1/16) and fluid ounce (1/128); temperatures convert between Celsius, Fahrenheit and Kelvin.
+# =====================================================================================================================
+_CG_BAND = 1e-12
+
+
+def _cg_finite(v, name):
+    if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
+        raise ValueError(name + " must be a finite number")
+
+
+def _cg_sorted(values):
+    """A copy of a list of numbers, ascending (a plain exchange sort: the lists here have at most a few entries)."""
+    out = []
+    for v in values:
+        out.append(v)
+    n = len(out)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if out[j] > out[j + 1]:
+                t = out[j]
+                out[j] = out[j + 1]
+                out[j + 1] = t
+    return out
+
+
+def _cg_sorted_points(pts):
+    """A copy of a list of points [x, y], by x and then y, ascending."""
+    out = []
+    for p in pts:
+        out.append(p)
+    n = len(out)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if out[j][0] > out[j + 1][0] or (out[j][0] == out[j + 1][0] and out[j][1] > out[j + 1][1]):
+                t = out[j]
+                out[j] = out[j + 1]
+                out[j + 1] = t
+    return out
+
+
+# --- unit conversion --------------------------------------------------------------------------------------------------
+_CG_UNITS = {
+    "mm": ["length", 0.001], "cm": ["length", 0.01], "dm": ["length", 0.1], "m": ["length", 1.0], "dam": ["length", 10.0],
+    "hm": ["length", 100.0], "km": ["length", 1000.0], "in": ["length", 0.0254], "ft": ["length", 0.3048],
+    "yd": ["length", 0.9144], "mi": ["length", 1609.344],
+    "mg": ["mass", 1e-06], "cg": ["mass", 1e-05], "dg": ["mass", 0.0001], "g": ["mass", 0.001], "dag": ["mass", 0.01],
+    "hg": ["mass", 0.1], "kg": ["mass", 1.0], "t": ["mass", 1000.0], "oz": ["mass", 0.028349523125],
+    "lb": ["mass", 0.45359237], "ton": ["mass", 907.18474],
+    "ml": ["volume", 0.001], "cl": ["volume", 0.01], "dl": ["volume", 0.1], "l": ["volume", 1.0], "dal": ["volume", 10.0],
+    "hl": ["volume", 100.0], "kl": ["volume", 1000.0], "fl oz": ["volume", 0.0295735295625], "cup": ["volume", 0.2365882365],
+    "pt": ["volume", 0.473176473], "qt": ["volume", 0.946352946], "gal": ["volume", 3.785411784],
+    "s": ["time", 1.0], "min": ["time", 60.0], "h": ["time", 3600.0], "day": ["time", 86400.0], "week": ["time", 604800.0],
+    "celsius": ["temperature", 1.0], "fahrenheit": ["temperature", 1.0], "kelvin": ["temperature", 1.0],
+}
+_CG_UNIT_KEYS = list(_CG_UNITS)
+_CG_UNIT_WORDS = {
+    "mm": ["mm", "millimeter", "millimeters", "millimetre", "millimetres"],
+    "cm": ["cm", "centimeter", "centimeters", "centimetre", "centimetres"],
+    "dm": ["dm", "decimeter", "decimeters", "decimetre", "decimetres"],
+    "m": ["m", "meter", "meters", "metre", "metres"],
+    "dam": ["dam", "decameter", "decameters", "dekameter", "dekameters", "decametre", "decametres"],
+    "hm": ["hm", "hectometer", "hectometers", "hectometre", "hectometres"],
+    "km": ["km", "kilometer", "kilometers", "kilometre", "kilometres"],
+    "in": ["in", "inch", "inches"], "ft": ["ft", "foot", "feet"], "yd": ["yd", "yard", "yards"], "mi": ["mi", "mile", "miles"],
+    "mg": ["mg", "milligram", "milligrams"], "cg": ["cg", "centigram", "centigrams"], "dg": ["dg", "decigram", "decigrams"],
+    "g": ["g", "gram", "grams"], "dag": ["dag", "decagram", "decagrams", "dekagram", "dekagrams"],
+    "hg": ["hg", "hectogram", "hectograms"], "kg": ["kg", "kilogram", "kilograms"],
+    "t": ["tonne", "tonnes", "metric ton", "metric tons"], "oz": ["oz", "ounce", "ounces"],
+    "lb": ["lb", "lbs", "pound", "pounds"], "ton": ["ton", "tons", "short ton", "short tons"],
+    "ml": ["ml", "milliliter", "milliliters", "millilitre", "millilitres"],
+    "cl": ["cl", "centiliter", "centiliters", "centilitre", "centilitres"],
+    "dl": ["dl", "deciliter", "deciliters", "decilitre", "decilitres"],
+    "l": ["l", "liter", "liters", "litre", "litres"],
+    "dal": ["dal", "decaliter", "decaliters", "decalitre", "decalitres"],
+    "hl": ["hl", "hectoliter", "hectoliters", "hectolitre", "hectolitres"],
+    "kl": ["kl", "kiloliter", "kiloliters", "kilolitre", "kilolitres"],
+    "fl oz": ["fl oz", "fluid ounce", "fluid ounces"], "cup": ["cup", "cups"], "pt": ["pt", "pint", "pints"],
+    "qt": ["qt", "quart", "quarts"], "gal": ["gal", "gallon", "gallons"],
+    "s": ["s", "sec", "second", "seconds"], "min": ["min", "minute", "minutes"], "h": ["h", "hr", "hour", "hours"],
+    "day": ["day", "days"], "week": ["week", "weeks"],
+    "celsius": ["c", "celsius", "centigrade"], "fahrenheit": ["f", "fahrenheit"], "kelvin": ["k", "kelvin", "kelvins"],
+}
+_CG_UNIT_ALIAS = {}
+for _cg_key, _cg_words in _CG_UNIT_WORDS.items():
+    for _cg_word in _cg_words:
+        _CG_UNIT_ALIAS[_cg_word] = _cg_key
+_CG_UNIT_RX = "|".join(re.escape(w) for w in sorted(_CG_UNIT_ALIAS, key=len, reverse=True))
+
+
+def _cg_temperature(v, frm, to):
+    """A temperature in one scale written in another (exact affine maps)."""
+    if frm == to:
+        return v
+    if frm == "celsius" and to == "fahrenheit":
+        return v * 9.0 / 5.0 + 32.0
+    if frm == "fahrenheit" and to == "celsius":
+        return (v - 32.0) * 5.0 / 9.0
+    if frm == "celsius" and to == "kelvin":
+        return v + 273.15
+    if frm == "kelvin" and to == "celsius":
+        return v - 273.15
+    if frm == "fahrenheit" and to == "kelvin":
+        return (v - 32.0) * 5.0 / 9.0 + 273.15
+    return (v - 273.15) * 9.0 / 5.0 + 32.0
+
+
+def unit_conversion(value, from_unit, to_unit) -> dict:
+    _cg_finite(value, "value")
+    if from_unit not in _CG_UNITS or to_unit not in _CG_UNITS:
+        raise ValueError("unknown unit")
+    d1 = _CG_UNITS[from_unit][0]
+    d2 = _CG_UNITS[to_unit][0]
+    if d1 != d2:
+        raise ValueError("a " + d1 + " in " + from_unit + " cannot be converted to " + to_unit + ", a unit of " + d2)
+    if d1 == "temperature":
+        if _cg_temperature(value, from_unit, "kelvin") < -1e-9:
+            raise ValueError("the temperature is below absolute zero")
+        return {"converted": _cg_temperature(value, from_unit, to_unit) + 0.0}
+    if value < 0:
+        raise ValueError("a length, mass, volume or time to convert is not negative")
+    return {"converted": value * _CG_UNITS[from_unit][1] / _CG_UNITS[to_unit][1] + 0.0}
+
+
+def _verify_unit_conversion(i, o):
+    frm, to = i["from_unit"], i["to_unit"]
+    v, c = i["value"], o["converted"]
+    if _CG_UNITS[frm][0] == "temperature":
+        k1 = _cg_temperature(v, frm, "kelvin")
+        k2 = _cg_temperature(c, to, "kelvin")
+        return abs(k1 - k2) / max(1.0, abs(k1))
+    a = v * _CG_UNITS[frm][1]
+    b = c * _CG_UNITS[to][1]
+    return abs(a - b) / max(abs(a), abs(b), 1e-300)
+
+
+def _ref_unit_conversion(value, from_unit, to_unit):
+    from scipy import constants as k
+    names = {"celsius": "Celsius", "fahrenheit": "Fahrenheit", "kelvin": "Kelvin"}
+    if from_unit in names:
+        return {"converted": float(k.convert_temperature(value, names[from_unit], names[to_unit]))}
+    si = {"mm": k.milli, "cm": k.centi, "dm": k.deci, "m": 1.0, "dam": k.deka, "hm": k.hecto, "km": k.kilo,
+          "in": k.inch, "ft": k.foot, "yd": k.yard, "mi": k.mile,
+          "mg": k.milli * k.gram, "cg": k.centi * k.gram, "dg": k.deci * k.gram, "g": k.gram, "dag": k.deka * k.gram,
+          "hg": k.hecto * k.gram, "kg": k.kilo * k.gram, "t": k.metric_ton, "oz": k.ounce, "lb": k.pound, "ton": k.short_ton,
+          "ml": k.milli * k.liter, "cl": k.centi * k.liter, "dl": k.deci * k.liter, "l": k.liter, "dal": k.deka * k.liter,
+          "hl": k.hecto * k.liter, "kl": k.kilo * k.liter, "fl oz": k.fluid_ounce_US, "cup": k.gallon_US / 16,
+          "pt": k.gallon_US / 8, "qt": k.gallon_US / 4, "gal": k.gallon_US,
+          "s": 1.0, "min": k.minute, "h": k.hour, "day": k.day, "week": k.week}
+    return {"converted": float(value * si[from_unit] / si[to_unit])}
+
+
+def _wrong_unit_conversion(value, from_unit, to_unit):
+    """Two classic slips: dividing by the conversion factor instead of multiplying, and dropping a scale's offset."""
+    if _CG_UNITS[from_unit][0] != "temperature":
+        return {"converted": value * _CG_UNITS[to_unit][1] / _CG_UNITS[from_unit][1]}
+    if from_unit == "celsius" and to_unit == "fahrenheit":
+        return {"converted": value * 9.0 / 5.0}
+    if from_unit == "fahrenheit" and to_unit == "celsius":
+        return {"converted": value * 5.0 / 9.0}
+    if from_unit == "fahrenheit" and to_unit == "kelvin":
+        return {"converted": (value - 32.0) * 5.0 / 9.0}
+    if from_unit == "kelvin" and to_unit == "fahrenheit":
+        return {"converted": value * 9.0 / 5.0 + 32.0}
+    return {"converted": value}                                     # kelvin and celsius taken as the same number
+
+
+def _rand_unit_conversion(rng):
+    dim = rng.choice(["length", "length", "mass", "mass", "volume", "volume", "time", "temperature"])
+    keys = [u for u in _CG_UNIT_KEYS if _CG_UNITS[u][0] == dim]
+    a, b = rng.sample(keys, 2)
+    if dim == "temperature":
+        lo, hi = {"celsius": (-50.0, 150.0), "fahrenheit": (-40.0, 300.0), "kelvin": (200.0, 500.0)}[a]
+        return {"value": round(rng.uniform(lo, hi), 2), "from_unit": a, "to_unit": b}
+    return {"value": round(rng.uniform(0.1, 500.0), 2), "from_unit": a, "to_unit": b}
+
+
+def _parse_unit_conversion(question):
+    if not isinstance(question, str):
+        return None
+    q = _clean(question).lower()
+    q = re.sub(r"\bdegrees?\s*(?=(?:c|f|k|celsius|fahrenheit|centigrade|kelvin)\b)", "", q)
+    q = re.sub(r"\s+", " ", q).strip()
+    u = "(?:" + _CG_UNIT_RX + ")"
+    forms = [r"convert (?P<v>" + _W + r") (?P<u1>" + u + r") (?:to|into) (?P<u2>" + u + r")" + _E,
+             r"how many (?P<u2>" + u + r") (?:are )?(?:there )?in (?P<v>" + _W + r") (?P<u1>" + u + r")" + _E,
+             r"express (?P<v>" + _W + r") (?P<u1>" + u + r") in (?P<u2>" + u + r")" + _E]
+    for f in forms:
+        m = re.fullmatch(f, q)
+        if m:
+            return {"value": float(m.group("v")), "from_unit": _CG_UNIT_ALIAS[m.group("u1")], "to_unit": _CG_UNIT_ALIAS[m.group("u2")]}
+    return None
+
+
+_register(
+    "unit_conversion", name="Unit conversion (metric prefixes, customary units, temperature scales)",
+    topic="measurement / unit conversion",
+    purpose="A length, mass, volume, time or temperature written in another unit: metric prefixes (mm to km, mg to kg, mL to kL), "
+            "metric and US customary units (inch, foot, yard, mile; ounce, pound, short ton; fluid ounce, cup, pint, quart, gallon), "
+            "and the Celsius, Fahrenheit and Kelvin scales.",
+    inputs=[_num_in("value", "the amount to convert, in the first unit"),
+            {"symbol": "from_unit", "type": "choice", "choices": _CG_UNIT_KEYS, "kind": "text", "required": True, "meaning": "the unit the value is written in"},
+            {"symbol": "to_unit", "type": "choice", "choices": _CG_UNIT_KEYS, "kind": "text", "required": True, "meaning": "the unit wanted"}],
+    outputs=[_out("converted", "the value in the wanted unit")], primary="converted",
+    conditions=["both units measure the same kind of quantity", "a length, mass, volume or time is not negative",
+                "a temperature is not below absolute zero"],
+    method="multiply by the size of the first unit and divide by the size of the second (both in a base unit: m, kg, L, s); "
+           "temperatures by the affine maps F = 9C/5 + 32 and K = C + 273.15",
+    latex=r"v_{\text{new}} = v\cdot\frac{[\text{old unit}]}{[\text{new unit}]},\qquad F = \tfrac{9}{5}C + 32,\quad K = C + 273.15",
+    run=unit_conversion, verify=_verify_unit_conversion, reference=_ref_unit_conversion, wrong=_wrong_unit_conversion,
+    random_inputs=_rand_unit_conversion, parse=_parse_unit_conversion,
+    templates=["Convert 5 km to m.", "How many inches are in 3 feet?", "Convert 98.6 degrees F to degrees C.", "Express 2 gallons in liters."],
+    examples=[{"inputs": {"value": 5, "from_unit": "km", "to_unit": "m"}, "outputs": {"converted": 5000.0}},
+              {"inputs": {"value": 3, "from_unit": "ft", "to_unit": "in"}, "outputs": {"converted": 36.0}},
+              {"inputs": {"value": 98.6, "from_unit": "fahrenheit", "to_unit": "celsius"}, "outputs": {"converted": 37.0}},
+              {"inputs": {"value": 10, "from_unit": "lb", "to_unit": "kg"}, "outputs": {"converted": 4.5359237}},
+              {"inputs": {"value": 25, "from_unit": "celsius", "to_unit": "kelvin"}, "outputs": {"converted": 298.15}}],
+    questions=[{"q": "Convert 5 km to m.", "outputs": {"converted": 5000.0}},
+               {"q": "How many inches are in 3 feet?", "outputs": {"converted": 36.0}},
+               {"q": "Convert 98.6 degrees F to degrees C.", "outputs": {"converted": 37.0}},
+               {"q": "Express 2 gallons in liters.", "outputs": {"converted": 7.570823568}},
+               {"q": "Convert 2500 mg to g.", "outputs": {"converted": 2.5}},
+               {"q": "Convert 5 kg to meters.", "outcome": "INVALID_INPUT"},
+               {"q": "Convert -300 degrees C to kelvin.", "outcome": "INVALID_INPUT"}])
+
+
+# --- direct, inverse, joint and combined variation ----------------------------------------------------------------------
+_CG_VARY = ["direct", "inverse", "joint", "combined", "direct square", "inverse square"]
+
+
+def _cg_vary_term(kind, x, z):
+    """The factor that y is proportional to: x, 1/x, x z, x / z, x^2 or 1/x^2."""
+    if kind == "direct":
+        return x
+    if kind == "inverse":
+        return 1.0 / x
+    if kind == "direct square":
+        return x * x
+    if kind == "inverse square":
+        return 1.0 / (x * x)
+    if kind == "joint":
+        return x * z
+    return x / z
+
+
+def variation(variation_type, x1, y1, x2, z1=None, z2=None) -> dict:
+    kind = variation_type
+    if kind not in _CG_VARY:
+        raise ValueError("the kind of variation is direct, inverse, joint, combined, direct square or inverse square")
+    _cg_finite(x1, "x1")
+    _cg_finite(y1, "y1")
+    _cg_finite(x2, "x2")
+    two = kind == "joint" or kind == "combined"
+    if two:
+        if z1 is None or z2 is None:
+            raise ValueError("joint and combined variation need z1 and z2")
+        _cg_finite(z1, "z1")
+        _cg_finite(z2, "z2")
+    elif z1 is not None or z2 is not None:
+        raise ValueError("z1 and z2 belong to joint or combined variation only")
+    if x1 == 0:
+        raise ValueError("x1 must not be 0: the constant of variation is not determined")
+    if (kind == "inverse" or kind == "inverse square") and x2 == 0:
+        raise ValueError("x2 must not be 0 in inverse variation")
+    if two and z1 == 0:
+        raise ValueError("z1 must not be 0: the constant of variation is not determined")
+    if kind == "combined" and z2 == 0:
+        raise ValueError("z2 must not be 0 in combined variation")
+    k = y1 / _cg_vary_term(kind, x1, z1)
+    return {"k": k + 0.0, "y2": k * _cg_vary_term(kind, x2, z2) + 0.0}
+
+
+def _verify_variation(i, o):
+    kind = i["variation_type"]
+    t1 = _cg_vary_term(kind, i["x1"], i.get("z1"))
+    t2 = _cg_vary_term(kind, i["x2"], i.get("z2"))
+    y1 = i["y1"]
+    r1 = abs(o["k"] * t1 - y1) / max(abs(y1), abs(o["k"] * t1), 1e-300)
+    r2 = abs(o["y2"] * t1 - y1 * t2) / max(abs(o["y2"] * t1), abs(y1 * t2), 1e-300)
+    return r1 + r2
+
+
+def _ref_variation(variation_type, x1, y1, x2, z1=None, z2=None):
+    import sympy as sp
+    kind = variation_type
+    k, X, Z = sp.symbols("k X Z")
+    law = {"direct": k * X, "inverse": k / X, "direct square": k * X ** 2, "inverse square": k / X ** 2,
+           "joint": k * X * Z, "combined": k * X / Z}[kind]
+    first = {X: sp.Rational(repr(float(x1)))}
+    second = {X: sp.Rational(repr(float(x2)))}
+    if z1 is not None:
+        first[Z] = sp.Rational(repr(float(z1)))
+        second[Z] = sp.Rational(repr(float(z2)))
+    K = sp.solve(sp.Eq(law.subs(first), sp.Rational(repr(float(y1)))), k)[0]
+    return {"k": float(K), "y2": float(law.subs(k, K).subs(second))}
+
+
+def _wrong_variation(variation_type, x1, y1, x2, z1=None, z2=None):
+    """The kind of variation mixed up: direct taken as inverse (and back), the square or the second variable dropped."""
+    swap = {"direct": "inverse", "inverse": "direct", "direct square": "direct", "inverse square": "inverse",
+            "joint": "direct", "combined": "joint"}[variation_type]
+    try:
+        if swap == "joint":
+            return variation(swap, x1, y1, x2, z1, z2)
+        return variation(swap, x1, y1, x2)
+    except (ValueError, ZeroDivisionError):
+        return {"k": 1e9, "y2": 1e9}
+
+
+def _rand_variation(rng):
+    kind = rng.choice(_CG_VARY)
+    x1 = float(rng.choice([v for v in range(-12, 13) if v]))
+    x2 = float(rng.choice([v for v in range(-15, 16) if v and abs(v) != abs(x1)]))
+    out = {"variation_type": kind, "x1": x1, "y1": float(rng.choice([v for v in range(-60, 61) if v])), "x2": x2}
+    if kind in ("joint", "combined"):
+        z1 = float(rng.choice([v for v in range(-9, 10) if v]))
+        out["z1"] = z1
+        out["z2"] = float(rng.choice([v for v in range(-9, 10) if v and v != z1]))
+    return out
+
+
+_CG_N = r"(?P<{0}>" + _W + r")"
+_CG_VTAIL = r"[,;.]? (?:and )?(?:if )?(?P=y) = " + _CG_N.format("y1") + r" when (?P=x) = " + _CG_N.format("x1")
+
+
+def _parse_variation(g):
+    letters = [g["y"].lower(), g["x"].lower()] + ([g["z"].lower()] if g.get("z") else [])
+    if len(set(letters)) != len(letters):
+        raise ValueError("the variables must be different letters")
+    out = {"y1": float(g["y1"]), "x1": float(g["x1"]), "x2": float(g["x2"])}
+    if g.get("jt"):
+        out["variation_type"] = "joint"
+    elif g.get("cb"):
+        out["variation_type"] = "combined"
+    else:
+        # the wording says "directly" / "inversely"; the kinds are "direct" / "inverse"
+        out["variation_type"] = {"directly": "direct", "inversely": "inverse"}[g["how"].lower()] + (" square" if g.get("sq") else "")
+    if g.get("z"):
+        out["z1"], out["z2"] = float(g["z1"]), float(g["z2"])
+    return out
+
+
+_register(
+    "variation", name="Direct, inverse, joint and combined variation", topic="functions / modelling with variation",
+    purpose="The constant of variation k from one known case, and the new value of y: y = kx (direct), y = k/x (inverse), "
+            "y = kx^2, y = k/x^2, y = kxz (joint) or y = kx/z (combined).",
+    inputs=[{"symbol": "variation_type", "type": "choice", "choices": _CG_VARY, "kind": "text", "required": True, "meaning": "the kind of variation"},
+            _num_in("x1", "x in the known case", "x1 != 0"), _num_in("y1", "y in the known case"), _num_in("x2", "x in the new case"),
+            _num_in("z1", "z in the known case (joint and combined variation)", required=False),
+            _num_in("z2", "z in the new case (joint and combined variation)", required=False)],
+    outputs=[_out("k", "the constant of variation"), _out("y2", "y in the new case")], primary="y2",
+    conditions=["x1 != 0", "x2 != 0 for inverse variation", "z1, z2 given (and z1 != 0) exactly for joint and combined variation",
+                "z2 != 0 for combined variation"],
+    method="k from the known case (k = y1 / f(x1, z1)), then y2 = k f(x2, z2)",
+    latex=r"y = kx,\quad y = \frac{k}{x},\quad y = kxz,\quad y = \frac{kx}{z},\qquad k = \frac{y_1}{f(x_1, z_1)}",
+    run=variation, verify=_verify_variation, reference=_ref_variation, wrong=_wrong_variation, random_inputs=_rand_variation,
+    parse=_templated([r"(?P<y>[a-z]) (?:varies|is) (?P<how>directly|inversely) (?:as|with|proportional to) (?P<sq>the square of )?(?P<x>[a-z])"
+                      + _CG_VTAIL + r"[,;.]? (?:find|what is) (?P=y) when (?P=x) = " + _CG_N.format("x2") + _E,
+                      r"(?P<y>[a-z]) varies (?P<jt>jointly) (?:as|with) (?P<x>[a-z]) and (?P<z>[a-z])" + _CG_VTAIL
+                      + r" and (?P=z) = " + _CG_N.format("z1") + r"[,;.]? (?:find|what is) (?P=y) when (?P=x) = " + _CG_N.format("x2")
+                      + r" and (?P=z) = " + _CG_N.format("z2") + _E,
+                      r"(?P<y>[a-z]) varies directly (?:as|with) (?P<x>[a-z]) and (?P<cb>inversely) (?:as|with) (?P<z>[a-z])" + _CG_VTAIL
+                      + r" and (?P=z) = " + _CG_N.format("z1") + r"[,;.]? (?:find|what is) (?P=y) when (?P=x) = " + _CG_N.format("x2")
+                      + r" and (?P=z) = " + _CG_N.format("z2") + _E],
+                     _parse_variation),
+    templates=["y varies directly as x, and y = 12 when x = 4. Find y when x = 10.",
+               "y varies inversely as x, and y = 6 when x = 2. Find y when x = 3.",
+               "y varies jointly as x and z, and y = 24 when x = 2 and z = 3. Find y when x = 5 and z = 4.",
+               "y varies inversely as the square of x, and y = 10 when x = 2. Find y when x = 4.",
+               "y varies directly as x and inversely as z, and y = 10 when x = 4 and z = 2. Find y when x = 6 and z = 3."],
+    examples=[{"inputs": {"variation_type": "direct", "x1": 4, "y1": 12, "x2": 10}, "outputs": {"k": 3.0, "y2": 30.0}},
+              {"inputs": {"variation_type": "inverse", "x1": 2, "y1": 6, "x2": 3}, "outputs": {"k": 12.0, "y2": 4.0}},
+              {"inputs": {"variation_type": "joint", "x1": 2, "y1": 24, "x2": 5, "z1": 3, "z2": 4}, "outputs": {"k": 4.0, "y2": 80.0}},
+              {"inputs": {"variation_type": "inverse square", "x1": 2, "y1": 10, "x2": 4}, "outputs": {"k": 40.0, "y2": 2.5}},
+              {"inputs": {"variation_type": "combined", "x1": 4, "y1": 10, "x2": 6, "z1": 2, "z2": 3}, "outputs": {"k": 5.0, "y2": 10.0}}],
+    questions=[{"q": "y varies directly as x, and y = 12 when x = 4. Find y when x = 10.", "outputs": {"k": 3.0, "y2": 30.0}},
+               {"q": "y varies inversely as x, and y = 6 when x = 2. Find y when x = 3.", "outputs": {"k": 12.0, "y2": 4.0}},
+               {"q": "y varies jointly as x and z, and y = 24 when x = 2 and z = 3. Find y when x = 5 and z = 4.", "outputs": {"y2": 80.0}},
+               {"q": "y varies inversely as the square of x, and y = 10 when x = 2. Find y when x = 4.", "outputs": {"y2": 2.5}},
+               {"q": "y varies directly as x and inversely as z, and y = 10 when x = 4 and z = 2. Find y when x = 6 and z = 3.", "outputs": {"y2": 10.0}},
+               {"q": "y varies inversely as x, and y = 6 when x = 0. Find y when x = 3.", "outcome": "INVALID_INPUT"}])
+
+
+# --- nonlinear systems: a line and a conic, two conics -------------------------------------------------------------------
+def _cg_quadratic_real(a, b, c):
+    """Real solutions of a t^2 + b t + c = 0, ascending (a linear equation when a = 0). ValueError for infinitely many
+    solutions, and when the number of solutions depends on rounding (a tangency, or a leading coefficient that
+    vanishes, within 1e-12 of the size of the terms)."""
+    scale = max(abs(a), abs(b), abs(c))
+    if a == 0.0:
+        if b == 0.0:
+            if c == 0.0:
+                raise ValueError("infinitely many solutions: the curves share a whole line or curve")
+            return []
+        return [-c / b + 0.0]
+    if abs(a) <= _CG_BAND * scale:
+        raise ValueError("a leading coefficient vanishes within rounding: the number of solutions cannot be decided")
+    disc = b * b - 4.0 * a * c
+    if disc == 0.0:
+        return [-b / (2.0 * a) + 0.0]
+    if abs(disc) <= _CG_BAND * max(b * b, abs(4.0 * a * c)):
+        raise ValueError("a tangency cannot be decided from rounded values")
+    if disc < 0:
+        return []
+    sq = math.sqrt(disc)
+    if b >= 0:
+        qq = -0.5 * (b + sq)
+    else:
+        qq = -0.5 * (b - sq)
+    r1 = qq / a
+    r2 = c / qq
+    if r1 > r2:
+        return [r2 + 0.0, r1 + 0.0]
+    return [r1 + 0.0, r2 + 0.0]
+
+
+def line_conic_intersection(line, conic) -> dict:
+    a, b, c = line[0], line[1], line[2]
+    A, B, C, D, E, F = conic[0], conic[1], conic[2], conic[3], conic[4], conic[5]
+    if a == 0 and b == 0:
+        raise ValueError("the line a x + b y = c needs a or b nonzero")
+    if A == 0 and B == 0 and C == 0:
+        raise ValueError("the second equation has no second-degree term: it is not a conic")
+    pts = []
+    if b != 0:
+        # y = (c - a x)/b substituted and multiplied by b^2
+        q2 = A * b * b - B * a * b + C * a * a
+        q1 = B * b * c - 2.0 * C * a * c + D * b * b - E * a * b
+        q0 = C * c * c + E * b * c + F * b * b
+        for x in _cg_quadratic_real(q2, q1, q0):
+            pts.append([x + 0.0, (c - a * x) / b + 0.0])
+    else:
+        x0 = c / a
+        for y in _cg_quadratic_real(C, B * x0 + E, A * x0 * x0 + D * x0 + F):
+            pts.append([x0 + 0.0, y + 0.0])
+    # coordinates to 12 significant digits before ordering: x = 0.9999999999999997 must sort as 1 (else the points of
+    # a pair (1, y1), (1, y2) come out in a different order than the exact answer; box certification 2026-11-12)
+    snapped = []
+    for p in pts:
+        snapped.append([float(f"{p[0]:.12g}") + 0.0, float(f"{p[1]:.12g}") + 0.0])
+    pts = _cg_sorted_points(snapped)
+    return {"count": float(len(pts)), "points": pts}
+
+
+def _cg_conic_res(co, x, y):
+    """|A x^2 + B xy + C y^2 + D x + E y + F| relative to the size of its terms."""
+    t = [co[0] * x * x, co[1] * x * y, co[2] * y * y, co[3] * x, co[4] * y, co[5]]
+    v = 0.0
+    s = 0.0
+    for u in t:
+        v += u
+        s += abs(u)
+    return abs(v) / max(1.0, s)
+
+
+def _cg_points_in_order(pts):
+    for k in range(1, len(pts)):
+        p, q = pts[k - 1], pts[k]
+        if not (p[0] < q[0] or (p[0] == q[0] and p[1] < q[1])):
+            return False
+    return True
+
+
+def _cg_count_or_none(a, b, c):
+    try:
+        return len(_cg_quadratic_real(a, b, c))
+    except ValueError:
+        return None
+
+
+def _verify_line_conic(i, o):
+    a, b, c = i["line"][0], i["line"][1], i["line"][2]
+    co = i["conic"]
+    pts = o["points"]
+    if o["count"] != len(pts) or not _cg_points_in_order(pts):
+        return 1.0
+    worst = 0.0
+    for p in pts:
+        x, y = p[0], p[1]
+        worst = max(worst, abs(a * x + b * y - c) / max(1.0, abs(a * x) + abs(b * y) + abs(c)), _cg_conic_res(co, x, y))
+    if a != 0:
+        # completeness: the number of solutions again, eliminating x instead of y
+        A, B, C, D, E, F = co[0], co[1], co[2], co[3], co[4], co[5]
+        n = _cg_count_or_none(A * b * b - B * a * b + C * a * a, -2.0 * A * b * c + B * a * c - D * a * b + E * a * a,
+                              A * c * c + D * a * c + F * a * a)
+        if n is not None and n != len(pts):
+            return 1.0
+    return worst
+
+
+def _ref_line_conic(line, conic):
+    import mpmath as mp
+    with mp.workdps(50):
+        a, b, c = (mp.mpf(repr(float(v))) for v in line)
+        A, B, C, D, E, F = (mp.mpf(repr(float(v))) for v in conic)
+        n2 = a * a + b * b                                  # the line as (x0, y0) + t (-b, a): a different elimination
+        x0, y0, dx, dy = a * c / n2, b * c / n2, -b, a
+        q2 = A * dx * dx + B * dx * dy + C * dy * dy
+        q1 = 2 * A * x0 * dx + B * (x0 * dy + y0 * dx) + 2 * C * y0 * dy + D * dx + E * dy
+        q0 = A * x0 * x0 + B * x0 * y0 + C * y0 * y0 + D * x0 + E * y0 + F
+        scale = max(abs(q2), abs(q1), abs(q0))
+        if abs(q2) <= mp.mpf("1e-40") * scale:
+            ts = [] if abs(q1) <= mp.mpf("1e-40") * scale else [-q0 / q1]
+        else:
+            disc = q1 * q1 - 4 * q2 * q0
+            if abs(disc) <= mp.mpf("1e-40") * scale * scale:
+                ts = [-q1 / (2 * q2)]
+            elif disc < 0:
+                ts = []
+            else:
+                ts = [(-q1 - mp.sqrt(disc)) / (2 * q2), (-q1 + mp.sqrt(disc)) / (2 * q2)]
+        pts = sorted([float(x0 + t * dx) + 0.0, float(y0 + t * dy) + 0.0] for t in ts)
+        return {"count": float(len(pts)), "points": pts}
+
+
+def _wrong_line_conic(line, conic):
+    """A sign slip when solving the line for y: y = (c + a x)/b."""
+    try:
+        return line_conic_intersection([-line[0], line[1], line[2]], conic)
+    except ValueError:
+        return {"count": 99.0, "points": []}
+
+
+def _rand_line_conic(rng):
+    x0, y0 = rng.randint(-4, 4), rng.randint(-4, 4)
+    A, B, C = rng.choice([(1, 0, 1), (1, 0, 4), (4, 0, 9), (1, 0, -1), (2, 0, -3), (1, 0, 0), (0, 0, 1), (1, 1, 1), (2, -1, 3), (1, 2, -1)])
+    D, E = rng.randint(-4, 4), rng.randint(-4, 4)
+    F = -(A * x0 * x0 + B * x0 * y0 + C * y0 * y0 + D * x0 + E * y0)
+    a = rng.choice([v for v in range(-4, 5) if v])
+    b = rng.randint(-4, 4)
+    return {"line": [a, b, a * x0 + b * y0], "conic": [A, B, C, D, E, F]}
+
+
+_CG_MONO = {"x^2": 0, "xy": 1, "yx": 1, "y^2": 2, "x": 3, "y": 4, "": 5}
+
+
+def _cg_expand_squares(s):
+    """'-2(x-1)^2/3' -> '-0.666...x^2+1.333...x-0.666...': squared binomials in x or y written out term by term."""
+    def rep(m):
+        c = _q(m.group(2)) if m.group(2) else 1.0
+        if m.group(6):
+            c = c / _q(m.group(6))
+        c = -c if m.group(1) == "-" else c
+        h = _q(m.group(5)) * (1.0 if m.group(4) == "+" else -1.0)
+        out = ""
+        for coef, mono in ((c, m.group(3) + "^2"), (2.0 * c * h, m.group(3)), (c * h * h, "")):
+            if coef != 0:
+                out += ("-" if coef < 0 else "+") + repr(abs(coef)) + mono
+        return out or "+0"
+    return re.sub(r"([+-]?)(\d+(?:\.\d+)?)?\(([xy])([+-])(\d+(?:\.\d+)?)\)\^2(?:/(\d+(?:\.\d+)?))?", rep, s)
+
+
+def _cg_conic_side(side):
+    """[A, B, C, D, E, F] of one side of an equation of degree at most 2 in x and y; None for anything else."""
+    s = side.lower().replace(" ", "").replace("*", "").replace("²", "^2")
+    if not s or not re.fullmatch(r"[-+0-9./xy^()]+", s):
+        return None
+    s = _cg_expand_squares(s)
+    if "(" in s or ")" in s or "e" in s:
+        return None
+    if s[0] not in "+-":
+        s = "+" + s
+    terms = re.findall(r"[+-][^+-]+", s)
+    if "".join(terms) != s:
+        return None
+    co = [0.0] * 6
+    for t in terms:
+        m = re.fullmatch(r"([+-])(\d+(?:\.\d+)?(?:/\d+(?:\.\d+)?)?)?(x\^2|y\^2|xy|yx|x|y)?(?:/(\d+(?:\.\d+)?))?", t)
+        if not m or (m.group(2) is None and m.group(3) is None):
+            return None
+        c = _q(m.group(2)) if m.group(2) else 1.0
+        if m.group(4):
+            c = c / _q(m.group(4))
+        co[_CG_MONO[m.group(3) or ""]] += -c if m.group(1) == "-" else c
+    return co
+
+
+def _cg_system(question):
+    """The two equations of 'Solve the system <eq> and <eq>.' as conic coefficient lists, or None."""
+    if not isinstance(question, str):
+        return None
+    q = _clean(question).lower()
+    m = re.fullmatch(r"(?:solve the (?:nonlinear )?system(?: of equations)?:?|find the (?:points of intersection|intersection points) of) "
+                     r"(?P<e1>[^,;=]+=[^,;=]+?)(?:,? and |; |, )(?P<e2>[^,;=]+=[^,;=]+?)" + _E, q)
+    if not m:
+        return None
+    eqs = []
+    for e in (m.group("e1"), m.group("e2")):
+        left, right = e.split("=")
+        try:
+            L, R = _cg_conic_side(left), _cg_conic_side(right)
+        except (ValueError, ZeroDivisionError):
+            return None
+        if L is None or R is None:
+            return None
+        eqs.append([L[k] - R[k] + 0.0 for k in range(6)])
+    return eqs
+
+
+def _cg_is_linear(e):
+    return e[0] == 0 and e[1] == 0 and e[2] == 0
+
+
+def _parse_line_conic(question):
+    s = _cg_system(question)
+    if s is None or _cg_is_linear(s[0]) == _cg_is_linear(s[1]):
+        return None
+    line, conic = (s[0], s[1]) if _cg_is_linear(s[0]) else (s[1], s[0])
+    if line[3] == 0 and line[4] == 0:
+        return None
+    return {"line": [line[3], line[4], -line[5] + 0.0], "conic": conic}
+
+
+_CONIC_IN = "A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0"
+_register(
+    "line_conic_intersection", name="Intersection of a line and a conic (nonlinear system)", topic="systems of equations / nonlinear systems",
+    purpose="All real solutions of the system a x + b y = c, A x^2 + B xy + C y^2 + D x + E y + F = 0: where a line meets a "
+            "circle, ellipse, parabola or hyperbola (0, 1 or 2 points).",
+    inputs=[{"symbol": "line", "type": "vector", "kind": "number", "required": True, "min_length": 3, "max_length": 3, "meaning": "a, b, c of the line a x + b y = c"},
+            {"symbol": "conic", "type": "vector", "kind": "number", "required": True, "min_length": 6, "max_length": 6, "meaning": _CONIC_IN}],
+    outputs=[_out("count", "the number of real intersection points"), _out("points", "the intersection points (x, y), by x then y", "list")],
+    primary="count", conditions=["a or b nonzero", "A, B or C nonzero", "the line does not lie on the conic",
+                                 "a tangency that rounding cannot decide is refused"],
+    method="solve the line for y (or x when b = 0), substitute into the conic and solve the resulting quadratic",
+    latex=r"y = \frac{c - ax}{b}\ \Rightarrow\ (Ab^2 - Bab + Ca^2)\,x^2 + (Bbc - 2Cac + Db^2 - Eab)\,x + (Cc^2 + Ebc + Fb^2) = 0",
+    run=line_conic_intersection, verify=_verify_line_conic, reference=_ref_line_conic, wrong=_wrong_line_conic,
+    random_inputs=_rand_line_conic, parse=_parse_line_conic,
+    templates=["Solve the system y = x + 1 and x^2 + y^2 = 25.", "Find the intersection points of x = 2 and y = x^2."],
+    examples=[{"inputs": {"line": "-1, 1, 1", "conic": "1, 0, 1, 0, 0, -25"}, "outputs": {"count": 2.0, "points": [[-4.0, -3.0], [3.0, 4.0]]}},
+              {"inputs": {"line": [1, 0, 2], "conic": [-1, 0, 0, 0, 1, 0]}, "outputs": {"count": 1.0, "points": [[2.0, 4.0]]}},
+              {"inputs": {"line": [0, 1, 5], "conic": [1, 0, 1, 0, 0, -25]}, "outputs": {"count": 1.0, "points": [[0.0, 5.0]]}},
+              {"inputs": {"line": [0, 1, 10], "conic": [1, 0, 1, 0, 0, -25]}, "outputs": {"count": 0.0, "points": []}}],
+    questions=[{"q": "Solve the system y = x + 1 and x^2 + y^2 = 25.", "outputs": {"count": 2.0, "points": [[-4.0, -3.0], [3.0, 4.0]]}},
+               {"q": "Find the intersection points of x = 2 and y = x^2.", "outputs": {"count": 1.0, "points": [[2.0, 4.0]]}},
+               {"q": "Solve the system x + y = 1 and x^2 + y^2 = 1.", "outputs": {"count": 2.0, "points": [[0.0, 1.0], [1.0, 0.0]]}},
+               {"q": "Solve the system y = 10 and x^2 + y^2 = 25.", "outputs": {"count": 0.0}},
+               {"q": "Solve the system y = x and x^2 - y^2 = 0.", "outcome": "INVALID_INPUT"}])
+
+
+def two_conics_intersection(first, second) -> dict:
+    A1, B1, C1, D1, E1, F1 = first[0], first[1], first[2], first[3], first[4], first[5]
+    A2, B2, C2, D2, E2, F2 = second[0], second[1], second[2], second[3], second[4], second[5]
+    if B1 != 0 or B2 != 0:
+        raise ValueError("an xy term is not covered (rotate the axes first)")
+    if (A1 == 0 and C1 == 0) or (A2 == 0 and C2 == 0):
+        raise ValueError("each equation needs an x^2 or y^2 term (a line and a conic: line_conic_intersection)")
+    pts = []
+    if A1 * C2 - A2 * C1 == 0:
+        # the second-degree parts are proportional: one combination of the equations is a line
+        if A1 != 0 or A2 != 0:
+            l1, l2 = A2, -A1
+        else:
+            l1, l2 = C2, -C1
+        lx = l1 * D1 + l2 * D2
+        ly = l1 * E1 + l2 * E2
+        lf = l1 * F1 + l2 * F2
+        if lx == 0 and ly == 0:
+            if lf == 0:
+                raise ValueError("the two equations describe the same curve: infinitely many points")
+            return {"count": 0.0, "points": []}
+        return line_conic_intersection([lx, ly, -lf], first)
+    if D1 == 0 and D2 == 0:
+        # x appears only as x^2: eliminate it, solve for y, then x^2 from the equation with the larger x^2 coefficient
+        if abs(A1) >= abs(A2):
+            A, C, E, F = A1, C1, E1, F1
+        else:
+            A, C, E, F = A2, C2, E2, F2
+        for y in _cg_quadratic_real(A2 * C1 - A1 * C2, A2 * E1 - A1 * E2, A2 * F1 - A1 * F2):
+            v = -(C * y * y + E * y + F) / A
+            if v == 0:
+                pts.append([0.0, y + 0.0])
+            elif abs(v) <= _CG_BAND * (abs(C * y * y) + abs(E * y) + abs(F)) / abs(A):
+                raise ValueError("a tangency cannot be decided from rounded values")
+            elif v > 0:
+                r = math.sqrt(v)
+                pts.append([-r, y + 0.0])
+                pts.append([r, y + 0.0])
+    elif E1 == 0 and E2 == 0:
+        # y appears only as y^2: the same with the roles of x and y exchanged
+        if abs(C1) >= abs(C2):
+            A, C, D, F = A1, C1, D1, F1
+        else:
+            A, C, D, F = A2, C2, D2, F2
+        for x in _cg_quadratic_real(C2 * A1 - C1 * A2, C2 * D1 - C1 * D2, C2 * F1 - C1 * F2):
+            v = -(A * x * x + D * x + F) / C
+            if v == 0:
+                pts.append([x + 0.0, 0.0])
+            elif abs(v) <= _CG_BAND * (abs(A * x * x) + abs(D * x) + abs(F)) / abs(C):
+                raise ValueError("a tangency cannot be decided from rounded values")
+            elif v > 0:
+                r = math.sqrt(v)
+                pts.append([x + 0.0, -r])
+                pts.append([x + 0.0, r])
+    else:
+        raise ValueError("covered: proportional second-degree parts (e.g. two circles), or x (or y) appearing only squared in both")
+    # coordinates to 12 significant digits before ordering: x = 0.9999999999999997 must sort as 1 (else the points of
+    # a pair (1, y1), (1, y2) come out in a different order than the exact answer; box certification 2026-11-12)
+    snapped = []
+    for p in pts:
+        snapped.append([float(f"{p[0]:.12g}") + 0.0, float(f"{p[1]:.12g}") + 0.0])
+    pts = _cg_sorted_points(snapped)
+    return {"count": float(len(pts)), "points": pts}
+
+
+def _cg_mirrored(pts, sx, sy):
+    """Every point's mirror image (x -> sx x, y -> sy y) is in the list too."""
+    for p in pts:
+        found = False
+        for q in pts:
+            if abs(q[0] - sx * p[0]) <= 1e-9 * max(1.0, abs(p[0])) and abs(q[1] - sy * p[1]) <= 1e-9 * max(1.0, abs(p[1])):
+                found = True
+        if not found:
+            return False
+    return True
+
+
+def _verify_two_conics(i, o):
+    f, g = i["first"], i["second"]
+    pts = o["points"]
+    if o["count"] != len(pts) or not _cg_points_in_order(pts):
+        return 1.0
+    worst = 0.0
+    for p in pts:
+        worst = max(worst, _cg_conic_res(f, p[0], p[1]), _cg_conic_res(g, p[0], p[1]))
+    # without xy and x terms the solution set is symmetric in x (without y terms, in y): a lost sign shows here
+    if f[1] == 0 and g[1] == 0 and f[3] == 0 and g[3] == 0 and not _cg_mirrored(pts, -1.0, 1.0):
+        return 1.0
+    if f[1] == 0 and g[1] == 0 and f[4] == 0 and g[4] == 0 and not _cg_mirrored(pts, 1.0, -1.0):
+        return 1.0
+    return worst
+
+
+def _ref_two_conics(first, second):
+    """A different route: the resultant of the two equations in y (a polynomial of degree <= 4 in x, roots by mpmath
+    at 60 digits), then y from one equation and kept where the other holds."""
+    import mpmath as mp
+    with mp.workdps(60):
+        f = [mp.mpf(repr(float(v))) for v in first]
+        g = [mp.mpf(repr(float(v))) for v in second]
+        # eliminate y (a polynomial in x) unless there is no y^2 anywhere, or the system is symmetric in y (then pairs
+        # (x, +-y) would make every x a double root): exchange the roles of x and y then
+        swap = (f[2] == 0 and g[2] == 0) or (f[4] == 0 and g[4] == 0 and f[1] == 0 and g[1] == 0 and not (f[0] == 0 and g[0] == 0))
+        if swap:
+            f = [f[2], f[1], f[0], f[4], f[3], f[5]]
+            g = [g[2], g[1], g[0], g[4], g[3], g[5]]
+
+        def mul(p, q):
+            out = [mp.mpf(0)] * (len(p) + len(q) - 1)
+            for i, u in enumerate(p):
+                for j, v in enumerate(q):
+                    out[i + j] += u * v
+            return out
+
+        def sub(p, q):
+            n = max(len(p), len(q))
+            return [(p[k] if k < len(p) else 0) - (q[k] if k < len(q) else 0) for k in range(n)]
+        # each equation as c2 y^2 + c1(x) y + c0(x), coefficient polynomials lowest power first
+        a2, a1, a0 = [f[2]], [f[4], f[1]], [f[5], f[3], f[0]]
+        b2, b1, b0 = [g[2]], [g[4], g[1]], [g[5], g[3], g[0]]
+        u = sub(mul(a2, b0), mul(a0, b2))
+        res = sub(mul(u, u), mul(sub(mul(a2, b1), mul(a1, b2)), sub(mul(a1, b0), mul(a0, b1))))
+        big = max(abs(c) for c in res)
+        if big == 0:
+            raise ValueError("infinitely many points")
+        while abs(res[-1]) <= mp.mpf("1e-45") * big:
+            res.pop()
+        xs = []
+        if len(res) > 1:
+            for r in mp.polyroots(list(reversed(res)), maxsteps=3000, extraprec=300):
+                if abs(mp.im(r)) <= mp.mpf("1e-20") * max(1, abs(r)):
+                    x = mp.re(r)
+                    if all(abs(x - w) > mp.mpf("1e-20") * max(1, abs(x)) for w in xs):
+                        xs.append(x)
+
+        def ys(e, x):
+            c2, c1, c0 = e[2], e[1] * x + e[4], e[0] * x * x + e[3] * x + e[5]
+            sc = max(abs(c2), abs(c1), abs(c0), 1)
+            if abs(c2) > 0:
+                d = c1 * c1 - 4 * c2 * c0
+                if d < -mp.mpf("1e-30") * sc * sc:
+                    return []
+                d = max(d, 0)
+                return [(-c1 - mp.sqrt(d)) / (2 * c2), (-c1 + mp.sqrt(d)) / (2 * c2)]
+            if abs(c1) > mp.mpf("1e-40") * sc:
+                return [-c0 / c1]
+            return None
+
+        def resid(e, x, y):
+            t = [e[0] * x * x, e[1] * x * y, e[2] * y * y, e[3] * x, e[4] * y, e[5]]
+            return abs(sum(t)) / max(1, sum(abs(v) for v in t))
+        pts = []
+        for x in xs:
+            cand = ys(f, x)
+            if cand is None:
+                cand = ys(g, x)
+            if cand is None:
+                raise ValueError("infinitely many points")
+            for y in cand:
+                if resid(f, x, y) <= mp.mpf("1e-25") and resid(g, x, y) <= mp.mpf("1e-25"):
+                    p = [float(y), float(x)] if swap else [float(x), float(y)]
+                    p = [p[0] + 0.0, p[1] + 0.0]
+                    if all(abs(p[0] - q[0]) > 1e-12 * max(1.0, abs(p[0])) or abs(p[1] - q[1]) > 1e-12 * max(1.0, abs(p[1])) for q in pts):
+                        pts.append(p)
+        pts.sort()
+        return {"count": float(len(pts)), "points": pts}
+
+
+def _wrong_two_conics(first, second):
+    """The coordinates of each solution written the wrong way round, (y, x)."""
+    try:
+        out = two_conics_intersection(first, second)
+    except ValueError:
+        return {"count": 99.0, "points": []}
+    pts = sorted([p[1], p[0]] for p in out["points"])
+    return {"count": out["count"], "points": pts}
+
+
+def _rand_two_conics(rng):
+    x0, y0 = rng.choice([-3, -2, -1, 1, 2, 3]), rng.choice([-3, -2, -1, 1, 2, 3])
+
+    def conic(A, C, D, E):
+        return [A, 0, C, D, E, -(A * x0 * x0 + C * y0 * y0 + D * x0 + E * y0)]
+    nz = [v for v in range(-4, 5) if v]
+    mode = rng.choice(["proportional", "x squared only", "y squared only"])
+    if mode == "proportional":
+        A, C = rng.choice([(1, 1), (1, 4), (4, 1), (1, -1), (0, 1), (1, 0), (2, 3)])
+        k1, k2 = rng.choice([1, 2, -1]), rng.choice([1, 3, -2])
+        return {"first": conic(k1 * A, k1 * C, rng.randint(-4, 4), rng.randint(-4, 4)),
+                "second": conic(k2 * A, k2 * C, rng.randint(-4, 4), rng.randint(-4, 4))}
+    while True:
+        A1, C1, A2, C2 = rng.choice(nz), rng.choice(nz + [0]), rng.choice(nz), rng.choice(nz)
+        if A1 * C2 != A2 * C1:
+            break
+    if mode == "x squared only":
+        return {"first": conic(A1, C1, 0, rng.randint(-4, 4)), "second": conic(A2, C2, 0, rng.randint(-4, 4))}
+    return {"first": conic(C1, A1, rng.randint(-4, 4), 0), "second": conic(C2, A2, rng.randint(-4, 4), 0)}
+
+
+def _parse_two_conics(question):
+    s = _cg_system(question)
+    if s is None or _cg_is_linear(s[0]) or _cg_is_linear(s[1]):
+        return None
+    return {"first": s[0], "second": s[1]}
+
+
+_register(
+    "two_conics_intersection", name="Intersection of two conics (nonlinear system)", topic="systems of equations / nonlinear systems",
+    purpose="All real solutions of two second-degree equations without an xy term, when elimination reduces them to one "
+            "quadratic: two circles (or any two conics whose x^2 and y^2 parts are proportional), or systems in which x (or y) "
+            "appears only squared, such as x^2 + y^2 = 25 and x^2 - y^2 = 7, or a circle and the parabola y = x^2 - 3.",
+    inputs=[{"symbol": "first", "type": "vector", "kind": "number", "required": True, "min_length": 6, "max_length": 6, "meaning": _CONIC_IN + " (first equation)"},
+            {"symbol": "second", "type": "vector", "kind": "number", "required": True, "min_length": 6, "max_length": 6, "meaning": _CONIC_IN + " (second equation)"}],
+    outputs=[_out("count", "the number of real intersection points"), _out("points", "the intersection points (x, y), by x then y", "list")],
+    primary="count",
+    conditions=["no xy term", "each equation has an x^2 or y^2 term", "proportional x^2 and y^2 parts, or no x terms, or no y terms",
+                "the equations are not the same curve", "a tangency that rounding cannot decide is refused"],
+    method="proportional second-degree parts: subtract a multiple to get a line, then line and conic; x only squared: eliminate x^2, "
+           "solve the quadratic in y, then x = +/- sqrt of x^2 from one equation (the same with x and y exchanged)",
+    latex=r"A_2\,(\text{eq}_1) - A_1\,(\text{eq}_2):\ (A_2C_1 - A_1C_2)\,y^2 + (A_2E_1 - A_1E_2)\,y + (A_2F_1 - A_1F_2) = 0",
+    run=two_conics_intersection, verify=_verify_two_conics, reference=_ref_two_conics, wrong=_wrong_two_conics,
+    random_inputs=_rand_two_conics, parse=_parse_two_conics,
+    templates=["Solve the system x^2 + y^2 = 25 and x^2 - y^2 = 7.", "Find the intersection points of x^2 + y^2 = 5 and y = x^2 - 3."],
+    examples=[{"inputs": {"first": "1, 0, 1, 0, 0, -25", "second": "1, 0, -1, 0, 0, -7"},
+               "outputs": {"count": 4.0, "points": [[-4.0, -3.0], [-4.0, 3.0], [4.0, -3.0], [4.0, 3.0]]}},
+              {"inputs": {"first": [1, 0, 1, 0, 0, -5], "second": [-1, 0, 0, 0, 1, 3]},
+               "outputs": {"count": 4.0, "points": [[-2.0, 1.0], [-1.0, -2.0], [1.0, -2.0], [2.0, 1.0]]}},
+              {"inputs": {"first": [1, 0, 1, 0, 0, -25], "second": [1, 0, 1, -10, 0, 0]},
+               "outputs": {"count": 2.0, "points": [[2.5, -math.sqrt(18.75)], [2.5, math.sqrt(18.75)]]}},
+              {"inputs": {"first": [1, 0, 1, 0, 0, -1], "second": [1, 0, 1, 0, 0, -4]}, "outputs": {"count": 0.0, "points": []}}],
+    questions=[{"q": "Solve the system x^2 + y^2 = 25 and x^2 - y^2 = 7.", "outputs": {"count": 4.0, "points": [[-4.0, -3.0], [-4.0, 3.0], [4.0, -3.0], [4.0, 3.0]]}},
+               {"q": "Find the intersection points of x^2 + y^2 = 5 and y = x^2 - 3.", "outputs": {"count": 4.0, "points": [[-2.0, 1.0], [-1.0, -2.0], [1.0, -2.0], [2.0, 1.0]]}},
+               {"q": "Find the intersection points of x^2 + y^2 = 25 and (x - 5)^2 + y^2 = 25.", "outputs": {"count": 2.0, "points": [[2.5, -math.sqrt(18.75)], [2.5, math.sqrt(18.75)]]}},
+               {"q": "Solve the system x^2/9 + y^2/4 = 1 and x^2 + y^2 = 1.", "outputs": {"count": 0.0}},
+               {"q": "Solve the system x^2 + y^2 = 4 and 2x^2 + 2y^2 = 8.", "outcome": "INVALID_INPUT"}])
+
+
+# --- general rational functions --------------------------------------------------------------------------------------
+def _cg_whole_coeffs(co, name):
+    out = []
+    for v in co:
+        if v != math.floor(v) or abs(v) > 1000:
+            raise ValueError(name + ": whole-number coefficients from -1000 to 1000 are covered")
+        out.append(int(v))
+    while len(out) > 1 and out[0] == 0:
+        out = out[1:]
+    return out
+
+
+def _cg_gcd(a, b):
+    a, b = abs(a), abs(b)
+    while b:
+        a, b = b, a % b
+    return a
+
+
+def _cg_divisors(n):
+    n = abs(n)
+    out = []
+    d = 1
+    while d * d <= n:
+        if n % d == 0:
+            out.append(d)
+            if d * d != n:
+                out.append(n // d)
+        d += 1
+    return out
+
+
+def _cg_heval(co, p, q):
+    """q^n P(p/q) for an integer polynomial P of degree n (highest power first): exact in integers."""
+    deg = len(co) - 1
+    total = 0
+    for i in range(len(co)):
+        total += co[i] * p ** (deg - i) * q ** i
+    return total
+
+
+def _cg_divide_root(co, p, q):
+    """P(x) / (q x - p) for a rational zero p/q of P (the quotient has integer coefficients, by Gauss's lemma)."""
+    out = []
+    prev = 0
+    for k in range(len(co) - 1):
+        num = co[k] + p * prev
+        if num % q != 0:
+            raise ValueError("internal: p/q is not a zero")
+        prev = num // q
+        out.append(prev)
+    return out
+
+
+def _cg_rational_roots(co):
+    """The rational zeros (p, q, multiplicity) of an integer polynomial, ascending, q > 0 and gcd(p, q) = 1, by the
+    rational root theorem with exact integer tests; and the factor that remains."""
+    roots = []
+    rest = co
+    m = 0
+    while len(rest) > 1 and rest[-1] == 0:
+        rest = rest[:-1]
+        m += 1
+    if m > 0:
+        roots.append((0, 1, m))
+    if len(rest) > 1:
+        ps = _cg_divisors(rest[-1])
+        qs = _cg_divisors(rest[0])
+        for q in qs:
+            for p0 in ps:
+                for p in (p0, -p0):
+                    if _cg_gcd(p, q) != 1:
+                        continue
+                    m = 0
+                    while len(rest) > 1 and _cg_heval(rest, p, q) == 0:
+                        rest = _cg_divide_root(rest, p, q)
+                        m += 1
+                    if m > 0:
+                        roots.append((p, q, m))
+    n = len(roots)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if roots[j][0] * roots[j + 1][1] > roots[j + 1][0] * roots[j][1]:
+                t = roots[j]
+                roots[j] = roots[j + 1]
+                roots[j + 1] = t
+    return roots, rest
+
+
+def _cg_mult(roots, p, q):
+    for r in roots:
+        if r[0] == p and r[1] == q:
+            return r[2]
+    return 0
+
+
+def _cg_feval(co, x):
+    v = 0.0
+    for c in co:
+        v = v * x + c
+    return v
+
+
+def _cg_bisect(co, lo, hi):
+    flo = _cg_feval(co, lo)
+    for _ in range(300):
+        mid = 0.5 * (lo + hi)
+        if mid <= lo or mid >= hi:
+            break
+        fm = _cg_feval(co, mid)
+        if fm == 0:
+            return mid
+        if (fm < 0) == (flo < 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def _cg_irrational_real_roots(rest):
+    """Real zeros of an integer polynomial of degree <= 3 without rational zeros (so its zeros are simple), ascending."""
+    deg = len(rest) - 1
+    if deg <= 1:
+        return []
+    if deg == 2:
+        a, b, c = rest[0], rest[1], rest[2]
+        disc = b * b - 4 * a * c
+        if disc <= 0:
+            return []
+        sq = math.sqrt(disc)
+        if b >= 0:
+            qq = -0.5 * (b + sq)
+        else:
+            qq = -0.5 * (b - sq)
+        return _cg_sorted([qq / a, c / qq])
+    a, b, c, d = rest[0], rest[1], rest[2], rest[3]
+    bound = 1.0 + max(abs(b), abs(c), abs(d)) / abs(a)
+    cuts = [-bound]
+    dd = 4 * b * b - 12 * a * c
+    if dd > 0:
+        s = math.sqrt(dd)
+        cuts = cuts + _cg_sorted([(-2 * b - s) / (6 * a), (-2 * b + s) / (6 * a)])
+    cuts.append(bound)
+    out = []
+    for k in range(len(cuts) - 1):
+        lo, hi = cuts[k], cuts[k + 1]
+        if (_cg_feval(rest, lo) < 0) != (_cg_feval(rest, hi) < 0):
+            out.append(_cg_bisect(rest, lo, hi))
+    return out
+
+
+def rational_function_analysis(numerator, denominator) -> dict:
+    N = _cg_whole_coeffs(numerator, "numerator")
+    D = _cg_whole_coeffs(denominator, "denominator")
+    if len(N) > 4 or len(D) > 4:
+        raise ValueError("numerator and denominator of degree up to 3 are covered")
+    if len(N) == 1 and N[0] == 0:
+        raise ValueError("the numerator is the zero polynomial")
+    if len(D) < 2:
+        raise ValueError("the denominator must contain x (degree 1 to 3)")
+    droots, drest = _cg_rational_roots(D)
+    if len(drest) == 4 or (len(drest) == 3 and drest[1] * drest[1] - 4 * drest[0] * drest[2] >= 0):
+        raise ValueError("the denominator has irrational real zeros; covered: denominators whose real zeros are all rational")
+    nroots, nrest = _cg_rational_roots(N)
+    excluded, holes, vas, xints = [], [], [], []
+    for r in droots:
+        p, q, md = r[0], r[1], r[2]
+        x = p / q + 0.0
+        excluded.append(x)
+        mn = _cg_mult(nroots, p, q)
+        if mn >= md:
+            if mn > md:
+                y = 0.0
+            else:
+                Nr, Dr = N, D
+                for _ in range(md):
+                    Nr = _cg_divide_root(Nr, p, q)
+                    Dr = _cg_divide_root(Dr, p, q)
+                y = (_cg_heval(Nr, p, q) * q ** (len(Dr) - 1)) / (_cg_heval(Dr, p, q) * q ** (len(Nr) - 1))
+            holes.append([x, y + 0.0])
+        else:
+            vas.append(x)
+    for r in nroots:
+        if _cg_mult(droots, r[0], r[1]) == 0:
+            xints.append(r[0] / r[1] + 0.0)
+    for x in _cg_irrational_real_roots(nrest):
+        xints.append(x + 0.0)
+    xints = _cg_sorted(xints)
+    y0 = None
+    if D[-1] != 0:
+        y0 = N[-1] / D[-1] + 0.0
+    dn, dd = len(N) - 1, len(D) - 1
+    ha = None
+    slant = None
+    if dn < dd:
+        ha = 0.0
+    elif dn == dd:
+        ha = N[0] / D[0] + 0.0
+    elif dn == dd + 1:
+        slant = [N[0] / D[0] + 0.0, (N[1] * D[0] - N[0] * D[1]) / (D[0] * D[0]) + 0.0]
+    return {"vertical_count": float(len(vas)), "excluded": excluded, "holes": holes, "vertical_asymptotes": vas,
+            "x_intercepts": xints, "y_intercept": y0, "horizontal_asymptote": ha, "slant_asymptote": slant}
+
+
+def _cg_deriv(co):
+    deg = len(co) - 1
+    out = []
+    for k in range(deg):
+        out.append(co[k] * (deg - k))
+    return out
+
+
+def _cg_order_at(co, x):
+    """How many times a polynomial vanishes at x: its derivatives at x, each against the size of its terms."""
+    P = co
+    k = 0
+    while len(P) > 0:
+        v = 0.0
+        s = 0.0
+        for c in P:
+            v = v * x + c
+            s = s * abs(x) + abs(c)
+        if abs(v) > 1e-9 * s:
+            return k
+        P = _cg_deriv(P)
+        k += 1
+    return k
+
+
+def _verify_rational_fn(i, o):
+    N = _cg_whole_coeffs(i["numerator"], "numerator")
+    D = _cg_whole_coeffs(i["denominator"], "denominator")
+    exc, holes, vas, xs = o["excluded"], o["holes"], o["vertical_asymptotes"], o["x_intercepts"]
+    if o["vertical_count"] != len(vas):
+        return 1.0
+    merged = []
+    for h in holes:
+        merged.append(h[0])
+    for v in vas:
+        merged.append(v)
+    merged = _cg_sorted(merged)
+    if len(merged) != len(exc):
+        return 1.0
+    worst = 0.0
+    for k in range(len(exc)):
+        worst = max(worst, abs(merged[k] - exc[k]) / max(1.0, abs(exc[k])))
+        if (k > 0 and exc[k] <= exc[k - 1]) or _cg_order_at(D, exc[k]) == 0:
+            return 1.0
+    for v in vas:
+        if _cg_order_at(N, v) >= _cg_order_at(D, v):
+            return 1.0
+    for h in holes:
+        md, mn = _cg_order_at(D, h[0]), _cg_order_at(N, h[0])
+        if mn < md:
+            return 1.0
+        want = 0.0
+        if mn == md:                                        # l'Hopital: the md-th derivatives at the hole
+            Pn, Pd = N, D
+            for _ in range(md):
+                Pn, Pd = _cg_deriv(Pn), _cg_deriv(Pd)
+            want = _cg_feval(Pn, h[0]) / _cg_feval(Pd, h[0])
+        worst = max(worst, abs(h[1] - want) / max(1.0, abs(want)))
+    for k in range(len(xs)):
+        if _cg_order_at(N, xs[k]) == 0 or _cg_order_at(D, xs[k]) > 0 or (k > 0 and xs[k] <= xs[k - 1]):
+            return 1.0
+    y0 = o["y_intercept"]
+    if D[-1] == 0:
+        if y0 is not None:
+            return 1.0
+    else:
+        if y0 is None:
+            return 1.0
+        worst = max(worst, abs(y0 * D[-1] - N[-1]) / max(1.0, abs(N[-1])))
+    dn, dd = len(N) - 1, len(D) - 1
+    ha, sl = o["horizontal_asymptote"], o["slant_asymptote"]
+    if dn <= dd:
+        if ha is None or sl is not None:
+            return 1.0
+        worst = max(worst, abs(ha * D[0] - (N[0] if dn == dd else 0)) / max(1.0, abs(N[0])))
+    elif dn == dd + 1:
+        if ha is not None or sl is None:
+            return 1.0
+        # N - (m x + b) D has degree below that of D
+        worst = max(worst, abs(sl[0] * D[0] - N[0]) / max(1.0, abs(N[0])),
+                    abs(sl[0] * D[1] + sl[1] * D[0] - N[1]) / max(1.0, abs(N[1]), abs(sl[0] * D[1])))
+    elif ha is not None or sl is not None:
+        return 1.0
+    return worst
+
+
+def _ref_rational_fn(numerator, denominator):
+    import sympy as sp
+    x = sp.Symbol("x")
+    N = sp.Poly([sp.Integer(int(v)) for v in numerator], x)
+    D = sp.Poly([sp.Integer(int(v)) for v in denominator], x)
+    G = sp.gcd(N, D)
+    Nr, Dr = sp.quo(N, G), sp.quo(D, G)
+    excluded = sorted(set(D.real_roots()), key=float)
+    holes, vas = [], []
+    for r in excluded:
+        if Dr.eval(r) == 0:
+            vas.append(float(r))
+        else:
+            holes.append([float(r), float(Nr.eval(r) / Dr.eval(r)) + 0.0])
+    xints = sorted({float(r) for r in Nr.real_roots() if D.eval(r) != 0})
+    y0 = None if D.eval(0) == 0 else float(sp.Rational(N.eval(0), D.eval(0))) + 0.0
+    q, _rem = sp.div(N, D)
+    ha = slant = None
+    if q.is_zero:
+        ha = 0.0
+    elif q.degree() == 0:
+        ha = float(q.LC())
+    elif q.degree() == 1:
+        slant = [float(q.coeff_monomial(x)), float(q.coeff_monomial(1)) + 0.0]
+    return {"vertical_count": float(len(vas)), "excluded": [float(r) for r in excluded], "holes": holes,
+            "vertical_asymptotes": vas, "x_intercepts": xints, "y_intercept": y0, "horizontal_asymptote": ha, "slant_asymptote": slant}
+
+
+def _wrong_rational_fn(numerator, denominator):
+    """The common factor not cancelled: every zero of the denominator called a vertical asymptote, every zero of the
+    numerator an x-intercept."""
+    out = rational_function_analysis(numerator, denominator)
+    N = _cg_whole_coeffs(numerator, "numerator")
+    nroots, nrest = _cg_rational_roots(N)
+    xs = [r[0] / r[1] for r in nroots] + _cg_irrational_real_roots(nrest)
+    return dict(out, vertical_count=float(len(out["excluded"])), holes=[], vertical_asymptotes=list(out["excluded"]), x_intercepts=sorted(xs))
+
+
+def _rand_rational_fn(rng):
+    def mul(a, b):
+        out = [0] * (len(a) + len(b) - 1)
+        for i, u in enumerate(a):
+            for j, v in enumerate(b):
+                out[i + j] += u * v
+        return out
+
+    def lin():
+        return [rng.choice([1, 1, 1, 2]), rng.randint(-4, 4)]
+    den_factors = rng.choice([[lin()], [lin(), lin()], [lin(), [1, 0, 1]], [lin(), lin(), lin()], [lin(), [1, 0, 4]]])
+    den = [1]
+    for f in den_factors:
+        den = mul(den, f)
+    num = list(den_factors[0]) if rng.random() < 0.75 else [1]
+    for f in rng.choice([[], [lin()], [[1, 0, -2]], [[1, 0, 1]], [lin(), lin()], [[1, 0, -3]], [[1, 0, 0, -2]]]):
+        if len(num) + len(f) - 2 <= 3:
+            num = mul(num, f)
+    num = mul(num, [rng.choice([1, 2, -1, 3])])
+    return {"numerator": num, "denominator": den}
+
+
+_RATF = r"(?:f\(x\) = |y = )?\((?P<n>[^()]+)\)\s*/\s*\((?P<d>[^()]+)\)"
+
+
+def _parse_rational_fn(g):
+    n, d = _poly_text(g["n"], "x", 3), _poly_text(g["d"], "x", 3)
+    if n is None or d is None:
+        raise ValueError("polynomials in x of degree <= 3")
+    return {"numerator": n, "denominator": d}
+
+
+_register(
+    "rational_function_analysis", name="Analysis of a rational function (domain, intercepts, holes, asymptotes)", topic="polynomial and rational functions",
+    purpose="For f(x) = N(x)/D(x) with whole-number coefficients (degrees up to 3): the excluded x-values, the holes (removable "
+            "discontinuities, with their y-values), the vertical asymptotes, the x- and y-intercepts, and the horizontal or "
+            "slant asymptote.",
+    inputs=[{"symbol": "numerator", "type": "vector", "kind": "number", "required": True, "min_length": 1, "max_length": 4,
+             "meaning": "coefficients of N(x), highest power first, e.g. 1, 0, -4 for x^2 - 4"},
+            {"symbol": "denominator", "type": "vector", "kind": "number", "required": True, "min_length": 2, "max_length": 4,
+             "meaning": "coefficients of D(x), highest power first"}],
+    outputs=[_out("vertical_count", "the number of vertical asymptotes"), _out("excluded", "the x-values excluded from the domain", "list"),
+             _out("holes", "the holes (x, y)", "list"), _out("vertical_asymptotes", "the vertical asymptotes x = a", "list"),
+             _out("x_intercepts", "the x-intercepts", "list"), _out("y_intercept", "the y-intercept (none when 0 is excluded)"),
+             _out("horizontal_asymptote", "the horizontal asymptote y = h (none if there is none)"),
+             _out("slant_asymptote", "the slant asymptote y = m x + b as (m, b) (none if there is none)", "list")],
+    primary="vertical_count",
+    conditions=["whole-number coefficients from -1000 to 1000", "degrees up to 3, the denominator of degree >= 1",
+                "the numerator is not 0", "the real zeros of the denominator are rational"],
+    method="rational zeros by the rational root theorem (exact integer tests) and their multiplicities; a zero of D is a hole "
+           "when N vanishes there at least as often (y-value of the cancelled form), otherwise a vertical asymptote; remaining "
+           "real zeros of N by the quadratic formula or bisection; the asymptote from the degrees and leading coefficients "
+           "(the slant asymptote is the quotient N / D)",
+    latex=r"f(x) = \frac{N(x)}{D(x)},\quad y = \frac{a_n}{b_n}\ (\deg N = \deg D),\quad y = mx + b = \text{quotient of } N \div D\ (\deg N = \deg D + 1)",
+    run=rational_function_analysis, verify=_verify_rational_fn, reference=_ref_rational_fn, wrong=_wrong_rational_fn,
+    random_inputs=_rand_rational_fn,
+    parse=_templated([r"analy[sz]e the rational function " + _RATF + _E,
+                      r"find the domain, (?:the )?intercepts, (?:the )?holes and (?:the )?asymptotes of (?:the rational function )?" + _RATF + _E],
+                     _parse_rational_fn),
+    templates=["Analyze the rational function f(x) = (x^2 - 4)/(x^2 - x - 2).",
+               "Find the domain, intercepts, holes and asymptotes of f(x) = (3x)/(x^2 - 9)."],
+    examples=[{"inputs": {"numerator": "1, 0, -4", "denominator": "1, -1, -2"},
+               "outputs": {"vertical_count": 1.0, "excluded": [-1.0, 2.0], "holes": [[2.0, 4 / 3]], "vertical_asymptotes": [-1.0],
+                           "x_intercepts": [-2.0], "y_intercept": 2.0, "horizontal_asymptote": 1.0, "slant_asymptote": None}},
+              {"inputs": {"numerator": [1, 0, 1], "denominator": [1, -1]},
+               "outputs": {"vertical_count": 1.0, "vertical_asymptotes": [1.0], "holes": [], "x_intercepts": [], "y_intercept": -1.0,
+                           "horizontal_asymptote": None, "slant_asymptote": [1.0, 1.0]}},
+              {"inputs": {"numerator": [3, 0], "denominator": [1, 0, -9]},
+               "outputs": {"vertical_count": 2.0, "vertical_asymptotes": [-3.0, 3.0], "x_intercepts": [0.0], "y_intercept": 0.0, "horizontal_asymptote": 0.0}},
+              {"inputs": {"numerator": [1, 0, -2], "denominator": [1, 1]},
+               "outputs": {"x_intercepts": [-math.sqrt(2), math.sqrt(2)], "slant_asymptote": [1.0, -1.0]}}],
+    questions=[{"q": "Analyze the rational function f(x) = (x^2 - 4)/(x^2 - x - 2).",
+                "outputs": {"vertical_count": 1.0, "holes": [[2.0, 4 / 3]], "vertical_asymptotes": [-1.0], "x_intercepts": [-2.0], "y_intercept": 2.0, "horizontal_asymptote": 1.0}},
+               {"q": "Find the domain, intercepts, holes and asymptotes of f(x) = (3x)/(x^2 - 9).",
+                "outputs": {"excluded": [-3.0, 3.0], "vertical_asymptotes": [-3.0, 3.0], "x_intercepts": [0.0], "horizontal_asymptote": 0.0}},
+               {"q": "Analyze the rational function f(x) = (x^2 + 1)/(x - 1).", "outputs": {"slant_asymptote": [1.0, 1.0], "y_intercept": -1.0}},
+               {"q": "Analyze the rational function y = (1)/(x^2 + 1).", "outputs": {"vertical_count": 0.0, "excluded": [], "horizontal_asymptote": 0.0, "y_intercept": 1.0}},
+               {"q": "Analyze the rational function f(x) = (x + 1)/(x^2 - 2).", "outcome": "INVALID_INPUT"}])
+
+
+# --- the binomial series for any real power ---------------------------------------------------------------------------
+def binomial_series(x, n, terms) -> dict:
+    _cg_finite(x, "x")
+    _cg_finite(n, "n")
+    m = int(terms)
+    if m < 1 or m > 30:
+        raise ValueError("the number of terms is from 1 to 30")
+    whole = n >= 0 and n == math.floor(n)
+    if not whole and not abs(x) < 1:
+        raise ValueError("for a power that is not a whole number >= 0 the series converges only for |x| < 1")
+    vals = []
+    total = 0.0
+    t = 1.0
+    for k in range(m):
+        vals.append(t + 0.0)
+        total += t
+        t = t * (n - k) / (k + 1) * x
+    exact = (1.0 + x) ** n
+    return {"approx": total + 0.0, "exact": float(f"{exact:.12g}") + 0.0, "next_term": t + 0.0,
+            "percent_change_linear": 100.0 * n * x + 0.0, "term_values": vals}
+
+
+def _verify_binomial_series(i, o):
+    x, n, m = i["x"], i["n"], int(i["terms"])
+    vals = o["term_values"]
+    if len(vals) != m:
+        return 1.0
+    worst = 0.0
+    total = 0.0
+    for k in range(m + 1):
+        num = 1.0
+        fact = 1.0
+        for j in range(k):                                  # n(n-1)...(n-k+1) / k!, each term on its own
+            num = num * (n - j)
+            fact = fact * (j + 1)
+        want = num / fact * x ** k
+        got = vals[k] if k < m else o["next_term"]
+        worst = max(worst, abs(got - want) / max(abs(want), abs(got), 1e-300))
+        if k < m:
+            total += want
+    worst = max(worst, abs(o["approx"] - total) / max(1.0, abs(total)))
+    ex = (1.0 + x) ** n
+    worst = max(worst, abs(o["exact"] - ex) / max(abs(ex), 1e-300))
+    pc = 100.0 * n * x
+    return max(worst, abs(o["percent_change_linear"] - pc) / max(1.0, abs(pc)))
+
+
+def _ref_binomial_series(x, n, terms):
+    """Build-time only: mpmath's generalized binomial coefficient C(n, k) (through the gamma function, not the
+    falling product run uses) at 40 digits. sympy's series of (1 + t)^(3333333333333333/10^16) never finished
+    (box certification, 2026-11-12)."""
+    import mpmath as mp
+    m = int(terms)
+    with mp.workdps(40):
+        N, X = mp.mpf(n), mp.mpf(x)
+        vals = [mp.binomial(N, k) * X ** k for k in range(m + 1)]
+        exact = (1 + X) ** N
+        return {"approx": float(mp.fsum(vals[:m])), "exact": float(exact), "next_term": float(vals[m]),
+                "percent_change_linear": float(100 * N * X), "term_values": [float(v) for v in vals[:m]]}
+
+
+def _wrong_binomial_series(x, n, terms):
+    """n kept in every factor: n^k / k! instead of n(n-1)...(n-k+1) / k!."""
+    vals = []
+    total, t = 0.0, 1.0
+    for k in range(int(terms)):
+        vals.append(t)
+        total += t
+        t = t * n / (k + 1) * x
+    right = binomial_series(x, n, terms)
+    return dict(right, approx=total, next_term=t, term_values=vals)
+
+
+def _rand_binomial_series(rng):
+    if rng.random() < 0.2:
+        return {"x": round(rng.uniform(-2.0, 3.0), 2) or 0.5, "n": float(rng.randint(2, 6)), "terms": rng.randint(3, 8)}
+    return {"x": rng.choice([-1, 1]) * round(rng.uniform(0.01, 0.6), 3), "n": rng.choice([0.5, -0.5, -1.0, -2.0, -3.0, 1 / 3, 1.5, 2.5, -1.5, 0.25, -4.0]),
+            "terms": rng.randint(3, 8)}
+
+
+_BSER = r"\(\s*1\s*(?P<s>[-+])\s*(?P<x>\d+(?:\.\d+)?(?:/\d+)?)\s*\)\s*\^\s*(?:\((?P<n1>" + _Q + r")\)|(?P<n2>" + _Q + r"))"
+
+
+def _parse_binomial_series(g):
+    return {"x": (-1.0 if g["s"] == "-" else 1.0) * _q(g["x"]), "n": _q(g.get("n1") or g.get("n2")), "terms": int(g["k"])}
+
+
+_register(
+    "binomial_series", name="Binomial series for any real power", topic="sequences and series / the binomial series",
+    purpose="The first terms of (1 + x)^n = 1 + n x + n(n-1)/2! x^2 + ... for any real n, the approximation they give, the exact "
+            "value, the first omitted term (an estimate of the error) and the first-order percentage change 100 n x.",
+    inputs=[_num_in("x", "x in (1 + x)^n"), _num_in("n", "the power n (any real number)"),
+            {"symbol": "terms", "type": "integer", "kind": "number", "required": True, "min": 1, "max": 30, "meaning": "how many terms to add"}],
+    outputs=[_out("approx", "the sum of the first terms"), _out("exact", "(1 + x)^n, 12 significant digits"),
+             _out("next_term", "the first omitted term (error estimate)"), _out("percent_change_linear", "the approximate percentage change 100 n x"),
+             _out("term_values", "the terms added, in order", "list")],
+    primary="approx", conditions=["|x| < 1 unless n is a whole number >= 0 (then the series ends)", "1 to 30 terms"],
+    method="t_0 = 1, t_(k+1) = t_k (n - k)/(k + 1) x; the approximation is the sum of the first terms",
+    latex=r"(1+x)^n = \sum_{k\ge 0}\binom{n}{k}x^k = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots,\quad |x| < 1",
+    run=binomial_series, verify=_verify_binomial_series, reference=_ref_binomial_series, wrong=_wrong_binomial_series,
+    random_inputs=_rand_binomial_series,
+    parse=_templated([r"use the first (?P<k>\d+) terms of the binomial series to approximate " + _BSER + _E,
+                      r"approximate " + _BSER + r" (?:with|using) (?:the first )?(?P<k>\d+) terms of the binomial series" + _E],
+                     _parse_binomial_series),
+    templates=["Use the first 3 terms of the binomial series to approximate (1 + 0.02)^-3.",
+               "Approximate (1 - 0.1)^(1/2) using the first 4 terms of the binomial series."],
+    examples=[{"inputs": {"x": 0.02, "n": -3, "terms": 3}, "outputs": {"approx": 0.9424, "next_term": -0.00008, "percent_change_linear": -6.0,
+                                                                        "term_values": [1.0, -0.06, 0.0024]}},
+              {"inputs": {"x": -0.1, "n": 0.5, "terms": 4}, "outputs": {"approx": 0.9486875, "next_term": -0.00000390625,
+                                                                         "term_values": [1.0, -0.05, -0.00125, -0.0000625]}},
+              {"inputs": {"x": 0.5, "n": 3, "terms": 5}, "outputs": {"approx": 3.375, "exact": 3.375, "next_term": 0.0}}],
+    questions=[{"q": "Use the first 3 terms of the binomial series to approximate (1 + 0.02)^-3.", "outputs": {"approx": 0.9424, "percent_change_linear": -6.0}},
+               {"q": "Approximate (1 - 0.1)^(1/2) using the first 4 terms of the binomial series.", "outputs": {"approx": 0.9486875}},
+               {"q": "Use the first 3 terms of the binomial series to approximate (1 + 2)^(1/2).", "outcome": "INVALID_INPUT"}])

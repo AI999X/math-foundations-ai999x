@@ -1,8 +1,8 @@
 # math-foundations: the Math Foundations program, user guide
 
-**math-foundations-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**math-foundations-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic equations and inequalities, functions, exponentials and logarithms, trigonometry, precalculus and complex numbers. This guide is about `math-foundations`, the model as a self-contained program for Windows and Linux: 100 capabilities in 31 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/math-foundations-ai999x/); the Python package (`pip install math-foundations-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic equations and inequalities, functions, exponentials and logarithms, trigonometry, precalculus and complex numbers. This guide is about `math-foundations`, the model as a self-contained program for Windows and Linux: 106 capabilities in 34 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/math-foundations-ai999x/); the Python package (`pip install math-foundations-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic eq
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Math Foundations | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-windows-x86_64.zip |
-| Desktop app: Math Foundations | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Math Foundations | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-windows-x86_64.zip |
+| Desktop app: Math Foundations | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Math Foundations in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-math-foundations-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-math-foundations.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Math Foundations in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-math-foundations-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-math-foundations.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-math-foundations-1.5.0-linux-x86_64.tar.gz
-./ai999x-math-foundations-1.5.0-linux-x86_64/ai999x-math-foundations
+tar xzf ai999x-math-foundations-1.6.0-linux-x86_64.tar.gz
+./ai999x-math-foundations-1.6.0-linux-x86_64/ai999x-math-foundations
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `math-foundations` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 math-foundations --version
 ```
 
@@ -68,12 +68,12 @@ math-foundations --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 math-foundations --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ math-foundations --version
-math-foundations-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+math-foundations-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -125,11 +125,11 @@ $ math-foundations search "roots of a quadratic equation"
 quadratic_roots                      Roots of a quadratic equation  (polynomial equations / quadratic equations)
 quartic_roots                        Roots of a quartic equation  (polynomial equations / cubic and quartic equations)
 cubic_roots                          Roots of a cubic equation  (polynomial equations / cubic and quartic equations)
-quadratic_discriminant               Discriminant of a quadratic  (polynomial equations / quadratic equations)
 linear_equation_root                 Root of a linear equation  (linear equations)
+quadratic_discriminant               Discriminant of a quadratic  (polynomial equations / quadratic equations)
 quadratic_inequality                 Quadratic inequality  (algebra / inequalities)
+rational_roots                       Rational roots of a polynomial (rational root theorem)  (algebra / polynomial equations)
 factor_quadratic_integer             Factor a quadratic over the integers  (algebra / factoring)
-factor_monic_quadratic               Factoring a monic quadratic  (factoring)
 … 12 more
 ```
 
@@ -147,7 +147,7 @@ add_rational_expressions_same_denom      Add rational expressions with same deno
 arithmetic_sequence                      Term and partial sum of an arithmetic sequence
 average_rate_of_change_definition        Average rate of change of a function between two inputs
 average_rate_of_change_linear            Average rate of change between two points
-… 92 more
+… 98 more
 ```
 
 ### 2.5 What a capability needs
@@ -1674,7 +1674,7 @@ q = 2
 
 **What the worked example means:** This calculation rewrites a monic quadratic polynomial as a product of two linear binomials. By identifying two numbers, p and q, that sum to the linear coefficient b and multiply to the constant term c, the expression is factored. The resulting constants are 3 and 2, which allow for immediate identification of the roots and simplification of rational expressions.
 
-### Functions (10)
+### Functions (11)
 
 <a id="average_rate_of_change_definition"></a>
 
@@ -1740,6 +1740,43 @@ k = -7
 ```
 
 **What the worked example means:** This calculation determines the single linear function that represents the composition of two separate linear functions. Substituting the second function into the first gives a new slope-intercept form where the resulting slope is 6 and the resulting intercept is -7. This simplifies sequential transformations into one direct relationship between input and output.
+
+<a id="variation"></a>
+
+#### Direct, inverse, joint and combined variation, `variation`
+
+The constant of variation k from one known case, and the new value of y: y = kx (direct), y = k/x (inverse), y = kx^2, y = k/x^2, y = kxz (joint) or y = kx/z (combined).
+
+$$
+y = kx,\quad y = \frac{k}{x},\quad y = kxz,\quad y = \frac{kx}{z},\qquad k = \frac{y_1}{f(x_1, z_1)}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `variation_type` | in | the kind of variation | - |
+| `x1` | in | x in the known case | - |
+| `y1` | in | y in the known case | - |
+| `x2` | in | x in the new case | - |
+| `z1` | in | z in the known case (joint and combined variation) (optional) | - |
+| `z2` | in | z in the new case (joint and combined variation) (optional) | - |
+| `k` | out | the constant of variation | - |
+| `y2` | out | y in the new case | - |
+
+**Applies when:** x1 != 0; x2 != 0 for inverse variation; z1, z2 given (and z1 != 0) exactly for joint and combined variation; z2 != 0 for combined variation.
+
+```shell
+$ math-foundations solve variation y1=12 x1=4 x2=10 variation_type=direct
+k = 3
+y2 = 30
+  by: Direct, inverse, joint and combined variation  (k from the known case (k = y1 / f(x1, z1)), then y2 = k f(x2, z2))
+  y1 = 12
+  x1 = 4
+  x2 = 10
+  variation_type = direct
+  assumes: x1 != 0; x2 != 0 for inverse variation; z1, z2 given (and z1 != 0) exactly for joint and combined variation; z2 != 0 for combined variation
+```
+
+In the worked example, y1 = 12, x1 = 4, x2 = 10, variation_type = direct go through the equation above and give k = 3, y2 = 30. It applies only when x1 != 0; x2 != 0 for inverse variation; z1, z2 given (and z1 != 0) exactly for joint and combined variation; z2 != 0 for combined variation: outside that it says what is wrong instead of returning a number.
 
 <a id="distance_point_to_line"></a>
 
@@ -2429,6 +2466,39 @@ b22 = 12
 
 **What the worked example means:** This calculation determines the new matrix obtained by multiplying every entry of the original two by two matrix by the scalar value 3. The resulting entries, such as 3 for the top left position, represent the scaled components of the transformation. Each output entry is derived solely from its corresponding input entry multiplied by the uniform scaling factor.
 
+### Measurement (1)
+
+<a id="unit_conversion"></a>
+
+#### Unit conversion (metric prefixes, customary units, temperature scales), `unit_conversion`
+
+A length, mass, volume, time or temperature written in another unit: metric prefixes (mm to km, mg to kg, mL to kL), metric and US customary units (inch, foot, yard, mile; ounce, pound, short ton; fluid ounce, cup, pint, quart, gallon), and the Celsius, Fahrenheit and Kelvin scales.
+
+$$
+v_{\text{new}} = v\cdot\frac{[\text{old unit}]}{[\text{new unit}]},\qquad F = \tfrac{9}{5}C + 32,\quad K = C + 273.15
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `value` | in | the amount to convert, in the first unit | - |
+| `from_unit` | in | the unit the value is written in | - |
+| `to_unit` | in | the unit wanted | - |
+| `converted` | out | the value in the wanted unit | - |
+
+**Applies when:** both units measure the same kind of quantity; a length, mass, volume or time is not negative; a temperature is not below absolute zero.
+
+```shell
+$ math-foundations solve unit_conversion value=5 from_unit=km to_unit=m
+converted = 5000
+  by: Unit conversion (metric prefixes, customary units, temperature scales)  (multiply by the size of the first unit and divide by the size of the second (both in a base unit: m, kg, L, s); temperatures by the affine maps F = 9C/5 + 32 and K = C + 273.15)
+  value = 5
+  from_unit = km
+  to_unit = m
+  assumes: both units measure the same kind of quantity; a length, mass, volume or time is not negative; a temperature is not below absolute zero
+```
+
+In the worked example, value = 5, from_unit = km, to_unit = m go through the equation above and give converted = 5000. It applies only when both units measure the same kind of quantity; a length, mass, volume or time is not negative; a temperature is not below absolute zero: outside that it says what is wrong instead of returning a number.
+
 ### Other equations (1)
 
 <a id="absolute_value_equation"></a>
@@ -2463,6 +2533,49 @@ x2 = -2
 ```
 
 **What the worked example means:** This calculation finds the values of x that satisfy the condition where the magnitude of the linear expression equals a constant. Setting the expression inside the absolute value bars equal to both the positive and negative versions of the right-hand side gives two linear equations. Solving these yields the specific roots 3 and -2, which represent the points where the function touches the specified magnitude level.
+
+### Polynomial and rational functions (1)
+
+<a id="rational_function_analysis"></a>
+
+#### Analysis of a rational function (domain, intercepts, holes, asymptotes), `rational_function_analysis`
+
+For f(x) = N(x)/D(x) with whole-number coefficients (degrees up to 3): the excluded x-values, the holes (removable discontinuities, with their y-values), the vertical asymptotes, the x- and y-intercepts, and the horizontal or slant asymptote.
+
+$$
+f(x) = \frac{N(x)}{D(x)},\quad y = \frac{a_n}{b_n}\ (\deg N = \deg D),\quad y = mx + b = \text{quotient of } N \div D\ (\deg N = \deg D + 1)
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `numerator` | in | coefficients of N(x), highest power first, e.g. 1, 0, -4 for x^2 - 4 | - |
+| `denominator` | in | coefficients of D(x), highest power first | - |
+| `vertical_count` | out | the number of vertical asymptotes | - |
+| `excluded` | out | the x-values excluded from the domain | - |
+| `holes` | out | the holes (x, y) | - |
+| `vertical_asymptotes` | out | the vertical asymptotes x = a | - |
+| `x_intercepts` | out | the x-intercepts | - |
+| `y_intercept` | out | the y-intercept (none when 0 is excluded) | - |
+| `horizontal_asymptote` | out | the horizontal asymptote y = h (none if there is none) | - |
+| `slant_asymptote` | out | the slant asymptote y = m x + b as (m, b) (none if there is none) | - |
+
+**Applies when:** whole-number coefficients from -1000 to 1000; degrees up to 3, the denominator of degree >= 1; the numerator is not 0; the real zeros of the denominator are rational.
+
+```shell
+$ math-foundations solve rational_function_analysis "numerator=[1, 0, -4]" "denominator=[1, -1, -2]"
+vertical_count = 1
+excluded = [-1.0,2.0]
+holes = [[2.0,1.3333333333333333]]
+vertical_asymptotes = [-1.0]
+x_intercepts = [-2.0]
+y_intercept = 2
+horizontal_asymptote = 1
+slant_asymptote = null
+  by: Analysis of a rational function (domain, intercepts, holes, asymptotes)  (rational zeros by the rational root theorem (exact integer tests) and their multiplicities; a zero of D is a hole when N vanishes there at least as often (y-value of the cancelled form), otherwise a vertical asymptote; remaining real zeros of N by the quadratic formula or bisection; the asymptote from the degrees and leading coefficients (the slant asymptote is the quotient N / D))
+  assumes: whole-number coefficients from -1000 to 1000; degrees up to 3, the denominator of degree >= 1; the numerator is not 0; the real zeros of the denominator are rational
+```
+
+In the worked example, numerator = [1, 0, -4], denominator = [1, -1, -2] go through the equation above and give vertical_count = 1, excluded = [-1, 2], holes = [[2, 1.333333333]], vertical_asymptotes = [-1]. It applies only when whole-number coefficients from -1000 to 1000; degrees up to 3, the denominator of degree >= 1; the numerator is not 0; the real zeros of the denominator are rational: outside that it says what is wrong instead of returning a number.
 
 ### Polynomial equations (4)
 
@@ -3197,7 +3310,105 @@ sn = 210
 
 **What the worked example means:** This calculation determines the value of a specific term in an arithmetic sequence and the total of all terms up to that point. Given a starting value of 3 and a constant step size of 4, the term located at position 10 is found by adding the step size repeatedly. The result shows that this specific term equals 39. Furthermore, by pairing the first and last terms of the sequence, the cumulative total for the first 10 positions is calculated as 210. This method effectively models scenarios involving steady linear growth or fixed increments.
 
-### Systems of equations (1)
+### Sequences and series (1)
+
+<a id="binomial_series"></a>
+
+#### Binomial series for any real power: `binomial_series`
+
+The first terms of (1 + x)^n = 1 + n x + n(n-1)/2! x^2 + ... for any real n, the approximation they give, the exact value, the first omitted term (an estimate of the error) and the first-order percentage change 100 n x.
+
+$$
+(1+x)^n = \sum_{k\ge 0}\binom{n}{k}x^k = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots,\quad |x| < 1
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `x` | in | x in (1 + x)^n | - |
+| `n` | in | the power n (any real number) | - |
+| `terms` | in | how many terms to add | - |
+| `approx` | out | the sum of the first terms | - |
+| `exact` | out | (1 + x)^n, 12 significant digits | - |
+| `next_term` | out | the first omitted term (error estimate) | - |
+| `percent_change_linear` | out | the approximate percentage change 100 n x | - |
+| `term_values` | out | the terms added, in order | - |
+
+**Applies when:** |x| < 1 unless n is a whole number >= 0 (then the series ends); 1 to 30 terms.
+
+```shell
+$ math-foundations solve binomial_series x=0.02 n=-3 terms=3
+approx = 0.9424
+exact = 0.9423223345
+next_term = -8e-05
+percent_change_linear = -6
+term_values = [1.0,-0.06,0.0024]
+  by: Binomial series for any real power  (t_0 = 1, t_(k+1) = t_k (n - k)/(k + 1) x; the approximation is the sum of the first terms)
+  x = 0.02
+  n = -3
+  assumes: |x| < 1 unless n is a whole number >= 0 (then the series ends); 1 to 30 terms
+```
+
+In the worked example, x = 0.02, n = -3, terms = 3 go through the equation above and give approx = 0.9424, exact = 0.9423223345, next_term = -8e-05, percent_change_linear = -6. It applies only when |x| < 1 unless n is a whole number >= 0 (then the series ends); 1 to 30 terms: outside that it says what is wrong instead of returning a number.
+
+### Systems of equations (3)
+
+<a id="line_conic_intersection"></a>
+
+#### Intersection of a line and a conic (nonlinear system), `line_conic_intersection`
+
+All real solutions of the system a x + b y = c, A x^2 + B xy + C y^2 + D x + E y + F = 0: where a line meets a circle, ellipse, parabola or hyperbola (0, 1 or 2 points).
+
+$$
+y = \frac{c - ax}{b}\ \Rightarrow\ (Ab^2 - Bab + Ca^2)\,x^2 + (Bbc - 2Cac + Db^2 - Eab)\,x + (Cc^2 + Ebc + Fb^2) = 0
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `line` | in | a, b, c of the line a x + b y = c | - |
+| `conic` | in | A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0 | - |
+| `count` | out | the number of real intersection points | - |
+| `points` | out | the intersection points (x, y), by x then y | - |
+
+**Applies when:** a or b nonzero; A, B or C nonzero; the line does not lie on the conic; a tangency that rounding cannot decide is refused.
+
+```shell
+$ math-foundations solve line_conic_intersection "line=[-1, 1, 1]" "conic=[1, 0, 1, 0, 0, -25]"
+count = 2
+points = [[-4.0,-3.0],[3.0,4.0]]
+  by: Intersection of a line and a conic (nonlinear system)  (solve the line for y (or x when b = 0), substitute into the conic and solve the resulting quadratic)
+  assumes: a or b nonzero; A, B or C nonzero; the line does not lie on the conic; a tangency that rounding cannot decide is refused
+```
+
+In the worked example, line = [-1, 1, 1], conic = [1, 0, 1, 0, 0, -25] go through the equation above and give count = 2, points = [[-4, -3], [3, 4]]. It applies only when a or b nonzero; A, B or C nonzero; the line does not lie on the conic; a tangency that rounding cannot decide is refused: outside that it says what is wrong instead of returning a number.
+
+<a id="two_conics_intersection"></a>
+
+#### Intersection of two conics (nonlinear system), `two_conics_intersection`
+
+All real solutions of two second-degree equations without an xy term, when elimination reduces them to one quadratic: two circles (or any two conics whose x^2 and y^2 parts are proportional), or systems in which x (or y) appears only squared, such as x^2 + y^2 = 25 and x^2 - y^2 = 7, or a circle and the parabola y = x^2 - 3.
+
+$$
+A_2\,(\text{eq}_1) - A_1\,(\text{eq}_2):\ (A_2C_1 - A_1C_2)\,y^2 + (A_2E_1 - A_1E_2)\,y + (A_2F_1 - A_1F_2) = 0
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `first` | in | A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0 (first equation) | - |
+| `second` | in | A, B, C, D, E, F of A x^2 + B xy + C y^2 + D x + E y + F = 0 (second equation) | - |
+| `count` | out | the number of real intersection points | - |
+| `points` | out | the intersection points (x, y), by x then y | - |
+
+**Applies when:** no xy term; each equation has an x^2 or y^2 term; proportional x^2 and y^2 parts, or no x terms, or no y terms; the equations are not the same curve; a tangency that rounding cannot decide is refused.
+
+```shell
+$ math-foundations solve two_conics_intersection "first=[1, 0, 1, 0, 0, -25]" "second=[1, 0, -1, 0, 0, -7]"
+count = 4
+points = [[-4.0,-3.0],[-4.0,3.0],[4.0,-3.0],[4.0,3.0]]
+  by: Intersection of two conics (nonlinear system)  (proportional second-degree parts: subtract a multiple to get a line, then line and conic; x only squared: eliminate x^2, solve the quadratic in y, then x = +/- sqrt of x^2 from one equation (the same with x and y exchanged))
+  assumes: no xy term; each equation has an x^2 or y^2 term; proportional x^2 and y^2 parts, or no x terms, or no y terms; the equations are not the same curve; a tangency that rounding cannot decide is refused
+```
+
+In the worked example, first = [1, 0, 1, 0, 0, -25], second = [1, 0, -1, 0, 0, -7] go through the equation above and give count = 4, points = [[-4, -3], [-4, 3], [4, -3], [4, 3]]. It applies only when no xy term; each equation has an x^2 or y^2 term; proportional x^2 and y^2 parts, or no x terms, or no y terms; the equations are not the same curve; a tangency that rounding cannot decide is refused: outside that it says what is wrong instead of returning a number.
 
 <a id="linear_system_2x2"></a>
 

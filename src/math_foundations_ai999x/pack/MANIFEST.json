@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.2",
  "knowledge_db": null,
  "files": {
@@ -8,8 +8,8 @@
   "knowledge/relations.json": "744574c78ffba6e2b0d472f815c86978f51359e8fbda342756bf18a304df3e51",
   "knowledge/reference_cases.json": "105e7695d3426edff037a80f00f3bf697ac6f774d3bd50e8caf2a79b0589a054",
   "knowledge/question_examples.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
-  "capabilities/procedures.py": "478983ae78f93840c22ef9ce59ad1352a25f4f9760ddd0b9174ef1ca27e0ad53",
-  "capabilities/procedures_certified.json": "a586e0e6479aa6e4e44cbd0e1908fb3dbabfaf4229957a9bd419e7cb38fab06f",
+  "capabilities/procedures.py": "d74e347ba90114b1a07f17f10a32c4835f2db4955310b48a15e43a6e20a59784",
+  "capabilities/procedures_certified.json": "18790c4fc863d21dbfd11cdb4bee53a286ce34a591cae3e4863b5394cdb329ca",
   "capabilities/procedures_compiled.json": "c1928f7945d9bdda653e151cf96075964bd766cc5fa4009aa035e82d1d3bdfe7",
   "capabilities/derivations_certified.json": "697564cf1ce16b12b593121d05b16d9af5958c481cf2384f883226ae39dafdb8",
   "math_foundations_knowledge_public.sqlite": "8599c6956b391b114e2f449044de99a8e3520d4ae8206d133ec0ccf53d496689"

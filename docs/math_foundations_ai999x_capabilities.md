@@ -57,6 +57,7 @@ result.show()
 | Functions / evaluation | [Evaluate a function at a number](#evaluate_function) |
 | Functions / inverse functions | [Inverse of a linear function](#inverse_linear_function) |
 | Functions / lines | [Intercepts and slope of a line](#line_intercepts), [Distance from a point to a line](#distance_point_to_line) |
+| Functions / modelling with variation | [Direct, inverse, joint and combined variation](#variation) |
 | Functions / piecewise functions | [Evaluate a piecewise function](#piecewise_evaluate) |
 | Functions / transformations | [Image of a point under a graph transformation](#graph_transformation_point) |
 | Inequalities | [Solution of a linear inequality](#linear_inequality) |
@@ -66,7 +67,9 @@ result.show()
 | Logarithms | [Solution of a basic logarithmic equation](#logarithmic_equation) |
 | Matrices | [Determinant and inverse of a 2 by 2 matrix](#matrix_2x2_inverse) |
 | Matrices and linear systems | [Determinant of 2x2 matrix](#determinant_2x2_formula), [Matrix scalar multiple definition](#matrix_scalar_multiple_definition) |
+| Measurement / unit conversion | [Unit conversion (metric prefixes, customary units, temperature scales)](#unit_conversion) |
 | Other equations | [Solutions of an absolute value equation](#absolute_value_equation) |
+| Polynomial and rational functions | [Analysis of a rational function (domain, intercepts, holes, asymptotes)](#rational_function_analysis) |
 | Polynomial equations / cubic and quartic equations | [Roots of a cubic equation](#cubic_roots), [Roots of a quartic equation](#quartic_roots) |
 | Polynomial equations / quadratic equations | [Roots of a quadratic equation](#quadratic_roots), [Discriminant of a quadratic](#quadratic_discriminant) |
 | Polynomials | [Product of two binomials](#binomial_product) |
@@ -80,7 +83,9 @@ result.show()
 | Rational functions | [Asymptotes of a linear rational function](#rational_function_asymptotes) |
 | Real numbers and algebraic expressions | [Perimeter of a rectangle](#perimeter_of_rectangle) |
 | Sequences | [Term and partial sum of an arithmetic sequence](#arithmetic_sequence), [Term and partial sum of a geometric sequence](#geometric_sequence) |
+| Sequences and series / the binomial series | [Binomial series for any real power](#binomial_series) |
 | Systems of equations | [Solution of two linear equations in two unknowns](#linear_system_2x2) |
+| Systems of equations / nonlinear systems | [Intersection of a line and a conic (nonlinear system)](#line_conic_intersection), [Intersection of two conics (nonlinear system)](#two_conics_intersection) |
 | The coordinate plane and graphs | [Midpoint of a line segment](#midpoint_of_segment) |
 | Trigonometry / angle measure | [Degrees to radians](#deg_to_rad), [Radians to degrees](#rad_to_deg) |
 | Trigonometry / identities | [Trigonometric values from one value and the quadrant](#trig_values_from_one) |
@@ -196,6 +201,12 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | complex_modulus_argument | Modulus, argument and polar form of a complex number | a, b | modulus, argument_deg, argument_rad, polar |
 | de_moivre_power | Power of a complex number (De Moivre) | a, b, n | re, im, modulus, argument_deg |
 | complex_nth_roots | The n-th roots of a complex number | a, b, n | modulus, count, roots |
+| unit_conversion | Unit conversion (metric prefixes, customary units, temperature scales) | value, from_unit, to_unit | converted |
+| variation | Direct, inverse, joint and combined variation | variation_type, x1, y1, x2, z1, z2 | k, y2 |
+| line_conic_intersection | Intersection of a line and a conic (nonlinear system) | line, conic | count, points |
+| two_conics_intersection | Intersection of two conics (nonlinear system) | first, second | count, points |
+| rational_function_analysis | Analysis of a rational function (domain, intercepts, holes, asymptotes) | numerator, denominator | vertical_count, excluded, holes, vertical_asymptotes, x_intercepts, y_intercept, horizontal_asymptote, slant_asymptote |
+| binomial_series | Binomial series for any real power | x, n, terms | approx, exact, next_term, percent_change_linear, term_values |
 | abs_value_inequality_lower_bound | Solution set of \|x - c\| > d | c, d | left_limit, right_limit |
 | abs_value_inequality_upper_bound | Solution interval of \|x - c\| < d | c, d | lower, upper |
 | absolute_value_equation | Solutions of an absolute value equation | a, b, c | x1, x2 |
@@ -3886,6 +3897,378 @@ math_foundations_ai999x.solve('complex_nth_roots', a=-16, b=0, n=4)
 | Find all the fourth roots of -16. | SOLVED | modulus = 2, count = 4, roots = [(1.41421356237+1.41421356237j), (-1.41421356237+1.41421356237j), (-1.41421356237-1.41421356237j), (1.41421356237-1.41421356237j)] |
 | Find the square roots of 9. | SOLVED | modulus = 3, count = 2, roots = [(3+0j), (-3+0j)] |
 | Find the cube roots of 0. | INVALID_INPUT | The n-th roots of a complex number: 0 has only the root 0. |
+
+<a id="unit_conversion"></a>
+
+### Unit conversion (metric prefixes, customary units, temperature scales), `unit_conversion`
+
+A length, mass, volume, time or temperature written in another unit: metric prefixes (mm to km, mg to kg, mL to kL), metric and US customary units (inch, foot, yard, mile; ounce, pound, short ton; fluid ounce, cup, pint, quart, gallon), and the Celsius, Fahrenheit and Kelvin scales.
+
+$$
+v_{\text{new}} = v\cdot\frac{[\text{old unit}]}{[\text{new unit}]},\qquad F = \tfrac{9}{5}C + 32,\quad K = C + 273.15
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `value` | the amount to convert, in the first unit |  |
+| `from_unit` | the unit the value is written in |  |
+| `to_unit` | the unit wanted |  |
+
+| output | meaning |
+|---|---|
+| `converted` | the value in the wanted unit |
+
+- **Method:** multiply by the size of the first unit and divide by the size of the second (both in a base unit: m, kg, L, s); temperatures by the affine maps $F = 9C/5 + 32$ and $K = C + 273.15$
+- **Assumes:** both units measure the same kind of quantity; a length, mass, volume or time is not negative; a temperature is not below absolute zero
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![converted (the value in the wanted unit) against value (the amount to convert, in the first unit) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-conversion-curve)
+
+*converted (the value in the wanted unit) against value (the amount to convert, in the first unit) from 2.5 to 7.5. Other inputs as in the worked example: from_unit = km, to_unit = m. 31 points computed by math-foundations-ai999x; marked: the worked example, value = 5, converted = 5000.*
+
+```python
+math_foundations_ai999x.solve('unit_conversion', value=5, from_unit='km', to_unit='m')
+# -> converted = 5000   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('unit_conversion', value=3, from_unit='ft', to_unit='in')
+# -> converted = 36   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('unit_conversion', value=98.6, from_unit='fahrenheit', to_unit='celsius')
+# -> converted = 37   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('unit_conversion', value=10, from_unit='lb', to_unit='kg')
+# -> converted = 4.53592   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('unit_conversion', value=25, from_unit='celsius', to_unit='kelvin')
+# -> converted = 298.15   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Convert 5 km to m. | SOLVED | converted = 5000 |
+| How many inches are in 3 feet? | SOLVED | converted = 36 |
+| Convert 98.6 degrees F to degrees C. | SOLVED | converted = 37 |
+| Express 2 gallons in liters. | SOLVED | converted = 7.57082 |
+| Convert 2500 mg to g. | SOLVED | converted = 2.5 |
+| Convert 5 kg to meters. | INVALID_INPUT | Unit conversion (metric prefixes, customary units, temperature scales): a mass in kg cannot be converted to m, a unit of |
+| Convert -300 degrees C to kelvin. | INVALID_INPUT | Unit conversion (metric prefixes, customary units, temperature scales): the temperature is below absolute zero. |
+
+<a id="variation"></a>
+
+### Direct, inverse, joint and combined variation, `variation`
+
+The constant of variation k from one known case, and the new value of y: $y = kx$ (direct), $y = k/x$ (inverse), $y = kx^{2}$, $y = k/x^{2}$, y = kxz (joint) or $y = kx/z$ (combined).
+
+$$
+y = kx,\quad y = \frac{k}{x},\quad y = kxz,\quad y = \frac{kx}{z},\qquad k = \frac{y_1}{f(x_1, z_1)}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `variation_type` | the kind of variation |  |
+| `x1` | x in the known case | $x_{1}  \neq  0$ |
+| `y1` | y in the known case |  |
+| `x2` | x in the new case |  |
+| `z1` | z in the known case (joint and combined variation) |  |
+| `z2` | z in the new case (joint and combined variation) |  |
+
+| output | meaning |
+|---|---|
+| `k` | the constant of variation |
+| `y2` | y in the new case |
+
+- **Method:** k from the known case (k = y1 / f(x1, z1)), then $y_{2} = k$ f(x2, z2)
+- **Assumes:** $x_{1}  \neq  0$; $x_{2}  \neq  0$ for inverse variation; z1, z2 given (and z1 != 0) exactly for joint and combined variation; $z_{2}  \neq  0$ for combined variation
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![y2 (y in the new case) against x1 (x in the known case) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/variation-curve)
+
+*y2 (y in the new case) against x1 (x in the known case) from 2 to 6. One curve for each value of y1 (y in the known case): 12, 6, 24. Other inputs as in the worked example: variation_type = direct, x2 = 10. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, x1 = 4, y2 = 30.*
+
+```python
+math_foundations_ai999x.solve('variation', variation_type='direct', x1=4, y1=12, x2=10)
+# -> k = 3, y2 = 30   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('variation', variation_type='inverse', x1=2, y1=6, x2=3)
+# -> k = 12, y2 = 4   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('variation', variation_type='joint', x1=2, y1=24, x2=5, z1=3, z2=4)
+# -> k = 4, y2 = 80   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('variation', variation_type='inverse square', x1=2, y1=10, x2=4)
+# -> k = 40, y2 = 2.5   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('variation', variation_type='combined', x1=4, y1=10, x2=6, z1=2, z2=3)
+# -> k = 5, y2 = 10   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| y varies directly as x, and y = 12 when x = 4. Find y when x = 10. | SOLVED | k = 3, y2 = 30 |
+| y varies inversely as x, and y = 6 when x = 2. Find y when x = 3. | SOLVED | k = 12, y2 = 4 |
+| y varies jointly as x and z, and y = 24 when x = 2 and z = 3. Find y when x = 5 and z = 4. | SOLVED | k = 4, y2 = 80 |
+| y varies inversely as the square of x, and y = 10 when x = 2. Find y when x = 4. | SOLVED | k = 40, y2 = 2.5 |
+| y varies directly as x and inversely as z, and y = 10 when x = 4 and z = 2. Find y when x = 6 and z = 3. | SOLVED | k = 5, y2 = 10 |
+| y varies inversely as x, and y = 6 when x = 0. Find y when x = 3. | INVALID_INPUT | Direct, inverse, joint and combined variation: x1 must not be 0: the constant of variation is not determined. |
+
+<a id="line_conic_intersection"></a>
+
+### Intersection of a line and a conic (nonlinear system), `line_conic_intersection`
+
+All real solutions of the system a x + b $y = c$, A $x^{2} + B$ xy + C $y^{2} + D$ x + E $y + F = 0$: where a line meets a circle, ellipse, parabola or hyperbola (0, 1 or 2 points).
+
+$$
+y = \frac{c - ax}{b}\ \Rightarrow\ (Ab^2 - Bab + Ca^2)\,x^2 + (Bbc - 2Cac + Db^2 - Eab)\,x + (Cc^2 + Ebc + Fb^2) = 0
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `line` | a, b, c of the line a x + b $y = c$ |  |
+| `conic` | A, B, C, D, E, F of A $x^{2} + B$ xy + C $y^{2} + D$ x + E $y + F = 0$ |  |
+
+| output | meaning |
+|---|---|
+| `count` | the number of real intersection points |
+| `points` | the intersection points (x, y), by x then y |
+
+- **Method:** solve the line for y (or x when b = 0), substitute into the conic and solve the resulting quadratic
+- **Assumes:** a or b nonzero; A, B or C nonzero; the line does not lie on the conic; a tangency that rounding cannot decide is refused
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-conic-intersection-matrix)
+
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned). Returned with them by math-foundations-ai999x: count = 2. Other inputs: line = -1, 1, 1, conic = 1, 0, 1, 0, 0, -25.*
+
+```python
+math_foundations_ai999x.solve('line_conic_intersection', line='-1, 1, 1', conic='1, 0, 1, 0, 0, -25')
+# -> count = 2, points = [[-4.0, -3.0], [3.0, 4.0]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('line_conic_intersection', line=[1, 0, 2], conic=[-1, 0, 0, 0, 1, 0])
+# -> count = 1, points = [[2.0, 4.0]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('line_conic_intersection', line=[0, 1, 5], conic=[1, 0, 1, 0, 0, -25])
+# -> count = 1, points = [[0.0, 5.0]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('line_conic_intersection', line=[0, 1, 10], conic=[1, 0, 1, 0, 0, -25])
+# -> count = 0, points = []   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Solve the system y = x + 1 and x^2 + y^2 = 25. | SOLVED | count = 2, points = [[-4.0, -3.0], [3.0, 4.0]] |
+| Find the intersection points of x = 2 and y = x^2. | SOLVED | count = 1, points = [[2.0, 4.0]] |
+| Solve the system x + y = 1 and x^2 + y^2 = 1. | SOLVED | count = 2, points = [[0.0, 1.0], [1.0, 0.0]] |
+| Solve the system y = 10 and x^2 + y^2 = 25. | SOLVED | count = 0, points = [] |
+| Solve the system y = x and x^2 - y^2 = 0. | INVALID_INPUT | Intersection of a line and a conic (nonlinear system): infinitely many solutions: the curves share a whole line or curve |
+
+<a id="two_conics_intersection"></a>
+
+### Intersection of two conics (nonlinear system), `two_conics_intersection`
+
+All real solutions of two second-degree equations without an xy term, when elimination reduces them to one quadratic: two circles (or any two conics whose $x^{2}$ and $y^{2}$ parts are proportional), or systems in which x (or y) appears only squared, such as $x^{2} + y^{2} = 25$ and $x^{2} - y^{2} = 7$, or a circle and the parabola $y = x^{2} - 3.$
+
+$$
+A_2\,(\text{eq}_1) - A_1\,(\text{eq}_2):\ (A_2C_1 - A_1C_2)\,y^2 + (A_2E_1 - A_1E_2)\,y + (A_2F_1 - A_1F_2) = 0
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `first` | A, B, C, D, E, F of A $x^{2} + B$ xy + C $y^{2} + D$ x + E $y + F = 0$ (first equation) |  |
+| `second` | A, B, C, D, E, F of A $x^{2} + B$ xy + C $y^{2} + D$ x + E $y + F = 0$ (second equation) |  |
+
+| output | meaning |
+|---|---|
+| `count` | the number of real intersection points |
+| `points` | the intersection points (x, y), by x then y |
+
+- **Method:** proportional second-degree parts: subtract a multiple to get a line, then line and conic; x only squared: eliminate $x^{2}$, solve the quadratic in y, then x = +/- sqrt of $x^{2}$ from one equation (the same with x and y exchanged)
+- **Assumes:** no xy term; each equation has an $x^{2}$ or $y^{2}$ term; proportional $x^{2}$ and $y^{2}$ parts, or no x terms, or no y terms; the equations are not the same curve; a tangency that rounding cannot decide is refused
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/two-conics-intersection-matrix)
+
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned). Returned with them by math-foundations-ai999x: count = 4. Other inputs: first = 1, 0, 1, 0, 0, -25, second = 1, 0, -1, 0, 0, -7.*
+
+```python
+math_foundations_ai999x.solve('two_conics_intersection', first='1, 0, 1, 0, 0, -25', second='1, 0, -1, 0, 0, -7')
+# -> count = 4, points = [[-4.0, -3.0], [-4.0, 3.0], [4.0, -3.0], [4.0, 3.0]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('two_conics_intersection', first=[1, 0, 1, 0, 0, -5], second=[-1, 0, 0, 0, 1, 3])
+# -> count = 4, points = [[-2.0, 1.0], [-1.0, -2.0], [1.0, -2.0], [2.0, 1.0]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('two_conics_intersection', first=[1, 0, 1, 0, 0, -25], second=[1, 0, 1, -10, 0, 0])
+# -> count = 2, points = [[2.5, -4.33012701892], [2.5, 4.33012701892]]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('two_conics_intersection', first=[1, 0, 1, 0, 0, -1], second=[1, 0, 1, 0, 0, -4])
+# -> count = 0, points = []   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Solve the system x^2 + y^2 = 25 and x^2 - y^2 = 7. | SOLVED | count = 4, points = [[-4.0, -3.0], [-4.0, 3.0], [4.0, -3.0], [4.0, 3.0]] |
+| Find the intersection points of x^2 + y^2 = 5 and y = x^2 - 3. | SOLVED | count = 4, points = [[-2.0, 1.0], [-1.0, -2.0], [1.0, -2.0], [2.0, 1.0]] |
+| Find the intersection points of x^2 + y^2 = 25 and (x - 5)^2 + y^2 = 25. | SOLVED | count = 2, points = [[2.5, -4.33012701892], [2.5, 4.33012701892]] |
+| Solve the system x^2/9 + y^2/4 = 1 and x^2 + y^2 = 1. | SOLVED | count = 0, points = [] |
+| Solve the system x^2 + y^2 = 4 and 2x^2 + 2y^2 = 8. | INVALID_INPUT | Intersection of two conics (nonlinear system): the two equations describe the same curve: infinitely many points. |
+
+<a id="rational_function_analysis"></a>
+
+### Analysis of a rational function (domain, intercepts, holes, asymptotes), `rational_function_analysis`
+
+For f(x) = N(x)/D(x) with whole-number coefficients (degrees up to 3): the excluded x-values, the holes (removable discontinuities, with their y-values), the vertical asymptotes, the x- and y-intercepts, and the horizontal or slant asymptote.
+
+$$
+f(x) = \frac{N(x)}{D(x)},\quad y = \frac{a_n}{b_n}\ (\deg N = \deg D),\quad y = mx + b = \text{quotient of } N \div D\ (\deg N = \deg D + 1)
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `numerator` | coefficients of N(x), highest power first, e.g. 1, 0, -4 for $x^{2} - 4$ |  |
+| `denominator` | coefficients of D(x), highest power first |  |
+
+| output | meaning |
+|---|---|
+| `vertical_count` | the number of vertical asymptotes |
+| `excluded` | the x-values excluded from the domain |
+| `holes` | the holes (x, y) |
+| `vertical_asymptotes` | the vertical asymptotes $x = a$ |
+| `x_intercepts` | the x-intercepts |
+| `y_intercept` | the y-intercept (none when 0 is excluded) |
+| `horizontal_asymptote` | the horizontal asymptote $y = h$ (none if there is none) |
+| `slant_asymptote` | the slant asymptote $y = m$ x + b as (m, b) (none if there is none) |
+
+- **Method:** rational zeros by the rational root theorem (exact integer tests) and their multiplicities; a zero of D is a hole when N vanishes there at least as often (y-value of the cancelled form), otherwise a vertical asymptote; remaining real zeros of N by the quadratic formula or bisection; the asymptote from the degrees and leading coefficients (the slant asymptote is the quotient N / D)
+- **Assumes:** whole-number coefficients from -1000 to 1000; degrees up to 3, the denominator of degree >= 1; the numerator is not 0; the real zeros of the denominator are rational
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![The data denominator (coefficients of D(x), highest power first) against numerator (coefficients of N(x), highest power first, e](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-analysis-xy)
+
+*The data denominator (coefficients of D(x), highest power first) against numerator (coefficients of N(x), highest power first, e.g. 1, 0, -4 for x^2 - 4) as given in the worked example (3 points). Also returned: vertical_count = 1, y_intercept = 2, horizontal_asymptote = 1.*
+
+```python
+math_foundations_ai999x.solve('rational_function_analysis', numerator='1, 0, -4', denominator='1, -1, -2')
+# -> vertical_count = 1, excluded = [-1.0, 2.0], holes = [[2.0, 1.3333333333333333]], vertical_asymptotes = [-1.0], x_intercepts = [-2.0], y_intercept = 2, horizontal_asymptote = 1, slant_asymptote = none   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('rational_function_analysis', numerator=[1, 0, 1], denominator=[1, -1])
+# -> vertical_count = 1, excluded = [1.0], holes = [], vertical_asymptotes = [1.0], x_intercepts = [], y_intercept = -1, horizontal_asymptote = none, slant_asymptote = [1.0, 1.0]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('rational_function_analysis', numerator=[3, 0], denominator=[1, 0, -9])
+# -> vertical_count = 2, excluded = [-3.0, 3.0], holes = [], vertical_asymptotes = [-3.0, 3.0], x_intercepts = [0.0], y_intercept = 0, horizontal_asymptote = 0, slant_asymptote = none   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('rational_function_analysis', numerator=[1, 0, -2], denominator=[1, 1])
+# -> vertical_count = 1, excluded = [-1.0], holes = [], vertical_asymptotes = [-1.0], x_intercepts = [-1.4142135623730951, 1.414213562373095], y_intercept = -2, horizontal_asymptote = none, slant_asymptote = [1.0, -1.0]   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Analyze the rational function f(x) = (x^2 - 4)/(x^2 - x - 2). | SOLVED | vertical_count = 1, excluded = [-1.0, 2.0], holes = [[2.0, 1.3333333333333333]], vertical_asymptotes = [-1.0], x_intercepts = [-2.0], y_intercept = 2, horizontal_asymptote = 1, slant_asymptote = none |
+| Find the domain, intercepts, holes and asymptotes of f(x) = (3x)/(x^2 - 9). | SOLVED | vertical_count = 2, excluded = [-3.0, 3.0], holes = [], vertical_asymptotes = [-3.0, 3.0], x_intercepts = [0.0], y_intercept = 0, horizontal_asymptote = 0, slant_asymptote = none |
+| Analyze the rational function f(x) = (x^2 + 1)/(x - 1). | SOLVED | vertical_count = 1, excluded = [1.0], holes = [], vertical_asymptotes = [1.0], x_intercepts = [], y_intercept = -1, horizontal_asymptote = none, slant_asymptote = [1.0, 1.0] |
+| Analyze the rational function y = (1)/(x^2 + 1). | SOLVED | vertical_count = 0, excluded = [], holes = [], vertical_asymptotes = [], x_intercepts = [], y_intercept = 1, horizontal_asymptote = 0, slant_asymptote = none |
+| Analyze the rational function f(x) = (x + 1)/(x^2 - 2). | INVALID_INPUT | Analysis of a rational function (domain, intercepts, holes, asymptotes): the denominator has irrational real zeros; cove |
+
+<a id="binomial_series"></a>
+
+### Binomial series for any real power: `binomial_series`
+
+The first terms of $(1 + x)^{n} = 1 + n$ x + n(n-1)/2! $x^{2} + ...$ for any real n, the approximation they give, the exact value, the first omitted term (an estimate of the error) and the first-order percentage change 100 n x.
+
+$$
+(1+x)^n = \sum_{k\ge 0}\binom{n}{k}x^k = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots,\quad |x| < 1
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `x` | x in $(1 + x)^{n}$ |  |
+| `n` | the power n (any real number) |  |
+| `terms` | how many terms to add |  |
+
+| output | meaning |
+|---|---|
+| `approx` | the sum of the first terms |
+| `exact` | $(1 + x)^{n}$, 12 significant digits |
+| `next_term` | the first omitted term (error estimate) |
+| `percent_change_linear` | the approximate percentage change 100 n x |
+| `term_values` | the terms added, in order |
+
+- **Method:** $t_0 = 1$, t_(k+1) = t_k $(n - k)/(k + 1)$ x; the approximation is the sum of the first terms
+- **Assumes:** |x| < 1 unless n is a whole number >= 0 (then the series ends); 1 to 30 terms
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![the terms added, in order (term_values) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-series)
+
+*the terms added, in order (term_values) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 0.0024, largest 1). Inputs: x = 0.02, n = -3, terms = 3.*
+
+![approx (the sum of the first terms) against terms (how many terms to add) from 1 to 11](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-curve)
+
+*approx (the sum of the first terms) against terms (how many terms to add) from 1 to 11. One curve for each value of x (x in (1 + x)^n): 0.02, 0.01, 0.04. Other inputs as in the worked example: n = -3. 11 points per curve computed by math-foundations-ai999x; marked: the worked example, terms = 3, approx = 0.9424.*
+
+```python
+math_foundations_ai999x.solve('binomial_series', x=0.02, n=-3, terms=3)
+# -> approx = 0.9424, exact = 0.942322, next_term = -8e-05, percent_change_linear = -6, term_values = [1.0, -0.06, 0.0024]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('binomial_series', x=-0.1, n=0.5, terms=4)
+# -> approx = 0.948688, exact = 0.948683, next_term = -3.90625e-06, percent_change_linear = -5, term_values = [1.0, -0.05, -0.0012500000000000002, -6.250000000000001e-05]   (SOLVED)
+```
+
+```python
+math_foundations_ai999x.solve('binomial_series', x=0.5, n=3, terms=5)
+# -> approx = 3.375, exact = 3.375, next_term = 0, percent_change_linear = 150, term_values = [1.0, 1.5, 0.75, 0.125, 0.0]   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Use the first 3 terms of the binomial series to approximate (1 + 0.02)^-3. | SOLVED | approx = 0.9424, exact = 0.942322, next_term = -8e-05, percent_change_linear = -6, term_values = [1.0, -0.06, 0.0024] |
+| Approximate (1 - 0.1)^(1/2) using the first 4 terms of the binomial series. | SOLVED | approx = 0.948688, exact = 0.948683, next_term = -3.90625e-06, percent_change_linear = -5, term_values = [1.0, -0.05, -0.0012500000000000002, -6.250000000000001e-05] |
+| Use the first 3 terms of the binomial series to approximate (1 + 2)^(1/2). | INVALID_INPUT | Binomial series for any real power: for a power that is not a whole number >= 0 the series converges only for \|x\| < 1. |
 
 <a id="abs_value_inequality_lower_bound"></a>
 
