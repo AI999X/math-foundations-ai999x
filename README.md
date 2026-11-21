@@ -10,8 +10,8 @@ Math Foundations covers arithmetic, fractions, percentages, ratios, algebraic eq
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-math-foundations-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-math-foundations-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `math-foundations` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-math-foundations-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-math-foundations-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `math-foundations` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/math-foundations-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install math-foundations-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -122,70 +122,6 @@ print(a.outcome, a.values)
 # SOLVED {'x': 81.0}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `math-foundations` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ math-foundations solve abs_linear_inequality a=2 b=3 c=7 "rel=<"
-lower = -5
-upper = 2
-region = between
-solution = -5 < x < 2
-
-$ math-foundations solve fraction_arithmetic a=3 b=4 c=5 d=6 op=+
-numerator = 19
-denominator = 12
-value = 1.583333333
-
-$ math-foundations solve complex_arithmetic a=3 b=2 c=1 d=-1 op=/
-re = 0.5
-im = 2.5
-
-$ math-foundations solve circle_from_general_form dd=-4 ee=6 ff=-3
-h = 2
-k = -3
-rad = 4
-
-$ math-foundations solve distance_between_points x1=1 y1=1 x2=4 y2=5
-dist = 5
-
-$ math-foundations solve counting_choices k=3 n=10
-combinations = 120
-permutations = 720
-
-$ math-foundations solve compound_interest t=2 principal=1000 r=0.05 n=1
-amount = 1102.5
-
-$ math-foundations solve doubling_time k=0.1
-td = 6.931471806
-
-$ math-foundations solve half_life_remaining n0=80 half_life=5 t=15
-remaining = 10
-fraction = 0.125
-
-$ math-foundations solve exponential_equation b=2 y=32
-x = 5
-
-$ math-foundations solve factor_monic_quadratic b=5 c=6
-p = 3
-q = 2
-
-$ math-foundations solve average_rate_of_change_definition x_start=0 f_x_start=1 x_end=5 f_x_end=11
-arc = 2
-
-$ math-foundations solve linear_inequality a=2 b=1 c=7
-x0 = 3
-s = 1
-
-$ math-foundations solve abs_value_inequality_upper_bound c=4 d=1
-lower = 3
-upper = 5
-
-$ math-foundations solve linear_equation_root a=3 b=6 c=0
-x = -2
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/math-foundations-ai999x/blob/main/docs/math_foundations_ai999x_desktop_guide.md)
@@ -194,13 +130,13 @@ x = -2
 
 Every calculation, with its formula, a worked example and its figures: **[Math Foundations on ai999x.com](https://www.ai999x.com/models/math-foundations-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/math-foundations-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/math-foundations-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/math-foundations-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/math-foundations-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
