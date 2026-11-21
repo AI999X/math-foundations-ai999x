@@ -266,13 +266,9 @@ $$
 - **Assumes:** $a  \neq  0$ (otherwise the equation is linear); real coefficients
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![First root (the smaller real root, or the](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/quadratic-roots-live-1.svg)
+![x1 (first root (the smaller real root, or the one with positive imaginary part)) against a (coefficient of x^2) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-roots-curve)
 
-*First root (the smaller real root, or the... as a runs from 0.25 to 1.038, every other input as you entered it (22 solutions). Marked: your a = 1 gives x1 = 2. Your inputs: a = 1, b = -5, c = 6.*
-
-![First root (the smaller real root, or the](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-roots-live-2)
-
-*First root (the smaller real root, or the... as b runs from -8.75 to -5, every other input as you entered it (15 solutions). Marked: your b = -5 gives x1 = 2. Your inputs: a = 1, b = -5, c = 6.*
+*x1 (first root (the smaller real root, or the one with positive imaginary part)) against a (coefficient of x^2) from 0.5 to 1.5. One curve for each value of c (constant term): 6, 3. Other inputs as in the worked example: b = -5.0. 17 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, x1 = 2.*
 
 ```python
 math_foundations_ai999x.solve('quadratic_roots', a=1, b=-5, c=6)
@@ -337,17 +333,13 @@ $$
 - **Assumes:** $a  \neq  0$; real coefficients
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Discriminant as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-live-1)
+![two distinct real / one repeated real / two complex conjugate roots (nature) over a (coefficient of x^2) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-decision)
 
-*Discriminant as a runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your a = 1 gives discriminant = 0. Shaded by two distinct real / one repeated real / two complex conjugate roots: two distinct real roots, one repeated real root, two complex conjugate roots. Your inputs: a = 1, b = 4, c = 4.*
+*two distinct real / one repeated real / two complex conjugate roots (nature) over a (coefficient of x^2) from 0.1 to 10 and b (coefficient of x) from 0.4 to 40 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, one repeated real root: 1 cells, two complex conjugate roots: 323 cells, two distinct real roots: 327 cells. Other inputs as in the worked example: c = 4.0. Marked: the worked example, a = 1, b = 4 → one repeated real root.*
 
-![Two distinct real / one repeated real / two complex conjugate roots for 25 5 x 5 combinations of a and b around your inputs (the other inputs as entered); the ring marks your inputs, which give one repeated real root](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-live-2)
+![discriminant (b^2 - 4ac) against b (coefficient of x) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-curve)
 
-*Two distinct real / one repeated real / two complex conjugate roots for 25 5 x 5 combinations of a and b around your inputs (the other inputs as entered); the ring marks your inputs, which give one repeated real root. Blank cells admit no answer. Your inputs: a = 1, b = 4, c = 4.*
-
-![Discriminant as b runs from 1 to 7, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-discriminant-live-3)
-
-*Discriminant as b runs from 1 to 7, every other input as you entered it (27 solutions). Marked: your b = 4 gives discriminant = 0. Shaded by two distinct real / one repeated real / two complex conjugate roots: two complex conjugate roots, one repeated real root, two distinct real roots. Your inputs: a = 1, b = 4, c = 4.*
+*discriminant (b^2 - 4ac) against b (coefficient of x) from 0.4 to 40 on a logarithmic axis. Other inputs as in the worked example: a = 1.0, c = 4.0. 41 points computed by math-foundations-ai999x; marked: the worked example, b = 4, discriminant = 0.*
 
 ```python
 math_foundations_ai999x.solve('quadratic_discriminant', a=1, b=4, c=4)
@@ -395,13 +387,9 @@ $$
 - **Assumes:** n and k whole numbers; $k  \leq  n$; $n  \leq  170$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Combinations as k runs from 0 to 7, every other input as you entered it (8 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/counting-choices-live-1)
+![combinations (C(n, k) = n! / (k! (n - k)!)) against n (number of items to choose from (a whole number)) from 1 to 20](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/counting-choices-curve)
 
-*Combinations as k runs from 0 to 7, every other input as you entered it (8 solutions). Marked: your k = 3 gives combinations = 120. Your inputs: n = 10, k = 3.*
-
-![Combinations as n runs from 4 to 30, every other input as you entered it (14 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/counting-choices-live-2)
-
-*Combinations as n runs from 4 to 30, every other input as you entered it (14 solutions). Marked: your n = 10 gives combinations = 120. Your inputs: n = 10, k = 3.*
+*combinations (C(n, k) = n! / (k! (n - k)!)) against n (number of items to choose from (a whole number)) from 1 to 20. Other inputs as in the worked example: k = 3.0. 18 points computed by math-foundations-ai999x; marked: the worked example, n = 10, combinations = 120.*
 
 ```python
 math_foundations_ai999x.solve('counting_choices', n=10, k=3)
@@ -454,17 +442,13 @@ $$
 - **Assumes:** $a  \neq  0$ (otherwise the equation is not cubic); real coefficients
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![x1 (the first root: real roots ascending, then complex) against a from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/cubic-roots-curve-2)
+![The cubic y = x³ − 6x² + 11x − 6, evaluated by the package at 81 points, and its three real roots as the package returns them: x = 1, 2 and 3](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/cubic-roots-curve.svg)
 
-*x1 (the first root: real roots ascending, then complex) against a from 0.1 to 10 on a logarithmic axis, one curve for each value of b (-6, -3, -12), each point one run of the model; marked: a = 1, x1 = 1. Your inputs: a = 1, b = -6, c = 11, d = -6.*
+*The cubic y = x³ − 6x² + 11x − 6, evaluated by the package at 81 points, and its three real roots as the package returns them: x = 1, 2 and 3.*
 
-![First root (real roots ascending, then](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/cubic-roots-live-1)
+![x1 (first root (real roots ascending, then complex roots)) against a (coefficient of x^3) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/cubic-roots-curve-2)
 
-*First root (real roots ascending, then... as a runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your a = 1 gives x1 = 1. Your inputs: a = 1, b = -6, c = 11, d = -6.*
-
-![First root (real roots ascending, then](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/cubic-roots-live-2)
-
-*First root (real roots ascending, then... as b runs from -10.5 to -1.5, every other input as you entered it (29 solutions). Marked: your b = -6 gives x1 = 1. Your inputs: a = 1, b = -6, c = 11, d = -6.*
+*x1 (first root (real roots ascending, then complex roots)) against a (coefficient of x^3) from 0.1 to 10 on a logarithmic axis. One curve for each value of b (coefficient of x^2): -6, -3, -12. Other inputs as in the worked example: c = 11.0, d = -6.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, x1 = 1.*
 
 ```python
 math_foundations_ai999x.solve('cubic_roots', a=1, b=-6, c=11, d=-6)
@@ -521,13 +505,9 @@ $$
 - **Assumes:** $a  \neq  0$ (otherwise the equation is not quartic); real coefficients
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![First root (real roots ascending, then](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quartic-roots-live-1)
+![x1 (first root (real roots ascending, then complex roots)) against b (coefficient of x^3) from -1 to 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quartic-roots-curve)
 
-*First root (real roots ascending, then... as e runs from 1 to 6.25, every other input as you entered it (36 solutions). Marked: your e = 4 gives x1 = -2. Your inputs: a = 1, b = 0, c = -5, d = 0, e = 4.*
-
-![First root (real roots ascending, then](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quartic-roots-live-2)
-
-*First root (real roots ascending, then... as a runs from 0.25 to 1.536, every other input as you entered it (25 solutions). Marked: your a = 1 gives x1 = -2. Your inputs: a = 1, b = 0, c = -5, d = 0, e = 4.*
+*x1 (first root (real roots ascending, then complex roots)) against b (coefficient of x^3) from -1 to 1. One curve for each value of a (coefficient of x^4): 1, 0.5, 2. Other inputs as in the worked example: c = -5.0, d = 0.0, e = 4.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 0, x1 = -2.*
 
 ```python
 math_foundations_ai999x.solve('quartic_roots', a=1, b=0, c=-5, d=0, e=4)
@@ -581,17 +561,9 @@ $$
 - **Assumes:** whole-number numerators and denominators; denominators not 0; no division by 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The result as a decimal as d runs from 1 to 11, every other input as you entered it (11 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/fraction-arithmetic-live-1)
+![value (the result as a decimal) against d (denominator of the second fraction (not 0)) from 1 to 14](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/fraction-arithmetic-curve)
 
-*The result as a decimal as d runs from 1 to 11, every other input as you entered it (11 solutions). Marked: your d = 6 gives value = 1.583. Your inputs: a = 3, b = 4, c = 5, d = 6, op = +.*
-
-![The result as a decimal for every choice of op, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/fraction-arithmetic-live-2)
-
-*The result as a decimal for every choice of op, every other input as you entered it (highlighted: your choice). +: 1.583; -: -0.08333; *: 0.625; /: 0.9. Your inputs: a = 3, b = 4, c = 5, d = 6, op = +.*
-
-![The result as a decimal as a runs from 0 to 7, every other input as you entered it (8 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/fraction-arithmetic-live-3)
-
-*The result as a decimal as a runs from 0 to 7, every other input as you entered it (8 solutions). Marked: your a = 3 gives value = 1.583. Your inputs: a = 3, b = 4, c = 5, d = 6, op = +.*
+*value (the result as a decimal) against d (denominator of the second fraction (not 0)) from 1 to 14. One curve for each value of b (denominator of the first fraction (not 0)): 4, 2, 8. Other inputs as in the worked example: a = 3, c = 5, op = +. 14 points per curve computed by math-foundations-ai999x; marked: the worked example, d = 6, value = 1.58333.*
 
 ```python
 math_foundations_ai999x.solve('fraction_arithmetic', a=3, b=4, c=5, d=6, op='+')
@@ -646,17 +618,13 @@ $$
 - **Assumes:** finite numbers
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![result over p from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-number-field)
+![result (p% of x) against p (the percentage p (per hundred)) from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-number-curve)
 
-*result over p from 7.5 to 22.5 and x from 40 to 120: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 3 to 27). Marked: p = 15, x = 80, result = 12. Your inputs: p = 15, x = 80.*
+*result (p% of x) against p (the percentage p (per hundred)) from 7.5 to 22.5. One curve for each value of x (the whole x): 80, 40, 160. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, p = 15, result = 12.*
 
-![P% of x as p runs from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-number-live-1)
+![result (p% of x) over p (the percentage p (per hundred)) from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-number-field)
 
-*P% of x as p runs from 3.75 to 26.25, every other input as you entered it (41 solutions). Marked: your p = 15 gives result = 12. Your inputs: p = 15, x = 80.*
-
-![P% of x as x runs from 20 to 140, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-number-live-2)
-
-*P% of x as x runs from 20 to 140, every other input as you entered it (29 solutions). Marked: your x = 80 gives result = 12. Your inputs: p = 15, x = 80.*
+*result (p% of x) over p (the percentage p (per hundred)) from 7.5 to 22.5 and x (the whole x) from 40 to 120: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 3 to dark 27); iso-lines at result = 5, 10, 15, 20, 25. Marked: the worked example, p = 15, x = 80, result = 12.*
 
 ```python
 math_foundations_ai999x.solve('percent_of_number', p=15, x=80)
@@ -704,17 +672,13 @@ $$
 - **Assumes:** $p  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![whole over part from 9 to 27 and p from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-what-field)
+![whole (the whole) against p (the percentage that the part is of the whole) from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-what-curve)
 
-*whole over part from 9 to 27 and p from 7.5 to 22.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 40 to 360). Marked: part = 18, p = 15, whole = 120. Your inputs: part = 18, p = 15.*
+*whole (the whole) against p (the percentage that the part is of the whole) from 7.5 to 22.5. One curve for each value of part (the known part): 18, 9, 36. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, p = 15, whole = 120.*
 
-![The whole as part runs from 4](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-what-live-1)
+![whole (the whole) over part (the known part) from 9 to 27 and p (the percentage that the part is of the whole) from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-what-field)
 
-*The whole as part runs from 4.5 to 31.5, every other input as you entered it (41 solutions). Marked: your part = 18 gives whole = 120. Your inputs: part = 18, p = 15.*
-
-![The whole as p runs from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-of-what-live-2)
-
-*The whole as p runs from 3.75 to 26.25, every other input as you entered it (29 solutions). Marked: your p = 15 gives whole = 120. Your inputs: part = 18, p = 15.*
+*whole (the whole) over part (the known part) from 9 to 27 and p (the percentage that the part is of the whole) from 7.5 to 22.5: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 40 to dark 360); iso-lines at whole = 100, 200, 300. Marked: the worked example, part = 18, p = 15, whole = 120.*
 
 ```python
 math_foundations_ai999x.solve('percent_of_what', part=18, p=15)
@@ -757,17 +721,13 @@ $$
 - **Assumes:** whole != 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![percent over part from 6 to 18 and whole from 40 to 120: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 5 to 45)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/what-percent-field)
+![percent (part as a percentage of whole) against whole (the whole (not 0)) from 40 to 120](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/what-percent-curve)
 
-*percent over part from 6 to 18 and whole from 40 to 120: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 5 to 45). Marked: part = 12, whole = 80, percent = 15. Your inputs: part = 12, whole = 80.*
+*percent (part as a percentage of whole) against whole (the whole (not 0)) from 40 to 120. One curve for each value of part (the part): 12, 6, 24. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, whole = 80, percent = 15.*
 
-![Part as a percentage of whole as part runs from 3 to 21, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/what-percent-live-1)
+![percent (part as a percentage of whole) over part (the part) from 6 to 18 and whole (the whole (not 0)) from 40 to 120: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 5 to dark 45); iso-lines at percent = 10, 20, 30, 40](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/what-percent-field)
 
-*Part as a percentage of whole as part runs from 3 to 21, every other input as you entered it (41 solutions). Marked: your part = 12 gives percent = 15. Your inputs: part = 12, whole = 80.*
-
-![Part as a percentage of whole as whole runs from 20 to 140, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/what-percent-live-2)
-
-*Part as a percentage of whole as whole runs from 20 to 140, every other input as you entered it (29 solutions). Marked: your whole = 80 gives percent = 15. Your inputs: part = 12, whole = 80.*
+*percent (part as a percentage of whole) over part (the part) from 6 to 18 and whole (the whole (not 0)) from 40 to 120: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 5 to dark 45); iso-lines at percent = 10, 20, 30, 40. Marked: the worked example, part = 12, whole = 80, percent = 15.*
 
 ```python
 math_foundations_ai999x.solve('what_percent', part=12, whole=80)
@@ -812,17 +772,13 @@ $$
 - **Assumes:** old > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Percent change as old runs from 20 to 140, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-live-1)
+![increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, decrease: 300 cells, increase: 351 cells](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-decision)
 
-*Percent change as old runs from 20 to 140, every other input as you entered it (41 solutions). Marked: your old = 80 gives percent_change = 25. Shaded by increase, decrease or no change: increase, decrease. Your inputs: old = 80, new = 100.*
+*increase, decrease or no change (direction) over old (the original value (positive)) from 8 to 800 and new (the new value) from 10 to 1000 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, decrease: 300 cells, increase: 351 cells. Marked: the worked example, old = 80, new = 100 → increase.*
 
-![Increase, decrease or no change for 25 5 x 5 combinations of old and new around your inputs (the other inputs as entered); the ring marks your inputs, which give increase](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-live-2)
+![percent_change (percent change (negative = decrease)) against old (the original value (positive)) from 8 to 800 on a logarithmic axis](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-curve)
 
-*Increase, decrease or no change for 25 5 x 5 combinations of old and new around your inputs (the other inputs as entered); the ring marks your inputs, which give increase. Blank cells admit no answer. Your inputs: old = 80, new = 100.*
-
-![Percent change as new runs from 25 to 175, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/percent-change-live-3)
-
-*Percent change as new runs from 25 to 175, every other input as you entered it (29 solutions). Marked: your new = 100 gives percent_change = 25. Shaded by increase, decrease or no change: decrease, increase. Your inputs: old = 80, new = 100.*
+*percent_change (percent change (negative = decrease)) against old (the original value (positive)) from 8 to 800 on a logarithmic axis. One curve for each value of new (the new value): 100, 50, 200. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, old = 80, percent_change = 25.*
 
 ```python
 math_foundations_ai999x.solve('percent_change', old=80, new=100)
@@ -870,13 +826,9 @@ $$
 - **Assumes:** every term of the ratio positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![First share as total runs from 30 to 210, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ratio-split-live-1)
+![part1 (first share) against a (first term of the ratio (positive)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ratio-split-curve)
 
-*First share as total runs from 30 to 210, every other input as you entered it (41 solutions). Marked: your total = 120 gives part1 = 45. Your inputs: total = 120, a = 3, b = 5.*
-
-![First share as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ratio-split-live-2)
-
-*First share as a runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your a = 3 gives part1 = 45. Your inputs: total = 120, a = 3, b = 5.*
+*part1 (first share) against a (first term of the ratio (positive)) from 0.3 to 30 on a logarithmic axis. One curve for each value of total (the quantity to share): 120, 60, 240. Other inputs as in the worked example: b = 5.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 3, part1 = 45.*
 
 ```python
 math_foundations_ai999x.solve('ratio_split', total=120, a=3, b=5)
@@ -921,17 +873,9 @@ $$
 - **Assumes:** denominators not 0; the proportion has a solution
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The unknown term as p runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/proportion-solve-live-1)
+![x (the unknown term) against q (the second known term) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/proportion-solve-curve)
 
-*The unknown term as p runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your p = 3 gives x = 15. Your inputs: p = 3, q = 4, r = 20, position = second numerator.*
-
-![The unknown term for every choice of position, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/proportion-solve-live-2)
-
-*The unknown term for every choice of position, every other input as you entered it (highlighted: your choice). first numerator: 0.6; first denominator: 15; second numerator: 15; second denominator: 26.67. Your inputs: p = 3, q = 4, r = 20, position = second numerator.*
-
-![The unknown term as q runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/proportion-solve-live-3)
-
-*The unknown term as q runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your q = 4 gives x = 15. Your inputs: p = 3, q = 4, r = 20, position = second numerator.*
+*x (the unknown term) against q (the second known term) from 2 to 6. One curve for each value of p (the first known term (reading n1, d1, n2, d2 in order)): 3, 1.5, 6. Other inputs as in the worked example: r = 20.0, position = second numerator. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, q = 4, x = 15.*
 
 ```python
 math_foundations_ai999x.solve('proportion_solve', p=3, q=4, r=20, position='second numerator')
@@ -984,17 +928,13 @@ $$
 - **Assumes:** quantities positive; amounts not negative
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Amount per unit, first offer as n1 runs from 3 to 21, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-live-1)
+![the offer with the lower amount per unit: first, second or equal (better) over n1 (quantity of the first offer (positive)) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-decision)
 
-*Amount per unit, first offer as n1 runs from 3 to 21, every other input as you entered it (41 solutions). Marked: your n1 = 12 gives unit_rate_1 = 2.5. Shaded by the offer with the lower amount per unit: first, second or equal: second, first. Your inputs: n1 = 12, c1 = 30, n2 = 20, c2 = 45.*
+*the offer with the lower amount per unit: first, second or equal (better) over n1 (quantity of the first offer (positive)) from 1.2 to 120 and c1 (amount (price, distance, ...) of the first offer) from 3 to 300 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, first: 310 cells, second: 341 cells. Other inputs as in the worked example: n2 = 20.0, c2 = 45.0. Marked: the worked example, n1 = 12, c1 = 30 → second.*
 
-![The offer with the lower amount per unit: first, second or equal for 25 5 x 5 combinations of n1 and c1 around your inputs (the other inputs as entered); the ring marks your inputs, which give second](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-live-2)
+![unit_rate_1 (amount per unit, first offer) against n1 (quantity of the first offer (positive)) from 6 to 18](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-curve)
 
-*The offer with the lower amount per unit: first, second or equal for 25 5 x 5 combinations of n1 and c1 around your inputs (the other inputs as entered); the ring marks your inputs, which give second. Blank cells admit no answer. Your inputs: n1 = 12, c1 = 30, n2 = 20, c2 = 45.*
-
-![Amount per unit, first offer as c1 runs from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-rate-compare-live-3)
-
-*Amount per unit, first offer as c1 runs from 7.5 to 52.5, every other input as you entered it (27 solutions). Marked: your c1 = 30 gives unit_rate_1 = 2.5. Shaded by the offer with the lower amount per unit: first, second or equal: first, second. Your inputs: n1 = 12, c1 = 30, n2 = 20, c2 = 45.*
+*unit_rate_1 (amount per unit, first offer) against n1 (quantity of the first offer (positive)) from 6 to 18. One curve for each value of c1 (amount (price, distance, ...) of the first offer): 30, 15, 60. Other inputs as in the worked example: n2 = 20.0, c2 = 45.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, n1 = 12, unit_rate_1 = 2.5.*
 
 ```python
 math_foundations_ai999x.solve('unit_rate_compare', n1=12, c1=30, n2=20, c2=45)
@@ -1038,17 +978,13 @@ $$
 - **Assumes:** $-9  \leq  n  \leq  12$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![rounded over x from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-decimal-places-field)
+![rounded (the rounded number) against n (decimal places (negative: tens, hundreds)) from 1 to 10](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-decimal-places-curve)
 
-*rounded over x from 1.571 to 4.712 and n from -1 to 7: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 0 to 5). Marked: x = 3.142, n = 2, rounded = 3.14. Your inputs: x = 3.14159, n = 2.*
+*rounded (the rounded number) against n (decimal places (negative: tens, hundreds)) from 1 to 10. One curve for each value of x (the number to round): 3.14159, 1.57079, 6.28318. 10 points per curve computed by math-foundations-ai999x; marked: the worked example, n = 2, rounded = 3.14.*
 
-![The rounded number as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-decimal-places-live-1)
+![rounded (the rounded number) over x (the number to round) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-decimal-places-field)
 
-*The rounded number as x runs from 0.7854 to 5.498, every other input as you entered it (41 solutions). Marked: your x = 3.142 gives rounded = 3.14. Your inputs: x = 3.14159, n = 2.*
-
-![The rounded number as n runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-decimal-places-live-2)
-
-*The rounded number as n runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your n = 2 gives rounded = 3.14. Your inputs: x = 3.14159, n = 2.*
+*rounded (the rounded number) over x (the number to round) from 1.57079 to 4.71239 and n (decimal places (negative: tens, hundreds)) from 1 to 10: each of the 21 × 10 cells is one run of math-foundations-ai999x, shaded by its value (light 1.57 to dark 4.7124); iso-lines at rounded = 2, 3, 4. Marked: the worked example, x = 3.14159, n = 2, rounded = 3.14.*
 
 ```python
 math_foundations_ai999x.solve('round_decimal_places', x=3.14159, n=2)
@@ -1102,17 +1038,13 @@ $$
 - **Assumes:** $x  \neq  0$; $1  \leq  n  \leq  15$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![rounded over x from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-significant-figures-field)
+![rounded (the rounded number) against n (number of significant figures) from 1 to 11](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-significant-figures-curve)
 
-*rounded over x from 0.002284 to 0.006852 and n from 1 to 9: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 0.002 to 0.007). Marked: x = 0.004568, n = 3, rounded = 0.00457. Your inputs: x = 0.0045678, n = 3.*
+*rounded (the rounded number) against n (number of significant figures) from 1 to 11. One curve for each value of x (the number to round (not 0)): 0.0045678, 0.0022839, 0.0091356. 11 points per curve computed by math-foundations-ai999x; marked: the worked example, n = 3, rounded = 0.00457.*
 
-![The rounded number as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-significant-figures-live-1)
+![rounded (the rounded number) over x (the number to round (not 0)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-significant-figures-field)
 
-*The rounded number as x runs from 0.001142 to 0.007994, every other input as you entered it (41 solutions). Marked: your x = 0.004568 gives rounded = 0.00457. Your inputs: x = 0.0045678, n = 3.*
-
-![The rounded number as n runs from 1 to 7, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/round-significant-figures-live-2)
-
-*The rounded number as n runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your n = 3 gives rounded = 0.00457. Your inputs: x = 0.0045678, n = 3.*
+*rounded (the rounded number) over x (the number to round (not 0)) from 0.0022839 to 0.0068517 and n (number of significant figures) from 1 to 11: each of the 21 × 11 cells is one run of math-foundations-ai999x, shaded by its value (light 0.002 to dark 0.007); iso-lines at rounded = 0.003, 0.004, 0.005, 0.006. Marked: the worked example, x = 0.0045678, n = 3, rounded = 0.00457.*
 
 ```python
 math_foundations_ai999x.solve('round_significant_figures', x=0.0045678, n=3)
@@ -1160,9 +1092,9 @@ $$
 - **Assumes:** $x  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Mantissa as x runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/scientific-notation-live-1)
+![mantissa (m, with 1 <= |m| < 10) against x (the number (not 0)) from 4560 to 456000 on a logarithmic axis](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/scientific-notation-curve)
 
-*Mantissa as x runs from 1.14e+04 to 7.98e+04, every other input as you entered it (41 solutions). Marked: your x = 4.56e+04 gives mantissa = 4.56. Your inputs: x = 45600.*
+*mantissa (m, with 1 <= |m| < 10) against x (the number (not 0)) from 4560 to 456000 on a logarithmic axis. 41 points computed by math-foundations-ai999x; marked: the worked example, x = 45600, mantissa = 4.56.*
 
 ```python
 math_foundations_ai999x.solve('scientific_notation', x=45600)
@@ -1211,17 +1143,9 @@ $$
 - **Assumes:** numbers, + - * / ^ and parentheses only; no division by 0; integer exponents up to 64
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The inputs as stated and the results the model returned: value = 9, numerator = 9, denominator = 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/order-of-operations-io)
+![The worked example of Evaluate an arithmetic expression (order of operations) as inputs and results: stated expression = 3 + 4 * (2 - 5)^2 / 6; returned by math-foundations-ai999x: value = 9, numerator = 9, denominator = 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/order-of-operations-io)
 
-*The inputs as stated and the results the model returned: value = 9, numerator = 9, denominator = 1. Your inputs: expression = 3 + 4 * (2 - 5)^2 / 6.*
-
-![The value as the number in expression runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/order-of-operations-live-1)
-
-*The value as the number in expression runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your the number in expression = 4 gives value = 9. Your inputs: expression = 3 + 4 * (2 - 5)^2 / 6.*
-
-![The value as the number in expression runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/order-of-operations-live-2)
-
-*The value as the number in expression runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your the number in expression = 3 gives value = 9. Your inputs: expression = 3 + 4 * (2 - 5)^2 / 6.*
+*The worked example of Evaluate an arithmetic expression (order of operations) as inputs and results: stated expression = 3 + 4 * (2 - 5)^2 / 6; returned by math-foundations-ai999x: value = 9, numerator = 9, denominator = 1.*
 
 ```python
 math_foundations_ai999x.solve('order_of_operations', expression='3 + 4 * (2 - 5)^2 / 6')
@@ -1276,17 +1200,9 @@ $$
 - **Assumes:** determinant of the coefficients != 0 (a unique solution)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The augmented matrix as read (one row per equation: the coefficients of x, y, z and the right side), each cell shaded by its size (negative values in the second colour), and beside it the solution returned: x = 1, y = 2, z = 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-3x3-matrix)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): augmented (input)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-3x3-matrix)
 
-*The augmented matrix as read (one row per equation: the coefficients of x, y, z and the right side), each cell shaded by its size (negative values in the second colour), and beside it the solution returned: x = 1, y = 2, z = 3. Your inputs: augmented = 1 1 1 6; 2 -1 1 3; 1 2 -1 2.*
-
-![X as augmented[1,4] runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-3x3-live-1)
-
-*X as augmented[1,4] runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your augmented[1,4] = 6 gives x = 1. Your inputs: augmented = 1 1 1 6; 2 -1 1 3; 1 2 -1 2.*
-
-![X as augmented[1,3] runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-3x3-live-2)
-
-*X as augmented[1,3] runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your augmented[1,3] = 1 gives x = 1. Your inputs: augmented = 1 1 1 6; 2 -1 1 3; 1 2 -1 2.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): augmented (input). Returned with them by math-foundations-ai999x: x = 1, y = 2, z = 3.*
 
 ```python
 math_foundations_ai999x.solve('linear_system_3x3', augmented='1 1 1 6; 2 -1 1 3; 1 2 -1 2')
@@ -1334,13 +1250,9 @@ $$
 - **Assumes:** $a  \neq  0$; $c > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The smaller boundary point as c runs from 1](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/abs-linear-inequality-live-1.svg)
+![lower (the smaller boundary point) against a (coefficient of x inside the bars) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-linear-inequality-curve)
 
-*The smaller boundary point as c runs from 1.75 to 12.25, every other input as you entered it (41 solutions). Marked: your c = 7 gives lower = -5. Your inputs: a = 2, b = 3, c = 7, rel = <.*
-
-![The smaller boundary point as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-linear-inequality-live-2)
-
-*The smaller boundary point as a runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your a = 2 gives lower = -5. Your inputs: a = 2, b = 3, c = 7, rel = <.*
+*lower (the smaller boundary point) against a (coefficient of x inside the bars) from 0.2 to 20 on a logarithmic axis. One curve for each value of c (the bound (positive)): 7, 3.5, 14. Other inputs as in the worked example: b = 3.0, rel = <. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, lower = -5.*
 
 ```python
 math_foundations_ai999x.solve('abs_linear_inequality', a=2, b=3, c=7, rel='<')
@@ -1385,13 +1297,9 @@ $$
 - **Assumes:** $a  \neq  c$; the candidate is not an excluded value
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The solution as a runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-equation-live-1)
+![x (the solution) against a (numerator on the left) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-equation-curve)
 
-*The solution as a runs from 2.032 to 3.112, every other input as you entered it (30 solutions). Marked: your a = 3 gives x = 14. Your inputs: a = 3, b = 1, c = 2, d = -4.*
-
-![The solution as c runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-equation-live-2)
-
-*The solution as c runs from 0.5 to 2.923, every other input as you entered it (22 solutions). Marked: your c = 2 gives x = 14. Your inputs: a = 3, b = 1, c = 2, d = -4.*
+*x (the solution) against a (numerator on the left) from 2.12384 to 30 on a logarithmic axis. One curve for each value of c (numerator on the right): 2, 1. Other inputs as in the worked example: b = 1.0, d = -4.0. 24 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 3, x = 14.*
 
 ```python
 math_foundations_ai999x.solve('rational_equation', a=3, b=1, c=2, d=-4)
@@ -1439,17 +1347,9 @@ $$
 - **Assumes:** $a  \neq  0$; real numbers
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The inputs as stated and the results the model returned: count = 1, solutions = [3], extraneous = [-1]](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/radical-equation-io)
+![The worked example of Radical equation sqrt(ax + b) = cx + d as inputs and results: stated a = 2, b = 3, c = 1, d = 0; returned by math-foundations-ai999x: count = 1, solutions = [3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/radical-equation-io)
 
-*The inputs as stated and the results the model returned: count = 1, solutions = [3], extraneous = [-1]. Your inputs: a = 2, b = 3, c = 1, d = 0.*
-
-![Number of solutions as b runs from -3 to 9, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/radical-equation-live-1)
-
-*Number of solutions as b runs from -3 to 9, every other input as you entered it (27 solutions). Marked: your b = 3 gives count = 1. Your inputs: a = 2, b = 3, c = 1, d = 0.*
-
-![Number of solutions as d runs from -3 to 3, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/radical-equation-live-2)
-
-*Number of solutions as d runs from -3 to 3, every other input as you entered it (21 solutions). Marked: your d = 0 gives count = 1. Your inputs: a = 2, b = 3, c = 1, d = 0.*
+*The worked example of Radical equation sqrt(ax + b) = cx + d as inputs and results: stated a = 2, b = 3, c = 1, d = 0; returned by math-foundations-ai999x: count = 1, solutions = [3.0], extraneous = [-1.0].*
 
 ```python
 math_foundations_ai999x.solve('radical_equation', a=2, b=3, c=1, d=0)
@@ -1499,17 +1399,13 @@ $$
 - **Assumes:** dividend of degree >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Remainder as r runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/synthetic-division-live-1)
+![coefficients of the quotient, highest power first (quotient) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 6, largest 6)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/synthetic-division-series)
 
-*Remainder as r runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your r = 1 gives remainder = 0. Your inputs: coefficients = 1, -6, 11, -6, r = 1.*
+*coefficients of the quotient, highest power first (quotient) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 6, largest 6). Inputs: coefficients = 1, -6, 11, -6, r = 1.0.*
 
-![Every entry of quotient as computed for your inputs (3 entries: 1, -5, 6)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/synthetic-division-live-2)
+![remainder (the remainder = p(r)) against r (the number r of the divisor x - r) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/synthetic-division-curve)
 
-*Every entry of quotient as computed for your inputs (3 entries: 1, -5, 6). Your inputs: coefficients = 1, -6, 11, -6, r = 1.*
-
-![Remainder as coefficients[0] runs from 0 to 5, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/synthetic-division-live-3)
-
-*Remainder as coefficients[0] runs from 0 to 5, every other input as you entered it (6 solutions). Marked: your coefficients[0] = 1 gives remainder = 0. Your inputs: coefficients = 1, -6, 11, -6, r = 1.*
+*remainder (the remainder = p(r)) against r (the number r of the divisor x - r) from 0.1 to 10 on a logarithmic axis. Other inputs as in the worked example: coefficients = 1, -6, 11, -6. 41 points computed by math-foundations-ai999x; marked: the worked example, r = 1, remainder = 0.*
 
 ```python
 math_foundations_ai999x.solve('synthetic_division', coefficients='1, -6, 11, -6', r=1)
@@ -1558,17 +1454,9 @@ $$
 - **Assumes:** divisor of degree >= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Quotient[1] and quotient[2] as divisor[1] runs from 0 to 4, every other input as you entered it (5 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polynomial-long-division-live-1)
+![coefficients of the remainder, highest power first (remainder) at each coefficients of the quotient, highest power first (quotient), both returned by math-foundations-ai999x for the worked example (dividend = 2, 3, -1, 5, divisor = 1, 0, 1): 2 → -3; 3 → 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polynomial-long-division-series)
 
-*Quotient[1] and quotient[2] as divisor[1] runs from 0 to 4, every other input as you entered it (5 solutions). Marked: your divisor[1] = 0 gives quotient[1] = 2. Your inputs: dividend = 2, 3, -1, 5, divisor = 1, 0, 1.*
-
-![Every entry of quotient as computed for your inputs (2 entries: 2, 3)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polynomial-long-division-live-2)
-
-*Every entry of quotient as computed for your inputs (2 entries: 2, 3). Your inputs: dividend = 2, 3, -1, 5, divisor = 1, 0, 1.*
-
-![Coefficients of the quotient, highest power](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polynomial-long-division-live-3)
-
-*Coefficients of the quotient, highest power..., entry 1 as dividend[0] runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your dividend[0] = 2 gives quotient[1] = 2. Your inputs: dividend = 2, 3, -1, 5, divisor = 1, 0, 1.*
+*coefficients of the remainder, highest power first (remainder) at each coefficients of the quotient, highest power first (quotient), both returned by math-foundations-ai999x for the worked example (dividend = 2, 3, -1, 5, divisor = 1, 0, 1): 2 → -3; 3 → 2.*
 
 ```python
 math_foundations_ai999x.solve('polynomial_long_division', dividend='2, 3, -1, 5', divisor='1, 0, 1')
@@ -1617,17 +1505,9 @@ $$
 - **Assumes:** whole-number coefficients; $a  \neq  0$; the discriminant is a perfect square
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Area model of 6x² + 5x - 6 with the factors the model returned, (2x + 3)(3x - 2): the sides of the rectangle are (2x + 3) and (3x - 2); each cell is the product of its side terms (cells of negative sign in the second colour) and together they make the quadratic](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-quadratic-integer-area)
+![Area model of 6x² + 5x + -6 (as stated) with the factors the package returned, (2x + 3)(3x - 2): the sides of the rectangle are (2x + 3) and (3x − 2); each cell is the product of its side terms (cells of negative sign in the second colour), and together they make the quadratic](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-quadratic-integer-area)
 
-*Area model of 6x² + 5x - 6 with the factors the model returned, (2x + 3)(3x - 2): the sides of the rectangle are (2x + 3) and (3x - 2); each cell is the product of its side terms (cells of negative sign in the second colour) and together they make the quadratic. Side lengths drawn by size at x = 1. Your inputs: a = 6, b = 5, c = -6.*
-
-![Constant of the first factor as b runs from 5 to 9, every other input as you entered it (2 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-quadratic-integer-live-1)
-
-*Constant of the first factor as b runs from 5 to 9, every other input as you entered it (2 solutions). Values in this range where the inputs admit no answer (3 of 5) are left out. Marked: your b = 5 gives q = 3. Shaded by the factored form: (2x + 3)(3x - 2), 3(x + 2)(2x - 1). Your inputs: a = 6, b = 5, c = -6.*
-
-![Constant of the first factor as a runs from 1 to 11, every other input as you entered it (4 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-quadratic-integer-live-2)
-
-*Constant of the first factor as a runs from 1 to 11, every other input as you entered it (4 solutions). Values in this range where the inputs admit no answer (7 of 11) are left out. Marked: your a = 6 gives q = 3. Shaded by the factored form: (x + 6)(x - 1), (x + 2)(4x - 3), (2x + 3)(3x - 2), (x + 1)(11x - 6). Your inputs: a = 6, b = 5, c = -6.*
+*Area model of 6x² + 5x + -6 (as stated) with the factors the package returned, (2x + 3)(3x - 2): the sides of the rectangle are (2x + 3) and (3x − 2); each cell is the product of its side terms (cells of negative sign in the second colour), and together they make the quadratic. Side lengths drawn by magnitude (x = 1). Marked: the factored form.*
 
 ```python
 math_foundations_ai999x.solve('factor_quadratic_integer', a=6, b=5, c=-6)
@@ -1681,13 +1561,9 @@ $$
 - **Assumes:** $a  \neq  0$; $b^{2} - 4ac > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The smaller root as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-inequality-live-1)
+![r1 (the smaller root) against a (coefficient of x^2) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-inequality-curve)
 
-*The smaller root as a runs from 0.25 to 1.038, every other input as you entered it (22 solutions). Marked: your a = 1 gives r1 = 2. Your inputs: a = 1, b = -5, c = 6, rel = <.*
-
-![The smaller root as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/quadratic-inequality-live-2)
-
-*The smaller root as c runs from 1.5 to 6, every other input as you entered it (15 solutions). Marked: your c = 6 gives r1 = 2. Your inputs: a = 1, b = -5, c = 6, rel = <.*
+*r1 (the smaller root) against a (coefficient of x^2) from 0.5 to 1.5. One curve for each value of c (constant term): 6, 3. Other inputs as in the worked example: b = -5.0, rel = <. 17 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, r1 = 2.*
 
 ```python
 math_foundations_ai999x.solve('quadratic_inequality', a=1, b=-5, c=6, rel='<')
@@ -1736,17 +1612,13 @@ $$
 - **Assumes:** |r| < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![sum over r from -0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/infinite-geometric-series-field)
+![sum (the sum to infinity) against r (the common ratio, |r| < 1) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/infinite-geometric-series-curve)
 
-*sum over r from -0.06667 to 0.7333 and a from 3 to 9: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 2.812 to 33.75). Marked: r = 0.3333, a = 6, sum = 9. Your inputs: a = 6, r = 0.3333333333333333.*
+*sum (the sum to infinity) against r (the common ratio, |r| < 1) from 0.02 to 0.98. One curve for each value of a (the first term): 6, 3, 12. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, r = 0.333333, sum = 9.*
 
-![The sum to infinity as a runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/infinite-geometric-series-live-1)
+![sum (the sum to infinity) over r (the common ratio, |r| < 1) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/infinite-geometric-series-field)
 
-*The sum to infinity as a runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your a = 6 gives sum = 9. Your inputs: a = 6, r = 0.3333333333333333.*
-
-![The sum to infinity as r runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/infinite-geometric-series-live-2)
-
-*The sum to infinity as r runs from 0.08333 to 0.5833, every other input as you entered it (29 solutions). Marked: your r = 0.3333 gives sum = 9. Your inputs: a = 6, r = 0.3333333333333333.*
+*sum (the sum to infinity) over r (the common ratio, |r| < 1) from 0.02 to 0.98 and a (the first term) from 3 to 9: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 3.06122 to dark 450); iso-lines at sum = 100, 200, 300, 400. Marked: the worked example, r = 0.333333, a = 6, sum = 9.*
 
 ```python
 math_foundations_ai999x.solve('infinite_geometric_series', a=6, r=0.3333333333333333)
@@ -1798,13 +1670,9 @@ $$
 - **Assumes:** $r_{1}  \neq  r_{2}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Numerator over x - r1 as p runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/partial-fractions-linear-live-1)
+![A (numerator over x - r1) against r1 (root of the first factor x - r1) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/partial-fractions-linear-curve)
 
-*Numerator over x - r1 as p runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your p = 5 gives A = 2. Your inputs: p = 5, q = 1, r1 = 1, r2 = -2.*
-
-![Numerator over x - r1 as r2 runs from -3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/partial-fractions-linear-live-2)
-
-*Numerator over x - r1 as r2 runs from -3.5 to -0.5, every other input as you entered it (29 solutions). Marked: your r2 = -2 gives A = 2. Your inputs: p = 5, q = 1, r1 = 1, r2 = -2.*
+*A (numerator over x - r1) against r1 (root of the first factor x - r1) from 0.1 to 10 on a logarithmic axis. One curve for each value of p (coefficient of x in the numerator): 5, 2.5, 10. Other inputs as in the worked example: q = 1.0, r2 = -2.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, r1 = 1, A = 2.*
 
 ```python
 math_foundations_ai999x.solve('partial_fractions_linear', p=5, q=1, r1=1, r2=-2)
@@ -1848,21 +1716,9 @@ $$
 - **Assumes:** whole-number coefficients; degree 1 to 8
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The rational roots returned for the polynomial with coefficients 2, -3, -11, 6 (highest power first), drawn in the complex plane, all on the real axis: -2, 1/2, 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-roots-complex)
+![the rational roots, ascending (roots) returned by math-foundations-ai999x for the worked example (coefficients = 2, -3, -11, 6), drawn in the complex plane: -2 + 0i, 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-roots-complex)
 
-*The rational roots returned for the polynomial with coefficients 2, -3, -11, 6 (highest power first), drawn in the complex plane, all on the real axis: -2, 1/2, 3. Your inputs: coefficients = 2, -3, -11, 6.*
-
-![Number of distinct rational roots as coefficients[0] runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-roots-live-1)
-
-*Number of distinct rational roots as coefficients[0] runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your coefficients[0] = 2 gives count = 3. Your inputs: coefficients = 2, -3, -11, 6.*
-
-![Every entry of roots as computed for your inputs (3 entries: -2, 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-roots-live-2)
-
-*Every entry of roots as computed for your inputs (3 entries: -2, 0.5, 3). Your inputs: coefficients = 2, -3, -11, 6.*
-
-![Number of distinct rational roots as coefficients[1] runs from -7 to 1, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-roots-live-3)
-
-*Number of distinct rational roots as coefficients[1] runs from -7 to 1, every other input as you entered it (9 solutions). Marked: your coefficients[1] = -3 gives count = 3. Your inputs: coefficients = 2, -3, -11, 6.*
+*the rational roots, ascending (roots) returned by math-foundations-ai999x for the worked example (coefficients = 2, -3, -11, 6), drawn in the complex plane: -2 + 0i, 0.5 + 0i, 3 + 0i.*
 
 ```python
 math_foundations_ai999x.solve('rational_roots', coefficients='2, -3, -11, 6')
@@ -1913,13 +1769,9 @@ $$
 - **Assumes:** x0 in the domain of f (no division by 0, no root of a negative number, no logarithm of a number <= 0)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Value as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/evaluate-function-live-1)
+![value (f(x0)) against x (the number x0 to put in) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/evaluate-function-curve)
 
-*Value as x runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your x = 3 gives value = 10. Your inputs: expression = 2x^2 - 3x + 1, x = 3.*
-
-![Value as the number in expression runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/evaluate-function-live-2)
-
-*Value as the number in expression runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your the number in expression = 2 gives value = 10. Your inputs: expression = 2x^2 - 3x + 1, x = 3.*
+*value (f(x0)) against x (the number x0 to put in) from 0.3 to 30 on a logarithmic axis. Other inputs as in the worked example: expression = 2x^2 - 3x + 1. 41 points computed by math-foundations-ai999x; marked: the worked example, x = 3, value = 10.*
 
 ```python
 math_foundations_ai999x.solve('evaluate_function', expression='2x^2 - 3x + 1', x=3)
@@ -1976,17 +1828,9 @@ $$
 - **Assumes:** each value in the domain of the function applied to it
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Value of the composite at x0 as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/composite-function-value-live-1)
+![value (value of the composite at x0) against x (the number x0) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/composite-function-value-curve)
 
-*Value of the composite at x0 as x runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your x = 2 gives value = 2. Your inputs: f = x^2 + 1, g = 2x - 3, x = 2, order = f(g(x)).*
-
-![Value of the composite at x0 for every choice of order, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/composite-function-value-live-2)
-
-*Value of the composite at x0 for every choice of order, every other input as you entered it (highlighted: your choice). f(g(x)): 2; g(f(x)): 7. Your inputs: f = x^2 + 1, g = 2x - 3, x = 2, order = f(g(x)).*
-
-![Value of the composite at x0 as the number in g runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/composite-function-value-live-3)
-
-*Value of the composite at x0 as the number in g runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your the number in g = 2 gives value = 2. Your inputs: f = x^2 + 1, g = 2x - 3, x = 2, order = f(g(x)).*
+*value (value of the composite at x0) against x (the number x0) from 0.2 to 20 on a logarithmic axis, logarithmic output axis. Other inputs as in the worked example: f = x^2 + 1, g = 2x - 3, order = f(g(x)). 41 points computed by math-foundations-ai999x; marked: the worked example, x = 2, value = 2.*
 
 ```python
 math_foundations_ai999x.solve('composite_function_value', f='x^2 + 1', g='2x - 3', x=2, order='f(g(x))')
@@ -2036,13 +1880,9 @@ $$
 - **Assumes:** $a  \neq  0$; the denominator is not identically 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Where the radicand is 0 as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/domain-sqrt-over-linear-live-1)
+![boundary (where the radicand is 0) against a (coefficient of x under the root) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/domain-sqrt-over-linear-curve)
 
-*Where the radicand is 0 as a runs from 0.5 to 3.5, every other input as you entered it (39 solutions). Marked: your a = 2 gives boundary = 2. Your inputs: a = 2, b = -4, c = 0, d = 1.*
-
-![Where the radicand is 0 as b runs from -7 to -1, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/domain-sqrt-over-linear-live-2)
-
-*Where the radicand is 0 as b runs from -7 to -1, every other input as you entered it (29 solutions). Marked: your b = -4 gives boundary = 2. Your inputs: a = 2, b = -4, c = 0, d = 1.*
+*boundary (where the radicand is 0) against a (coefficient of x under the root) from 1 to 3. One curve for each value of b (constant under the root): -4, -2, -8. Other inputs as in the worked example: c = 0.0, d = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, boundary = 2.*
 
 ```python
 math_foundations_ai999x.solve('domain_sqrt_over_linear', a=2, b=-4, c=0, d=1)
@@ -2094,13 +1934,9 @@ $$
 - **Assumes:** $a  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Slope of the inverse, 1/a as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/inverse-linear-function-live-1)
+![inv_slope (slope of the inverse, 1/a) against a (slope of f) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/inverse-linear-function-curve)
 
-*Slope of the inverse, 1/a as a runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your a = 3 gives inv_slope = 0.3333. Your inputs: a = 3, b = -6.*
-
-![Intercept of the inverse, -b/a as b runs from -10](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/inverse-linear-function-live-2)
-
-*Intercept of the inverse, -b/a as b runs from -10.5 to -1.5, every other input as you entered it (29 solutions). Marked: your b = -6 gives inv_intercept = 2. Your inputs: a = 3, b = -6.*
+*inv_slope (slope of the inverse, 1/a) against a (slope of f) from 1.5 to 4.5. Other inputs as in the worked example: b = -6.0. 31 points computed by math-foundations-ai999x; marked: the worked example, a = 3, inv_slope = 0.333333.*
 
 ```python
 math_foundations_ai999x.solve('inverse_linear_function', a=3, b=-6)
@@ -2152,17 +1988,13 @@ $$
 - **Assumes:** the two conditions split the line at c (one < and one >=, or <= and >); x0 in the domain of its piece
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![value over x from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/piecewise-evaluate-field)
+![value (f(x0)) against x (the number x0) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/piecewise-evaluate-curve)
 
-*value over x from 1.5 to 4.5 and c from 1 to 3: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 1.25 to 19.25). Marked: x = 3, c = 2, value = 8. Your inputs: e1 = 2x + 1, left_rel = <, c = 2, e2 = x^2 - 1, x = 3.*
+*value (f(x0)) against x (the number x0) from 0.3 to 30 on a logarithmic axis. Other inputs as in the worked example: e1 = 2x + 1, left_rel = <, c = 2.0, e2 = x^2 - 1. 41 points computed by math-foundations-ai999x; marked: the worked example, x = 3, value = 8.*
 
-![Value as the number in e2 runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/piecewise-evaluate-live-1)
+![value (f(x0)) over x (the number x0) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/piecewise-evaluate-field)
 
-*Value as the number in e2 runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your the number in e2 = 2 gives value = 8. Your inputs: e1 = 2x + 1, left_rel = <, c = 2, e2 = x^2 - 1, x = 3.*
-
-![Value as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/piecewise-evaluate-live-2)
-
-*Value as x runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your x = 3 gives value = 8. Your inputs: e1 = 2x + 1, left_rel = <, c = 2, e2 = x^2 - 1, x = 3.*
+*value (f(x0)) over x (the number x0) from 0.3 to 30 and c (the break point c) from 0.2 to 20 (logarithmic axes): each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its sign and magnitude (second colour negative); iso-lines at value = 0, 200, 400, 600, 800. Other inputs as in the worked example: e1 = 2x + 1, left_rel = <, e2 = x^2 - 1. Marked: the worked example, x = 3, c = 2, value = 8.*
 
 ```python
 math_foundations_ai999x.solve('piecewise_evaluate', e1='2x + 1', left_rel='<', c=2, e2='x^2 - 1', x=3)
@@ -2211,13 +2043,9 @@ $$
 - **Assumes:** $A  \neq  0$; $B  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Y-coordinate of the image as y0 runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/graph-transformation-point-live-1)
+![x_new (x-coordinate of the image) against B (horizontal compression factor (negative: reflection in the y-axis)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/graph-transformation-point-curve)
 
-*Y-coordinate of the image as y0 runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your y0 = 5 gives y_new = 19. Your inputs: x0 = 2, y0 = 5, A = 3, B = 2, h = 1, k = 4.*
-
-![Y-coordinate of the image as A runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/graph-transformation-point-live-2)
-
-*Y-coordinate of the image as A runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your A = 3 gives y_new = 19. Your inputs: x0 = 2, y0 = 5, A = 3, B = 2, h = 1, k = 4.*
+*x_new (x-coordinate of the image) against B (horizontal compression factor (negative: reflection in the y-axis)) from 0.2 to 20 on a logarithmic axis. One curve for each value of x0 (x-coordinate of the point on y = f(x)): 2, 1, 4. Other inputs as in the worked example: y0 = 5.0, A = 3.0, h = 1.0, k = 4.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, B = 2, x_new = 2.*
 
 ```python
 math_foundations_ai999x.solve('graph_transformation_point', x0=2, y0=5, A=3, B=2, h=1, k=4)
@@ -2263,13 +2091,9 @@ $$
 - **Assumes:** $a  \neq  0$; $b  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The slope -a/b as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-intercepts-live-1)
+![x_intercept (where the line meets the x-axis (y = 0)) against a (coefficient of x) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-intercepts-curve)
 
-*The slope -a/b as b runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your b = 3 gives slope = -0.6667. Your inputs: a = 2, b = 3, c = 12.*
-
-![Where the line meets the x-axis as c runs from 3 to 21, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-intercepts-live-2)
-
-*Where the line meets the x-axis as c runs from 3 to 21, every other input as you entered it (29 solutions). Marked: your c = 12 gives x_intercept = 6. Your inputs: a = 2, b = 3, c = 12.*
+*x_intercept (where the line meets the x-axis (y = 0)) against a (coefficient of x) from 1 to 3. One curve for each value of c (right-hand side): 12, 6, 24. Other inputs as in the worked example: b = 3.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, x_intercept = 6.*
 
 ```python
 math_foundations_ai999x.solve('line_intercepts', a=2, b=3, c=12)
@@ -2315,13 +2139,9 @@ $$
 - **Assumes:** a and b not both 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The perpendicular distance as y0 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-point-to-line-live-1)
+![distance (the perpendicular distance) against y0 (y-coordinate of the point) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-point-to-line-curve)
 
-*The perpendicular distance as y0 runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your y0 = 2 gives distance = 1.2. Your inputs: x0 = 1, y0 = 2, a = 3, b = 4, c = -5.*
-
-![The perpendicular distance as b runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-point-to-line-live-2)
-
-*The perpendicular distance as b runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your b = 4 gives distance = 1.2. Your inputs: x0 = 1, y0 = 2, a = 3, b = 4, c = -5.*
+*distance (the perpendicular distance) against y0 (y-coordinate of the point) from 0.2 to 20 on a logarithmic axis. One curve for each value of x0 (x-coordinate of the point): 1, 2. Other inputs as in the worked example: a = 3.0, b = 4.0, c = -5.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, y0 = 2, distance = 1.2.*
 
 ```python
 math_foundations_ai999x.solve('distance_point_to_line', x0=1, y0=2, a=3, b=4, c=-5)
@@ -2363,13 +2183,9 @@ $$
 - **Assumes:** $b > 0$; $b  \neq  1$; $x > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Log_b(x) as b runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-evaluate-live-1)
+![value (log_b(x)) against b (the base (positive, not 1)) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-evaluate-curve)
 
-*Log_b(x) as b runs from 1.025 to 3.5, every other input as you entered it (34 solutions). Marked: your b = 2 gives value = 5. Your inputs: b = 2, x = 32.*
-
-![Log_b(x) as x runs from 8 to 56, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-evaluate-live-2)
-
-*Log_b(x) as x runs from 8 to 56, every other input as you entered it (29 solutions). Marked: your x = 32 gives value = 5. Your inputs: b = 2, x = 32.*
+*value (log_b(x)) against b (the base (positive, not 1)) from 1 to 3. One curve for each value of x (the number (positive)): 32, 16, 64. 30 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 2, value = 5.*
 
 ```python
 math_foundations_ai999x.solve('log_evaluate', b=2, x=32)
@@ -2432,13 +2248,9 @@ $$
 - **Assumes:** M, $N > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Value as u runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-laws-combine-live-1)
+![value (log_b(M^p N^q)) against u (log_b(M)) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-laws-combine-curve)
 
-*Value as u runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your u = 2 gives value = 7. Your inputs: u = 2, v = 3, p = 2, q = 1.*
-
-![Value as p runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-laws-combine-live-2)
-
-*Value as p runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your p = 2 gives value = 7. Your inputs: u = 2, v = 3, p = 2, q = 1.*
+*value (log_b(M^p N^q)) against u (log_b(M)) from 1 to 3. One curve for each value of p (power of M): 2, 1, 4. Other inputs as in the worked example: v = 3.0, q = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, u = 2, value = 7.*
 
 ```python
 math_foundations_ai999x.solve('log_laws_combine', u=2, v=3, p=2, q=1)
@@ -2482,13 +2294,9 @@ $$
 - **Assumes:** |k t| <= 700
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Amount as n0 runs from 125 to 875, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/continuous-growth-live-1)
+![amount (N(t)) against k (continuous rate per unit time, as a decimal (0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/continuous-growth-curve)
 
-*Amount as n0 runs from 125 to 875, every other input as you entered it (41 solutions). Marked: your n0 = 500 gives amount = 674.9. Your inputs: n0 = 500, k = 0.03, t = 10.*
-
-![Amount as k runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/continuous-growth-live-2)
-
-*Amount as k runs from 0.0075 to 0.0525, every other input as you entered it (29 solutions). Marked: your k = 0.03 gives amount = 674.9. Your inputs: n0 = 500, k = 0.03, t = 10.*
+*amount (N(t)) against k (continuous rate per unit time, as a decimal (0.03 for 3%; negative for decay)) from 0.003 to 0.3 on a logarithmic axis. One curve for each value of t (elapsed time, in the rate's unit): 10, 5, 20. Other inputs as in the worked example: n0 = 500.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, k = 0.03, amount = 674.929.*
 
 ```python
 math_foundations_ai999x.solve('continuous_growth', n0=500, k=0.03, t=10)
@@ -2539,13 +2347,9 @@ $$
 - **Assumes:** $n_{0} > 0$; $T > 0$; $t  \geq  0$; t and T in the same unit
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Amount remaining as half_life runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/half-life-remaining-live-1)
+![remaining (amount remaining (in the unit of N0)) against half_life (the half-life T (positive)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/half-life-remaining-curve)
 
-*Amount remaining as half_life runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your half_life = 5 gives remaining = 10. Your inputs: n0 = 80, half_life = 5, t = 15.*
-
-![Amount remaining as t runs from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/half-life-remaining-live-2)
-
-*Amount remaining as t runs from 3.75 to 26.25, every other input as you entered it (29 solutions). Marked: your t = 15 gives remaining = 10. Your inputs: n0 = 80, half_life = 5, t = 15.*
+*remaining (amount remaining (in the unit of N0)) against half_life (the half-life T (positive)) from 0.5 to 50 on a logarithmic axis, logarithmic output axis. One curve for each value of n0 (initial amount (positive)): 80, 40, 160. Other inputs as in the worked example: t = 15.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, half_life = 5, remaining = 10.*
 
 ```python
 math_foundations_ai999x.solve('half_life_remaining', n0=80, half_life=5, t=15)
@@ -2588,9 +2392,9 @@ $$
 - **Assumes:** $r > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Periods to double as r runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/doubling-time-percent-live-1)
+![doubling_time (periods to double (exact)) against r (growth rate per period, in percent (positive)) from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/doubling-time-percent-curve)
 
-*Periods to double as r runs from 1.75 to 12.25, every other input as you entered it (41 solutions). Marked: your r = 7 gives doubling_time = 10.24. Your inputs: r = 7.*
+*doubling_time (periods to double (exact)) against r (growth rate per period, in percent (positive)) from 3.5 to 10.5. 31 points computed by math-foundations-ai999x; marked: the worked example, r = 7, doubling_time = 10.2448.*
 
 ```python
 math_foundations_ai999x.solve('doubling_time_percent', r=7)
@@ -2635,13 +2439,9 @@ $$
 - **Assumes:** $a  \neq  0$; $c  \neq  0$; $b > 0$, $b  \neq  1$; $k/a > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The solution as b runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-general-live-1)
+![x (the solution) against b (the base (positive, not 1; e for the natural base)) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-general-curve)
 
-*The solution as b runs from 1.025 to 3.5, every other input as you entered it (34 solutions). Marked: your b = 2 gives x = 3. Your inputs: a = 3, b = 2, c = 1, d = 1, k = 48.*
-
-![The solution as c runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-general-live-2)
-
-*The solution as c runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your c = 1 gives x = 3. Your inputs: a = 3, b = 2, c = 1, d = 1, k = 48.*
+*x (the solution) against b (the base (positive, not 1; e for the natural base)) from 1 to 3. One curve for each value of c (coefficient of x in the exponent): 1, 0.5, 2. Other inputs as in the worked example: a = 3.0, d = 1.0, k = 48.0. 30 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 2, x = 3.*
 
 ```python
 math_foundations_ai999x.solve('exponential_equation_general', a=3, b=2, c=1, d=1, k=48)
@@ -2693,13 +2493,9 @@ $$
 - **Assumes:** $b > 0$, $b  \neq  1$; $c  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The solution as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-equation-linear-argument-live-1)
+![x (the solution) against b (the base (positive, not 1; 10 for log, e for ln)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-equation-linear-argument-curve)
 
-*The solution as b runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your b = 2 gives x = 5. Your inputs: b = 2, c = 3, d = 1, k = 4.*
-
-![The solution as k runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/log-equation-linear-argument-live-2)
-
-*The solution as k runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your k = 4 gives x = 5. Your inputs: b = 2, c = 3, d = 1, k = 4.*
+*x (the solution) against b (the base (positive, not 1; 10 for log, e for ln)) from 0.2 to 20 on a logarithmic axis. One curve for each value of k (the right-hand side): 4, 2, 8. Other inputs as in the worked example: c = 3.0, d = 1.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 2, x = 5.*
 
 ```python
 math_foundations_ai999x.solve('log_equation_linear_argument', b=2, c=3, d=1, k=4)
@@ -2751,9 +2547,9 @@ $$
 - **Assumes:** a finite angle
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The angle in radians as deg runs from 33](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/deg-to-rad-live-1)
+![radians (the angle in radians) against deg (the angle in degrees) from 0 to 180](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/deg-to-rad-curve)
 
-*The angle in radians as deg runs from 33.75 to 236.2, every other input as you entered it (41 solutions). Marked: your deg = 135 gives radians = 2.356. Your inputs: deg = 135.*
+*radians (the angle in radians) against deg (the angle in degrees) from 0 to 180. 41 points computed by math-foundations-ai999x; marked: the worked example, deg = 135, radians = 2.35619.*
 
 ```python
 math_foundations_ai999x.solve('deg_to_rad', deg=135)
@@ -2800,9 +2596,9 @@ $$
 - **Assumes:** a finite angle
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The angle in degrees as rad runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rad-to-deg-live-1)
+![degrees (the angle in degrees) against rad (the angle in radians) from 0 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rad-to-deg-curve)
 
-*The angle in degrees as rad runs from 0.589 to 4.123, every other input as you entered it (41 solutions). Marked: your rad = 2.356 gives degrees = 135. Your inputs: rad = 2.356194490192345.*
+*degrees (the angle in degrees) against rad (the angle in radians) from 0 to 3.14159. 41 points computed by math-foundations-ai999x; marked: the worked example, rad = 2.35619, degrees = 135.*
 
 ```python
 math_foundations_ai999x.solve('rad_to_deg', rad=2.356194490192345)
@@ -2852,17 +2648,13 @@ $$
 - **Assumes:** $a > 0$; $b > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![c over b from 2 to 6 and a from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-legs-field)
+![c (the hypotenuse) against a (the leg opposite angle A (positive)) from 0 to 90](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-legs-curve)
 
-*c over b from 2 to 6 and a from 1.5 to 4.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 2.5 to 7.5). Marked: b = 4, a = 3, c = 5. Your inputs: a = 3, b = 4.*
+*c (the hypotenuse) against a (the leg opposite angle A (positive)) from 0 to 90. One curve for each value of b (the leg opposite angle B (positive)): 4, 22.5, 67.5. 40 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 3, c = 5.*
 
-![The hypotenuse as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-legs-live-1)
+![c (the hypotenuse) over b (the leg opposite angle B (positive)) from 0 to 90 and a (the leg opposite angle A (positive)) from 0 to 90: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-legs-field)
 
-*The hypotenuse as a runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your a = 3 gives c = 5. Your inputs: a = 3, b = 4.*
-
-![The hypotenuse as b runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-legs-live-2)
-
-*The hypotenuse as b runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your b = 4 gives c = 5. Your inputs: a = 3, b = 4.*
+*c (the hypotenuse) over b (the leg opposite angle B (positive)) from 0 to 90 and a (the leg opposite angle A (positive)) from 0 to 90: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 7.84707 to dark 127.279); iso-lines at c = 20, 40, 60, 80, 100, 120; blank cells: inputs the capability refuses. Marked: the worked example, b = 4, a = 3, c = 5.*
 
 ```python
 math_foundations_ai999x.solve('right_triangle_legs', a=3, b=4)
@@ -2912,17 +2704,13 @@ $$
 - **Assumes:** $0 < a < c$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![b over c from 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-leg-hypotenuse-field)
+![b (the other leg) against c (the hypotenuse (longer than the leg)) from 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-leg-hypotenuse-curve)
 
-*b over c from 6.5 to 19.5 and a from 2.5 to 7.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 1.121 to 19.34); 2 blank cells are inputs the model refuses. Marked: c = 13, a = 5, b = 12. Your inputs: a = 5, c = 13.*
+*b (the other leg) against c (the hypotenuse (longer than the leg)) from 6.5 to 19.5. One curve for each value of a (the known leg (positive)): 5, 2.5, 10. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 13, b = 12.*
 
-![The other leg as c runs from 5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-leg-hypotenuse-live-1)
+![b (the other leg) over c (the hypotenuse (longer than the leg)) from 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-leg-hypotenuse-field)
 
-*The other leg as c runs from 5.2 to 22.75, every other input as you entered it (37 solutions). Marked: your c = 13 gives b = 12. Your inputs: a = 5, c = 13.*
-
-![The other leg as a runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-leg-hypotenuse-live-2)
-
-*The other leg as a runs from 1.25 to 8.75, every other input as you entered it (29 solutions). Marked: your a = 5 gives b = 12. Your inputs: a = 5, c = 13.*
+*b (the other leg) over c (the hypotenuse (longer than the leg)) from 6.5 to 19.5 and a (the known leg (positive)) from 2.5 to 7.5: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 0.319518 to dark 19.3391); iso-lines at b = 5, 10, 15; blank cells: inputs the capability refuses. Marked: the worked example, c = 13, a = 5, b = 12.*
 
 ```python
 math_foundations_ai999x.solve('right_triangle_leg_hypotenuse', a=5, c=13)
@@ -2969,17 +2757,9 @@ $$
 - **Assumes:** $0 < A < 90$; side > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The hypotenuse as side runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-angle-side-live-1)
+![hypotenuse (the hypotenuse) against side (the length of the known side) from 5 to 15](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-angle-side-curve)
 
-*The hypotenuse as side runs from 2.5 to 17.5, every other input as you entered it (41 solutions). Marked: your side = 10 gives hypotenuse = 10. Your inputs: A = 30, side = 10, which = hypotenuse.*
-
-![The hypotenuse for every choice of which, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-angle-side-live-2)
-
-*The hypotenuse for every choice of which, every other input as you entered it (highlighted: your choice). hypotenuse: 10; opposite: 20; adjacent: 11.55. Your inputs: A = 30, side = 10, which = hypotenuse.*
-
-![Side opposite A as A runs from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/right-triangle-angle-side-live-3)
-
-*Side opposite A as A runs from 7.5 to 52.5, every other input as you entered it (29 solutions). Marked: your A = 30 gives opposite = 5. Your inputs: A = 30, side = 10, which = hypotenuse.*
+*hypotenuse (the hypotenuse) against side (the length of the known side) from 5 to 15. One curve for each value of which (which side is known): hypotenuse, opposite, adjacent. Other inputs as in the worked example: A = 30.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, side = 10, hypotenuse = 10.*
 
 ```python
 math_foundations_ai999x.solve('right_triangle_angle_side', A=30, side=10, which='hypotenuse')
@@ -3025,13 +2805,9 @@ $$
 - **Assumes:** A, $B > 0$; $A + B < 180$; $a > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Side b as a runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-sines-aas-live-1)
+![b (side b) against A (angle A, degrees) from 0 to 90](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-sines-aas-curve)
 
-*Side b as a runs from 2.5 to 17.5, every other input as you entered it (41 solutions). Marked: your a = 10 gives b = 13.47. Your inputs: A = 40, B = 60, a = 10.*
-
-![Side b as A runs from 10 to 70, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-sines-aas-live-2)
-
-*Side b as A runs from 10 to 70, every other input as you entered it (29 solutions). Marked: your A = 40 gives b = 13.47. Your inputs: A = 40, B = 60, a = 10.*
+*b (side b) against A (angle A, degrees) from 0 to 90. One curve for each value of a (side a, opposite A): 10, 5, 20. Other inputs as in the worked example: B = 60.0. 40 points per curve computed by math-foundations-ai999x; marked: the worked example, A = 40, b = 13.473.*
 
 ```python
 math_foundations_ai999x.solve('law_of_sines_aas', A=40, B=60, a=10)
@@ -3081,13 +2857,9 @@ $$
 - **Assumes:** a, $b > 0$; $0 < A < 180$; a triangle exists (else refused)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Angle C of the second triangle as A runs from 10 to 52, every other input as you entered it (29 solutions)](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/law-of-sines-ssa-live-1.svg)
+![count (number of triangles (1 or 2; none is refused)) against a (side a, opposite A) from 4 to 12](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-sines-ssa-curve)
 
-*Angle C of the second triangle as A runs from 10 to 52, every other input as you entered it (29 solutions). Marked: your A = 40 gives C2 = 13.46. Your inputs: a = 8, b = 10, A = 40.*
-
-![Number of triangles as a runs from 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-sines-ssa-live-2)
-
-*Number of triangles as a runs from 6.714 to 14, every other input as you entered it (18 solutions). Marked: your a = 8 gives count = 2. Your inputs: a = 8, b = 10, A = 40.*
+*count (number of triangles (1 or 2; none is refused)) against a (side a, opposite A) from 4 to 12. One curve for each value of b (side b): 10, 5. Other inputs as in the worked example: A = 40.0. 21 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 8, count = 2.*
 
 ```python
 math_foundations_ai999x.solve('law_of_sines_ssa', a=8, b=10, A=40)
@@ -3138,13 +2910,9 @@ $$
 - **Assumes:** b, $c > 0$; $0 < A < 180$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Side a as b runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sas-live-1)
+![a (side a) against b (side b) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sas-curve)
 
-*Side a as b runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your b = 5 gives a = 5.299. Your inputs: b = 5, c = 7, A = 49.*
-
-![Side a as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sas-live-2)
-
-*Side a as c runs from 1.75 to 12.25, every other input as you entered it (29 solutions). Marked: your c = 7 gives a = 5.299. Your inputs: b = 5, c = 7, A = 49.*
+*a (side a) against b (side b) from 0.5 to 50 on a logarithmic axis. One curve for each value of c (side c): 7, 3.5, 14. Other inputs as in the worked example: A = 49.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 5, a = 5.29867.*
 
 ```python
 math_foundations_ai999x.solve('law_of_cosines_sas', b=5, c=7, A=49)
@@ -3190,13 +2958,9 @@ $$
 - **Assumes:** positive sides; triangle inequality (each side shorter than the sum of the other two)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Angle A, degrees as b runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sss-live-1)
+![A (angle A, degrees) against b (side b) from 4 to 12](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sss-curve)
 
-*Angle A, degrees as b runs from 2.3 to 14, every other input as you entered it (40 solutions). Marked: your b = 8 gives A = 48.19. Your inputs: a = 7, b = 8, c = 9.*
-
-![Angle A, degrees as c runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/law-of-cosines-sss-live-2)
-
-*Angle A, degrees as c runs from 2.25 to 14.79, every other input as you entered it (27 solutions). Marked: your c = 9 gives A = 48.19. Your inputs: a = 7, b = 8, c = 9.*
+*A (angle A, degrees) against b (side b) from 4 to 12. One curve for each value of a (side a): 7, 3.5, 14. Other inputs as in the worked example: c = 9.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 8, A = 48.1897.*
 
 ```python
 math_foundations_ai999x.solve('law_of_cosines_sss', a=7, b=8, c=9)
@@ -3246,13 +3010,9 @@ $$
 - **Assumes:** positive sides; triangle inequality
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The area as a runs from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/heron-area-live-1)
+![area (the area) against c (side c) from 7](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/heron-area-curve)
 
-*The area as a runs from 3.25 to 22.75, every other input as you entered it (41 solutions). Marked: your a = 13 gives area = 84. Your inputs: a = 13, b = 14, c = 15.*
-
-![The area as b runs from 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/heron-area-live-2)
-
-*The area as b runs from 3.5 to 24.5, every other input as you entered it (29 solutions). Marked: your b = 14 gives area = 84. Your inputs: a = 13, b = 14, c = 15.*
+*area (the area) against c (side c) from 7.5 to 22.5. One curve for each value of a (side a): 13, 6.5, 26. Other inputs as in the worked example: b = 14.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 15, area = 84.*
 
 ```python
 math_foundations_ai999x.solve('heron_area', a=13, b=14, c=15)
@@ -3305,17 +3065,13 @@ $$
 - **Assumes:** a whole multiple of 30 or 45 degrees
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The exact sine returned at every multiple of 30° and 45° in one turn (16 runs of the model), each angle's band shaded by sign (accent positive, violet negative, grey zero) and labelled with its exact value at the multiples of 30°; 9 distinct exact values](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-circle-exact-decision)
+![The unit circle with the exact cosine and sine the package returns at the multiples of 30° and 45° (16 angles; six labelled); for example cos 150° = -√3/2 = -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/unit-circle-exact-polar.svg)
 
-*The exact sine returned at every multiple of 30° and 45° in one turn (16 runs of the model), each angle's band shaded by sign (accent positive, violet negative, grey zero) and labelled with its exact value at the multiples of 30°; 9 distinct exact values. Marked: deg = 150 gives 1/2. In SI units: sin = 0.5. Your inputs: deg = 150.*
+*The unit circle with the exact cosine and sine the package returns at the multiples of 30° and 45° (16 angles; six labelled); for example cos 150° = -√3/2 = -0.866025 and sin 150° = 1/2 = 0.5 (marked).*
 
-![The unit circle with the cosine and sine the model returns at the multiples of 30° and 45° (16 angles, six labelled); at 150°: cos = -√3/2 = -0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-circle-exact-polar)
+![exact sin (sin_exact) along deg (the angle in degrees (a multiple of 30 or 45)) from 0 to 180: 81 runs of math-foundations-ai999x, each band coloured by the verdict returned (0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-circle-exact-decision)
 
-*The unit circle with the cosine and sine the model returns at the multiples of 30° and 45° (16 angles, six labelled); at 150°: cos = -√3/2 = -0.866, sin = 1/2 = 0.5 (marked). Your inputs: deg = 150.*
-
-![Sin of the angle as deg runs from 60 to 240, every other input as you entered it (3 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-circle-exact-live-1)
-
-*Sin of the angle as deg runs from 60 to 240, every other input as you entered it (3 solutions). Values in this range where the inputs admit no answer (54 of 57) are left out. Marked: your deg = 150 gives sin = 0.5. Your inputs: deg = 150.*
+*exact sin (sin_exact) along deg (the angle in degrees (a multiple of 30 or 45)) from 0 to 180: 81 runs of math-foundations-ai999x, each band coloured by the verdict returned (0.0, 1.0, sqrt(2)/2). Marked: the worked example, deg = 150 → 1/2.*
 
 ```python
 math_foundations_ai999x.solve('unit_circle_exact', deg=150)
@@ -3372,17 +3128,9 @@ $$
 - **Assumes:** n a whole number from 1 to 12
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Number of solutions in the interval as k runs from -3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-equation-interval-live-1)
+![count (number of solutions in the interval) against n (the multiple n in f(n x) (default 1)) from 1 to 9](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-equation-interval-curve)
 
-*Number of solutions in the interval as k runs from -3.5 to 4.5, every other input as you entered it (17 solutions). Marked: your k = 0.5 gives count = 2. Your inputs: func = sin, k = 0.5, n = 1, unit = degrees.*
-
-![Every entry of solutions as computed for your inputs (2 entries: 30, 150)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-equation-interval-live-2)
-
-*Every entry of solutions as computed for your inputs (2 entries: 30, 150). Your inputs: func = sin, k = 0.5, n = 1, unit = degrees.*
-
-![Number of solutions in the interval as n runs from 1 to 5, every other input as you entered it (5 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-equation-interval-live-3)
-
-*Number of solutions in the interval as n runs from 1 to 5, every other input as you entered it (5 solutions). Marked: your n = 1 gives count = 2. Your inputs: func = sin, k = 0.5, n = 1, unit = degrees.*
+*count (number of solutions in the interval) against n (the multiple n in f(n x) (default 1)) from 1 to 9. Other inputs as in the worked example: func = sin, k = 0.5, unit = degrees. 9 points computed by math-foundations-ai999x; marked: the worked example, n = 1, count = 2.*
 
 ```python
 math_foundations_ai999x.solve('trig_equation_interval', func='sin', k=0.5, n=1, unit='degrees')
@@ -3447,13 +3195,9 @@ $$
 - **Assumes:** the value's sign agrees with the quadrant; 0 < |sin|, |cos| < 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cos t as value runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-values-from-one-live-1)
+![cos (cos t) against value (its value) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-values-from-one-curve)
 
-*Cos t as value runs from 0.15 to 0.9825, every other input as you entered it (38 solutions). Marked: your value = 0.6 gives cos = -0.8. Your inputs: func = sin, value = 0.6, quadrant = 2.*
-
-![Cos t as quadrant runs from 1 to 2, every other input as you entered it (2 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/trig-values-from-one-live-2)
-
-*Cos t as quadrant runs from 1 to 2, every other input as you entered it (2 solutions). Marked: your quadrant = 2 gives cos = -0.8. Your inputs: func = sin, value = 0.6, quadrant = 2.*
+*cos (cos t) against value (its value) from 0.3 to 0.9. Other inputs as in the worked example: func = sin, quadrant = 2. 31 points computed by math-foundations-ai999x; marked: the worked example, value = 0.6, cos = -0.8.*
 
 ```python
 math_foundations_ai999x.solve('trig_values_from_one', func='sin', value=0.6, quadrant=2)
@@ -3504,13 +3248,9 @@ $$
 - **Assumes:** same dimension (2 or 3); neither vector is zero
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Dot as u[1] runs from 0 to 7, every other input as you entered it (8 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-dot-angle-live-1)
+![dot (u ](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-dot-angle-sensitivity)
 
-*Dot as u[1] runs from 0 to 7, every other input as you entered it (8 solutions). Marked: your u[1] = 3 gives dot = 0. Your inputs: u = 3, 4, v = 4, -3.*
-
-![Dot as u[2] runs from 0 to 8, every other input as you entered it (9 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-dot-angle-live-2)
-
-*Dot as u[2] runs from 0 to 8, every other input as you entered it (9 solutions). Marked: your u[2] = 4 gives dot = 0. Your inputs: u = 3, 4, v = 4, -3.*
+*dot (u . v) as value 2 of u (the first vector, e.g. 3, 4) moves from 2.5 to 4.5, the other values as given (3, 4); 41 runs of math-foundations-ai999x. Other inputs: v = 4, -3. Marked: the worked example, u[2] = 4, dot = 0.*
 
 ```python
 math_foundations_ai999x.solve('vector_dot_angle', u='3, 4', v='4, -3')
@@ -3560,17 +3300,13 @@ $$
 - **Assumes:** not the zero vector
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![magnitude over y from 2 to 6 and x from -4](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-magnitude-direction-field)
+![magnitude (|v|) against y (the y-component) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-magnitude-direction-curve)
 
-*magnitude over y from 2 to 6 and x from -4.5 to -1.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 2.5 to 7.5). Marked: y = 4, x = -3, magnitude = 5. Your inputs: x = -3, y = 4.*
+*magnitude (|v|) against y (the y-component) from 0.4 to 40 on a logarithmic axis. One curve for each value of x (the x-component): -3, -6. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, y = 4, magnitude = 5.*
 
-![Magnitude as y runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-magnitude-direction-live-1)
+![magnitude (|v|) over y (the y-component) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-magnitude-direction-field)
 
-*Magnitude as y runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your y = 4 gives magnitude = 5. Your inputs: x = -3, y = 4.*
-
-![Magnitude as x runs from -5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vector-magnitude-direction-live-2)
-
-*Magnitude as x runs from -5.25 to -0.75, every other input as you entered it (29 solutions). Marked: your x = -3 gives magnitude = 5. Your inputs: x = -3, y = 4.*
+*magnitude (|v|) over y (the y-component) from 0.4 to 40 and x (the x-component) from -4.5 to -1.5 (logarithmic horizontal axis): each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 1.55242 to dark 40.2523); iso-lines at magnitude = 10, 20, 30, 40. Marked: the worked example, y = 4, x = -3, magnitude = 5.*
 
 ```python
 math_foundations_ai999x.solve('vector_magnitude_direction', x=-3, y=4)
@@ -3620,17 +3356,13 @@ $$
 - **Assumes:** the angle's unit stated
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![x over r from 2 to 6 and theta from -30 to 150: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from -5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polar-to-rectangular-field)
+![x (x = r cos(theta)) against theta (the angle theta) from 0 to 90](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polar-to-rectangular-curve)
 
-*x over r from 2 to 6 and theta from -30 to 150: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from -5.196 to 5.949). Marked: r = 4, theta = 60, x = 2. Your inputs: r = 4, theta = 60, unit = degrees.*
+*x (x = r cos(theta)) against theta (the angle theta) from 0 to 90. One curve for each value of r (the distance r from the pole): 4, 2, 8. Other inputs as in the worked example: unit = degrees. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, theta = 60, x = 2.*
 
-![X as θ runs from 15 to 105, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polar-to-rectangular-live-1)
+![x (x = r cos(theta)) over r (the distance r from the pole) from 2 to 6 and theta (the angle theta) from 0 to 90: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 0 to dark 6); iso-lines at x = 1, 2, 3, 4, 5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polar-to-rectangular-field)
 
-*X as θ runs from 15 to 105, every other input as you entered it (41 solutions). Marked: your θ = 60 gives x = 2. Your inputs: r = 4, theta = 60, unit = degrees.*
-
-![X as r runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/polar-to-rectangular-live-2)
-
-*X as r runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your r = 4 gives x = 2. Your inputs: r = 4, theta = 60, unit = degrees.*
+*x (x = r cos(theta)) over r (the distance r from the pole) from 2 to 6 and theta (the angle theta) from 0 to 90: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 0 to dark 6); iso-lines at x = 1, 2, 3, 4, 5. Other inputs as in the worked example: unit = degrees. Marked: the worked example, r = 4, theta = 60, x = 2.*
 
 ```python
 math_foundations_ai999x.solve('polar_to_rectangular', r=4, theta=60, unit='degrees')
@@ -3675,17 +3407,13 @@ $$
 - **Assumes:** not the origin
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![r over x from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rectangular-to-polar-field)
+![r (r = sqrt(x^2 + y^2)) against x (x-coordinate) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rectangular-to-polar-curve)
 
-*r over x from 1.5 to 4.5 and y from -4.5 to -1.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 2.121 to 6.364). Marked: x = 3, y = -3, r = 4.243. Your inputs: x = 3, y = -3.*
+*r (r = sqrt(x^2 + y^2)) against x (x-coordinate) from 0.3 to 30 on a logarithmic axis. One curve for each value of y (y-coordinate): -3, -1.5, -6. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, x = 3, r = 4.24264.*
 
-![R as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rectangular-to-polar-live-1)
+![r (r = sqrt(x^2 + y^2)) over x (x-coordinate) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rectangular-to-polar-field)
 
-*R as x runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your x = 3 gives r = 4.243. Your inputs: x = 3, y = -3.*
-
-![R as y runs from -5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rectangular-to-polar-live-2)
-
-*R as y runs from -5.25 to -0.75, every other input as you entered it (29 solutions). Marked: your y = -3 gives r = 4.243. Your inputs: x = 3, y = -3.*
+*r (r = sqrt(x^2 + y^2)) over x (x-coordinate) from 0.3 to 30 and y (y-coordinate) from -4.5 to -1.5 (logarithmic horizontal axis): each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 1.52971 to dark 30.3356); iso-lines at r = 5, 10, 15, 20, 25, 30. Marked: the worked example, x = 3, y = -3, r = 4.24264.*
 
 ```python
 math_foundations_ai999x.solve('rectangular_to_polar', x=3, y=-3)
@@ -3735,9 +3463,9 @@ $$
 - **Assumes:** $m  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![P as m runs from 3 to 21, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/parabola-focus-directrix-live-1)
+![p (focal distance p = m/4 (signed)) against m (the coefficient m = 4p) from 6 to 18](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/parabola-focus-directrix-curve)
 
-*P as m runs from 3 to 21, every other input as you entered it (41 solutions). Marked: your m = 12 gives p = 3. Your inputs: orientation = vertical, m = 12.*
+*p (focal distance p = m/4 (signed)) against m (the coefficient m = 4p) from 6 to 18. Other inputs as in the worked example: orientation = vertical, h = 0.0, k = 0.0. 31 points computed by math-foundations-ai999x; marked: the worked example, m = 12, p = 3.*
 
 ```python
 math_foundations_ai999x.solve('parabola_focus_directrix', orientation='vertical', m=12)
@@ -3796,21 +3524,17 @@ $$
 - **Assumes:** A, $B > 0$; $A  \neq  B$ (otherwise a circle)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The ellipse with centre (0, 0), A = 25, B = 9, drawn from the parameters the model returns: a = 5, b = 3, c = 4, foci (-4, 0) and (4, 0), eccentricity 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-shape)
+![An ellipse and a hyperbola drawn from the parameters the package returns: ellipse a = 5, b = 3, foci (±4, 0), eccentricity 0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/ellipse-parameters-shape.svg)
 
-*The ellipse with centre (0, 0), A = 25, B = 9, drawn from the parameters the model returns: a = 5, b = 3, c = 4, foci (-4, 0) and (4, 0), eccentricity 0.8. The hyperbola of the same A and B (a run of the model): a = 5, b = 3, foci 5.831 apart from the centre, eccentricity 1.166, asymptotes of slope ±0.6. Your inputs: h = 0, k = 0, A = 25, B = 9.*
+*An ellipse and a hyperbola drawn from the parameters the package returns: ellipse a = 5, b = 3, foci (±4, 0), eccentricity 0.8; hyperbola a = 4, b = 3, foci (±5, 0), eccentricity 1.25, asymptotes of slope ±0.75.*
 
-![Second focus y as k runs from -1 to 1, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-live-1)
+![the major axis is horizontal or vertical (orientation) over A (denominator under the x term (positive)) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-decision)
 
-*Second focus y as k runs from -1 to 1, every other input as you entered it (41 solutions). Marked: your k = 0 gives f2y = 0. Your inputs: h = 0, k = 0, A = 25, B = 9.*
+*the major axis is horizontal or vertical (orientation) over A (denominator under the x term (positive)) from 2.5 to 250 and B (denominator under the y term (positive)) from 0.9 to 90 (logarithmic axes): each of the 31 × 21 cells is one run of math-foundations-ai999x, coloured by the verdict it returned, horizontal: 451 cells, vertical: 200 cells. Other inputs as in the worked example: h = 0.0, k = 0.0. Marked: the worked example, A = 25, B = 9 → horizontal.*
 
-![The major axis is horizontal or vertical for 25 5 x 5 combinations of k and A around your inputs (the other inputs as entered); the ring marks your inputs, which give horizontal](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-live-2)
+![c (centre-to-focus distance) against B (denominator under the y term (positive)) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-curve)
 
-*The major axis is horizontal or vertical for 25 5 x 5 combinations of k and A around your inputs (the other inputs as entered); the ring marks your inputs, which give horizontal. Blank cells admit no answer. Your inputs: h = 0, k = 0, A = 25, B = 9.*
-
-![Centre-to-focus distance as A runs from 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/ellipse-parameters-live-3)
-
-*Centre-to-focus distance as A runs from 6.25 to 43.75, every other input as you entered it (27 solutions). Marked: your A = 25 gives c = 4. Shaded by the major axis is horizontal or vertical: vertical, horizontal. Your inputs: h = 0, k = 0, A = 25, B = 9.*
+*c (centre-to-focus distance) against B (denominator under the y term (positive)) from 0.9 to 90 on a logarithmic axis. One curve for each value of A (denominator under the x term (positive)): 25, 12.5, 50. Other inputs as in the worked example: h = 0.0, k = 0.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, B = 9, c = 4.*
 
 ```python
 math_foundations_ai999x.solve('ellipse_parameters', h=0, k=0, A=25, B=9)
@@ -3864,13 +3588,9 @@ $$
 - **Assumes:** A, $B > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Second focus y as k runs from -1 to 1, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/hyperbola-parameters-live-1)
+![c (centre-to-focus distance) against A (denominator of the positive term) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/hyperbola-parameters-curve)
 
-*Second focus y as k runs from -1 to 1, every other input as you entered it (41 solutions). Marked: your k = 0 gives f2y = 0. Your inputs: h = 0, k = 0, A = 16, B = 9, orientation = horizontal.*
-
-![Centre-to-focus distance as A runs from 4 to 28, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/hyperbola-parameters-live-2)
-
-*Centre-to-focus distance as A runs from 4 to 28, every other input as you entered it (29 solutions). Marked: your A = 16 gives c = 5. Your inputs: h = 0, k = 0, A = 16, B = 9, orientation = horizontal.*
+*c (centre-to-focus distance) against A (denominator of the positive term) from 1.6 to 160 on a logarithmic axis. One curve for each value of B (denominator of the negative term): 9, 4.5, 18. Other inputs as in the worked example: h = 0.0, k = 0.0, orientation = horizontal. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, A = 16, c = 5.*
 
 ```python
 math_foundations_ai999x.solve('hyperbola_parameters', h=0, k=0, A=16, B=9, orientation='horizontal')
@@ -3915,13 +3635,9 @@ $$
 - **Assumes:** $0  \leq  n  \leq  60$; $k  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Coefficient as k runs from 0 to 7, every other input as you entered it (8 solutions)](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/binomial-coefficient-term-live-1.svg)
+![coefficient (coefficient of x^k) against n (the power n) from 1 to 13](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-coefficient-term-curve)
 
-*Coefficient as k runs from 0 to 7, every other input as you entered it (8 solutions). Marked: your k = 3 gives coefficient = 80. Your inputs: a = 2, b = -1, n = 5, k = 3.*
-
-![Coefficient as n runs from 1 to 7, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-coefficient-term-live-2)
-
-*Coefficient as n runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your n = 5 gives coefficient = 80. Your inputs: a = 2, b = -1, n = 5, k = 3.*
+*coefficient (coefficient of x^k) against n (the power n) from 1 to 13. One curve for each value of a (coefficient of x in the binomial): 2, 1, 4. Other inputs as in the worked example: b = -1.0, k = 3. 13 points per curve computed by math-foundations-ai999x; marked: the worked example, n = 5, coefficient = 80.*
 
 ```python
 math_foundations_ai999x.solve('binomial_coefficient_term', a=2, b=-1, n=5, k=3)
@@ -3974,17 +3690,9 @@ $$
 - **Assumes:** no division by 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Real part of the result as a runs from 0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-arithmetic-live-1.svg)
+![re (real part of the result) against c (real part of the second number) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-arithmetic-curve)
 
-*Real part of the result as a runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your a = 3 gives re = 0.5. Your inputs: a = 3, b = 2, c = 1, d = -1, op = /.*
-
-![Real part of the result for every choice of op, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-arithmetic-live-2)
-
-*Real part of the result for every choice of op, every other input as you entered it (highlighted: your choice). +: 4; -: 2; *: 5; /: 0.5. Your inputs: a = 3, b = 2, c = 1, d = -1, op = /.*
-
-![Real part of the result as c runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-arithmetic-live-3)
-
-*Real part of the result as c runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your c = 1 gives re = 0.5. Your inputs: a = 3, b = 2, c = 1, d = -1, op = /.*
+*re (real part of the result) against c (real part of the second number) from 0.1 to 10 on a logarithmic axis. One curve for each value of a (real part of the first number): 3, 1.5, 6. Other inputs as in the worked example: b = 2.0, d = -1.0, op = /. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 1, re = 0.5.*
 
 ```python
 math_foundations_ai999x.solve('complex_arithmetic', a=3, b=2, c=1, d=-1, op='/')
@@ -4037,17 +3745,13 @@ $$
 - **Assumes:** $z  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![modulus over b from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-modulus-argument-field)
+![modulus (|z|) against b (imaginary part) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-modulus-argument-curve)
 
-*modulus over b from 0.5 to 1.5 and a from -1.5 to -0.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 0.7071 to 2.121). Marked: b = 1, a = -1, modulus = 1.414. Your inputs: a = -1, b = 1.*
+*modulus (|z|) against b (imaginary part) from 0.1 to 10 on a logarithmic axis. One curve for each value of a (real part): -1, -0.5, -2. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 1, modulus = 1.41421.*
 
-![Modulus as a runs from -1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-modulus-argument-live-1)
+![modulus (|z|) over b (imaginary part) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-modulus-argument-field)
 
-*Modulus as a runs from -1.75 to -0.25, every other input as you entered it (41 solutions). Marked: your a = -1 gives modulus = 1.414. Your inputs: a = -1, b = 1.*
-
-![Modulus as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-modulus-argument-live-2)
-
-*Modulus as b runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your b = 1 gives modulus = 1.414. Your inputs: a = -1, b = 1.*
+*modulus (|z|) over b (imaginary part) from 0.1 to 10 and a (real part) from -1.5 to -0.5 (logarithmic horizontal axis): each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 0.509902 to dark 10.1119); iso-lines at modulus = 2, 4, 6, 8, 10. Marked: the worked example, b = 1, a = -1, modulus = 1.41421.*
 
 ```python
 math_foundations_ai999x.solve('complex_modulus_argument', a=-1, b=1)
@@ -4105,17 +3809,13 @@ $$
 - **Assumes:** |n| <= 40; $z  \neq  0$ when $n  \leq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The powers (1 + 1i)^m for m = 0 to 8, each a run of the model, joined in order: every step turns by the argument of z and stretches by its modulus](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/de-moivre-power-shape.svg)
+![The powers (1 + i)ⁿ for n = 0 … 8, each computed by the package: every step turns by 45° and stretches by √2; marked: n = 8, (1 + i)⁸ = 16 + 0i, modulus 16, argument 0°](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/de-moivre-power-shape.svg)
 
-*The powers (1 + 1i)^m for m = 0 to 8, each a run of the model, joined in order: every step turns by the argument of z and stretches by its modulus. Marked: z^8 = 16, modulus 16, argument 0°. Your inputs: a = 1, b = 1, n = 8.*
+*The powers (1 + i)ⁿ for n = 0 … 8, each computed by the package: every step turns by 45° and stretches by √2; marked: n = 8, (1 + i)⁸ = 16 + 0i, modulus 16, argument 0°.*
 
-![Re as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/de-moivre-power-live-1)
+![re (real part of z^n) against a (real part) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/de-moivre-power-curve)
 
-*Re as a runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your a = 1 gives re = 16. Your inputs: a = 1, b = 1, n = 8.*
-
-![Re as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/de-moivre-power-live-2)
-
-*Re as b runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your b = 1 gives re = 16. Your inputs: a = 1, b = 1, n = 8.*
+*re (real part of z^n) against a (real part) from 0.5 to 1.5. One curve for each value of b (imaginary part): 1, 0.5, 2. Other inputs as in the worked example: n = 8. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, re = 16.*
 
 ```python
 math_foundations_ai999x.solve('de_moivre_power', a=1, b=1, n=8)
@@ -4167,21 +3867,17 @@ $$
 - **Assumes:** $z  \neq  0$; $2  \leq  n  \leq  12$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 3 roots returned for z^3 = 8i, drawn in the complex plane on the dashed circle of radius 2 (their common modulus): 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-complex)
+![The 5 complex roots of z⁵ = 0 + 8i returned by the package, -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/complex-nth-roots-shape.svg)
 
-*The 3 roots returned for z^3 = 8i, drawn in the complex plane on the dashed circle of radius 2 (their common modulus): 1.732 + 1i, -1.732 + 1i, -2i. Your inputs: a = 0, b = 8, n = 3.*
+*The 5 complex roots of z⁵ = 0 + 8i returned by the package (-0.890916 − 1.22624i, 0.890916 − 1.22624i, 1.44153 + 0.468382i, 0 + 1.51572i, -1.44153 + 0.468382i), the vertices of a regular pentagon on the circle of radius 1.51572 (= 8^(1/5)).*
 
-![The 3 complex roots of z^3 = 8i returned by the model, joined in order of their argument: the vertices of an equilateral triangle on the circle of radius 2 (their modulus), each turned 120° from the next](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-shape)
+![the roots, by argument in [0, 360) (roots) returned by math-foundations-ai999x for the worked example (a = 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-complex)
 
-*The 3 complex roots of z^3 = 8i returned by the model, joined in order of their argument: the vertices of an equilateral triangle on the circle of radius 2 (their modulus), each turned 120° from the next. Your inputs: a = 0, b = 8, n = 3.*
+*the roots, by argument in [0, 360) (roots) returned by math-foundations-ai999x for the worked example (a = 0.0, b = 8.0, n = 3), drawn in the complex plane: 1.73205 + 1i, -1.73205 + 1i, 0 − 2i.*
 
-![Modulus as n runs from 2 to 7, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-live-1)
+![modulus (the common modulus |z|^(1/n)) against a (real part of z) from -1 to 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-curve)
 
-*Modulus as n runs from 2 to 7, every other input as you entered it (6 solutions). Marked: your n = 3 gives modulus = 2. Your inputs: a = 0, b = 8, n = 3.*
-
-![Modulus as b runs from 2 to 14, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-nth-roots-live-2)
-
-*Modulus as b runs from 2 to 14, every other input as you entered it (29 solutions). Marked: your b = 8 gives modulus = 2. Your inputs: a = 0, b = 8, n = 3.*
+*modulus (the common modulus |z|^(1/n)) against a (real part of z) from -1 to 1. One curve for each value of b (imaginary part of z): 8, 4, 16. Other inputs as in the worked example: n = 3. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 0, modulus = 2.*
 
 ```python
 math_foundations_ai999x.solve('complex_nth_roots', a=0, b=8, n=3)
@@ -4226,9 +3922,9 @@ $$
 - **Assumes:** both units measure the same kind of quantity; a length, mass, volume or time is not negative; a temperature is not below absolute zero
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The value in the wanted unit as value runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-conversion-live-1)
+![converted (the value in the wanted unit) against value (the amount to convert, in the first unit) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/unit-conversion-curve)
 
-*The value in the wanted unit as value runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your value = 5 gives converted = 5000. Your inputs: value = 5, from_unit = km, to_unit = m.*
+*converted (the value in the wanted unit) against value (the amount to convert, in the first unit) from 2.5 to 7.5. Other inputs as in the worked example: from_unit = km, to_unit = m. 31 points computed by math-foundations-ai999x; marked: the worked example, value = 5, converted = 5000.*
 
 ```python
 math_foundations_ai999x.solve('unit_conversion', value=5, from_unit='km', to_unit='m')
@@ -4295,17 +3991,9 @@ $$
 - **Assumes:** $x_{1}  \neq  0$; $x_{2}  \neq  0$ for inverse variation; z1, z2 given (and z1 != 0) exactly for joint and combined variation; $z_{2}  \neq  0$ for combined variation
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Y in the new case as y1 runs from 3 to 21, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/variation-live-1)
+![y2 (y in the new case) against x1 (x in the known case) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/variation-curve)
 
-*Y in the new case as y1 runs from 3 to 21, every other input as you entered it (41 solutions). Marked: your y1 = 12 gives y2 = 30. Your inputs: variation_type = direct, x1 = 4, y1 = 12, x2 = 10.*
-
-![Y in the new case for every choice of variation_type, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/variation-live-2)
-
-*Y in the new case for every choice of variation_type, every other input as you entered it (highlighted: your choice). direct: 30; inverse: 4.8; joint: no answer; combined: no answer; direct square: 75; inverse square: 1.92. Your inputs: variation_type = direct, x1 = 4, y1 = 12, x2 = 10.*
-
-![Y in the new case as x1 runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/variation-live-3)
-
-*Y in the new case as x1 runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your x1 = 4 gives y2 = 30. Your inputs: variation_type = direct, x1 = 4, y1 = 12, x2 = 10.*
+*y2 (y in the new case) against x1 (x in the known case) from 2 to 6. One curve for each value of y1 (y in the known case): 12, 6, 24. Other inputs as in the worked example: variation_type = direct, x2 = 10.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, x1 = 4, y2 = 30.*
 
 ```python
 math_foundations_ai999x.solve('variation', variation_type='direct', x1=4, y1=12, x2=10)
@@ -4367,9 +4055,9 @@ $$
 - **Assumes:** a or b nonzero; A, B or C nonzero; the line does not lie on the conic; a tangency that rounding cannot decide is refused
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![points as points in the plane (x across, y up): (-4, -3), (3, 4)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-conic-intersection-live-1)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-conic-intersection-matrix)
 
-*points as points in the plane (x across, y up): (-4, -3), (3, 4). Your inputs: line = -1, 1, 1, conic = 1, 0, 1, 0, 0, -25.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned). Returned with them by math-foundations-ai999x: count = 2. Other inputs: line = -1, 1, 1, conic = 1, 0, 1, 0, 0, -25.*
 
 ```python
 math_foundations_ai999x.solve('line_conic_intersection', line='-1, 1, 1', conic='1, 0, 1, 0, 0, -25')
@@ -4425,9 +4113,9 @@ $$
 - **Assumes:** no xy term; each equation has an $x^{2}$ or $y^{2}$ term; proportional $x^{2}$ and $y^{2}$ parts, or no x terms, or no y terms; the equations are not the same curve; a tangency that rounding cannot decide is refused
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![points as points in the plane (x across, y up): (-4, -3), (-4, 3), (4, -3), (4, 3)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/two-conics-intersection-live-1)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/two-conics-intersection-matrix)
 
-*points as points in the plane (x across, y up): (-4, -3), (-4, 3), (4, -3), (4, 3). Your inputs: first = 1, 0, 1, 0, 0, -25, second = 1, 0, -1, 0, 0, -7.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): points (returned). Returned with them by math-foundations-ai999x: count = 4. Other inputs: first = 1, 0, 1, 0, 0, -25, second = 1, 0, -1, 0, 0, -7.*
 
 ```python
 math_foundations_ai999x.solve('two_conics_intersection', first='1, 0, 1, 0, 0, -25', second='1, 0, -1, 0, 0, -7')
@@ -4489,13 +4177,9 @@ $$
 - **Assumes:** whole-number coefficients from -1000 to 1000; degrees up to 3, the denominator of degree >= 1; the numerator is not 0; the real zeros of the denominator are rational
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Every entry of excluded as computed for your inputs (2 entries: -1, 2)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-analysis-live-1)
+![The data denominator (coefficients of D(x), highest power first) against numerator (coefficients of N(x), highest power first, e](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-analysis-xy)
 
-*Every entry of excluded as computed for your inputs (2 entries: -1, 2). Your inputs: numerator = 1, 0, -4, denominator = 1, -1, -2.*
-
-![holes as points in the plane (x across, y up): (2, 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-analysis-live-2)
-
-*holes as points in the plane (x across, y up): (2, 1.333). Your inputs: numerator = 1, 0, -4, denominator = 1, -1, -2.*
+*The data denominator (coefficients of D(x), highest power first) against numerator (coefficients of N(x), highest power first, e.g. 1, 0, -4 for x^2 - 4) as given in the worked example (3 points). Also returned: vertical_count = 1, y_intercept = 2, horizontal_asymptote = 1.*
 
 ```python
 math_foundations_ai999x.solve('rational_function_analysis', numerator='1, 0, -4', denominator='1, -1, -2')
@@ -4555,17 +4239,13 @@ $$
 - **Assumes:** |x| < 1 unless n is a whole number >= 0 (then the series ends); 1 to 30 terms
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The sum of the first terms as terms runs from 1 to 7, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-live-1)
+![the terms added, in order (term_values) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-series)
 
-*The sum of the first terms as terms runs from 1 to 7, every other input as you entered it (7 solutions). Marked: your terms = 3 gives approx = 0.9424. Your inputs: x = 0.02, n = -3, terms = 3.*
+*the terms added, in order (term_values) returned by math-foundations-ai999x for the worked example, one value for each position in the list (3 values, first 1, last 0.0024, largest 1). Inputs: x = 0.02, n = -3.0, terms = 3.*
 
-![Every entry of term_values as computed for your inputs (3 entries: 1, -0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-live-2)
+![approx (the sum of the first terms) against terms (how many terms to add) from 1 to 11](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-curve)
 
-*Every entry of term_values as computed for your inputs (3 entries: 1, -0.06, 0.0024). Your inputs: x = 0.02, n = -3, terms = 3.*
-
-![The sum of the first terms as x runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-series-live-3)
-
-*The sum of the first terms as x runs from 0.005 to 0.035, every other input as you entered it (29 solutions). Marked: your x = 0.02 gives approx = 0.9424. Your inputs: x = 0.02, n = -3, terms = 3.*
+*approx (the sum of the first terms) against terms (how many terms to add) from 1 to 11. One curve for each value of x (x in (1 + x)^n): 0.02, 0.01, 0.04. Other inputs as in the worked example: n = -3.0. 11 points per curve computed by math-foundations-ai999x; marked: the worked example, terms = 3, approx = 0.9424.*
 
 ```python
 math_foundations_ai999x.solve('binomial_series', x=0.02, n=-3, terms=3)
@@ -4614,17 +4294,13 @@ $$
 - **Assumes:** $d  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![left_limit over d from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-lower-bound-field)
+![left_limit (x must be below this) against c (centre c) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-lower-bound-curve)
 
-*left_limit over d from 1.5 to 4.5 and c from 0.5 to 1.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from -4 to 0). Marked: d = 3, c = 1, left_limit = -2. Your inputs: c = 1, d = 3.*
+*left_limit (x must be below this) against c (centre c) from 0.5 to 1.5. One curve for each value of d (bound d): 3, 1.5, 6. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 1, left_limit = -2.*
 
-![X must be below this as d runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-lower-bound-live-1)
+![left_limit (x must be below this) over d (bound d) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-lower-bound-field)
 
-*X must be below this as d runs from 0.75 to 5.25, every other input as you entered it (41 solutions). Marked: your d = 3 gives left_limit = -2. Your inputs: c = 1, d = 3.*
-
-![X must be below this as c runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-lower-bound-live-2)
-
-*X must be below this as c runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your c = 1 gives left_limit = -2. Your inputs: c = 1, d = 3.*
+*left_limit (x must be below this) over d (bound d) from 1.5 to 4.5 and c (centre c) from 0.5 to 1.5: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light -4 to dark 0); iso-lines at left_limit = -3, -2, -1. Marked: the worked example, d = 3, c = 1, left_limit = -2.*
 
 ```python
 math_foundations_ai999x.solve('abs_value_inequality_lower_bound', c=1.0, d=3.0)
@@ -4667,17 +4343,13 @@ $$
 - **Assumes:** $d > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![lower over c from 2 to 6 and d from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-upper-bound-field)
+![lower (lower end of the solution interval (excluded)) against c (centre c) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-upper-bound-curve)
 
-*lower over c from 2 to 6 and d from 0.5 to 1.5: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 0.5 to 5.5). Marked: c = 4, d = 1, lower = 3. Your inputs: c = 4, d = 1.*
+*lower (lower end of the solution interval (excluded)) against c (centre c) from 2 to 6. One curve for each value of d (bound d): 1, 0.5, 2. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 4, lower = 3.*
 
-![Lower end of the solution interval as c runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-upper-bound-live-1)
+![lower (lower end of the solution interval (excluded)) over c (centre c) from 2 to 6 and d (bound d) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-upper-bound-field)
 
-*Lower end of the solution interval as c runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your c = 4 gives lower = 3. Your inputs: c = 4, d = 1.*
-
-![Lower end of the solution interval as d runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/abs-value-inequality-upper-bound-live-2)
-
-*Lower end of the solution interval as d runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your d = 1 gives lower = 3. Your inputs: c = 4, d = 1.*
+*lower (lower end of the solution interval (excluded)) over c (centre c) from 2 to 6 and d (bound d) from 0.5 to 1.5: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 0.5 to dark 5.5); iso-lines at lower = 1, 2, 3, 4, 5. Marked: the worked example, c = 4, d = 1, lower = 3.*
 
 ```python
 math_foundations_ai999x.solve('abs_value_inequality_upper_bound', c=4.0, d=1.0)
@@ -4721,13 +4393,9 @@ $$
 - **Assumes:** $a  \neq  0$; $c  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![X1 as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/absolute-value-equation-live-1)
+![x1 (solution of a*x + b = c) against a (coefficient of x) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/absolute-value-equation-curve)
 
-*X1 as c runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your c = 5 gives x1 = 3. Your inputs: a = 2, b = -1, c = 5.*
-
-![X1 as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/absolute-value-equation-live-2)
-
-*X1 as a runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your a = 2 gives x1 = 3. Your inputs: a = 2, b = -1, c = 5.*
+*x1 (solution of a*x + b = c) against a (coefficient of x) from 1 to 3. One curve for each value of c (right-hand side): 5, 2.5, 10. Other inputs as in the worked example: b = -1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, x1 = 3.*
 
 ```python
 math_foundations_ai999x.solve('absolute_value_equation', a=2.0, b=-1.0, c=5.0)
@@ -4771,13 +4439,9 @@ $$
 - **Assumes:** den != 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Denominator of the sum as den runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/add-rational-expressions-same-denom-live-1)
+![sum_num (numerator of the sum) against num1 (numerator of first expression) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/add-rational-expressions-same-denom-curve)
 
-*Denominator of the sum as den runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your den = 5 gives sum_den = 5. Your inputs: num1 = 3, num2 = 4, den = 5.*
-
-![Numerator of the sum as num2 runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/add-rational-expressions-same-denom-live-2)
-
-*Numerator of the sum as num2 runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your num2 = 4 gives sum_num = 7. Your inputs: num1 = 3, num2 = 4, den = 5.*
+*sum_num (numerator of the sum) against num1 (numerator of first expression) from 0.5 to 1.5. One curve for each value of num2 (numerator of second expression): 2, 1, 4. Other inputs as in the worked example: den = 6.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, num1 = 1, sum_num = 3.*
 
 ```python
 math_foundations_ai999x.solve('add_rational_expressions_same_denom', den=5.0, num1=3.0, num2=4.0)
@@ -4820,13 +4484,9 @@ $$
 - **Assumes:** $n  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The n-th term as n runs from 4 to 16, every other input as you entered it (5 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/arithmetic-sequence-live-1)
+![an (the n-th term) against d (common difference) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/arithmetic-sequence-curve)
 
-*The n-th term as n runs from 4 to 16, every other input as you entered it (5 solutions). Values in this range where the inputs admit no answer (52 of 57) are left out. Marked: your n = 10 gives an = 39. Your inputs: a1 = 3, d = 4, n = 10.*
-
-![The n-th term as d runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/arithmetic-sequence-live-2)
-
-*The n-th term as d runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your d = 4 gives an = 39. Your inputs: a1 = 3, d = 4, n = 10.*
+*an (the n-th term) against d (common difference) from 2 to 6. One curve for each value of n (position of the term (a positive whole number)): 10, 5, 20. Other inputs as in the worked example: a1 = 3.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, d = 4, an = 39.*
 
 ```python
 math_foundations_ai999x.solve('arithmetic_sequence', a1=3.0, d=4.0, n=10.0)
@@ -4870,13 +4530,9 @@ $$
 - **Assumes:** x_end != x_start
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Average rate of change as f_x_end runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-definition-live-1)
+![arc (average rate of change) against x_end (second input) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-definition-curve)
 
-*Average rate of change as f_x_end runs from 2.75 to 19.25, every other input as you entered it (41 solutions). Marked: your f_x_end = 11 gives arc = 2. Your inputs: x_start = 0, f_x_start = 1, x_end = 5, f_x_end = 11.*
-
-![Average rate of change as x_end runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-definition-live-2)
-
-*Average rate of change as x_end runs from 1.25 to 8.75, every other input as you entered it (29 solutions). Marked: your x_end = 5 gives arc = 2. Your inputs: x_start = 0, f_x_start = 1, x_end = 5, f_x_end = 11.*
+*arc (average rate of change) against x_end (second input) from 2.5 to 7.5. One curve for each value of f_x_end (value of the function at the second input): 11, 5.5, 22. Other inputs as in the worked example: x_start = 0.0, f_x_start = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, x_end = 5, arc = 2.*
 
 ```python
 math_foundations_ai999x.solve('average_rate_of_change_definition', x_start=0.0, f_x_start=1.0, x_end=5.0, f_x_end=11.0)
@@ -4920,13 +4576,9 @@ $$
 - **Assumes:** $x_{2}  \neq  x_{1}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Average rate of change as y1 runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-linear-live-1)
+![m (average rate of change) against x2 (x-coordinate of the second point) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-linear-curve)
 
-*Average rate of change as y1 runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your y1 = 5 gives m = -1. Your inputs: x1 = -2, y1 = 5, x2 = 3, y2 = 0.*
-
-![Average rate of change as x2 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/average-rate-of-change-linear-live-2)
-
-*Average rate of change as x2 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your x2 = 3 gives m = -1. Your inputs: x1 = -2, y1 = 5, x2 = 3, y2 = 0.*
+*m (average rate of change) against x2 (x-coordinate of the second point) from 0.3 to 30 on a logarithmic axis. One curve for each value of y1 (y-coordinate of the first point): 5, 2.5, 10. Other inputs as in the worked example: x1 = -2.0, y2 = 0.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, x2 = 3, m = -1.*
 
 ```python
 math_foundations_ai999x.solve('average_rate_of_change_linear', x1=-2.0, y1=5.0, x2=3.0, y2=0.0)
@@ -4972,13 +4624,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Constant term as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-product-live-1)
+![p2 (coefficient of x^2) against a (coefficient of x in the first binomial) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-product-curve)
 
-*Constant term as b runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your b = 2 gives p0 = 6. Your inputs: a = 1, b = 2, c = 1, d = 3.*
-
-![Constant term as d runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/binomial-product-live-2)
-
-*Constant term as d runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your d = 3 gives p0 = 6. Your inputs: a = 1, b = 2, c = 1, d = 3.*
+*p2 (coefficient of x^2) against a (coefficient of x in the first binomial) from 0.5 to 1.5. One curve for each value of c (coefficient of x in the second binomial): 1, 0.5, 2. Other inputs as in the worked example: b = 2.0, d = 3.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, p2 = 1.*
 
 ```python
 math_foundations_ai999x.solve('binomial_product', a=1.0, b=2.0, c=1.0, d=3.0)
@@ -5023,13 +4671,9 @@ $$
 - **Assumes:** dd**$2/4 + ee$**$2/4 - ff > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Y-coordinate of the centre as ee runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/circle-from-general-form-live-1)
+![h (x-coordinate of the centre) against dd (coefficient D of x) from -6 to -2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/circle-from-general-form-curve)
 
-*Y-coordinate of the centre as ee runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your ee = 6 gives k = -3. Your inputs: dd = -4, ee = 6, ff = -3.*
-
-![X-coordinate of the centre as dd runs from -7 to -1, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/circle-from-general-form-live-2)
-
-*X-coordinate of the centre as dd runs from -7 to -1, every other input as you entered it (29 solutions). Marked: your dd = -4 gives h = 2. Your inputs: dd = -4, ee = 6, ff = -3.*
+*h (x-coordinate of the centre) against dd (coefficient D of x) from -6 to -2. Other inputs as in the worked example: ee = 6.0, ff = -3.0. 31 points computed by math-foundations-ai999x; marked: the worked example, dd = -4, h = 2.*
 
 ```python
 math_foundations_ai999x.solve('circle_from_general_form', dd=-4.0, ee=6.0, ff=-3.0)
@@ -5075,13 +4719,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Real part of the product as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-product-modulus-live-1)
+![re (real part of the product) against a (real part of the first number) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-product-modulus-curve)
 
-*Real part of the product as b runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your b = 2 gives re = -5. Your inputs: a = 1, b = 2, c = 3, d = 4.*
-
-![Real part of the product as d runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/complex-product-modulus-live-2)
-
-*Real part of the product as d runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your d = 4 gives re = -5. Your inputs: a = 1, b = 2, c = 3, d = 4.*
+*re (real part of the product) against a (real part of the first number) from 0.5 to 1.5. One curve for each value of b (imaginary part of the first number): 2, 1, 4. Other inputs as in the worked example: c = 3.0, d = 4.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, re = -5.*
 
 ```python
 math_foundations_ai999x.solve('complex_product_modulus', a=1.0, b=2.0, c=3.0, d=4.0)
@@ -5125,13 +4765,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Slope of f(g(x)) as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compose-linear-functions-live-1)
+![m (slope of f(g(x))) against a (slope of f) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compose-linear-functions-curve)
 
-*Slope of f(g(x)) as a runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your a = 2 gives m = 6. Your inputs: a = 2, b = 1, c = 3, d = -4.*
-
-![Intercept of f(g(x)) as d runs from -7 to -1, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compose-linear-functions-live-2)
-
-*Intercept of f(g(x)) as d runs from -7 to -1, every other input as you entered it (29 solutions). Marked: your d = -4 gives k = -7. Your inputs: a = 2, b = 1, c = 3, d = -4.*
+*m (slope of f(g(x))) against a (slope of f) from 1 to 3. One curve for each value of c (slope of g): 3, 1.5, 6. Other inputs as in the worked example: b = 1.0, d = -4.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, m = 6.*
 
 ```python
 math_foundations_ai999x.solve('compose_linear_functions', a=2.0, b=1.0, c=3.0, d=-4.0)
@@ -5174,13 +4810,9 @@ $$
 - **Assumes:** principal > 0; $n  \geq  1$; $t  \geq  0$; $1 + r/n > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Amount after t years as principal runs from 250 to 1750, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compound-interest-live-1)
+![amount (amount after t years) against t (time in years) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compound-interest-curve)
 
-*Amount after t years as principal runs from 250 to 1750, every other input as you entered it (41 solutions). Marked: your principal = 1000 gives amount = 1102. Your inputs: principal = 1000, r = 0.05, n = 1, t = 2.*
-
-![Amount after t years as t runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/compound-interest-live-2)
-
-*Amount after t years as t runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your t = 2 gives amount = 1102. Your inputs: principal = 1000, r = 0.05, n = 1, t = 2.*
+*amount (amount after t years) against t (time in years) from 0.2 to 20 on a logarithmic axis. One curve for each value of principal (starting amount): 1000, 500, 2000. Other inputs as in the worked example: r = 0.05, n = 1.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, t = 2, amount = 1102.5.*
 
 ```python
 math_foundations_ai999x.solve('compound_interest', principal=1000.0, r=0.05, n=1.0, t=2.0)
@@ -5222,13 +4854,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Y-intercept as m runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/convert-to-slope-intercept-live-1)
+![b (y-intercept) against m (slope) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/convert-to-slope-intercept-curve)
 
-*Y-intercept as m runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your m = 4 gives b = -2. Your inputs: m = 4, x1 = 3, y1 = 10.*
-
-![Y-intercept as x1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/convert-to-slope-intercept-live-2)
-
-*Y-intercept as x1 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your x1 = 3 gives b = -2. Your inputs: m = 4, x1 = 3, y1 = 10.*
+*b (y-intercept) against m (slope) from 2 to 6. One curve for each value of x1 (x-coordinate of the point): 3, 1.5, 6. Other inputs as in the worked example: y1 = 10.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, m = 4, b = -2.*
 
 ```python
 math_foundations_ai999x.solve('convert_to_slope_intercept', m=4.0, x1=3.0, y1=10.0)
@@ -5272,13 +4900,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Determinant of the matrix as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/determinant-2x2-formula-live-1)
+![det (determinant of the matrix) against a (entry in row 1 column 1) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/determinant-2x2-formula-curve)
 
-*Determinant of the matrix as a runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your a = 2 gives det = 5. Your inputs: a = 2, b = 3, c = 1, d = 4.*
-
-![Determinant of the matrix as d runs from 1 to 7, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/determinant-2x2-formula-live-2)
-
-*Determinant of the matrix as d runs from 1 to 7, every other input as you entered it (29 solutions). Marked: your d = 4 gives det = 5. Your inputs: a = 2, b = 3, c = 1, d = 4.*
+*det (determinant of the matrix) against a (entry in row 1 column 1) from 1.5 to 4.5. One curve for each value of d (entry in row 2 column 2): 4, 2, 8. Other inputs as in the worked example: b = 1.0, c = 2.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 3, det = 10.*
 
 ```python
 math_foundations_ai999x.solve('determinant_2x2_formula', a=2.0, b=3.0, c=1.0, d=4.0)
@@ -5321,13 +4945,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Distance as y2 runs from 1 to 7, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-between-points-live-1)
+![dist (distance) against y1 (y-coordinate of the first point) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-between-points-curve)
 
-*Distance as y2 runs from 1 to 7, every other input as you entered it (41 solutions). Marked: your y2 = 4 gives dist = 5. Your inputs: x1 = 0, y1 = 0, x2 = 3, y2 = 4.*
-
-![Distance as x2 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/distance-between-points-live-2)
-
-*Distance as x2 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your x2 = 3 gives dist = 5. Your inputs: x1 = 0, y1 = 0, x2 = 3, y2 = 4.*
+*dist (distance) against y1 (y-coordinate of the first point) from 0.1 to 10 on a logarithmic axis. One curve for each value of y2 (y-coordinate of the second point): 5, 2.5, 10. Other inputs as in the worked example: x1 = 1.0, x2 = 4.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, y1 = 1, dist = 5.*
 
 ```python
 math_foundations_ai999x.solve('distance_between_points', x1=0.0, y1=0.0, x2=3.0, y2=4.0)
@@ -5367,9 +4987,9 @@ $$
 - **Assumes:** $k > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Doubling time as k runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/doubling-time-live-1)
+![td (doubling time) against k (continuous growth constant per unit time) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/doubling-time-curve)
 
-*Doubling time as k runs from 0.125 to 0.875, every other input as you entered it (41 solutions). Marked: your k = 0.5 gives td = 1.386. Your inputs: k = 0.5.*
+*td (doubling time) against k (continuous growth constant per unit time) from 0.05 to 0.15. 31 points computed by math-foundations-ai999x; marked: the worked example, k = 0.1, td = 6.93147.*
 
 ```python
 math_foundations_ai999x.solve('doubling_time', k=0.5)
@@ -5410,13 +5030,9 @@ $$
 - **Assumes:** $b > 0$; $y > 0$; $b  \neq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The exponent as b runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-live-1)
+![x (the exponent) against b (the base) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-curve)
 
-*The exponent as b runs from 1.025 to 3.5, every other input as you entered it (34 solutions). Marked: your b = 2 gives x = 3. Your inputs: b = 2, y = 8.*
-
-![The exponent as y runs from 2 to 14, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/exponential-equation-live-2)
-
-*The exponent as y runs from 2 to 14, every other input as you entered it (29 solutions). Marked: your y = 8 gives x = 3. Your inputs: b = 2, y = 8.*
+*x (the exponent) against b (the base) from 1 to 3. One curve for each value of y (the value of the power): 32, 16, 64. 30 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 2, x = 5.*
 
 ```python
 math_foundations_ai999x.solve('exponential_equation', b=2.0, y=8.0)
@@ -5459,13 +5075,9 @@ $$
 - **Assumes:** b**$2 - 4 c  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![First constant as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-monic-quadratic-live-1)
+![p (first constant) against b (coefficient of x) from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-monic-quadratic-curve)
 
-*First constant as c runs from 1.5 to 6.225, every other input as you entered it (22 solutions). Marked: your c = 6 gives p = 3. Your inputs: b = 5, c = 6.*
-
-![First constant as b runs from 5 to 8](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/factor-monic-quadratic-live-2)
-
-*First constant as b runs from 5 to 8.75, every other input as you entered it (15 solutions). Marked: your b = 5 gives p = 3. Your inputs: b = 5, c = 6.*
+*p (first constant) against b (coefficient of x) from 2.5 to 7.5. One curve for each value of c (constant term): 6, 3. 16 points per curve computed by math-foundations-ai999x; marked: the worked example, b = 5, p = 3.*
 
 ```python
 math_foundations_ai999x.solve('factor_monic_quadratic', b=5.0, c=6.0)
@@ -5510,17 +5122,13 @@ $$
 - **Assumes:** $q  \neq  1$; $n  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The geometric sequence with g1 = 3, q = 2: its terms g_m (stems) and partial sums s_m (dots) for m = 1 to 8, each a run of the model; g5 = 48, s5 = 93](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/geometric-sequence-stems)
+![The geometric sequence g₁ = 3, q = -0](https://huggingface.co/AI999X/math-foundations-ai999x/resolve/main/figures/geometric-sequence-stems.svg)
 
-*The geometric sequence with g1 = 3, q = 2: its terms g_m (stems) and partial sums s_m (dots) for m = 1 to 8, each a run of the model; g5 = 48, s5 = 93. Your inputs: g1 = 3, q = 2, n = 5.*
+*The geometric sequence g₁ = 3, q = -0.5: the alternating terms (stems) and the partial sums (dots), each computed by the package, settle on the sum of the infinite series, 2; g₁₂ = -0.00146484, s₁₂ = 1.99951.*
 
-![The n-th term as q runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/geometric-sequence-live-1)
+![gn (the n-th term) against q (common ratio) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/geometric-sequence-curve)
 
-*The n-th term as q runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your q = 2 gives gn = 48. Your inputs: g1 = 3, q = 2, n = 5.*
-
-![The n-th term as g1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/geometric-sequence-live-2)
-
-*The n-th term as g1 runs from 0.75 to 5.25, every other input as you entered it (13 solutions). Marked: your g1 = 3 gives gn = 48. Your inputs: g1 = 3, q = 2, n = 5.*
+*gn (the n-th term) against q (common ratio) from 1.5 to 4.5. One curve for each value of n (position of the term): 4, 2, 8. Other inputs as in the worked example: g1 = 2.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, q = 3, gn = 54.*
 
 ```python
 math_foundations_ai999x.solve('geometric_sequence', g1=3.0, q=2.0, n=5.0)
@@ -5564,13 +5172,9 @@ $$
 - **Assumes:** $x_{2} - x_{1}  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Slope as x1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-through-two-points-live-1)
+![m (slope) against x2 (x-coordinate of the second point) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-through-two-points-curve)
 
-*Slope as x1 runs from 0.25 to 1.75, every other input as you entered it (41 solutions). Marked: your x1 = 1 gives m = 2. Your inputs: x1 = 1, y1 = 3, x2 = 3, y2 = 7.*
-
-![Slope as y1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/line-through-two-points-live-2)
-
-*Slope as y1 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your y1 = 3 gives m = 2. Your inputs: x1 = 1, y1 = 3, x2 = 3, y2 = 7.*
+*m (slope) against x2 (x-coordinate of the second point) from 1 to 3. One curve for each value of y2 (y-coordinate of the second point): 5, 2.5, 10. Other inputs as in the worked example: x1 = 0.0, y1 = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, x2 = 2, m = 2.*
 
 ```python
 math_foundations_ai999x.solve('line_through_two_points', x1=1.0, y1=3.0, x2=3.0, y2=7.0)
@@ -5613,13 +5217,9 @@ $$
 - **Assumes:** $a  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The solution as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-equation-root-live-1)
+![x (the solution) against a (coefficient of x) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-equation-root-curve)
 
-*The solution as a runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your a = 2 gives x = 5. Your inputs: a = 2, b = -4, c = 6.*
-
-![The solution as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-equation-root-live-2)
-
-*The solution as c runs from 1.5 to 10.5, every other input as you entered it (29 solutions). Marked: your c = 6 gives x = 5. Your inputs: a = 2, b = -4, c = 6.*
+*x (the solution) against a (coefficient of x) from 0.3 to 30 on a logarithmic axis. One curve for each value of b (constant term on the left side): 6, 3, 12. Other inputs as in the worked example: c = 0.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 3, x = -2.*
 
 ```python
 math_foundations_ai999x.solve('linear_equation_root', a=2.0, b=-4.0, c=6.0)
@@ -5671,13 +5271,9 @@ $$
 - **Assumes:** $a  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Boundary of the solution set as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-inequality-live-1)
+![x0 (boundary of the solution set) against a (coefficient of x) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-inequality-curve)
 
-*Boundary of the solution set as c runs from 1.75 to 12.25, every other input as you entered it (41 solutions). Marked: your c = 7 gives x0 = 3. Your inputs: a = 2, b = 1, c = 7.*
-
-![Boundary of the solution set as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-inequality-live-2)
-
-*Boundary of the solution set as a runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your a = 2 gives x0 = 3. Your inputs: a = 2, b = 1, c = 7.*
+*x0 (boundary of the solution set) against a (coefficient of x) from 1 to 3. One curve for each value of c (right-hand side): 7, 3.5, 14. Other inputs as in the worked example: b = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, x0 = 3.*
 
 ```python
 math_foundations_ai999x.solve('linear_inequality', a=2.0, b=1.0, c=7.0)
@@ -5724,13 +5320,9 @@ $$
 - **Assumes:** $a e - b d  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The value of x as c runs from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-2x2-live-1)
+![x (the value of x) against a (coefficient of x in the first equation) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-2x2-curve)
 
-*The value of x as c runs from 2.5 to 17.5, every other input as you entered it (41 solutions). Marked: your c = 10 gives x = 6. Your inputs: a = 1, b = 1, c = 10, d = 1, e = -1, f = 2.*
-
-![The value of x as d runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/linear-system-2x2-live-2)
-
-*The value of x as d runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your d = 1 gives x = 6. Your inputs: a = 1, b = 1, c = 10, d = 1, e = -1, f = 2.*
+*x (the value of x) against a (coefficient of x in the first equation) from 0.1 to 10 on a logarithmic axis. One curve for each value of c (right-hand side of the first equation): 10, 5, 20. Other inputs as in the worked example: b = 1.0, d = 1.0, e = -1.0, f = 2.0. 41 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, x = 6.*
 
 ```python
 math_foundations_ai999x.solve('linear_system_2x2', a=1.0, b=1.0, c=10.0, d=1.0, e=-1.0, f=2.0)
@@ -5773,17 +5365,13 @@ $$
 - **Assumes:** $b > 0$; $b  \neq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![x over c from 2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/logarithmic-equation-field)
+![x (the solution) against c (value of the logarithm) from 2 to 6](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/logarithmic-equation-curve)
 
-*x over c from 2.5 to 7.5 and b from 1 to 3: each of the 13 × 9 cells is one run of the model, shaded by the logarithm of its value (darker is larger; values from 1.747 to 3788); 13 blank cells are inputs the model refuses. Marked: c = 5, b = 2, x = 32. Your inputs: b = 2, c = 5.*
+*x (the solution) against c (value of the logarithm) from 2 to 6. One curve for each value of b (base): 3, 1.5, 6. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 4, x = 81.*
 
-![The solution as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/logarithmic-equation-live-1)
+![x (the solution) over c (value of the logarithm) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/logarithmic-equation-field)
 
-*The solution as b runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your b = 2 gives x = 32. Your inputs: b = 2, c = 5.*
-
-![The solution as c runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/logarithmic-equation-live-2)
-
-*The solution as c runs from 1.25 to 8.75, every other input as you entered it (29 solutions). Marked: your c = 5 gives x = 32. Your inputs: b = 2, c = 5.*
+*x (the solution) over c (value of the logarithm) from 0.4 to 40 and b (base) from 1.5 to 4.5 (logarithmic horizontal axis): each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 1.17608 to dark 1.3443e+26, logarithmic shading); iso-lines at x = 10, 100, 1000, 10000, 1.00e5, 1.00e6, 1.00e7. Marked: the worked example, c = 4, b = 3, x = 81.*
 
 ```python
 math_foundations_ai999x.solve('logarithmic_equation', b=2.0, c=5.0)
@@ -5831,13 +5419,9 @@ $$
 - **Assumes:** $a d - b c  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Determinant as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-2x2-inverse-live-1)
+![det (determinant) against a (top-left entry) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-2x2-inverse-curve)
 
-*Determinant as a runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your a = 2 gives det = 1. Your inputs: a = 2, b = 1, c = 5, d = 3.*
-
-![Determinant as b runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-2x2-inverse-live-2)
-
-*Determinant as b runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your b = 1 gives det = 1. Your inputs: a = 2, b = 1, c = 5, d = 3.*
+*det (determinant) against a (top-left entry) from 1 to 3. One curve for each value of d (bottom-right entry): 3, 1.5, 6. Other inputs as in the worked example: b = 1.0, c = 5.0. 30 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 2, det = 1.*
 
 ```python
 math_foundations_ai999x.solve('matrix_2x2_inverse', a=2.0, b=1.0, c=5.0, d=3.0)
@@ -5885,13 +5469,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Entry in row 1 column 1 of result as s runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-scalar-multiple-definition-live-1)
+![b11 (entry in row 1 column 1 of result) against s (scalar multiplier) from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-scalar-multiple-definition-curve)
 
-*Entry in row 1 column 1 of result as s runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your s = 2 gives b11 = 2. Your inputs: s = 2, a11 = 1, a12 = 3, a21 = -4, a22 = 5.*
-
-![Entry in row 1 column 2 of result as a12 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/matrix-scalar-multiple-definition-live-2)
-
-*Entry in row 1 column 2 of result as a12 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your a12 = 3 gives b12 = 6. Your inputs: s = 2, a11 = 1, a12 = 3, a21 = -4, a22 = 5.*
+*b11 (entry in row 1 column 1 of result) against s (scalar multiplier) from 1.5 to 4.5. One curve for each value of a11 (entry in row 1 column 1): 1, 0.5, 2. Other inputs as in the worked example: a12 = 2.0, a21 = 3.0, a22 = 4.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, s = 3, b11 = 3.*
 
 ```python
 math_foundations_ai999x.solve('matrix_scalar_multiple_definition', a11=1.0, a12=3.0, a21=-4.0, a22=5.0, s=2.0)
@@ -5935,13 +5515,9 @@ $$
 - **Assumes:** 
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![X-coordinate of the midpoint as x1 runs from -7 to -1, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/midpoint-of-segment-live-1)
+![mx (x-coordinate of the midpoint) against x1 (x-coordinate of the first endpoint) from -6 to -2](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/midpoint-of-segment-curve)
 
-*X-coordinate of the midpoint as x1 runs from -7 to -1, every other input as you entered it (41 solutions). Marked: your x1 = -4 gives mx = -2. Your inputs: x1 = -4, y1 = 2, x2 = 0, y2 = 6.*
-
-![Y-coordinate of the midpoint as y2 runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/midpoint-of-segment-live-2)
-
-*Y-coordinate of the midpoint as y2 runs from 1.5 to 10.5, every other input as you entered it (29 solutions). Marked: your y2 = 6 gives my = 4. Your inputs: x1 = -4, y1 = 2, x2 = 0, y2 = 6.*
+*mx (x-coordinate of the midpoint) against x1 (x-coordinate of the first endpoint) from -6 to -2. One curve for each value of x2 (x-coordinate of the second endpoint): 0, -0.5, 0.5. Other inputs as in the worked example: y1 = 2.0, y2 = 6.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, x1 = -4, mx = -2.*
 
 ```python
 math_foundations_ai999x.solve('midpoint_of_segment', x1=-4.0, y1=2.0, x2=0.0, y2=6.0)
@@ -5986,13 +5562,9 @@ $$
 - **Assumes:** den1 != 0; den2 != 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Numerator of the product as num1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/multiply-rational-expressions-live-1)
+![prod_num (numerator of the product) against num1 (numerator of first expression) from 1 to 3](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/multiply-rational-expressions-curve)
 
-*Numerator of the product as num1 runs from 0.5 to 3.5, every other input as you entered it (41 solutions). Marked: your num1 = 2 gives prod_num = 8. Your inputs: num1 = 2, den1 = 3, num2 = 4, den2 = 5.*
-
-![Denominator of the product as den1 runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/multiply-rational-expressions-live-2)
-
-*Denominator of the product as den1 runs from 0.75 to 5.25, every other input as you entered it (29 solutions). Marked: your den1 = 3 gives prod_den = 15. Your inputs: num1 = 2, den1 = 3, num2 = 4, den2 = 5.*
+*prod_num (numerator of the product) against num1 (numerator of first expression) from 1 to 3. One curve for each value of num2 (numerator of second expression): 5, 2.5, 10. Other inputs as in the worked example: den1 = 3.0, den2 = 7.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, num1 = 2, prod_num = 10.*
 
 ```python
 math_foundations_ai999x.solve('multiply_rational_expressions', den1=3.0, den2=5.0, num1=2.0, num2=4.0)
@@ -6033,17 +5605,13 @@ $$
 - **Assumes:** $w  \geq  0$; $h  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![p over w from 3 to 9 and h from 1 to 3: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 8 to 24)](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perimeter-of-rectangle-field)
+![p (perimeter) against w (width) from 3 to 9](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perimeter-of-rectangle-curve)
 
-*p over w from 3 to 9 and h from 1 to 3: each of the 13 × 9 cells is one run of the model, shaded by its value (darker is larger; values from 8 to 24). Marked: w = 6, h = 2, p = 16. Your inputs: w = 6, h = 2.*
+*p (perimeter) against w (width) from 3 to 9. One curve for each value of h (height): 2, 1, 4. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, w = 6, p = 16.*
 
-![Perimeter as w runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perimeter-of-rectangle-live-1)
+![p (perimeter) over w (width) from 3 to 9 and h (height) from 1 to 3: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 8 to dark 24); iso-lines at p = 10, 15, 20](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perimeter-of-rectangle-field)
 
-*Perimeter as w runs from 1.5 to 10.5, every other input as you entered it (41 solutions). Marked: your w = 6 gives p = 16. Your inputs: w = 6, h = 2.*
-
-![Perimeter as h runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perimeter-of-rectangle-live-2)
-
-*Perimeter as h runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your h = 2 gives p = 16. Your inputs: w = 6, h = 2.*
+*p (perimeter) over w (width) from 3 to 9 and h (height) from 1 to 3: each of the 21 × 15 cells is one run of math-foundations-ai999x, shaded by its value (light 8 to dark 24); iso-lines at p = 10, 15, 20. Marked: the worked example, w = 6, h = 2, p = 16.*
 
 ```python
 math_foundations_ai999x.solve('perimeter_of_rectangle', w=6.0, h=2.0)
@@ -6084,9 +5652,9 @@ $$
 - **Assumes:** $m  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Slope of the perpendicular line as m runs from 1](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perpendicular-lines-slope-product-live-1)
+![m_perp (slope of the perpendicular line) against m (slope of the given line) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/perpendicular-lines-slope-product-curve)
 
-*Slope of the perpendicular line as m runs from 1.25 to 8.75, every other input as you entered it (41 solutions). Marked: your m = 5 gives m_perp = -0.2. Your inputs: m = 5.*
+*m_perp (slope of the perpendicular line) against m (slope of the given line) from 0.5 to 50 on a logarithmic axis. 41 points computed by math-foundations-ai999x; marked: the worked example, m = 5, m_perp = -0.2.*
 
 ```python
 math_foundations_ai999x.solve('perpendicular_lines_slope_product', m=5.0)
@@ -6131,13 +5699,9 @@ $$
 - **Assumes:** $c  \neq  0$; $a d - b c  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Vertical asymptote as d runs from -5](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-asymptotes-live-1)
+![va (vertical asymptote) against c (coefficient of x in the denominator) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-asymptotes-curve)
 
-*Vertical asymptote as d runs from -5.25 to -0.75, every other input as you entered it (39 solutions). Marked: your d = -3 gives va = 3. Your inputs: a = 2, b = 1, c = 1, d = -3.*
-
-![Horizontal asymptote as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/rational-function-asymptotes-live-2)
-
-*Horizontal asymptote as a runs from 0.5 to 3.5, every other input as you entered it (29 solutions). Marked: your a = 2 gives ha = 2. Your inputs: a = 2, b = 1, c = 1, d = -3.*
+*va (vertical asymptote) against c (coefficient of x in the denominator) from 0.5 to 1.5. One curve for each value of d (constant of the denominator): -3, -1.5, -6. Other inputs as in the worked example: a = 2.0, b = 1.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, c = 1, va = 3.*
 
 ```python
 math_foundations_ai999x.solve('rational_function_asymptotes', a=2.0, b=1.0, c=1.0, d=-3.0)
@@ -6181,13 +5745,9 @@ $$
 - **Assumes:** $a  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![X-coordinate of the vertex as b runs from -10](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vertex-form-live-1)
+![h (x-coordinate of the vertex) against a (coefficient of x^2) from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vertex-form-curve)
 
-*X-coordinate of the vertex as b runs from -10.5 to -1.5, every other input as you entered it (41 solutions). Marked: your b = -6 gives h = 3. Your inputs: a = 1, b = -6, c = 5.*
-
-![X-coordinate of the vertex as a runs from 0](https://www.ai999x.com/?ax_fig=math-foundations-ai999x/vertex-form-live-2)
-
-*X-coordinate of the vertex as a runs from 0.25 to 1.75, every other input as you entered it (29 solutions). Marked: your a = 1 gives h = 3. Your inputs: a = 1, b = -6, c = 5.*
+*h (x-coordinate of the vertex) against a (coefficient of x^2) from 0.5 to 1.5. One curve for each value of b (coefficient of x): -6, -3, -12. Other inputs as in the worked example: c = 5.0. 31 points per curve computed by math-foundations-ai999x; marked: the worked example, a = 1, h = 3.*
 
 ```python
 math_foundations_ai999x.solve('vertex_form', a=1.0, b=-6.0, c=5.0)
